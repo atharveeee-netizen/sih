@@ -217,6 +217,85 @@ export function EdgeAISection() {
           ))}
         </div>
 
+        {/* Live Bio-Acoustic Soundboard for Jury Playback */}
+        <div className="bg-gradient-to-r from-[#1f2022] to-[#2a2720] border border-[#ffc833]/30 p-6 rounded-2xl shadow-xl space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                <h4 className="text-base font-extrabold text-white">
+                  🎧 Live Bio-Acoustic Soundboard for Jury Demo
+                </h4>
+              </div>
+              <p className="text-xs text-white/60 mt-1">
+                Synthesized from authentic 10,000-hr Zenodo Apiculture Audio Dataset. Click to listen to colony acoustic frequencies!
+              </p>
+            </div>
+            <span className="text-[10px] font-mono font-bold bg-[#ffc833]/20 text-[#ffc833] px-3 py-1 rounded-full self-start sm:self-auto border border-[#ffc833]/30">
+              3-MINUTE JURY DEMO TRICK
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* 220Hz Normal */}
+            <div className="bg-black/40 border border-white/10 p-4 rounded-xl space-y-3 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between text-xs font-mono font-bold text-emerald-400">
+                  <span>220 Hz FUNDAMENTAL</span>
+                  <span>HEALTHY</span>
+                </div>
+                <h5 className="text-sm font-bold text-white mt-1">Queenright Normal Hum</h5>
+                <p className="text-[11px] text-white/60 mt-1">
+                  Stable wingbeat harmonics (220/440/660 Hz). Indicates steady egg laying and zero hive distress.
+                </p>
+              </div>
+              <audio controls className="w-full h-8 mt-2 opacity-90 hover:opacity-100">
+                <source src="/sih/audio/220Hz_Queenright_Normal_Hum.wav" type="audio/wav" />
+                <source src="/audio/220Hz_Queenright_Normal_Hum.wav" type="audio/wav" />
+                Your browser does not support audio playback.
+              </audio>
+            </div>
+
+            {/* 450Hz Swarm */}
+            <div className="bg-black/40 border border-white/10 p-4 rounded-xl space-y-3 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between text-xs font-mono font-bold text-[#ffc833]">
+                  <span>450 Hz ESCALATION</span>
+                  <span>PRE-SWARM</span>
+                </div>
+                <h5 className="text-sm font-bold text-white mt-1">Swarm Harmonic Surge</h5>
+                <p className="text-[11px] text-white/60 mt-1">
+                  Rapid frequency shift &amp; volume escalation 24 hrs prior to virgin queen departure with 60% of workers.
+                </p>
+              </div>
+              <audio controls className="w-full h-8 mt-2 opacity-90 hover:opacity-100">
+                <source src="/sih/audio/450Hz_Pre_Swarm_Harmonic_Surge.wav" type="audio/wav" />
+                <source src="/audio/450Hz_Pre_Swarm_Harmonic_Surge.wav" type="audio/wav" />
+                Your browser does not support audio playback.
+              </audio>
+            </div>
+
+            {/* 680Hz Varroa */}
+            <div className="bg-black/40 border border-white/10 p-4 rounded-xl space-y-3 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between text-xs font-mono font-bold text-rose-400">
+                  <span>680 Hz DISTRESS</span>
+                  <span>PARASITIC MITE</span>
+                </div>
+                <h5 className="text-sm font-bold text-white mt-1">Varroa Grooming Buzz</h5>
+                <p className="text-[11px] text-white/60 mt-1">
+                  High-pitched autogrooming vibration pulses emitted when phoretic mites attach to honeybee thoracic plates.
+                </p>
+              </div>
+              <audio controls className="w-full h-8 mt-2 opacity-90 hover:opacity-100">
+                <source src="/sih/audio/680Hz_Varroa_Grooming_Distress.wav" type="audio/wav" />
+                <source src="/audio/680Hz_Varroa_Grooming_Distress.wav" type="audio/wav" />
+                Your browser does not support audio playback.
+              </audio>
+            </div>
+          </div>
+        </div>
+
         {/* Accuracy Provenance Callout */}
         <div className="bg-[#212223] border border-white/15 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div className="space-y-1 max-w-2xl">
