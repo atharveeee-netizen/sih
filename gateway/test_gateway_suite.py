@@ -23,6 +23,7 @@ from gateway.ai_pipeline import (
 from gateway.telemetry_simulator import HiveTelemetrySimulator
 from gateway.sqlite_queue import GatewayOfflineQueue
 from gateway.oracle_bridge import HoneyChainOracleBridge
+from gateway.ipfs_pinata import PinataIPFSClient, pin_json_metadata, pin_harvest_jar_photo, pin_full_provenance_batch
 
 class TestHoneyChainGatewaySuite(unittest.TestCase):
 
@@ -126,5 +127,37 @@ class TestHoneyChainGatewaySuite(unittest.TestCase):
         self.assertEqual(bundle["ipfs_metadata"]["curing_period_days"], 7)
         self.assertEqual(bundle["moisture_self_declared"], True)
 
+    def test_08_ipfs_pinata_mock_pinning(self):
+        """Tests decentralized IPFS metadata and jar image pinning."""
+        client = PinataIPFSClient(mock_mode=True)
+        self.assertTrue(client.test_authentication())
+
+        # Test JSON pinning
+        meta = {"test": "honey_data", "batch": 1}
+        res_json = client.pin_json_to_ipfs(meta)
+        self.assertTrue(res_json["ipfs_hash"].startswith("Qm"))
+        self.assertTrue(res_json["ipfs_uri"].startswith("ipfs://Qm"))
+        self.assertEqual(res_json["status"], "pinned")
+
+        # Test File/Image pinning
+        raw_img = b"JPEG_BINARY_DATA_TEST"
+        res_file = client.pin_file_to_ipfs(raw_img, filename="test_jar.jpg")
+        self.assertTrue(res_file["ipfs_hash"].startswith("Qm"))
+        self.assertEqual(res_file["filename"], "test_jar.jpg")
+
+    def test_09_full_provenance_pinning(self):
+        """Tests full provenance batch pinning with photo embedding."""
+        meta = {
+            "name": "HoneyChain Batch #1",
+            "batch_id": 1,
+            "hive_id": "HIVE-042",
+            "merkle_root": "0x12345"
+        }
+        res = pin_full_provenance_batch(meta, photo_data=b"JAR_PHOTO_BYTES")
+        self.assertIn("ipfs_uri", res)
+        self.assertIn("image_pin", res)
+        self.assertTrue(res["metadata_pin"]["ipfs_uri"].startswith("ipfs://Qm"))
+
 if __name__ == "__main__":
     unittest.main()
+
