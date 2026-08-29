@@ -19,9 +19,11 @@ import {
   CheckCircle2,
   Radio,
   Sliders,
-  ChevronRight
+  ChevronRight,
+  Printer
 } from "lucide-react";
 import { keccak256String } from "@/lib/merkle";
+import JarLabelModal from "@/components/JarLabelModal";
 
 export default function BeekeeperDashboard() {
   const [selectedHive, setSelectedHive] = useState(42);
@@ -31,6 +33,9 @@ export default function BeekeeperDashboard() {
   const [liveCo2, setLiveCo2] = useState(620);
   const [liveWeight, setLiveWeight] = useState(38.4);
   const [fftBands, setFftBands] = useState([12, 18, 55, 92, 38, 22, 11, 6]);
+
+  // Jar Label Modal State
+  const [showLabelModal, setShowLabelModal] = useState(false);
 
   // Harvest Proposal Modal State
   const [showHarvestModal, setShowHarvestModal] = useState(false);
@@ -132,13 +137,21 @@ export default function BeekeeperDashboard() {
             </div>
           </div>
 
-          <div className="flex items-center space-x-3">
+          <div className="flex flex-wrap items-center gap-3">
             {offlineQueuedCount > 0 && (
               <span className="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-3 py-1.5 rounded-lg font-mono flex items-center gap-1">
                 <RefreshCw className="w-3.5 h-3.5 animate-spin" />
                 {offlineQueuedCount} Queued in SQLite
               </span>
             )}
+
+            <button
+              onClick={() => setShowLabelModal(true)}
+              className="bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs px-4 py-2 rounded-lg flex items-center space-x-1.5 shadow transition"
+            >
+              <Printer className="w-4 h-4" />
+              <span>🖨️ Generate Jar QR Label</span>
+            </button>
 
             <button
               onClick={() => {
@@ -356,19 +369,23 @@ export default function BeekeeperDashboard() {
                 <p className="text-xs text-slate-400">
                   Harvest proposal broadcasted to 2-of-3 Oracle Quorum for on-chain finalization on Polygon Amoy.
                 </p>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <button
+                    onClick={() => {
+                      setShowHarvestModal(false);
+                      setShowLabelModal(true);
+                    }}
+                    className="w-full bg-amber-500 hover:bg-amber-400 text-black font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow transition"
+                  >
+                    <Printer className="w-4 h-4" />
+                    <span>🖨️ Print Jar Label</span>
+                  </button>
                   <Link
                     href="/verify"
-                    className="w-full bg-amber-500 hover:bg-amber-400 text-black font-semibold py-2.5 rounded-xl text-xs transition"
+                    className="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-center transition"
                   >
-                    View Consumer QR Page
+                    View Consumer QR
                   </Link>
-                  <button
-                    onClick={() => setShowHarvestModal(false)}
-                    className="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 py-2.5 rounded-xl text-xs transition"
-                  >
-                    Close
-                  </button>
                 </div>
               </div>
             ) : (
@@ -429,6 +446,18 @@ export default function BeekeeperDashboard() {
           </div>
         </div>
       )}
+
+      {/* High-Resolution SVG Jar Label Modal */}
+      <JarLabelModal
+        isOpen={showLabelModal}
+        onClose={() => setShowLabelModal(false)}
+        batchId={1}
+        hiveId={selectedHive}
+        clusterName="KVIC Coorg Cluster · Yard Alpha"
+        moisturePct={parseFloat(harvestMoisture) || 17.4}
+        isSelfDeclared={isSelfDeclared}
+        merkleRoot={batchSuccess || "0x7f4e92a18b56012c49d84e3650221379e49c7199fa68e2195f128e4692751f0b"}
+      />
     </div>
   );
 }

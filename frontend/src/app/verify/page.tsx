@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { 
   ShieldCheck, 
   QrCode, 
@@ -17,25 +18,59 @@ import {
   Download,
   Info,
   Lock,
-  Layers
+  Layers,
+  Camera,
+  Printer
 } from "lucide-react";
 import { SAMPLE_BATCHES, HarvestBatchData } from "@/lib/mockData";
 import { verifyMerkleProof } from "@/lib/merkle";
+import QRScannerModal from "@/components/QRScannerModal";
+import JarLabelModal from "@/components/JarLabelModal";
 
 export default function VerifyPage() {
-  const [searchId, setSearchId] = useState("1");
-  const [activeBatch, setActiveBatch] = useState<HarvestBatchData | null>(SAMPLE_BATCHES[1]);
+  const params = useParams();
+  const paramBatchId = params?.batchId as string | undefined;
+
+  const [searchId, setSearchId] = useState(paramBatchId || "1");
+  const [activeBatch, setActiveBatch] = useState<HarvestBatchData | null>(
+    paramBatchId && SAMPLE_BATCHES[parseInt(paramBatchId, 10)] 
+      ? SAMPLE_BATCHES[parseInt(paramBatchId, 10)] 
+      : SAMPLE_BATCHES[1]
+  );
   const [verifyingProof, setVerifyingProof] = useState(false);
   const [proofVerified, setProofVerified] = useState<boolean | null>(true);
 
+  // Modal states
+  const [showScanner, setShowScanner] = useState(false);
+  const [showLabelModal, setShowLabelModal] = useState(false);
+
+  useEffect(() => {
+    if (paramBatchId) {
+      const id = parseInt(paramBatchId, 10);
+      setSearchId(paramBatchId);
+      if (SAMPLE_BATCHES[id]) {
+        setActiveBatch(SAMPLE_BATCHES[id]);
+        setProofVerified(null);
+      }
+    }
+  }, [paramBatchId]);
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    const id = parseInt(searchId);
+    const id = parseInt(searchId, 10);
     if (SAMPLE_BATCHES[id]) {
       setActiveBatch(SAMPLE_BATCHES[id]);
       setProofVerified(null);
     } else {
       setActiveBatch(null);
+    }
+  };
+
+  const handleScanDetected = (batchId: number) => {
+    setSearchId(batchId.toString());
+    if (SAMPLE_BATCHES[batchId]) {
+      setActiveBatch(SAMPLE_BATCHES[batchId]);
+      setProofVerified(null);
     }
   };
 
@@ -102,25 +137,36 @@ export default function VerifyPage() {
             2-of-3 multi-oracle quorum signatures, and continuous AI colony welfare reports.
           </p>
 
-          {/* Search Form */}
-          <form onSubmit={handleSearch} className="flex justify-center max-w-md mx-auto pt-2">
-            <div className="relative w-full flex">
-              <input
-                type="text"
-                value={searchId}
-                onChange={(e) => setSearchId(e.target.value)}
-                placeholder="Enter Batch ID (e.g. 1)"
-                className="w-full bg-slate-900 border border-slate-700 rounded-l-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 font-mono"
-              />
-              <button
-                type="submit"
-                className="bg-amber-500 hover:bg-amber-400 text-black font-semibold px-5 rounded-r-xl text-sm flex items-center space-x-1.5 transition"
-              >
-                <Search className="w-4 h-4" />
-                <span>Verify</span>
-              </button>
-            </div>
-          </form>
+          {/* Search & Scan Action Bar */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-xl mx-auto pt-2">
+            <form onSubmit={handleSearch} className="w-full sm:flex-grow">
+              <div className="relative w-full flex">
+                <input
+                  type="text"
+                  value={searchId}
+                  onChange={(e) => setSearchId(e.target.value)}
+                  placeholder="Enter Batch ID (e.g. 1, 2, 3)"
+                  className="w-full bg-slate-900 border border-slate-700 rounded-l-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 font-mono"
+                />
+                <button
+                  type="submit"
+                  className="bg-amber-500 hover:bg-amber-400 text-black font-semibold px-5 rounded-r-xl text-sm flex items-center space-x-1.5 transition whitespace-nowrap"
+                >
+                  <Search className="w-4 h-4" />
+                  <span>Verify</span>
+                </button>
+              </div>
+            </form>
+
+            <button
+              type="button"
+              onClick={() => setShowScanner(true)}
+              className="w-full sm:w-auto bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold px-4 py-2.5 rounded-xl text-sm flex items-center justify-center space-x-2 shadow-lg shadow-emerald-950 transition whitespace-nowrap shrink-0"
+            >
+              <Camera className="w-4 h-4" />
+              <span>📷 Scan Jar QR Code</span>
+            </button>
+          </div>
         </div>
 
         {activeBatch ? (
@@ -146,7 +192,15 @@ export default function VerifyPage() {
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-2">
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={() => setShowLabelModal(true)}
+                    className="inline-flex items-center justify-center space-x-1.5 bg-amber-500 hover:bg-amber-400 text-black font-semibold text-xs px-3.5 py-2.5 rounded-xl shadow transition"
+                  >
+                    <Printer className="w-3.5 h-3.5" />
+                    <span>View Jar Label</span>
+                  </button>
+
                   <button 
                     onClick={handleLiveProofVerify}
                     disabled={verifyingProof}
@@ -367,6 +421,28 @@ export default function VerifyPage() {
           </div>
         )}
       </main>
+
+      {/* Interactive Camera & Dropzone QR Scanner Modal */}
+      <QRScannerModal
+        isOpen={showScanner}
+        onClose={() => setShowScanner(false)}
+        onScan={handleScanDetected}
+      />
+
+      {/* High-Resolution SVG Jar Label Modal */}
+      {activeBatch && (
+        <JarLabelModal
+          isOpen={showLabelModal}
+          onClose={() => setShowLabelModal(false)}
+          batchId={activeBatch.batchId}
+          hiveId={activeBatch.hiveId}
+          clusterName={activeBatch.clusterName}
+          moisturePct={activeBatch.moisturePct}
+          isSelfDeclared={activeBatch.moistureSelfDeclared}
+          merkleRoot={activeBatch.merkleRoot}
+          contractAddress={activeBatch.contractAddress}
+        />
+      )}
     </div>
   );
 }
