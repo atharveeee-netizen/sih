@@ -17,6 +17,13 @@ node_modules/
 .next/
 *.tmp
 
+# Hardhat & Smart Contracts
+contracts/node_modules/
+contracts/artifacts/
+contracts/cache/
+artifacts/
+cache/
+
 # IDE / Editor Files
 .vscode/
 .idea/

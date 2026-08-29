@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Search, Menu, X, Download, Laptop, Radio, Zap, ShieldCheck, Sparkles, Layers, Lock } from "lucide-react";
+import { Search, Menu, X, Download, Laptop, Radio, Zap, ShieldCheck, Sparkles, Layers, Lock, Cpu, CheckCircle2, Building, Smartphone } from "lucide-react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,18 +23,17 @@ export function Navbar() {
   }, []);
 
   const SEARCH_DATABASE = [
+    { title: "Consumer QR Verification (Gasless Merkle Proof)", category: "Provenance", href: "/verify" },
+    { title: "Beekeeper Fleet Command Center (100 Hives)", category: "Dashboard", href: "/dashboard" },
+    { title: "KVIC Rural Cluster Onboarding (Software-Only)", category: "Rural MSME", href: "/kvic-onboard" },
+    { title: "FSSAI & QA Inspector Bulk Audit Portal", category: "Audit", href: "/inspector" },
     { title: "HiveOS App (Interactive 100-Hive Console)", category: "Software", href: "/app" },
     { title: "System Design (16-Sensor Fusion & Zero-Disturbance Enclosure)", category: "Hardware", href: "/#the_system" },
     { title: "100-Hive Mesh Topology & Multi-Hop LoRa", category: "Network", href: "/#mesh" },
-    { title: "Edge AI (BeevilFusionNetEdge 96.84% Out-of-Sample Acc)", category: "Edge AI", href: "/#edge_ai" },
-    { title: "Honey Chain (Cryptographic SHA-256 Provenance)", category: "Provenance", href: "/#honey_chain" },
-    { title: "Download HiveOS App & Research SDK", category: "Download", href: "/#sdk" },
+    { title: "Edge AI (TinyML Triage & Acoustic 1D-CNN Disease Classifier)", category: "Edge AI", href: "/#edge_ai" },
+    { title: "Honey Chain (DePIN Keccak-256 Multi-Oracle Provenance)", category: "Provenance", href: "/#honey_chain" },
     { title: "Antmicro CM4 Baseboard 6 TOPS Gateway Hub", category: "Hardware", href: "/#gateway-package" },
-    { title: "Off-Shore COTS Solar Sensor Node ($189)", category: "Hardware", href: "/#all-for-just" },
     { title: "Hardware Specifications & Benchmarks", category: "Specs", href: "/#the_specs" },
-    { title: "Apiary Field Photo Gallery", category: "Gallery", href: "/#gallery" },
-    { title: "Our Mission (Marcus Varro 2,000-Year Heritage)", category: "About", href: "/#our_mission" },
-    { title: "University Research Grants (15% Academic Off)", category: "Education", href: "/#education" },
   ];
 
   const filteredResults = SEARCH_DATABASE.filter(
@@ -48,30 +47,33 @@ export function Navbar() {
       id="navbar"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#212223]/95 backdrop-blur-md text-white shadow-xl border-b border-white/10"
-          : "bg-[#212223]/60 backdrop-blur-sm text-white border-b border-white/5"
+          ? "bg-[#18191a]/95 backdrop-blur-md text-white shadow-xl border-b border-white/10"
+          : "bg-[#18191a]/70 backdrop-blur-sm text-white border-b border-white/5"
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         
         {/* Left: Brand */}
-        <div className="flex items-center gap-6 flex-shrink-0">
+        <div className="flex items-center gap-4 flex-shrink-0">
           <Link
             href="/"
             className="flex items-center gap-2 font-extrabold text-xl sm:text-2xl tracking-tight text-white hover:text-[#ffc833] transition-colors"
           >
-            <span>Beevil Knievel</span>
+            <span>🍯 HoneyChain</span>
             <span className="w-2.5 h-2.5 rounded-full bg-[#ffc833] inline-block animate-pulse" />
           </Link>
+          <span className="hidden sm:inline-block text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded font-mono">
+            SIH PS 26021
+          </span>
         </div>
 
         {/* Center: Search & Primary Navigation */}
-        <div className="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-medium">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-5 text-sm font-medium">
           {/* Universal Search Box */}
           <div className="relative">
             <div
               className={`flex items-center bg-black/40 hover:bg-black/60 rounded-full px-3.5 py-1.5 transition-all duration-200 border border-white/15 ${
-                searchExpanded ? "w-56 ring-2 ring-[#ffc833]" : "w-36 xl:w-44"
+                searchExpanded ? "w-56 ring-2 ring-[#ffc833]" : "w-36 xl:w-40"
               }`}
             >
               <Search className="w-3.5 h-3.5 text-white/70 mr-2 flex-shrink-0" />
@@ -118,48 +120,55 @@ export function Navbar() {
 
           {/* Navigation Links */}
           <Link 
-            href="/app" 
-            className="flex items-center gap-1.5 text-[#ffc833] font-bold bg-[#ffc833]/15 border border-[#ffc833]/40 px-3 py-1 rounded-full hover:bg-[#ffc833] hover:text-[#312f28] transition-all whitespace-nowrap shadow-sm"
+            href="/verify" 
+            className="flex items-center gap-1.5 text-emerald-400 font-bold bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 rounded-full hover:bg-emerald-500 hover:text-black transition-all whitespace-nowrap shadow-sm text-xs"
           >
-            <Laptop className="w-3.5 h-3.5" />
-            <span>HiveOS App</span>
+            <ShieldCheck className="w-3.5 h-3.5" />
+            <span>Verify QR</span>
           </Link>
 
-          <Link href="/#the_system" className="hover:text-[#ffc833] transition-colors whitespace-nowrap">
+          <Link 
+            href="/dashboard" 
+            className="flex items-center gap-1.5 text-[#ffc833] font-bold bg-[#ffc833]/15 border border-[#ffc833]/40 px-3 py-1 rounded-full hover:bg-[#ffc833] hover:text-[#312f28] transition-all whitespace-nowrap shadow-sm text-xs"
+          >
+            <Laptop className="w-3.5 h-3.5" />
+            <span>Fleet Dashboard</span>
+          </Link>
+
+          <Link 
+            href="/kvic-onboard" 
+            className="flex items-center gap-1.5 text-blue-400 hover:text-blue-300 transition-colors whitespace-nowrap text-xs"
+          >
+            <Smartphone className="w-3.5 h-3.5" />
+            <span>KVIC Rural</span>
+          </Link>
+
+          <Link 
+            href="/inspector" 
+            className="flex items-center gap-1.5 text-purple-400 hover:text-purple-300 transition-colors whitespace-nowrap text-xs"
+          >
+            <Building className="w-3.5 h-3.5" />
+            <span>Audit Portal</span>
+          </Link>
+
+          <Link href="/#the_system" className="hover:text-[#ffc833] transition-colors whitespace-nowrap text-xs">
             System Design
           </Link>
 
-          <Link href="/#mesh" className="hover:text-[#ffc833] transition-colors whitespace-nowrap">
-            100-Hive Mesh
-          </Link>
-
-          <Link href="/#edge_ai" className="hover:text-[#ffc833] transition-colors whitespace-nowrap">
+          <Link href="/#edge_ai" className="hover:text-[#ffc833] transition-colors whitespace-nowrap text-xs">
             Edge AI
-          </Link>
-
-          <Link href="/#honey_chain" className="hover:text-[#ffc833] transition-colors whitespace-nowrap">
-            Honey Chain
-          </Link>
-
-          <Link href="/#the_specs" className="hover:text-[#ffc833] transition-colors whitespace-nowrap hidden xl:inline-block">
-            Specs
-          </Link>
-
-          <Link href="/#our_mission" className="hover:text-[#ffc833] transition-colors whitespace-nowrap hidden xl:inline-block">
-            Our Mission
           </Link>
         </div>
 
-        {/* Right Side: Prominent DOWNLOAD CTA Button */}
+        {/* Right Side: CTA Button */}
         <div className="flex items-center gap-3">
           <Link
-            href="/#sdk"
-            id="header-download-btn"
-            className="btn-header-download flex items-center justify-center gap-2 text-xs sm:text-sm font-extrabold px-5 py-2 sm:px-7 sm:py-2.5 rounded-full shadow-xl bg-[#ffc833] text-[#312f28] hover:bg-[#ffd659] active:scale-95 transition-all uppercase tracking-wide"
-            title="Download HiveOS App &amp; SDK"
+            href="/verify"
+            className="flex items-center justify-center gap-2 text-xs sm:text-sm font-extrabold px-5 py-2 sm:px-6 sm:py-2.5 rounded-full shadow-xl bg-[#ffc833] text-[#312f28] hover:bg-[#ffd659] active:scale-95 transition-all uppercase tracking-wide"
+            title="Scan & Verify Honey"
           >
-            <Download className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
-            <span>DOWNLOAD</span>
+            <ShieldCheck className="w-4 h-4 stroke-[2.5]" />
+            <span>SCAN JAR QR</span>
           </Link>
 
           {/* Mobile Menu Toggle */}
@@ -177,32 +186,52 @@ export function Navbar() {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#1d1c18] border-t border-white/15 px-6 py-6 space-y-4 text-base font-semibold shadow-2xl">
-          <div className="mb-4">
-            <div className="flex items-center bg-black/50 rounded-full px-4 py-2 border border-white/20">
-              <Search className="w-4 h-4 text-white/70 mr-2" />
-              <input
-                type="text"
-                placeholder="Search Beevil Knievel..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-transparent text-white placeholder-white/50 text-sm focus:outline-none w-full"
-              />
+        <div className="lg:hidden bg-[#1d1c18] border-t border-white/15 px-6 py-6 space-y-3 text-sm font-semibold shadow-2xl">
+          <Link
+            href="/verify"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center justify-between py-2 text-emerald-400 font-bold border-b border-white/10"
+          >
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Verify Honey QR (/verify)</span>
             </div>
-          </div>
+            <span className="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">
+              GASLESS
+            </span>
+          </Link>
 
           <Link
-            href="/app"
+            href="/dashboard"
             onClick={() => setMobileMenuOpen(false)}
             className="flex items-center justify-between py-2 text-[#ffc833] font-bold border-b border-white/10"
           >
             <div className="flex items-center gap-2">
               <Laptop className="w-4 h-4" />
-              <span>HiveOS App (/app)</span>
+              <span>Fleet Dashboard (/dashboard)</span>
             </div>
-            <span className="text-[10px] font-mono uppercase bg-[#ffc833] text-[#312f28] px-2 py-0.5 rounded font-black">
-              LIVE
-            </span>
+          </Link>
+
+          <Link
+            href="/kvic-onboard"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center justify-between py-2 text-blue-400 font-bold border-b border-white/10"
+          >
+            <div className="flex items-center gap-2">
+              <Smartphone className="w-4 h-4" />
+              <span>KVIC Rural Onboarding (/kvic-onboard)</span>
+            </div>
+          </Link>
+
+          <Link
+            href="/inspector"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center justify-between py-2 text-purple-400 font-bold border-b border-white/10"
+          >
+            <div className="flex items-center gap-2">
+              <Building className="w-4 h-4" />
+              <span>QA &amp; Export Audit (/inspector)</span>
+            </div>
           </Link>
 
           <Link
@@ -214,70 +243,12 @@ export function Navbar() {
           </Link>
 
           <Link
-            href="/#mesh"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-white hover:text-[#ffc833]"
-          >
-            100-Hive Mesh
-          </Link>
-
-          <Link
             href="/#edge_ai"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-white hover:text-[#ffc833]"
           >
-            Edge AI
+            Edge AI Diagnostics
           </Link>
-
-          <Link
-            href="/#honey_chain"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-white hover:text-[#ffc833]"
-          >
-            Honey Chain
-          </Link>
-
-          <Link
-            href="/#the_specs"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-white hover:text-[#ffc833]"
-          >
-            Hardware &amp; Software Specs
-          </Link>
-
-          <Link
-            href="/#gallery"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-white hover:text-[#ffc833]"
-          >
-            Hardware Photo Gallery
-          </Link>
-
-          <Link
-            href="/#our_mission"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-white hover:text-[#ffc833]"
-          >
-            Our Mission
-          </Link>
-
-          <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
-            <Link
-              href="/#sdk"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn-header-download w-full justify-center py-3 text-center"
-            >
-              <Download className="w-5 h-5" />
-              <span>DOWNLOAD APP</span>
-            </Link>
-            <Link
-              href="/#all-for-just"
-              onClick={() => setMobileMenuOpen(false)}
-              className="bg-white/10 text-white text-center py-2.5 rounded-full font-bold text-sm"
-            >
-              Pre-Order Solar Node $189
-            </Link>
-          </div>
         </div>
       )}
     </nav>
