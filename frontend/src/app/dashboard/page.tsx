@@ -238,15 +238,83 @@ export default function BeekeeperDashboard() {
                 </span>
               </div>
 
-              {/* 4 Big Gauges */}
+              {/* Jury Live Trigger Control Panel (Booth Demo Trick) */}
+              <div className="p-4 rounded-xl bg-gradient-to-r from-slate-950 via-slate-900 to-amber-950/40 border border-amber-500/30 space-y-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-2">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                    <span className="text-xs font-bold text-amber-300 uppercase tracking-wider">
+                      ⚡ Jury Live Demo Trigger Bar (Interactive Hardware Simulation)
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-mono text-slate-400">
+                    Click buttons to trigger real-time AI alerts for the judges:
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-semibold">
+                  <button
+                    onClick={() => {
+                      setLiveBroodTemp(38.65);
+                      setLiveHumidity(42.1);
+                    }}
+                    className="p-2.5 rounded-lg bg-rose-950/60 border border-rose-500/40 text-rose-300 hover:bg-rose-900/60 hover:text-white transition flex flex-col items-center text-center gap-1"
+                  >
+                    <span>🌡️ Warm Probe (38.6°C)</span>
+                    <span className="text-[9px] font-mono text-rose-400/80">Trigger Heat Stress</span>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setFftBands([10, 15, 30, 45, 30, 20, 95, 88]); // 680 Hz spike
+                    }}
+                    className="p-2.5 rounded-lg bg-purple-950/60 border border-purple-500/40 text-purple-300 hover:bg-purple-900/60 hover:text-white transition flex flex-col items-center text-center gap-1"
+                  >
+                    <span>🐝 Varroa Spike (680Hz)</span>
+                    <span className="text-[9px] font-mono text-purple-400/80">Trigger Mite Alert</span>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setFftBands([12, 18, 55, 118, 50, 25, 12, 6]); // 450 Hz surge
+                    }}
+                    className="p-2.5 rounded-lg bg-amber-950/60 border border-amber-500/40 text-amber-300 hover:bg-amber-900/60 hover:text-white transition flex flex-col items-center text-center gap-1"
+                  >
+                    <span>🚀 Swarm Surge (450Hz)</span>
+                    <span className="text-[9px] font-mono text-amber-400/80">24-hr Swarm Warning</span>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setLiveBroodTemp(34.82);
+                      setLiveHumidity(58.4);
+                      setFftBands([12, 18, 55, 92, 38, 22, 11, 6]);
+                    }}
+                    className="p-2.5 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-900/60 hover:text-white transition flex flex-col items-center text-center gap-1"
+                  >
+                    <span>🌿 Reset Homeostasis</span>
+                    <span className="text-[9px] font-mono text-emerald-400/80">Nominal 34.8°C</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 4 Big Live Sensor Dials */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 space-y-1">
+                <div className={`p-4 rounded-xl border transition-all space-y-1 ${
+                  liveBroodTemp > 36.5 || liveBroodTemp < 32.5 
+                    ? "bg-rose-950/40 border-rose-500/60 text-rose-300 animate-pulse" 
+                    : "bg-slate-950/70 border-slate-800/80"
+                }`}>
                   <div className="text-slate-400 text-xs flex items-center justify-between">
                     <span>Brood Core Temp</span>
                     <Thermometer className="w-4 h-4 text-amber-400" />
                   </div>
                   <div className="text-2xl font-bold text-white font-mono">{liveBroodTemp} °C</div>
-                  <div className="text-[10px] text-emerald-400 font-mono">Nominal Homeostasis</div>
+                  <div className={`text-[10px] font-mono ${
+                    liveBroodTemp > 36.5 || liveBroodTemp < 32.5 ? "text-rose-400 font-bold" : "text-emerald-400"
+                  }`}>
+                    {liveBroodTemp > 36.5 ? "⚠️ Heat Stress Alert!" : liveBroodTemp < 32.5 ? "❄️ Chill Stress!" : "Nominal Homeostasis"}
+                  </div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 space-y-1">

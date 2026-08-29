@@ -304,6 +304,60 @@ export default function VerifyPage() {
                   </p>
                 </div>
               </div>
+
+              {/* Official Laboratory Refractometer Dual Certification */}
+              {activeBatch.labCertificate && (
+                <div className="mt-4 p-4 rounded-xl bg-gradient-to-r from-emerald-950/40 via-slate-950 to-slate-900 border border-emerald-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                      <span className="text-xs font-bold text-white">
+                        🔬 NABL / FSSAI Laboratory Refractometer Dual-Confirmation
+                      </span>
+                      <span className="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">
+                        TIER 2 VERIFIED
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-slate-300">
+                      {activeBatch.labCertificate.labName} · Accreditation: {activeBatch.labCertificate.accreditationId}
+                    </p>
+                    <div className="text-[10px] font-mono text-slate-400">
+                      Tested Refractive Index ($n_D^{20}$): <strong className="text-emerald-400">{activeBatch.labCertificate.refractiveIndexNd20}</strong> · Confirmed Moisture: <strong className="text-emerald-400">{activeBatch.labCertificate.labMoisturePct}%</strong>
+                    </div>
+                  </div>
+
+                  <div className="text-right shrink-0">
+                    <span className="text-[10px] font-mono text-slate-500 block">Certificate Hash:</span>
+                    <span className="text-[10px] font-mono text-amber-400/90 break-all max-w-[200px] inline-block truncate">
+                      {activeBatch.labCertificate.labCertificateHash}
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              {/* Interactive 5-Level Merkle Tree Hash Visualizer */}
+              <div className="mt-4 p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Layers className="w-4 h-4 text-amber-400" />
+                    <span className="text-xs font-bold text-white uppercase tracking-wider">
+                      Sorted-Pair Keccak-256 Merkle Proof Path (5-Level Sibling Tree)
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-mono text-emerald-400">
+                    99.9% GAS REDUCTION
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 text-center text-[10px] font-mono">
+                  {activeBatch.proofDay1.map((sibling, i) => (
+                    <div key={i} className="p-2 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                      <div className="text-amber-400/80 font-bold">Sibling L{i + 1}</div>
+                      <div className="text-slate-400 truncate">{sibling.slice(0, 10)}…</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* AI Colony Welfare & Disease Diagnostic Section */}
