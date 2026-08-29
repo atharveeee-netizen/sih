@@ -151,6 +151,14 @@ export function Navbar() {
             <span>Audit Portal</span>
           </Link>
 
+          <Link 
+            href="/traceability" 
+            className="flex items-center gap-1.5 text-cyan-400 hover:text-cyan-300 font-bold bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 rounded-full hover:bg-cyan-500 hover:text-black transition-all whitespace-nowrap shadow-sm text-xs"
+          >
+            <Lock className="w-3.5 h-3.5" />
+            <span>Web3 Traceability</span>
+          </Link>
+
           <Link href="/#the_system" className="hover:text-[#ffc833] transition-colors whitespace-nowrap text-xs">
             System Design
           </Link>
@@ -232,6 +240,20 @@ export function Navbar() {
               <Building className="w-4 h-4" />
               <span>QA &amp; Export Audit (/inspector)</span>
             </div>
+          </Link>
+
+          <Link
+            href="/traceability"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center justify-between py-2 text-cyan-400 font-bold border-b border-white/10"
+          >
+            <div className="flex items-center gap-2">
+              <Lock className="w-4 h-4" />
+              <span>Web3 Traceability (/traceability)</span>
+            </div>
+            <span className="text-[10px] font-mono bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded">
+              METAMASK
+            </span>
           </Link>
 
           <Link
