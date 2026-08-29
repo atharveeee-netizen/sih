@@ -161,33 +161,51 @@ export function HeroSection() {
           </h1>
         </div>
 
-        {/* Direct High-Visibility CTA Bar */}
-        <div className="mt-2 mb-8 flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-2xl">
-          {/* Main Primary CTA: Launch HiveOS App */}
+        {/* Direct High-Visibility HoneyChain DePIN CTA Bar */}
+        <div className="mt-2 mb-8 flex flex-wrap gap-3.5 items-center justify-center w-full max-w-4xl">
+          {/* Primary 1: Scan & Verify Honey QR */}
           <Link
-            href="/app"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#ffc833] via-[#ffd659] to-[#ffc833] text-[#212223] hover:text-black font-extrabold text-base sm:text-lg px-8 py-4 rounded-full shadow-[0_10px_25px_rgba(255,200,51,0.4),0_0_0_2px_rgba(255,255,255,0.4)] hover:shadow-[0_15px_35px_rgba(255,200,51,0.6),0_0_0_3px_rgba(255,255,255,0.8)] hover:scale-105 active:scale-95 transition-all uppercase tracking-wide group"
+            href="/verify"
+            className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 text-black font-extrabold text-sm sm:text-base px-6 py-3.5 rounded-full shadow-[0_10px_25px_rgba(16,185,129,0.4),0_0_0_2px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.6)] hover:scale-105 active:scale-95 transition-all uppercase tracking-wide group"
           >
-            <Laptop className="w-6 h-6 stroke-[2.5] text-[#212223] group-hover:rotate-12 transition-transform" />
-            <span className="font-black">LAUNCH HIVEOS APP (/app)</span>
-            <ArrowRight className="w-5 h-5 stroke-[2.5] group-hover:translate-x-1 transition-transform" />
+            <ShieldCheck className="w-5 h-5 text-black group-hover:rotate-12 transition-transform" />
+            <span className="font-black">VERIFY HONEY QR (/verify)</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
 
-          {/* Secondary CTAs */}
-          <div className="flex items-center gap-3">
-            <Link
-              href="#all-for-just"
-              className="btn-order-purple text-base sm:text-lg whitespace-nowrap !py-2.5 !px-6"
-            >
-              Pre-Order $189
-            </Link>
-            <Link
-              href="#edge_ai"
-              className="btn-pill-black border-2 border-white/20 hover:border-[#ffc833] text-sm sm:text-base whitespace-nowrap !py-2.5 !px-5"
-            >
-              96.84% AI
-            </Link>
-          </div>
+          {/* Primary 2: Beekeeper Fleet Dashboard */}
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#ffc833] via-[#ffd659] to-[#ffc833] text-[#212223] hover:text-black font-extrabold text-sm sm:text-base px-6 py-3.5 rounded-full shadow-[0_10px_25px_rgba(255,200,51,0.4),0_0_0_2px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_35px_rgba(255,200,51,0.6)] hover:scale-105 active:scale-95 transition-all uppercase tracking-wide group"
+          >
+            <Laptop className="w-5 h-5 text-[#212223] group-hover:rotate-12 transition-transform" />
+            <span className="font-black">FLEET DASHBOARD (/dashboard)</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+
+          {/* Secondary 1: KVIC Rural Onboard */}
+          <Link
+            href="/kvic-onboard"
+            className="inline-flex items-center justify-center gap-2 bg-blue-600/30 hover:bg-blue-600/50 text-blue-200 border border-blue-400/40 text-xs sm:text-sm font-bold px-5 py-3 rounded-full hover:scale-105 transition-all whitespace-nowrap"
+          >
+            <span>🌾 KVIC Rural Hub</span>
+          </Link>
+
+          {/* Secondary 2: QA Inspector Portal */}
+          <Link
+            href="/inspector"
+            className="inline-flex items-center justify-center gap-2 bg-purple-600/30 hover:bg-purple-600/50 text-purple-200 border border-purple-400/40 text-xs sm:text-sm font-bold px-5 py-3 rounded-full hover:scale-105 transition-all whitespace-nowrap"
+          >
+            <span>🏢 Export Audit Portal</span>
+          </Link>
+
+          {/* Secondary 3: HiveOS Field Console */}
+          <Link
+            href="/app"
+            className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm font-bold px-5 py-3 rounded-full hover:scale-105 transition-all whitespace-nowrap"
+          >
+            <span>🎮 100-Hive Console (/app)</span>
+          </Link>
         </div>
 
         {/* Centerpiece: Interactive PlaydateConsole & Frequency Controls */}
