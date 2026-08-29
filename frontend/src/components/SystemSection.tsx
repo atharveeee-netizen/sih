@@ -144,6 +144,94 @@ export function SystemSection() {
           </div>
         </div>
 
+        {/* 4. Complete Cyber-Physical System Flowchart */}
+        <div id="system_flowchart" className="space-y-6 pt-6 border-t-2 border-[#312f28]/15">
+          <div className="inline-flex items-center gap-1.5 bg-[#312f28] text-[#ffc833] px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase">
+            <Radio className="w-3.5 h-3.5" />
+            <span>End-to-End Cyber-Physical Architecture</span>
+          </div>
+
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
+            The Flowchart.
+          </h2>
+
+          <p className="text-lg sm:text-xl leading-relaxed font-medium max-w-3xl">
+            From the microscopic acoustic vibrations of the queen to gasless consumer verification on a supermarket smartphone, here is the complete 5-stage cyber-physical flow:
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 pt-4">
+            {/* Step 1 */}
+            <div className="bg-[#312f28] text-white p-5 rounded-2xl border border-black/20 flex flex-col justify-between space-y-3">
+              <div className="space-y-1">
+                <div className="text-[10px] font-mono font-bold text-[#ffc833] uppercase tracking-wider">Step 01</div>
+                <h4 className="text-base font-extrabold text-white">In-Hive Node</h4>
+                <p className="text-xs text-[#b1afa8] leading-relaxed">
+                  Sensirion SHT45 + MEMS Mic + HX711 Load Cell sample every 15 min in the 9.5mm bee space.
+                </p>
+              </div>
+              <div className="text-[10px] font-mono bg-black/40 text-emerald-400 px-2.5 py-1 rounded-lg">
+                nRF52840 MCU
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="bg-[#312f28] text-white p-5 rounded-2xl border border-black/20 flex flex-col justify-between space-y-3">
+              <div className="space-y-1">
+                <div className="text-[10px] font-mono font-bold text-[#ffc833] uppercase tracking-wider">Step 02</div>
+                <h4 className="text-base font-extrabold text-white">LoRa Gateway</h4>
+                <p className="text-xs text-[#b1afa8] leading-relaxed">
+                  Raspberry Pi Hub receives 5km radio frames. Buffers in offline SQLite if 4G drops.
+                </p>
+              </div>
+              <div className="text-[10px] font-mono bg-black/40 text-cyan-400 px-2.5 py-1 rounded-lg">
+                1 Hub : 20 Hives
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="bg-[#312f28] text-white p-5 rounded-2xl border border-black/20 flex flex-col justify-between space-y-3">
+              <div className="space-y-1">
+                <div className="text-[10px] font-mono font-bold text-[#ffc833] uppercase tracking-wider">Step 03</div>
+                <h4 className="text-base font-extrabold text-white">5-Tier AI Engine</h4>
+                <p className="text-xs text-[#b1afa8] leading-relaxed">
+                  1D-CNN checks Varroa (96.4%), LSTM forecasts Swarms (24h), Autoencoder checks tamper.
+                </p>
+              </div>
+              <div className="text-[10px] font-mono bg-black/40 text-[#ffc833] px-2.5 py-1 rounded-lg">
+                Zenodo 10k-hr AI
+              </div>
+            </div>
+
+            {/* Step 4 */}
+            <div className="bg-[#312f28] text-white p-5 rounded-2xl border border-black/20 flex flex-col justify-between space-y-3">
+              <div className="space-y-1">
+                <div className="text-[10px] font-mono font-bold text-[#ffc833] uppercase tracking-wider">Step 04</div>
+                <h4 className="text-base font-extrabold text-white">Merkle Tree</h4>
+                <p className="text-xs text-[#b1afa8] leading-relaxed">
+                  Compresses 504 hourly frames into 32-byte Keccak-256 root. 2-of-3 Oracle Quorum signs on Polygon.
+                </p>
+              </div>
+              <div className="text-[10px] font-mono bg-black/40 text-purple-300 px-2.5 py-1 rounded-lg">
+                99.9% Gas Reduction
+              </div>
+            </div>
+
+            {/* Step 5 */}
+            <div className="bg-[#312f28] text-white p-5 rounded-2xl border border-black/20 flex flex-col justify-between space-y-3">
+              <div className="space-y-1">
+                <div className="text-[10px] font-mono font-bold text-[#ffc833] uppercase tracking-wider">Step 05</div>
+                <h4 className="text-base font-extrabold text-white">Consumer QR</h4>
+                <p className="text-xs text-[#b1afa8] leading-relaxed">
+                  Shopper scans jar label $\to$ browser evaluates proof in &lt;5ms with zero crypto wallet.
+                </p>
+              </div>
+              <div className="text-[10px] font-mono bg-black/40 text-emerald-400 px-2.5 py-1 rounded-lg">
+                100% Gasless Scan
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );
