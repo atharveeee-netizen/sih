@@ -178,4 +178,57 @@ describe("HoneyProvenance — Problem Statement 26021 Smart Contract Suite", fun
       expect(fakeResult.isValid).to.be.false;
     });
   });
+
+  describe("Laboratory Refractometer Certification & Anti-Collusion Audit", function () {
+    const dummyRoot = ethers.keccak256(ethers.toUtf8Bytes("telemetry-merkle-root-batch-1"));
+    const ipfsUri = "ipfs://QmHoneyChainBatch1Metadata";
+    let labTester;
+
+    beforeEach(async function () {
+      [, , , , , , labTester] = await ethers.getSigners();
+      await contract.connect(admin).registerLab(labTester.address);
+      await contract.connect(oracle1).proposeBatch(42, dummyRoot, 1740, true, ipfsUri);
+      await contract.connect(oracle2).attestBatch(1);
+    });
+
+    it("Accredited Lab can record official optical refractometer certification", async function () {
+      const labCertHash = ethers.keccak256(ethers.toUtf8Bytes("LAB-FSSAI-CERT-2026-0042"));
+      const tx = await contract
+        .connect(labTester)
+        .recordLabRefractometerCertification(1, 1680, labCertHash); // 16.80% moisture
+
+      await expect(tx)
+        .to.emit(contract, "LabCertificationRecorded")
+        .withArgs(1, 1680, labCertHash);
+
+      const batch = await contract.getBatch(1);
+      expect(batch.moisturePpm).to.equal(1680);
+      expect(batch.moistureSelfDeclared).to.be.false;
+      expect(batch.verificationTier).to.equal(1); // DUAL_REFRACTOMETER_LAB
+      expect(batch.labCertificateHash).to.equal(labCertHash);
+    });
+
+    it("Rejects non-lab from submitting lab certifications", async function () {
+      const labCertHash = ethers.keccak256(ethers.toUtf8Bytes("FAKE-CERT"));
+      await expect(
+        contract.connect(nonOracle).recordLabRefractometerCertification(1, 1680, labCertHash)
+      ).to.be.revertedWith("Not an accredited laboratory");
+    });
+
+    it("Admin can challenge and invalidate fraudulent batches", async function () {
+      const auditEvidence = ethers.keccak256(ethers.toUtf8Bytes("AUDIT-FAIL-SUGAR-SYRUP"));
+      await contract.connect(admin).challengeBatch(1, auditEvidence);
+
+      const batchChallenged = await contract.getBatch(1);
+      expect(batchChallenged.isChallenged).to.be.true;
+
+      // Invalidate batch
+      await contract.connect(admin).resolveChallenge(1, true);
+
+      const batchResolved = await contract.getBatch(1);
+      expect(batchResolved.isInvalidated).to.be.true;
+      expect(await contract.isFinalized(1)).to.be.false;
+    });
+  });
 });
+

@@ -20,6 +20,15 @@ export interface HarvestBatchData {
   proofHarvestDay: string[];
   moisturePct: number;
   moistureSelfDeclared: boolean;
+  verificationTier?: "SELF_DECLARED_BEEKEEPER" | "DUAL_REFRACTOMETER_LAB" | "INLINE_ATR_OPTICAL";
+  labCertificate?: {
+    labName: string;
+    accreditationId: string;
+    refractiveIndexNd20: number;
+    labMoisturePct: number;
+    labCertificateHash: string;
+    testedDate: string;
+  };
   contractAddress: string;
   ipfsUri: string;
   attestations: {
@@ -76,7 +85,16 @@ export const SAMPLE_BATCHES: Record<number, HarvestBatchData> = {
       "0x65acce811e5788493715f76e79673a9d7658f4e2a78cc290eb4b06c19ad8d1fb"
     ],
     moisturePct: 17.4,
-    moistureSelfDeclared: true,
+    moistureSelfDeclared: false,
+    verificationTier: "DUAL_REFRACTOMETER_LAB",
+    labCertificate: {
+      labName: "KVIC Central Honey Testing & QA Laboratory (Bangalore)",
+      accreditationId: "NABL-TC-8891 / FSSAI-QA-2026-042",
+      refractiveIndexNd20: 1.4925,
+      labMoisturePct: 17.4,
+      labCertificateHash: "0x8f2a99d4c091e88ba921e42c984ad151fd76befecdca9ca0ac0cc7f997118891",
+      testedDate: "2026-08-28 16:15:00 UTC"
+    },
     contractAddress: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
     ipfsUri: "ipfs://QmHoneyChainBatch1MetadataCoorgCluster",
     attestations: [
