@@ -1,149 +1,194 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { 
-  ShieldCheck, 
-  QrCode, 
-  CheckCircle2, 
-  AlertTriangle, 
-  Lock, 
-  Search,
-  Sparkles,
-  ArrowRight,
-  HelpCircle
-} from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import CameraScanner from "@/components/CameraScanner";
+import OfflineSMSSimulator from "@/components/OfflineSMSSimulator";
+import { QrCode, Search, Sparkles, ArrowRight, Camera, ShieldCheck, MessageSquare } from "lucide-react";
+import Link from "next/link";
+import { getCustomBatches } from "@/lib/registry";
+import { useLanguage } from "@/lib/LanguageContext";
 
-export default function VerifyPage() {
+export default function VerifySearchPage() {
+  const [tokenInput, setTokenInput] = useState("");
+  const [showScanner, setShowScanner] = useState(false);
+  const [showSmsModal, setShowSmsModal] = useState(false);
   const router = useRouter();
-  const [code, setCode] = useState("");
+  const { t } = useLanguage();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (code.trim()) {
-      router.push(`/v/${code.trim()}`);
-    }
+    if (!tokenInput.trim()) return;
+    const clean = tokenInput.trim();
+    processScanResult(clean);
   };
 
+  const processScanResult = (decodedText: string) => {
+    setShowScanner(false);
+    const clean = decodedText.trim();
+
+    if (clean.includes("/verify/")) {
+      const parts = clean.split("/verify/");
+      const batchPart = parts[1]?.split("?")[0]?.split("/")[0];
+      if (batchPart) {
+        router.push(`/verify/${batchPart}`);
+        return;
+      }
+    }
+
+    // Check custom batch registry
+    const customList = getCustomBatches();
+    const match = customList.find(
+      (b) =>
+        b.qrToken.toLowerCase() === clean.toLowerCase() ||
+        String(b.batchId) === clean
+    );
+
+    if (match) {
+      router.push(`/verify/${match.batchId}?qr=${encodeURIComponent(match.qrToken)}`);
+      return;
+    }
+
+    if (/^\d+$/.test(clean)) {
+      router.push(`/verify/${clean}`);
+      return;
+    }
+
+    router.push(`/verify/1?qr=${encodeURIComponent(clean)}`);
+  };
+
+  const sampleBatches = [
+    { id: 1, name: "Muzaffarpur Litchi Honey", qr: "TT-2026-00001", score: 94, farmer: "Rajesh K. Verma (Bihar)" },
+    { id: 2, name: "Sundarbans Wild Mangrove Honey", qr: "TT-2026-00002", score: 91, farmer: "Lakshmi Devi & Coop (Bengal)" },
+  ];
+
   return (
-    <div className="min-h-screen flex flex-col bg-[#090b10] text-[#f1f5f9] font-sans selection:bg-[#f59e0b] selection:text-[#090b10]">
+    <div className="min-h-screen flex flex-col justify-between bg-[#F9F8F6]">
       <Navbar />
 
-      <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto space-y-8">
-          
-          {/* Header */}
-          <div className="text-center space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181d28] border border-[#283144] text-xs font-mono text-[#f59e0b]">
-              <Lock className="w-3.5 h-3.5" />
-              <span>Government-Certified Honey Authenticity Engine</span>
-            </div>
-            <h1 className="text-3xl sm:text-4xl font-black uppercase font-mono tracking-tight text-[#f1f5f9]">
-              CONSUMER VERIFICATION PORTAL
-            </h1>
-            <p className="text-sm text-[#94a3b8] max-w-xl mx-auto">
-              Scan or enter the unique package identification code printed on your KVIC Honey Jar to verify complete origin provenance and cryptographic lab certification.
-            </p>
+      {showScanner && (
+        <CameraScanner
+          onScanSuccess={(code) => processScanResult(code)}
+          onClose={() => setShowScanner(false)}
+        />
+      )}
+
+      <OfflineSMSSimulator
+        isOpen={showSmsModal}
+        onClose={() => setShowSmsModal(false)}
+      />
+
+      <main className="py-12 sm:py-20 px-4 sm:px-6 md:px-12 max-w-4xl mx-auto w-full flex-1">
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 border border-charcoal/20 bg-white mb-4 shadow-xs">
+            <ShieldCheck className="w-3.5 h-3.5 text-gold" />
+            <span className="text-[10px] uppercase tracking-ultra text-charcoal font-bold">
+              TrueTag Universal Authentication
+            </span>
+          </div>
+          <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl serif text-charcoal mb-6 font-normal break-words">
+            Verify Your <span className="italic text-gold font-serif">Honey</span>
+          </h1>
+          <p className="text-sm md:text-base text-warm-grey max-w-xl mx-auto leading-relaxed font-normal">
+            {t("heroDescription")}
+          </p>
+        </div>
+
+        {/* Action Panel: Camera Scan + SMS Simulation + Manual Search */}
+        <div className="border-2 border-charcoal/20 bg-white p-5 sm:p-8 md:p-12 mb-12 sm:mb-16 shadow-md">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <button
+              onClick={() => setShowScanner(true)}
+              className="h-14 px-6 text-xs uppercase tracking-widest font-bold btn-gold-slide flex items-center justify-center gap-3 shadow-sm"
+            >
+              <Camera className="w-5 h-5 text-gold" />
+              <span>{t("scanWithCamera")}</span>
+            </button>
+
+            <button
+              onClick={() => setShowSmsModal(true)}
+              className="h-14 px-6 text-xs uppercase tracking-widest font-bold border-2 border-charcoal bg-alabaster hover:bg-charcoal hover:text-gold text-charcoal flex items-center justify-center gap-2.5 transition-colors shadow-sm"
+            >
+              <MessageSquare className="w-4 h-4 text-gold" />
+              <span>{t("offlineSms")}</span>
+            </button>
           </div>
 
-          {/* Verification Card */}
-          <div className="p-6 bg-[#11141d] border border-[#3d4964] rounded-lg shadow-2xl font-mono">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="token-code" className="block text-xs uppercase font-bold text-[#94a3b8] mb-2 tracking-wider">
-                  Enter Package Code
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#64748b]">
-                    <QrCode className="w-5 h-5" />
-                  </div>
-                  <input
-                    id="token-code"
-                    type="text"
-                    value={code}
-                    onChange={(e) => setCode(e.target.value)}
-                    placeholder="HC-PKG-A7F93E12"
-                    className="w-full pl-11 pr-4 py-3 bg-[#090b10] border border-[#283144] rounded text-base text-[#f1f5f9] placeholder-[#64748b] focus:outline-none focus:border-[#f59e0b] font-mono tracking-wider uppercase"
-                  />
-                </div>
-              </div>
+          <div className="flex items-center gap-4 my-6">
+            <div className="h-px flex-1 bg-charcoal/20" />
+            <span className="text-[10px] uppercase tracking-widest text-warm-grey font-bold">Or Enter Token Manually</span>
+            <div className="h-px flex-1 bg-charcoal/20" />
+          </div>
 
-              <button
-                type="submit"
-                disabled={!code.trim()}
-                className="w-full py-3 bg-[#f59e0b] hover:bg-[#d97706] disabled:opacity-50 disabled:cursor-not-allowed text-[#090b10] font-bold text-xs uppercase tracking-wider rounded transition-colors flex items-center justify-center gap-2 shadow-md"
+          <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-4">
+            <div className="relative flex-1">
+              <label htmlFor="verify-batchid" className="sr-only">Enter QR token or batch ID to verify authenticity</label>
+              <input
+                id="verify-batchid"
+                name="batchId"
+                aria-label="Enter QR token or batch ID to verify authenticity"
+                autoComplete="off"
+                type="text"
+                placeholder="e.g. TT-2026-00001 or Batch #1"
+                value={tokenInput}
+                onChange={(e) => setTokenInput(e.target.value)}
+                className="w-full h-14 border-b-2 border-charcoal/40 bg-transparent px-4 text-sm font-sans text-charcoal focus:border-gold focus:outline-none placeholder:italic placeholder:text-warm-grey/70 font-medium"
+              />
+            </div>
+            <button
+              type="submit"
+              className="h-14 px-8 text-xs uppercase tracking-widest font-bold btn-outline-luxury flex items-center justify-center gap-2 shadow-xs"
+            >
+              <Search className="w-4 h-4 text-charcoal" />
+              <span>Verify</span>
+            </button>
+          </form>
+        </div>
+
+        {/* Quick Sample Batches */}
+        <div>
+          <div className="flex items-center gap-2 mb-6">
+            <Sparkles className="w-3.5 h-3.5 text-gold" />
+            <span className="text-[10px] uppercase tracking-ultra text-warm-grey font-semibold">
+              Instant Verified Batch Samples (Click to Inspect)
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {sampleBatches.map((batch) => (
+              <Link
+                key={batch.id}
+                href={`/verify/${batch.id}?qr=${batch.qr}` }
+                className="p-6 border-2 border-charcoal/15 bg-white hover:border-gold transition-all block group shadow-xs hover:shadow-md"
               >
-                <ShieldCheck className="w-4 h-4" />
-                <span>Verify Package Authenticity</span>
-              </button>
-            </form>
+                <div className="flex justify-between items-start mb-3">
+                  <div>
+                    <span className="text-[10px] font-mono text-warm-grey uppercase tracking-widest block font-bold">
+                      {batch.qr}
+                    </span>
+                    <h3 className="text-xl serif text-charcoal font-bold group-hover:text-gold transition-colors">
+                      {batch.name}
+                    </h3>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-1 border border-emerald-300">
+                      Score: {batch.score}/100
+                    </span>
+                  </div>
+                </div>
 
-            {/* Quick Demo Previews */}
-            <div className="mt-6 pt-6 border-t border-[#283144] space-y-3">
-              <div className="text-xs text-[#94a3b8] font-bold uppercase tracking-wider">
-                Demonstration Verification Tokens:
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <button
-                  type="button"
-                  onClick={() => router.push("/v/HC-PKG-A7F93E12")}
-                  className="p-3 bg-[#181d28] hover:bg-[#1f2637] border border-[#10b981]/40 rounded text-left transition-all group"
-                >
-                  <div className="flex items-center gap-2 text-[#10b981] font-bold text-xs mb-1">
-                    <CheckCircle2 className="w-4 h-4" />
-                    <span>Verified Authentic Jar</span>
-                  </div>
-                  <div className="text-[11px] text-[#f1f5f9] font-mono">HC-PKG-A7F93E12</div>
-                  <div className="text-[10px] text-[#94a3b8] mt-1">
-                    Nilgiris Multiflora • Pure authentic • 1st scan
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => router.push("/v/HC-PKG-B8C24D91")}
-                  className="p-3 bg-[#181d28] hover:bg-[#1f2637] border border-[#ef4444]/40 rounded text-left transition-all group"
-                >
-                  <div className="flex items-center gap-2 text-[#ef4444] font-bold text-xs mb-1">
-                    <AlertTriangle className="w-4 h-4" />
-                    <span>Suspicious Copied Label</span>
-                  </div>
-                  <div className="text-[11px] text-[#f1f5f9] font-mono">HC-PKG-B8C24D91</div>
-                  <div className="text-[10px] text-[#94a3b8] mt-1">
-                    Multi-city velocity anomaly flagged
-                  </div>
-                </button>
-              </div>
-            </div>
+                <div className="flex items-center justify-between text-xs text-warm-grey pt-3 border-t border-charcoal/10">
+                  <span>{batch.farmer}</span>
+                  <span className="text-charcoal font-bold uppercase tracking-wider text-[10px] flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    {t("verifyJarLink")}
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
-
-          {/* Educational Trust Section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs text-[#94a3b8]">
-            <div className="p-4 bg-[#11141d] border border-[#283144] rounded-sm">
-              <div className="text-[#f59e0b] font-bold uppercase mb-1">1. Anti-Reuse Detection</div>
-              <p className="text-[11px] leading-relaxed">
-                Tokens scanned from physically impossible velocity (e.g. Mumbai then Delhi in 5 mins) automatically trigger reuse alerts.
-              </p>
-            </div>
-
-            <div className="p-4 bg-[#11141d] border border-[#283144] rounded-sm">
-              <div className="text-[#f59e0b] font-bold uppercase mb-1">2. Direct Lab Sync</div>
-              <p className="text-[11px] leading-relaxed">
-                Moisture, HMF, and adulteration test results are signed directly by accredited KVIC testing laboratories.
-              </p>
-            </div>
-
-            <div className="p-4 bg-[#11141d] border border-[#283144] rounded-sm">
-              <div className="text-[#f59e0b] font-bold uppercase mb-1">3. Privacy Preserving</div>
-              <p className="text-[11px] leading-relaxed">
-                Consumer sees genuine origin, cooperative cluster, and floral source while protecting rural farmer personal identity.
-              </p>
-            </div>
-          </div>
-
         </div>
       </main>
 
