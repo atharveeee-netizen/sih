@@ -341,7 +341,8 @@ def create_batch(b: BatchCreate):
     now_str = datetime.now(timezone.utc).isoformat()
 
     cursor.execute("SELECT cluster_id FROM beekeepers WHERE id = ?;", (harvest["beekeeper_id"],))
-    cluster_id = cursor.fetchone()["cluster_id"]
+    bk_row = cursor.fetchone()
+    cluster_id = bk_row["cluster_id"] if bk_row else "CLUSTER-NILGIRIS-01"
 
     cursor.execute("""
     INSERT INTO honey_batches (
@@ -642,3 +643,39 @@ def tamper_demo_event(t: TamperRequest):
         forged_payload={"moisture_pct": t.forged_moisture_pct, "adulteration_result": "ADULTERATED"}
     )
     return {"success": success, "event_id": t.event_id, "action": "TAMPER_INJECTED"}
+
+
+# -----------------------------------------------------------------------------
+# SHIVAM GAWADE SMART CONTRACT BLOCKCHAIN INTEGRATION
+# -----------------------------------------------------------------------------
+try:
+    from .blockchain_bridge import HoneyChainBlockchainBridge
+except (ImportError, ValueError):
+    try:
+        from blockchain_bridge import HoneyChainBlockchainBridge
+    except ImportError:
+        from gateway.blockchain_bridge import HoneyChainBlockchainBridge
+
+blockchain_bridge = HoneyChainBlockchainBridge()
+
+@router.get("/blockchain/status")
+def get_blockchain_status():
+    connected = blockchain_bridge.is_connected()
+    return {
+        "status": "CONNECTED" if connected else "DEMO_FALLBACK",
+        "rpc_url": blockchain_bridge.rpc_url,
+        "smart_contracts": {
+            "honeychain": blockchain_bridge.honeychain_address or "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+            "honeychain_qr": blockchain_bridge.honeychain_qr_address or "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+        },
+        "network": "Polygon Amoy / Hardhat Node (ChainID: 80002 / 1337)"
+    }
+
+@router.get("/blockchain/verify/qr/{qr_token}")
+def verify_qr_on_blockchain(qr_token: str):
+    return blockchain_bridge.verify_qr_token(qr_token)
+
+@router.get("/blockchain/batch/{batch_id}")
+def get_blockchain_batch(batch_id: int):
+    return blockchain_bridge.get_batch_provenance(batch_id)
+
