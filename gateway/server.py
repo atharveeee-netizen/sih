@@ -84,8 +84,11 @@ def init_database():
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS hives (
         hive_id INTEGER PRIMARY KEY,
+        apiary_id TEXT DEFAULT 'APIARY-NILGIRIS-01',
+        beekeeper_id TEXT DEFAULT 'BK-TN-2026-001',
         name TEXT NOT NULL,
-        location TEXT NOT NULL,
+        location TEXT DEFAULT 'Apiary Site',
+        hardware_node_id INTEGER DEFAULT 1,
         queen_age_months INTEGER DEFAULT 6,
         installation_date TEXT NOT NULL,
         tare_weight_kg REAL DEFAULT 22.5,
@@ -94,6 +97,19 @@ def init_database():
         last_health_score REAL DEFAULT 98.5
     );
     """)
+    # Migration safeguard for existing tables
+    try:
+        cursor.execute("ALTER TABLE hives ADD COLUMN apiary_id TEXT DEFAULT 'APIARY-NILGIRIS-01';")
+    except sqlite3.OperationalError:
+        pass
+    try:
+        cursor.execute("ALTER TABLE hives ADD COLUMN beekeeper_id TEXT DEFAULT 'BK-TN-2026-001';")
+    except sqlite3.OperationalError:
+        pass
+    try:
+        cursor.execute("ALTER TABLE hives ADD COLUMN hardware_node_id INTEGER DEFAULT 1;")
+    except sqlite3.OperationalError:
+        pass
 
     # Table 2: Multi-Sensor Telemetry
     cursor.execute("""

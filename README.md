@@ -7,7 +7,7 @@
 
 [![SIH Problem Statement](https://img.shields.io/badge/SIH%202026-Problem%20ID%2026021-f59e0b?style=flat-square)](https://www.sih.gov.in/)
 [![Ministry](https://img.shields.io/badge/Ministry-MSME%20%2F%20KVIC-3b82f6?style=flat-square)](https://www.kvic.gov.in/)
-[![Cryptographic Ledger](https://img.shields.io/badge/Ledger-Permissioned%20SHA--256%20Chain-10b981?style=flat-square)](#09---permissioned-cryptographic-traceability-ledger)
+[![Smart Contracts](https://img.shields.io/badge/Smart%20Contracts-Solidity%200.8.24%20%7C%20Hardhat%20(68%20Passing)-f59e0b?style=flat-square)](#09---smart-contract-blockchain-architecture-solidity-0824--polygon-amoy)
 [![QR Security](https://img.shields.io/badge/QR%20Security-Anti--Reuse%20%26%20Velocity%20Detection-8b5cf6?style=flat-square)](#10---qr-consumer-verification--anti-counterfeit-engine)
 [![IoT Infrastructure](https://img.shields.io/badge/IoT%20Hardware-nRF52840%20%2B%20SX1262%20(40--Byte)-22c55e?style=flat-square)](#05---smart-hive-iot-telemetry--hardware-bom)
 [![Test Suite](https://img.shields.io/badge/Pytest-39%2F39%20Passing%20(100%25)-10b981?style=flat-square)](#15---automated-testing--verification-evidence)
@@ -191,20 +191,38 @@ CONSUMER AUTHENTICATION (Recorded Provenance & Anti-Reuse Check)
 
 ---
 
-## ⛓️ 09 - Permissioned Cryptographic Traceability Ledger
+## ⛓️ 09 - Smart Contract Blockchain Architecture (Solidity 0.8.24 & Polygon Amoy)
 
 <p align="center">
   <img src="docs/figures/fig08_cryptographic_ledger.svg" alt="Cryptographic Ledger Architecture" width="100%" />
 </p>
 
-*FIG 08: SHA-256 Merkle-style event chaining with real-time tamper detection walk.*
+*FIG 08: Smart contract architecture featuring HoneyChain.sol multi-role approval workflow and HoneyChainQR.sol anti-counterfeiting engine.*
 
-### Why A Permissioned Ledger Instead of Public Ethereum?
-- **Zero Gas Fees:** A ₹350 jar of rural honey cannot absorb variable $2–$15 public blockchain gas fees.
-- **Deterministic Latency:** Zero block congestion or gas price spikes; instant verification for rural consumers and co-ops.
-- **Cryptographic Immutability:** Uses standard SHA-256 event chaining where each event binds:
-  $$\text{event\_hash} = \text{SHA256}(\text{previous\_event\_hash} \parallel \text{event\_type} \parallel \text{actor\_id} \parallel \text{timestamp} \parallel \text{payload\_hash})$$
-- **Tamper Detection Walk Engine:** The API provides an automated walk engine (`verify_chain()`). If an attacker alters a single byte in the SQLite database, the subsequent hash chain breaks immediately, exposing the exact compromised block.
+### Dual-Layer Enterprise Architecture
+Honey Chain combines high-throughput edge IoT ingestion with decentralized, immutable smart contract settlement on **Polygon Amoy (EVM)**:
+
+1. **`HoneyChain.sol` (Core Traceability & RBAC Workflow)**:
+   - **3-Role Governance:** Strict Role-Based Access Control (`BEEKEEPER_ROLE`, `FIELD_OFFICER_ROLE`, `DISTRICT_SUPERVISOR_ROLE`, `ADMIN_ROLE`).
+   - **16-State Lifecycle:** Governs registration, harvest submission, quality lab verification, batch minting, multi-farmer batch pooling, and dispute resolution.
+   - **Non-Destructive Dispute Protocol:** Supervisors flag suspicious or adulterated batches without deleting immutable audit history (`flagFraud()` and `resolveDispute()`).
+   - **Reentrancy Guard & Stack Optimization:** Compiled with `viaIR: true` and audited OpenZeppelin `AccessControl` and `ReentrancyGuard`.
+
+2. **`HoneyChainQR.sol` (Dynamic Anti-Counterfeiting & Commit-Reveal Engine)**:
+   - **2-Party Commit-Reveal QR Registration:** Field Officer commits a cryptographic seed hash prior to physical label printing, preventing unauthorized pre-minting or label counterfeiting.
+   - **Physical Jar Sealing & Geo-Velocity Teleportation Engine:** Detects impossible geographical scan jumps (velocity anomalies) and logs incremental scan counters.
+   - **Under-Cap Scratch PIN Claiming:** Prevents jar refill fraud by allowing the end-consumer to reveal an under-cap PIN and burn the physical seal on-chain.
+
+3. **Hardhat Test Suite & Quick Demonstration**:
+   - **68/68 Passing Tests:** Comprehensive unit and integration test coverage across all workflow states, roles, and edge cases.
+   ```bash
+   cd contracts
+   npx hardhat test                      # Run all 68 unit tests
+   npx hardhat run scripts/demo_seed.js   # 1-Click Grand Finale Demonstration Seeder
+   ```
+
+4. **Gateway Web3 Bridge (`gateway/blockchain_bridge.py`)**:
+   - Edge gateways connect directly to the smart contracts via JSON-RPC, querying on-chain batch provenance and registering physical QR tokens directly to the blockchain.
 
 ---
 
