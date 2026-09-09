@@ -15,11 +15,11 @@ import json
 
 try:
     from .honeychain_db import get_db
-    from .honeychain_ledger import HoneyChainLedger
+    from .blockchain_bridge import BlockchainLedgerFacade as HoneyChainLedger
     from .honeychain_qr import HoneyChainQREngine
 except ImportError:
     from honeychain_db import get_db
-    from honeychain_ledger import HoneyChainLedger
+    from blockchain_bridge import BlockchainLedgerFacade as HoneyChainLedger
     from honeychain_qr import HoneyChainQREngine
 
 router = APIRouter(prefix="/api/v1", tags=["HoneyChain"])

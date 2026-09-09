@@ -275,24 +275,6 @@ def init_db():
     );
     """)
 
-    # 15. Permissioned Cryptographic Ledger Events
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS ledger_events (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        event_id TEXT UNIQUE NOT NULL,
-        batch_id TEXT NOT NULL,
-        event_type TEXT NOT NULL,
-        actor_id TEXT NOT NULL,
-        actor_role TEXT NOT NULL,
-        timestamp TEXT NOT NULL,
-        payload_json TEXT NOT NULL,
-        payload_hash TEXT NOT NULL,
-        previous_event_hash TEXT NOT NULL,
-        event_hash TEXT NOT NULL,
-        tampered INTEGER DEFAULT 0
-    );
-    """)
-
     # 16. Market Linkage Orders
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS market_orders (
