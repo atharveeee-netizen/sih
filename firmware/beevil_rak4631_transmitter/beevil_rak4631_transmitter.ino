@@ -22,11 +22,14 @@
 #include "config.h"
 
 // ----------------------------------------------------------------------------
-// 32-BYTE BINARY TELEMETRY PACKET STRUCTURE (STRICT PACKING)
+// CANONICAL 40-BYTE BINARY TELEMETRY PACKET STRUCTURE (STRICT PACKING)
 // ----------------------------------------------------------------------------
 #pragma pack(push, 1)
 typedef struct {
+    uint8_t  protocol_version;         // 1 byte: Protocol Version (0x02)
     uint16_t hive_id;                  // 2 bytes: Hive Node ID (0x0001 - 0x0064)
+    uint16_t sequence_number;          // 2 bytes: Monotonic packet counter
+    uint8_t  presence_mask;            // 1 byte: Bitmask of active physical sensors
     int16_t  brood_core_temp_c_x100;   // 2 bytes: Real Physical Temp x 100
     int16_t  frame_temps_c_x100[5];    // 10 bytes: 5 Frame Thermal Gradient
     uint16_t humidity_pct_x100;        // 2 bytes: Relative Humidity % x 100
@@ -35,9 +38,13 @@ typedef struct {
     uint16_t weight_kg_x100;           // 2 bytes: Scale Net Weight kg x 100
     uint16_t lux;                      // 2 bytes: Solar Illuminance
     uint8_t  tilt_deg;                 // 1 byte: Tilt Angle / Alert Bitfield
+    uint8_t  battery_pct;              // 1 byte: Estimated Battery State of Charge (0-100%)
     uint8_t  fft_energy_bands[8];      // 8 bytes: Acoustic Spectrum Bands
-} BeevilLoRaPayload;                   // 32 BYTES TOTAL
+    uint16_t crc16;                    // 2 bytes: CRC-16-CCITT Checksum across bytes 0..37
+} BeevilLoRaPayload;                   // 40 BYTES TOTAL
 #pragma pack(pop)
+
+static_assert(sizeof(BeevilLoRaPayload) == 40, "BeevilLoRaPayload must be exactly 40 bytes");
 
 // Alert Flag Bits inside tilt_deg / alert field
 #define ALERT_FLAG_QUEENLESS_CUSUM    0x80  // Bit 7: CUSUM Drift Collapse Flag

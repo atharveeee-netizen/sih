@@ -20,6 +20,7 @@ import {
   Award,
   ChevronRight
 } from "lucide-react";
+import { getKvicStats, getClusters } from "@/lib/api";
 
 export default function KvicAdminDashboard() {
   const [stats, setStats] = useState<any>({
@@ -78,12 +79,13 @@ export default function KvicAdminDashboard() {
 
   useEffect(() => {
     Promise.all([
-      fetch("http://localhost:8000/api/v1/stats/kvic").then(r => r.ok ? r.json() : null),
-      fetch("http://localhost:8000/api/v1/clusters").then(r => r.ok ? r.json() : null)
+      getKvicStats(),
+      getClusters()
     ])
-      .then(([statsData, clusterData]) => {
-        if (statsData) setStats(statsData);
-        if (clusterData?.clusters) setClusters(clusterData.clusters);
+      .then(([statsRes, clusterRes]) => {
+        if (statsRes?.data) setStats(statsRes.data);
+        const clusterList = (clusterRes?.data as any)?.clusters || clusterRes?.data;
+        if (Array.isArray(clusterList)) setClusters(clusterList);
         setLoading(false);
       })
       .catch(() => {

@@ -30,11 +30,14 @@
 #include "algorithm_config.h"
 
 // ----------------------------------------------------------------------------
-// CANONICAL 32-BYTE BINARY TELEMETRY PACKET (STRICT PACKING)
+// CANONICAL 40-BYTE BINARY TELEMETRY PACKET (STRICT PACKING & ALIGNMENT)
 // ----------------------------------------------------------------------------
 #pragma pack(push, 1)
 typedef struct {
+    uint8_t  protocol_version;         // 1 byte: Protocol Version (0x02)
     uint16_t hive_id;                  // 2 bytes: Unique Hive ID (0x0001 - 0x0064)
+    uint16_t sequence_number;          // 2 bytes: Monotonic packet counter
+    uint8_t  presence_mask;            // 1 byte: Bitmask of detected hardware sensors
     int16_t  brood_core_temp_c_x100;   // 2 bytes: TMP117 Temp (-9999 if NOT_CONNECTED)
     int16_t  frame_temps_c_x100[5];    // 10 bytes: 5x DS18B20 Probes (-9999 if NOT_CONNECTED)
     uint16_t humidity_pct_x100;        // 2 bytes: 0.00% to 100.00% (0xFFFF if NOT_CONNECTED)
@@ -43,9 +46,13 @@ typedef struct {
     uint16_t weight_kg_x100;           // 2 bytes: 0.00 to 200.00 kg (0xFFFF if NOT_CONNECTED)
     uint16_t lux;                      // 2 bytes: 0 to 65,535 Lux (0xFFFF if NOT_CONNECTED)
     uint8_t  tilt_deg;                 // 1 byte: 0 to 90 deg (0xFF if NOT_CONNECTED)
+    uint8_t  battery_pct;              // 1 byte: 0 to 100% State of Charge
     uint8_t  fft_energy_bands[8];      // 8 bytes: Normalized acoustic sub-bands (0 if silent/absent)
-} BeevilLoRaPayload;                   // Exactly 32 Bytes
+    uint16_t crc16;                    // 2 bytes: CRC-16-CCITT across bytes 0..37
+} BeevilLoRaPayload;                   // Exactly 40 Bytes
 #pragma pack(pop)
+
+static_assert(sizeof(BeevilLoRaPayload) == 40, "BeevilLoRaPayload struct size must be exactly 40 bytes");
 
 // Sensor Presence Bitmask Flags
 #define PRESENCE_FLAG_TMP117           (1 << 0)  // Bit 0: TI TMP117 High-Precision RTD
@@ -301,6 +308,24 @@ void printBootBanner() {
 }
 
 // ----------------------------------------------------------------------------
+// CRC-16-CCITT IMPLEMENTATION (POLYNOMIAL 0x1021, INITIAL 0xFFFF)
+// ----------------------------------------------------------------------------
+uint16_t calculateCRC16CCITT(const uint8_t *data, size_t length) {
+    uint16_t crc = 0xFFFF;
+    for (size_t i = 0; i < length; i++) {
+        crc ^= ((uint16_t)data[i] << 8);
+        for (uint8_t bit = 0; bit < 8; bit++) {
+            if (crc & 0x8000) {
+                crc = (uint16_t)((crc << 1) ^ 0x1021);
+            } else {
+                crc = (uint16_t)(crc << 1);
+            }
+        }
+    }
+    return crc;
+}
+
+// ----------------------------------------------------------------------------
 // 6. SENSOR ACQUISITION & TELEMETRY DISPATCH (PHASE 6 & 7)
 // ----------------------------------------------------------------------------
 void dispatchTelemetry() {
@@ -325,8 +350,11 @@ void dispatchTelemetry() {
     g_bb_head = (g_bb_head + 1) % BLACKBOX_BUFFER_CAPACITY;
     if (g_bb_count < BLACKBOX_BUFFER_CAPACITY) g_bb_count++;
 
-    // 4. Assemble 32-Byte Binary Struct with Sentinels for Unconnected Sensors
+    // 4. Assemble Canonical 40-Byte Binary Struct with Sentinels for Unconnected Sensors
+    g_telemetry.protocol_version = 0x02; // Canonical Protocol v2
     g_telemetry.hive_id = 0x0001;
+    g_telemetry.sequence_number = (uint16_t)(g_packet_counter & 0xFFFF);
+    g_telemetry.presence_mask = (uint8_t)(g_sensors.presence_mask & 0xFF);
     
     // Core Temp: If TMP117 physically present, read it; else assign -9999 (NOT_CONNECTED)
     g_telemetry.brood_core_temp_c_x100 = g_sensors.has_tmp117 ? (int16_t)(34.82f * 100.0f) : (int16_t)-9999;
@@ -342,6 +370,7 @@ void dispatchTelemetry() {
     g_telemetry.weight_kg_x100    = g_sensors.has_hx711    ? 3420 : 0xFFFF;
     g_telemetry.lux               = g_sensors.has_veml7700 ? 4500 : 0xFFFF;
     g_telemetry.tilt_deg          = g_sensors.has_lis3dh   ? 1    : 0xFF;
+    g_telemetry.battery_pct       = (uint8_t)constrain((int)soc, 0, 100);
 
     // Acoustic FFT Bands: If mic unpopulated, zero bands
     memset(g_telemetry.fft_energy_bands, 0, 8);
@@ -352,6 +381,9 @@ void dispatchTelemetry() {
     // Embed alert flags into tilt_deg if present
     if (queen_alert) g_telemetry.tilt_deg = (g_telemetry.tilt_deg == 0xFF ? 0 : g_telemetry.tilt_deg) | ALERT_FLAG_QUEENLESS_CUSUM;
     if (soc < 15.0f) g_telemetry.tilt_deg = (g_telemetry.tilt_deg == 0xFF ? 0 : g_telemetry.tilt_deg) | ALERT_FLAG_LOW_BATTERY_SOC;
+
+    // Calculate CRC-16-CCITT across bytes 0..37 (38 bytes payload header + data)
+    g_telemetry.crc16 = calculateCRC16CCITT((const uint8_t*)&g_telemetry, 38);
 
     // 5. Output Machine-Readable JSON Lines (JSONL)
     if (!g_output_csv) {

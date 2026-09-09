@@ -31,11 +31,14 @@
 #define NUM_FRAME_TEMP_PROBES    5          // 5x DS18B20 1-Wire Probes
 
 // ----------------------------------------------------------------------------
-// TELEMETRY BINARY PACKET STRUCT (32 BYTES TOTAL - ZERO FRAGMENTATION)
+// TELEMETRY BINARY PACKET STRUCT (40 BYTES TOTAL - ZERO FRAGMENTATION)
 // ----------------------------------------------------------------------------
 #pragma pack(push, 1)
 typedef struct {
+    uint8_t  protocol_version;              // 1 byte: Protocol Version (0x02)
     uint16_t hive_id;                       // 2 bytes: Unique Hive ID (1-100)
+    uint16_t sequence_number;               // 2 bytes: Monotonic packet counter
+    uint8_t  presence_mask;                 // 1 byte: Bitmask of active physical sensors
     int16_t  brood_core_temp_c_x100;        // 2 bytes: TMP117 Temp (-55.00 to +150.00°C)
     int16_t  frame_temps_c_x100[5];         // 10 bytes: 5x DS18B20 Probes
     uint16_t humidity_pct_x100;             // 2 bytes: 0.00% to 100.00%
@@ -44,9 +47,13 @@ typedef struct {
     uint16_t weight_kg_x100;                // 2 bytes: 0.00 to 200.00 kg
     uint16_t lux;                           // 2 bytes: 0 to 65,535 Lux
     uint8_t  tilt_deg;                      // 1 byte: 0 to 90 degrees
+    uint8_t  battery_pct;                   // 1 byte: Estimated Battery State of Charge (0-100%)
     uint8_t  fft_energy_bands[8];           // 8 bytes: 8 normalized FFT bands (0-255)
-} beevil_lora_payload_t;                    // Total: Exactly 32 Bytes
+    uint16_t crc16;                         // 2 bytes: CRC-16-CCITT Checksum across bytes 0..37
+} beevil_lora_payload_t;                    // Total: Exactly 40 Bytes
 #pragma pack(pop)
+
+_Static_assert(sizeof(beevil_lora_payload_t) == 40, "beevil_lora_payload_t must be exactly 40 bytes");
 
 // ----------------------------------------------------------------------------
 // GLOBAL TASK HANDLES & BUFFERS

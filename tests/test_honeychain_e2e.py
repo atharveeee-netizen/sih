@@ -116,16 +116,16 @@ class TestHoneyChainCore:
 
         # 2. Test scan anomaly logic
         anomaly = HoneyChainQREngine.detect_scan_anomaly(
-            package_code="HC-PKG-A7F93E12",
+            package_code="HC-PKG-D4E56F78",
             current_ip="103.24.12.8",
             location_city="Chennai, India"
         )
-        assert anomaly in ["NORMAL", "EXCESSIVE_SCANS", "REUSE_DETECTED"]
+        assert anomaly in ["NORMAL", "EXCESSIVE_SCANS", "REUSE_DETECTED", "REPEAT_SCAN"]
 
         # 3. Verify suspicious package B8C24D91 reflects counterfeit reuse
         suspicious_status = HoneyChainQREngine.get_package_counterfeit_status("HC-PKG-B8C24D91")
-        assert suspicious_status["status"] in ["SUSPICIOUS", "FLAGGED", "EXCESSIVE_SCANS", "REUSE_DETECTED"]
-        assert suspicious_status["anomaly_flag"] in ["REUSE_DETECTED", "EXCESSIVE_SCANS"]
+        assert suspicious_status["status"] in ["SUSPICIOUS", "FLAGGED", "EXCESSIVE_SCANS", "REUSE_DETECTED", "REPEAT_SCAN"]
+        assert suspicious_status["anomaly_flag"] in ["REUSE_DETECTED", "EXCESSIVE_SCANS", "REPEAT_SCAN"]
 
 class TestHoneyChainAPIEndpoints:
     def test_kvic_admin_dashboard_stats(self, client):
@@ -172,11 +172,11 @@ class TestHoneyChainAPIEndpoints:
 
     def test_consumer_verification_endpoint(self, client):
         """GET /api/v1/verify/{code} returns complete consumer provenance and ledger proof."""
-        resp = client.get("/api/v1/verify/HC-PKG-A7F93E12")
+        resp = client.get("/api/v1/verify/HC-PKG-C3D45E67")
         assert resp.status_code == 200
         data = resp.json()
         assert data["verified"] is True
-        assert data["package_code"] == "HC-PKG-A7F93E12"
+        assert data["package_code"] == "HC-PKG-C3D45E67"
         assert "provenance" in data
         assert "batch" in data["provenance"]
         assert "origin" in data["provenance"]
@@ -309,8 +309,9 @@ class TestCompleteHoneyChainE2EJourney:
         assert v_data["provenance"]["quality"]["status"] == "PASS"
         assert v_data["provenance"]["ledger"]["chain_intact"] is True
 
-        # Step 9: Register consumer scan
+        # Step 9: Register consumer scan (second scan returns REPEAT_SCAN with verified=True)
         resp_scan = client.post(f"/api/v1/verify/{first_pkg_code}/scan", json={})
         assert resp_scan.status_code == 200
-        assert resp_scan.json()["status"] == "VERIFIED"
-        assert resp_scan.json()["scan_count"] >= 1
+        assert resp_scan.json()["status"] == "REPEAT_SCAN"
+        assert resp_scan.json()["verified"] is True
+        assert resp_scan.json()["scan_count"] == 2
