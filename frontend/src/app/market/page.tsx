@@ -13,8 +13,10 @@ import {
   Boxes,
   ArrowRight,
   TrendingUp,
+  Factory,
   Tag
 } from "lucide-react";
+import { getMarketOrders, createMarketOrder, getBatches } from "@/lib/api";
 
 export default function MarketPage() {
   const [orders, setOrders] = useState<any[]>([]);
@@ -28,83 +30,50 @@ export default function MarketPage() {
   const [pricePerKg, setPricePerKg] = useState(750.0);
   const [listingSuccess, setListingSuccess] = useState<string | null>(null);
 
-  const fetchOrders = () => {
-    fetch("http://localhost:8000/api/v1/market/orders")
-      .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        if (d?.market_orders) setOrders(d.market_orders);
-      })
-      .catch(() => {
-        // Fallback demo orders
-        setOrders([
-          {
-            id: "ORD-KVIC-001",
-            batch_id: "HC-BATCH-2026-NIL-001",
-            batch_code: "BATCH-2026-NIL-001",
-            floral_source: "Nilgiris High-Altitude Wild Flora",
-            cluster_name: "Nilgiris Mountain Forest Cluster",
-            buyer_name: "Khadi India Flagship Store, Connaught Place, New Delhi",
-            quantity_kg: 25.0,
-            price_per_kg: 750.0,
-            total_amount: 18750.0,
-            status: "DELIVERED"
-          },
-          {
-            id: "ORD-KVIC-002",
-            batch_id: "HC-BATCH-2026-GIR-002",
-            batch_code: "BATCH-2026-GIR-002",
-            floral_source: "Saurashtra Jamun & Forest Mustard",
-            cluster_name: "Gir Forest Flora Cluster",
-            buyer_name: "Organic Farm Direct & Co-op, Ahmedabad",
-            quantity_kg: 40.0,
-            price_per_kg: 680.0,
-            total_amount: 27200.0,
-            status: "ORDERED"
-          }
-        ]);
-      });
+  const fetchOrders = async () => {
+    try {
+      const res = await getMarketOrders();
+      const orderList = (res.data as any)?.market_orders || res.data;
+      if (Array.isArray(orderList)) setOrders(orderList);
+    } catch {
+      // Handled by fallback
+    }
   };
 
   useEffect(() => {
     fetchOrders();
-    fetch("http://localhost:8000/api/v1/batches")
-      .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        if (d?.batches) setBatches(d.batches);
+    getBatches()
+      .then(res => {
+        const batchList = (res.data as any)?.batches || res.data;
+        if (Array.isArray(batchList)) setBatches(batchList);
       })
       .catch(() => {});
   }, []);
 
-  const handleCreateListing = (e: React.FormEvent) => {
+  const handleCreateListing = async (e: React.FormEvent) => {
     e.preventDefault();
-    fetch("http://localhost:8000/api/v1/market/orders", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+    try {
+      await createMarketOrder({
         batch_id: selectedBatch,
         seller_id: "BEE-KVIC-001",
         buyer_name: buyerName,
         quantity_kg: Number(quantityKg),
         price_per_kg: Number(pricePerKg)
-      })
-    })
-      .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        setListingSuccess(`Order ${d?.order_id || "ORD-NEW"} listed with verified provenance guarantee!`);
-        setTimeout(() => {
-          setListingModalOpen(false);
-          setListingSuccess(null);
-          fetchOrders();
-        }, 1500);
-      })
-      .catch(() => {
-        setListingSuccess("Order created in verified marketplace cache!");
-        setTimeout(() => {
-          setListingModalOpen(false);
-          setListingSuccess(null);
-          fetchOrders();
-        }, 1500);
       });
+      setListingSuccess(`Successfully recorded B2B trade listing for ${quantityKg} kg of verified honey.`);
+      setTimeout(() => {
+        setListingModalOpen(false);
+        setListingSuccess(null);
+        fetchOrders();
+      }, 1500);
+    } catch {
+      setListingSuccess(`Trade listing recorded locally (Demo Mode).`);
+      setTimeout(() => {
+        setListingModalOpen(false);
+        setListingSuccess(null);
+        fetchOrders();
+      }, 1500);
+    }
   };
 
   return (

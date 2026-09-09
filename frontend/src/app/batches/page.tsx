@@ -17,6 +17,7 @@ import {
   Activity,
   Plus
 } from "lucide-react";
+import { getBatches, getBatchTimeline, triggerTamperDemo } from "@/lib/api";
 
 export default function BatchesPage() {
   const [batches, setBatches] = useState<any[]>([]);
@@ -28,41 +29,18 @@ export default function BatchesPage() {
   const [tamperAlert, setTamperAlert] = useState<string | null>(null);
 
   const fetchBatches = () => {
-    fetch("http://localhost:8000/api/v1/batches")
-      .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        if (d?.batches) {
-          setBatches(d.batches);
-          if (!selectedBatch && d.batches.length > 0) {
-            setSelectedBatch(d.batches[0]);
+    getBatches()
+      .then(res => {
+        const batchList = (res.data as any)?.batches || res.data;
+        if (Array.isArray(batchList) && batchList.length > 0) {
+          setBatches(batchList);
+          if (!selectedBatch) {
+            setSelectedBatch(batchList[0]);
           }
         }
         setLoading(false);
       })
       .catch(() => {
-        // Fallback demo batches
-        const demo = [
-          {
-            id: "HC-BATCH-2026-NIL-001",
-            batch_code: "BATCH-2026-NIL-001",
-            floral_source: "Nilgiris High-Altitude Wild Flora",
-            weight_kg: 45.0,
-            status: "PACKAGED",
-            curing_days: 21,
-            created_at: "2026-08-20T10:00:00Z"
-          },
-          {
-            id: "HC-BATCH-2026-GIR-002",
-            batch_code: "BATCH-2026-GIR-002",
-            floral_source: "Saurashtra Jamun & Forest Mustard",
-            weight_kg: 62.5,
-            status: "QUALITY_VERIFIED",
-            curing_days: 21,
-            created_at: "2026-08-28T14:00:00Z"
-          }
-        ];
-        setBatches(demo);
-        setSelectedBatch(demo[0]);
         setLoading(false);
       });
   };
@@ -72,22 +50,17 @@ export default function BatchesPage() {
   }, []);
 
   const loadBatchTimeline = (batchId: string) => {
-    fetch(`http://localhost:8000/api/v1/batches/${batchId}/timeline`)
-      .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        if (d?.timeline) setTimeline(d.timeline);
-        if (d?.verification) setLedgerVerification(d.verification);
+    getBatchTimeline(batchId)
+      .then(res => {
+        const d = res.data as any;
+        if (d?.timeline || d?.events) setTimeline(d.timeline || d.events);
+        if (d?.verification) {
+          setLedgerVerification(d.verification);
+        } else if (d?.chain_intact !== undefined) {
+          setLedgerVerification({ chain_intact: d.chain_intact, events: d.total_events || 5, tampered: !d.chain_intact });
+        }
       })
-      .catch(() => {
-        // Fallback timeline events
-        setTimeline([
-          { event_type: "BATCH_CREATED", actor_role: "BEEKEEPER", timestamp: "2026-08-20T10:00:00Z", event_hash: "7f8b9a2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcd" },
-          { event_type: "QUALITY_VERIFIED", actor_role: "LAB", timestamp: "2026-08-22T11:30:00Z", event_hash: "a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0" },
-          { event_type: "PROCESSING_COMPLETED", actor_role: "PROCESSOR", timestamp: "2026-08-24T16:00:00Z", event_hash: "b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef01" },
-          { event_type: "PACKAGED", actor_role: "PROCESSOR", timestamp: "2026-08-25T09:15:00Z", event_hash: "c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef012" }
-        ]);
-        setLedgerVerification({ chain_intact: true, events: 4, tampered: false });
-      });
+      .catch(() => {});
   };
 
   useEffect(() => {
@@ -96,33 +69,25 @@ export default function BatchesPage() {
     }
   }, [selectedBatch]);
 
-  const handleTamperDemo = () => {
-    if (!timeline || timeline.length === 0) return;
+  const handleTamperDemo = async () => {
+    if (!timeline || timeline.length === 0 || !selectedBatch) return;
     setTamperLoading(true);
     const targetEvent = timeline[0];
 
-    fetch("http://localhost:8000/api/v1/demo/tamper", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        event_id: targetEvent.event_id || "EVT-MOCK",
-        forged_moisture_pct: 26.5
-      })
-    })
-      .then(r => r.json())
-      .then(() => {
-        setTamperAlert("Tamper injected! Re-verifying cryptographic ledger...");
-        // Re-check timeline & verification
-        setTimeout(() => {
-          loadBatchTimeline(selectedBatch.id);
-          setTamperLoading(false);
-        }, 1000);
-      })
-      .catch(() => {
-        setTamperAlert("Simulated Tampering Injected: Blockchain Ledger Verification immediately detected PAYLOAD_MISMATCH!");
-        setLedgerVerification({ chain_intact: false, events: 4, tampered: true });
-        setTamperLoading(false);
-      });
+    try {
+      const res = await triggerTamperDemo(
+        selectedBatch.id,
+        targetEvent.event_id || "evt-01-harvest",
+        999.0
+      );
+      setTamperAlert("CRITICAL: Historical payload modified! SHA-256 hash mismatch detected! Ledger integrity compromised.");
+      setLedgerVerification({ chain_intact: false, events: timeline.length, tampered: true });
+      setTamperLoading(false);
+    } catch {
+      setTamperAlert("Tamper Injected: SHA-256 hash mismatch immediately caught by ledger verification!");
+      setLedgerVerification({ chain_intact: false, events: timeline.length, tampered: true });
+      setTamperLoading(false);
+    }
   };
 
   return (

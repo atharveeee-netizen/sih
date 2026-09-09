@@ -24,14 +24,17 @@ from typing import Dict, Any
 
 
 # -----------------------------------------------------------------------------
-# 1. 32-BYTE BINARY STRUCT TESTS
+# 1. CANONICAL 40-BYTE BINARY STRUCT TESTS
 # -----------------------------------------------------------------------------
 class TestBinaryTelemetryStruct:
-    """Validate packing, size, and layout of BeevilLoRaPayload."""
+    """Validate canonical 40-byte packing, size, presence mask, CRC, and layout of BeevilLoRaPayload."""
 
-    # Format: <H h 5h H H H H H B 8B
+    # Format: <B H H B h 5h H H H H H B B 8B H
     # < = little endian (ARM Cortex-M4 native)
+    # B = uint8 (protocol_version = 0x02) -> 1
     # H = uint16 (hive_id) -> 2
+    # H = uint16 (sequence_number) -> 2
+    # B = uint8 (presence_mask) -> 1
     # h = int16 (brood_core_temp_c_x100) -> 2
     # 5h = 5 * int16 (frame_temps_c_x100) -> 10
     # H = uint16 (humidity_pct_x100) -> 2
@@ -40,21 +43,35 @@ class TestBinaryTelemetryStruct:
     # H = uint16 (weight_kg_x100) -> 2
     # H = uint16 (lux) -> 2
     # B = uint8 (tilt_deg) -> 1
+    # B = uint8 (battery_pct) -> 1
     # 8B = 8 * uint8 (fft_energy_bands) -> 8
-    # Total: 2 + 2 + 10 + 2 + 2 + 2 + 2 + 2 + 1 + 8 = 31 bytes payload
-    STRUCT_FORMAT = "<Hh5hHHHHHBBBBBBBBB"
+    # H = uint16 (crc16) -> 2
+    # Total: 1 + 2 + 2 + 1 + 2 + 10 + 2 + 2 + 2 + 2 + 2 + 1 + 1 + 8 + 2 = 40 bytes
+    STRUCT_FORMAT = "<BHHBh5hHHHHHBB8BH"
     EXPECTED_SIZE = struct.calcsize(STRUCT_FORMAT)
 
+    @staticmethod
+    def calculate_crc16_ccitt(data: bytes) -> int:
+        crc = 0xFFFF
+        for b in data:
+            crc ^= (b << 8)
+            for _ in range(8):
+                if crc & 0x8000:
+                    crc = ((crc << 1) ^ 0x1021) & 0xFFFF
+                else:
+                    crc = (crc << 1) & 0xFFFF
+        return crc
+
     def test_struct_exact_size(self):
-        """Struct size is exactly 33 bytes:
-        2 (hive_id) + 2 (core_temp) + 10 (5x frames) + 2 (hum) + 2 (voc) +
-        2 (co2) + 2 (weight) + 2 (lux) + 1 (tilt) + 8 (fft) = 33 bytes.
-        """
-        assert self.EXPECTED_SIZE == 33, f"Unexpected struct size: {self.EXPECTED_SIZE}"
+        """Struct size must be mathematically and exactly 40 bytes."""
+        assert self.EXPECTED_SIZE == 40, f"Unexpected struct size: {self.EXPECTED_SIZE}"
 
     def test_nominal_pack_unpack_roundtrip(self):
-        """Verify packing and unpacking of nominal hive data."""
+        """Verify packing and unpacking of nominal hive data with CRC-16."""
+        version = 0x02
         hive_id = 0x0001
+        seq_num = 142
+        presence_mask = 0xFF  # All 8 sensors active
         core_t = int(34.82 * 100)
         frames = [int(34.20 * 100), int(34.15 * 100), int(34.30 * 100), int(33.90 * 100), int(34.05 * 100)]
         hum = int(58.40 * 100)
@@ -63,31 +80,44 @@ class TestBinaryTelemetryStruct:
         weight = int(34.20 * 100)
         lux = 4500
         tilt = 2
+        battery = 94
         fft_bands = [10, 20, 150, 80, 30, 15, 5, 2]
 
-        packed = struct.pack(
-            self.STRUCT_FORMAT,
-            hive_id, core_t,
+        # Pack preliminary payload without CRC
+        prelim = struct.pack(
+            "<BHHBh5hHHHHHBB8B",
+            version, hive_id, seq_num, presence_mask, core_t,
             frames[0], frames[1], frames[2], frames[3], frames[4],
-            hum, voc, co2, weight, lux, tilt,
+            hum, voc, co2, weight, lux, tilt, battery,
             *fft_bands
         )
+        crc16 = self.calculate_crc16_ccitt(prelim)
+        packed = prelim + struct.pack("<H", crc16)
 
+        assert len(packed) == 40
         unpacked = struct.unpack(self.STRUCT_FORMAT, packed)
-        assert unpacked[0] == hive_id
-        assert unpacked[1] == core_t
-        assert list(unpacked[2:7]) == frames
-        assert unpacked[7] == hum
-        assert unpacked[8] == voc
-        assert unpacked[9] == co2
-        assert unpacked[10] == weight
-        assert unpacked[11] == lux
-        assert unpacked[12] == tilt
-        assert list(unpacked[13:21]) == fft_bands
+        assert unpacked[0] == version
+        assert unpacked[1] == hive_id
+        assert unpacked[2] == seq_num
+        assert unpacked[3] == presence_mask
+        assert unpacked[4] == core_t
+        assert list(unpacked[5:10]) == frames
+        assert unpacked[10] == hum
+        assert unpacked[11] == voc
+        assert unpacked[12] == co2
+        assert unpacked[13] == weight
+        assert unpacked[14] == lux
+        assert unpacked[15] == tilt
+        assert unpacked[16] == battery
+        assert list(unpacked[17:25]) == fft_bands
+        assert unpacked[25] == crc16
 
     def test_unconnected_sensor_sentinels(self):
         """Unconnected sensors must serialize as -9999 or 0xFFFF, never fake numbers."""
+        version = 0x02
         hive_id = 0x0001
+        seq_num = 1
+        presence_mask = 0x00  # Zero sensors connected
         core_t_unconnected = -9999
         frames_unconnected = [-9999] * 5
         hum_unconnected = 0xFFFF
@@ -96,26 +126,61 @@ class TestBinaryTelemetryStruct:
         weight_unconnected = 0xFFFF
         lux_unconnected = 0xFFFF
         tilt_unconnected = 0xFF
+        battery_unconnected = 0xFF
         fft_unconnected = [0] * 8
+        dummy_crc = 0x0000
 
         packed = struct.pack(
             self.STRUCT_FORMAT,
-            hive_id, core_t_unconnected,
+            version, hive_id, seq_num, presence_mask,
+            core_t_unconnected,
             *frames_unconnected,
             hum_unconnected, voc_unconnected, co2_unconnected,
             weight_unconnected, lux_unconnected, tilt_unconnected,
-            *fft_unconnected
+            battery_unconnected,
+            *fft_unconnected,
+            dummy_crc
         )
 
         unpacked = struct.unpack(self.STRUCT_FORMAT, packed)
-        assert unpacked[1] == -9999  # TMP117 absent
-        assert list(unpacked[2:7]) == [-9999] * 5  # DS18B20 absent
-        assert unpacked[7] == 0xFFFF  # BME688 hum absent
-        assert unpacked[8] == 0xFFFF  # BME688 voc absent
-        assert unpacked[9] == 0xFFFF  # SCD41 absent
-        assert unpacked[10] == 0xFFFF  # HX711 absent
-        assert unpacked[11] == 0xFFFF  # VEML7700 absent
-        assert unpacked[12] == 0xFF  # LIS3DH absent
+        assert unpacked[3] == 0x00  # Presence mask zero
+        assert unpacked[4] == -9999  # TMP117 absent
+        assert list(unpacked[5:10]) == [-9999] * 5  # DS18B20 absent
+        assert unpacked[10] == 0xFFFF  # BME688 hum absent
+        assert unpacked[11] == 0xFFFF  # BME688 voc absent
+        assert unpacked[12] == 0xFFFF  # SCD41 absent
+        assert unpacked[13] == 0xFFFF  # HX711 absent
+        assert unpacked[14] == 0xFFFF  # VEML7700 absent
+        assert unpacked[15] == 0xFF  # LIS3DH absent
+        assert unpacked[16] == 0xFF  # Battery absent
+
+    def test_truncated_and_oversized_packet_detection(self):
+        """Detect truncated (<40B) and oversized (>40B) frame corruptions."""
+        valid_buf = b"\x00" * 40
+        truncated = valid_buf[:35]
+        oversized = valid_buf + b"\xFF\xFF"
+
+        assert len(truncated) != self.EXPECTED_SIZE
+        assert len(oversized) != self.EXPECTED_SIZE
+        with pytest.raises(struct.error):
+            struct.unpack(self.STRUCT_FORMAT, truncated)
+
+    def test_presence_mask_bitflags(self):
+        """Verify presence mask flags isolate individual sensors."""
+        FLAG_TMP117 = (1 << 0)
+        FLAG_SCD41 = (1 << 1)
+        FLAG_BME688 = (1 << 2)
+        FLAG_LIS3DH = (1 << 3)
+        FLAG_VEML7700 = (1 << 4)
+        FLAG_HX711 = (1 << 5)
+        FLAG_DS18B20 = (1 << 6)
+        FLAG_INMP441 = (1 << 7)
+
+        mask = FLAG_TMP117 | FLAG_HX711 | FLAG_INMP441
+        assert (mask & FLAG_TMP117) != 0
+        assert (mask & FLAG_SCD41) == 0
+        assert (mask & FLAG_HX711) != 0
+        assert (mask & FLAG_INMP441) != 0
 
 
 # -----------------------------------------------------------------------------

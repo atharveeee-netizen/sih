@@ -18,6 +18,7 @@ import {
   Droplet,
   Scale
 } from "lucide-react";
+import { getBeekeepers, getHives, createHarvest } from "@/lib/api";
 
 export default function BeekeeperPage() {
   const [beekeepers, setBeekeepers] = useState<any[]>([]);
@@ -33,17 +34,17 @@ export default function BeekeeperPage() {
   const [harvestSuccess, setHarvestSuccess] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/v1/beekeepers")
-      .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        if (d?.beekeepers) setBeekeepers(d.beekeepers);
+    getBeekeepers()
+      .then(res => {
+        const bkList = (res.data as any)?.beekeepers || res.data;
+        if (Array.isArray(bkList)) setBeekeepers(bkList);
       })
       .catch(() => {});
 
-    fetch("http://localhost:8000/api/v1/hives")
-      .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        if (d?.hives) setHives(d.hives);
+    getHives()
+      .then(res => {
+        const hiveList = (res.data as any)?.hives || res.data;
+        if (Array.isArray(hiveList)) setHives(hiveList);
       })
       .catch(() => {
         // Fallback demo data
@@ -56,12 +57,10 @@ export default function BeekeeperPage() {
       });
   }, []);
 
-  const handleRecordHarvest = (e: React.FormEvent) => {
+  const handleRecordHarvest = async (e: React.FormEvent) => {
     e.preventDefault();
-    fetch("http://localhost:8000/api/v1/harvests", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+    try {
+      const res = await createHarvest({
         hive_id: Number(hiveId),
         apiary_id: "apiary-nilgiris-01",
         beekeeper_id: selectedBk,
@@ -69,25 +68,20 @@ export default function BeekeeperPage() {
         field_moisture_pct: Number(fieldMoisture),
         floral_source: floralSource,
         notes: "Recorded from Beekeeper Field App"
-      })
-    })
-      .then(r => r.ok ? r.json() : null)
-      .then(data => {
-        if (data?.harvest_id) {
-          setHarvestSuccess(`Harvest ${data.harvest_id} recorded & anchored into cryptographic ledger!`);
-          setTimeout(() => {
-            setHarvestModalOpen(false);
-            setHarvestSuccess(null);
-          }, 2000);
-        }
-      })
-      .catch(() => {
-        setHarvestSuccess("Harvest recorded locally in offline cache!");
-        setTimeout(() => {
-          setHarvestModalOpen(false);
-          setHarvestSuccess(null);
-        }, 2000);
       });
+      const harvId = (res.data as any)?.harvest_id || "harv-01";
+      setHarvestSuccess(`Harvest ${harvId} recorded & anchored into cryptographic ledger!`);
+      setTimeout(() => {
+        setHarvestModalOpen(false);
+        setHarvestSuccess(null);
+      }, 1500);
+    } catch {
+      setHarvestSuccess(`Harvest recorded locally (Demo Mode)!`);
+      setTimeout(() => {
+        setHarvestModalOpen(false);
+        setHarvestSuccess(null);
+      }, 1500);
+    }
   };
 
   return (

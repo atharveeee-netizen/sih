@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="100%" height="100%" style="background:#ffffff; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <style>
+      .title { font-size: 20px; font-weight: 700; fill: #0f172a; }
+      .subtitle { font-size: 13px; font-weight: 500; fill: #64748b; }
+      .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 6px; }
+      .box-primary { fill: #f0f9ff; stroke: #0284c7; stroke-width: 1.5; rx: 6px; }
+      .box-success { fill: #f0fdf4; stroke: #16a34a; stroke-width: 1.5; rx: 6px; }
+      .box-warning { fill: #fffbeb; stroke: #d97706; stroke-width: 1.5; rx: 6px; }
+      .box-alert { fill: #fff1f2; stroke: #e11d48; stroke-width: 1.5; rx: 6px; }
+      .label { font-size: 13px; font-weight: 600; fill: #0f172a; }
+      .desc { font-size: 11px; fill: #64748b; }
+      .tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+      .line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      .line-accent { stroke: #0284c7; stroke-width: 2; fill: none; }
+      .arrow { fill: #0284c7; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7"/>
+    </marker>
+    <marker id="arrow-dark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="40" y="45" class="title">FIG 09 — UNIQUE RETAIL QR TOKEN &amp; ANTI-COUNTERFEIT VELOCITY</text>
+  <text x="40" y="68" class="subtitle">Multi-tier scan frequency analysis flags duplicate cloned labels and unsealed packages</text>
+
+  <!-- Scenario 1: First Scan -->
+  <rect x="40" y="110" width="280" height="220" class="box-success" />
+  <rect x="40" y="110" width="280" height="30" style="fill:#dcfce7; rx:6px 6px 0 0;" />
+  <text x="55" y="131" class="tag" style="fill:#15803d;">SCENARIO 1: FIRST CONSUMER SCAN</text>
+  <text x="55" y="165" class="label" style="font-size:15px;">Status: VERIFIED</text>
+  <text x="55" y="190" class="desc">• Scan Count: 1 (Virgin Token)</text>
+  <text x="55" y="210" class="desc">• Anomaly Flag: NORMAL</text>
+  <text x="55" y="230" class="desc">• Message: Authentic KVIC Honey.</text>
+  <text x="55" y="250" class="desc">• Action: Full provenance certificate &amp;</text>
+  <text x="55" y="270" class="desc">  ledger proof displayed to consumer.</text>
+  <text x="55" y="300" class="tag" style="fill:#15803d;">GENUINE FIRST PURCHASE</text>
+
+  <!-- Scenario 2: Repeat Scan -->
+  <rect x="360" y="110" width="280" height="220" class="box-warning" />
+  <rect x="360" y="110" width="280" height="30" style="fill:#fef3c7; rx:6px 6px 0 0;" />
+  <text x="375" y="131" class="tag" style="fill:#b45309;">SCENARIO 2: REPEAT SCAN (2–5 SCANS)</text>
+  <text x="375" y="165" class="label" style="font-size:15px;">Status: REPEAT_SCAN</text>
+  <text x="375" y="190" class="desc">• Scan Count: 2 to 5</text>
+  <text x="375" y="210" class="desc">• Anomaly Flag: REPEAT_SCAN</text>
+  <text x="375" y="230" class="desc">• Message: Registered packaging, but</text>
+  <text x="375" y="250" class="desc">  previously verified N times.</text>
+  <text x="375" y="270" class="desc">• Action: Warn consumer to check physical</text>
+  <text x="375" y="290" class="desc">  tamper-evident jar neck seal.</text>
+  <text x="375" y="315" class="tag" style="fill:#b45309;">TAMPER SEAL AUDIT REQUIRED</text>
+
+  <!-- Scenario 3: Excessive Scans (Cloned Label) -->
+  <rect x="680" y="110" width="280" height="220" class="box-alert" />
+  <rect x="680" y="110" width="280" height="30" style="fill:#ffe4e6; rx:6px 6px 0 0;" />
+  <text x="695" y="131" class="tag" style="fill:#be123c;">SCENARIO 3: CLONED LABEL (>5 SCANS)</text>
+  <text x="695" y="165" class="label" style="font-size:15px; fill:#be123c;">Status: SUSPICIOUS</text>
+  <text x="695" y="190" class="desc">• Scan Count: > 5 distinct sessions</text>
+  <text x="695" y="210" class="desc">• Anomaly Flag: EXCESSIVE_SCANS</text>
+  <text x="695" y="230" class="desc">• Velocity: Scans across distant cities</text>
+  <text x="695" y="250" class="desc">• Message: Potential photocopied label</text>
+  <text x="695" y="270" class="desc">• Action: Verification rejected (verified=False);</text>
+  <text x="695" y="290" class="desc">  automatic alert dispatched to KVIC.</text>
+  <text x="695" y="315" class="tag" style="fill:#be123c;">COUNTERFEIT ALERT DISPATCHED</text>
+
+  <!-- Footer Explanation -->
+  <rect x="40" y="360" width="920" height="110" class="box" />
+  <text x="60" y="390" class="label" style="font-size:14px;">Why This Solves the Jury's Photocopy Criticism:</text>
+  <text x="60" y="415" class="desc">1. A bad actor can photocopy a QR label onto 1,000 jars, but every scan increments the central KVIC registry scan counter.</text>
+  <text x="60" y="435" class="desc">2. By the 2nd scan, the consumer sees a REPEAT_SCAN notice. By the 6th scan, the interface permanently shifts to SUSPICIOUS.</text>
+  <text x="60" y="455" class="desc">3. Large-scale commercial counterfeiting is economically neutralized because cloned jars self-invalidate across retail shelves.</text>
+</svg>

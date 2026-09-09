@@ -17,6 +17,7 @@ import {
   RefreshCw,
   ArrowLeft
 } from "lucide-react";
+import { getHives, getHiveForecast } from "@/lib/api";
 
 export default function HivesPage() {
   const [hives, setHives] = useState<any[]>([]);
@@ -25,47 +26,27 @@ export default function HivesPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/v1/hives")
-      .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        if (d?.hives) {
-          setHives(d.hives);
-          setSelectedHive(d.hives[0]);
+    getHives()
+      .then(res => {
+        const hiveList = (res.data as any)?.hives || res.data;
+        if (Array.isArray(hiveList) && hiveList.length > 0) {
+          setHives(hiveList);
+          setSelectedHive(hiveList[0]);
         }
         setLoading(false);
       })
       .catch(() => {
-        // Fallback demo fleet
-        const demoHives = [
-          { hive_id: 1, name: "Hive-001 (Alpha Core)", status: "HEALTHY", last_health_score: 98.5, tare_weight_kg: 22.5, apiary_name: "Shola Ridge Alpha", beekeeper_name: "Ramanathan Pillai" },
-          { hive_id: 2, name: "Hive-002 (Shola West)", status: "HEALTHY", last_health_score: 97.2, tare_weight_kg: 22.0, apiary_name: "Shola Ridge Alpha", beekeeper_name: "Ramanathan Pillai" },
-          { hive_id: 3, name: "Hive-003 (Thermal Monitor)", status: "AT_RISK", last_health_score: 42.0, tare_weight_kg: 23.0, apiary_name: "Shola Ridge Alpha", beekeeper_name: "Ramanathan Pillai" },
-          { hive_id: 4, name: "Hive-004 (Eucalyptus Ridge)", status: "HEALTHY", last_health_score: 96.8, tare_weight_kg: 21.8, apiary_name: "Blue Mountain High", beekeeper_name: "Kavitha Murugan" },
-          { hive_id: 6, name: "Hive-006 (Talala Jamun 1)", status: "HEALTHY", last_health_score: 98.0, tare_weight_kg: 22.8, apiary_name: "Somnath Border", beekeeper_name: "Bhavesh Patel" },
-          { hive_id: 11, name: "Hive-011 (White Honey Core)", status: "HEALTHY", last_health_score: 99.0, tare_weight_kg: 22.5, apiary_name: "Pampore Acacia", beekeeper_name: "Ghulam Nabi Lone" }
-        ];
-        setHives(demoHives);
-        setSelectedHive(demoHives[0]);
         setLoading(false);
       });
   }, []);
 
   useEffect(() => {
     if (selectedHive?.hive_id) {
-      fetch(`http://localhost:8000/api/v1/productivity/forecast/${selectedHive.hive_id}`)
-        .then(r => r.ok ? r.json() : null)
-        .then(d => {
-          if (d) setForecast(d);
+      getHiveForecast(selectedHive.hive_id)
+        .then(res => {
+          if (res?.data) setForecast(res.data);
         })
-        .catch(() => {
-          setForecast({
-            current_weight_kg: 34.2,
-            "7_day_weight_delta_kg": 2.4,
-            projected_harvestable_yield_kg: 18.5,
-            colony_productivity_status: "ACTIVE_ACCUMULATING",
-            recommended_harvest_window: "Next 6 to 9 days"
-          });
-        });
+        .catch(() => {});
     }
   }, [selectedHive]);
 

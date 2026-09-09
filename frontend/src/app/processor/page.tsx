@@ -15,6 +15,7 @@ import {
   Factory,
   PackageCheck
 } from "lucide-react";
+import { getBatches, createBatchQuality, createBatchProcessing, createBatchPackage } from "@/lib/api";
 
 export default function ProcessorPage() {
   const [batches, setBatches] = useState<any[]>([]);
@@ -42,23 +43,21 @@ export default function ProcessorPage() {
   const [pkgStatus, setPkgStatus] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/v1/batches")
-      .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        if (d?.batches) {
-          setBatches(d.batches);
-          if (d.batches.length > 0) setSelectedBatchId(d.batches[0].id);
+    getBatches()
+      .then(res => {
+        const batchList = (res.data as any)?.batches || res.data;
+        if (Array.isArray(batchList)) {
+          setBatches(batchList);
+          if (batchList.length > 0) setSelectedBatchId(batchList[0].id);
         }
       })
       .catch(() => {});
   }, []);
 
-  const handleQualitySubmit = (e: React.FormEvent) => {
+  const handleQualitySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    fetch(`http://localhost:8000/api/v1/batches/${selectedBatchId}/quality`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+    try {
+      const res = await createBatchQuality(selectedBatchId, {
         lab_name: labName,
         moisture_pct: Number(moisture),
         hmf_mg_kg: Number(hmf),
@@ -67,58 +66,43 @@ export default function ProcessorPage() {
         c4_sugar_pct: 0.0,
         c3_sugar_pct: 0.0,
         adulteration_result: "PURE_AUTHENTIC"
-      })
-    })
-      .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        setQaStatus(`Quality Test Attached! Status: ${d?.status || "PASS"}. Anchored into Blockchain Ledger.`);
-      })
-      .catch(() => {
-        setQaStatus("Quality Test recorded and certified locally!");
       });
+      setQaStatus(`Quality Test Attached! Status: ${(res.data as any)?.status || "PASS"}. Anchored into cryptographic ledger.`);
+    } catch {
+      setQaStatus("Quality Test recorded and certified locally (Demo Mode).");
+    }
   };
 
-  const handleProcessingSubmit = (e: React.FormEvent) => {
+  const handleProcessingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    fetch(`http://localhost:8000/api/v1/batches/${selectedBatchId}/processing`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+    try {
+      await createBatchProcessing(selectedBatchId, {
         facility_name: facilityName,
         operator_id: "OP-NIL-42",
         filtering_temp_c: Number(filterTemp),
         settling_hours: Number(settlingHours),
         moisture_reduction_pct: 0.5
-      })
-    })
-      .then(r => r.ok ? r.json() : null)
-      .then(() => {
-        setProcStatus("Processing Event Recorded! State: COMPLETED. Ledger block created.");
-      })
-      .catch(() => {
-        setProcStatus("Processing event recorded!");
       });
+      setProcStatus("Processing Event Recorded! State: COMPLETED. Ledger block created.");
+    } catch {
+      setProcStatus("Processing event recorded (Demo Mode)!");
+    }
   };
 
-  const handlePackagingSubmit = (e: React.FormEvent) => {
+  const handlePackagingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    fetch(`http://localhost:8000/api/v1/batches/${selectedBatchId}/package`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+    try {
+      const res = await createBatchPackage(selectedBatchId, {
         lot_number: lotNumber,
         jar_size_g: Number(jarSize),
         total_units: Number(totalUnits),
         facility_location: facilityName
-      })
-    })
-      .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        setPkgStatus(`Lot ${lotNumber} Packaged! Issued ${totalUnits} unique QR tokens (e.g. ${d?.sample_package_code || "HC-PKG-A7F93E12"}). Anchored to ledger.`);
-      })
-      .catch(() => {
-        setPkgStatus(`Lot ${lotNumber} Packaged! Issued ${totalUnits} unique QR tokens.`);
       });
+      const code = (res.data as any)?.sample_package_code || "HC-PKG-A7F93E12";
+      setPkgStatus(`Lot ${lotNumber} Packaged! Issued ${totalUnits} unique QR tokens (e.g. ${code}). Anchored to ledger.`);
+    } catch {
+      setPkgStatus(`Lot ${lotNumber} Packaged! Issued ${totalUnits} unique QR tokens (Demo Mode).`);
+    }
   };
 
   return (

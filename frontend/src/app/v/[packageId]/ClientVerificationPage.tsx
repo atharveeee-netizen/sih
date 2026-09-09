@@ -14,8 +14,11 @@ import {
   ArrowLeft,
   Lock,
   Boxes,
-  RefreshCw
+  RefreshCw,
+  Info,
+  ExternalLink
 } from "lucide-react";
+import { verifyPackage } from "@/lib/api";
 
 export default function ClientVerificationPage({ packageId }: { packageId: string }) {
   const packageCode = packageId;
@@ -23,102 +26,18 @@ export default function ClientVerificationPage({ packageId }: { packageId: strin
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [tamperLoading, setTamperLoading] = useState(false);
 
-  const fetchVerification = () => {
+  const fetchVerification = async () => {
     setLoading(true);
-    fetch(`http://localhost:8000/api/v1/verify/${packageCode}`)
-      .then(async (res) => {
-        if (!res.ok) {
-          throw new Error(`Package verification failed: ${res.statusText}`);
-        }
-        return res.json();
-      })
-      .then((json) => {
-        setData(json);
-        setLoading(false);
-      })
-      .catch(() => {
-        // Fallback for standalone demo when backend is offline
-        if (packageCode === "HC-PKG-A7F93E12" || packageCode === "demo") {
-          setData({
-            verified: true,
-            status: "VERIFIED",
-            anomaly_flag: "NORMAL",
-            message: "Authentic KVIC Honey. Genuine seal verified.",
-            package_code: packageCode,
-            scan_count: 1,
-            provenance: {
-              package: {
-                package_code: packageCode,
-                jar_size_g: 500,
-                lot_number: "LOT-2026-NIL-500G",
-                packaged_at: "2026-08-25T10:00:00Z",
-                expiry_date: "2028-08-25",
-                facility_location: "Nilgiris Tribal Co-operative, Coonoor"
-              },
-              batch: {
-                batch_code: "BATCH-2026-NIL-001",
-                weight_kg: 45.0,
-                floral_source: "Nilgiris High-Altitude Wild Flora",
-                curing_days: 21
-              },
-              origin: {
-                cluster_name: "Nilgiris Mountain Forest Cluster",
-                state: "Tamil Nadu",
-                district: "Nilgiris",
-                beekeeper_name: "Ramanathan Pillai",
-                beekeeper_reg: "KVIC-REG-TN-4102",
-                apiary_name: "Shola Ridge Apiary Alpha",
-                elevation_m: 1850.0,
-                primary_flora: "Shola Evergreen Forest & Wild Thyme"
-              },
-              harvest: {
-                harvest_date: "2026-08-15",
-                field_moisture_pct: 17.6,
-                floral_source: "Nilgiris High-Altitude Wild Flora"
-              },
-              quality: {
-                lab_name: "KVIC Honey Testing & Quality Analysis Center, Pune",
-                moisture_pct: 17.1,
-                hmf_mg_kg: 11.2,
-                diastase_number: 14.8,
-                electrical_conductivity: 0.52,
-                adulteration_result: "PURE_AUTHENTIC",
-                status: "PASS",
-                certificate_hash: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-              },
-              processing: {
-                facility_name: "Nilgiris Tribal Apiculture Processing Co-operative",
-                filtering_temp_c: 38.5,
-                settling_hours: 48.0,
-                status: "COMPLETED"
-              },
-              ledger: {
-                verified: true,
-                chain_intact: true,
-                total_events: 6,
-                tampered: false
-              }
-            }
-          });
-          setLoading(false);
-        } else if (packageCode === "HC-PKG-B8C24D91") {
-          setData({
-            verified: false,
-            status: "SUSPICIOUS",
-            anomaly_flag: "REUSE_DETECTED",
-            message: "WARNING: High velocity multiple scans detected across geographically distant locations. Potential counterfeit copied label.",
-            package_code: packageCode,
-            scan_count: 4,
-            provenance: null
-          });
-          setLoading(false);
-        } else {
-          setError("Failed to reach verification gateway. Please ensure gateway is online.");
-          setLoading(false);
-        }
-      });
+    setError(null);
+    try {
+      const res = await verifyPackage(packageCode);
+      setData(res.data);
+    } catch (err: any) {
+      setError(err?.message || "Failed to reach verification gateway.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -126,39 +45,44 @@ export default function ClientVerificationPage({ packageId }: { packageId: strin
   }, [packageCode]);
 
   const prov = data?.provenance;
-  const isSuspicious = data?.anomaly_flag === "EXCESSIVE_SCANS" || data?.anomaly_flag === "REUSE_DETECTED" || data?.status === "SUSPICIOUS";
+  const isSuspicious = 
+    data?.status === "SUSPICIOUS" || 
+    data?.anomaly_flag === "EXCESSIVE_SCANS" || 
+    data?.anomaly_flag === "REUSE_DETECTED";
+  const isRepeat = data?.status === "REPEAT_SCAN" || (data?.scan_count > 1 && !isSuspicious);
   const isInvalid = !data?.verified && !isSuspicious;
+  const isNormalVerified = data?.verified && !isRepeat && !isSuspicious;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#090b10] text-[#f1f5f9] font-sans selection:bg-[#f59e0b] selection:text-[#090b10]">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-amber-500 selection:text-white">
       <Navbar />
 
       <main className="flex-grow py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto space-y-6">
 
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center justify-between font-mono text-xs text-[#94a3b8]">
-            <Link href="/verify" className="inline-flex items-center gap-1.5 hover:text-[#f1f5f9] transition-colors">
+          <div className="flex items-center justify-between font-mono text-xs text-slate-500 border-b border-slate-200 pb-3">
+            <Link href="/verify" className="inline-flex items-center gap-1.5 text-slate-700 hover:text-amber-600 font-semibold transition-colors">
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Back to Scanner</span>
+              <span>Back to Verification Portal</span>
             </Link>
-            <span className="text-[#64748b]">Token ID: {packageCode}</span>
+            <span className="text-slate-500 font-semibold">Package Token: <span className="font-bold text-slate-900">{packageCode}</span></span>
           </div>
 
           {loading ? (
-            <div className="p-12 text-center bg-[#11141d] border border-[#283144] rounded-lg font-mono">
-              <RefreshCw className="w-8 h-8 animate-spin mx-auto text-[#f59e0b] mb-4" />
-              <div className="text-sm font-bold text-[#f1f5f9]">Querying Permissioned Cryptographic Ledger...</div>
-              <div className="text-xs text-[#94a3b8] mt-1">Verifying SHA-256 block chain from genesis</div>
+            <div className="p-12 text-center bg-white border border-slate-200 rounded-lg font-mono shadow-sm">
+              <RefreshCw className="w-8 h-8 animate-spin mx-auto text-amber-500 mb-4" />
+              <div className="text-sm font-bold text-slate-900">Querying Cryptographic Provenance Ledger...</div>
+              <div className="text-xs text-slate-500 mt-1">Verifying SHA-256 hash chain and package scan history</div>
             </div>
           ) : error && !data ? (
-            <div className="p-8 bg-[#11141d] border border-[#ef4444]/50 rounded-lg font-mono text-center">
-              <AlertTriangle className="w-8 h-8 text-[#ef4444] mx-auto mb-3" />
-              <div className="text-base font-bold text-[#f1f5f9]">Verification Error</div>
-              <div className="text-xs text-[#94a3b8] mt-1 mb-4">{error}</div>
+            <div className="p-8 bg-red-50 border border-red-200 rounded-lg font-mono text-center">
+              <AlertTriangle className="w-8 h-8 text-red-600 mx-auto mb-3" />
+              <div className="text-base font-bold text-red-900">Verification Gateway Unreachable</div>
+              <div className="text-xs text-red-700 mt-1 mb-4">{error}</div>
               <button
                 onClick={fetchVerification}
-                className="px-4 py-2 bg-[#181d28] hover:bg-[#1f2637] border border-[#283144] text-xs font-bold uppercase rounded"
+                className="px-4 py-2 bg-white hover:bg-slate-100 border border-slate-300 text-xs font-bold uppercase rounded shadow-sm text-slate-800"
               >
                 Retry
               </button>
@@ -166,51 +90,96 @@ export default function ClientVerificationPage({ packageId }: { packageId: strin
           ) : (
             <>
               {/* PRIMARY STATUS BANNER */}
-              <div className={`p-6 rounded-lg border font-mono shadow-xl ${
+              <div className={`p-6 rounded-lg border font-mono shadow-sm ${
                 isSuspicious 
-                  ? "bg-[#ef4444]/10 border-[#ef4444]/40" 
+                  ? "bg-red-50 border-red-300 text-red-950" 
+                  : isRepeat
+                  ? "bg-amber-50 border-amber-300 text-amber-950"
                   : isInvalid 
-                  ? "bg-[#dc2626]/15 border-[#dc2626]" 
-                  : "bg-[#10b981]/10 border-[#10b981]/40"
+                  ? "bg-red-100 border-red-400 text-red-950" 
+                  : "bg-emerald-50 border-emerald-300 text-emerald-950"
               }`}>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div className="flex items-start sm:items-center gap-3.5">
                     {isSuspicious ? (
-                      <div className="p-3 bg-[#ef4444]/20 rounded-full text-[#ef4444]">
+                      <div className="p-3 bg-red-100 border border-red-200 rounded-full text-red-600">
+                        <AlertTriangle className="w-7 h-7" />
+                      </div>
+                    ) : isRepeat ? (
+                      <div className="p-3 bg-amber-100 border border-amber-200 rounded-full text-amber-600">
                         <AlertTriangle className="w-7 h-7" />
                       </div>
                     ) : isInvalid ? (
-                      <div className="p-3 bg-[#dc2626]/20 rounded-full text-[#dc2626]">
+                      <div className="p-3 bg-red-200 border border-red-300 rounded-full text-red-700">
                         <XCircle className="w-7 h-7" />
                       </div>
                     ) : (
-                      <div className="p-3 bg-[#10b981]/20 rounded-full text-[#10b981]">
+                      <div className="p-3 bg-emerald-100 border border-emerald-200 rounded-full text-emerald-600">
                         <CheckCircle2 className="w-7 h-7" />
                       </div>
                     )}
                     <div>
-                      <div className="text-[10px] uppercase font-bold tracking-wider text-[#94a3b8]">
-                        Authentication Status
+                      <div className="text-[10px] uppercase font-bold tracking-wider text-slate-500">
+                        Provenance Verification Result
                       </div>
                       <div className={`text-xl font-black uppercase ${
-                        isSuspicious ? "text-[#ef4444]" : isInvalid ? "text-[#dc2626]" : "text-[#10b981]"
+                        isSuspicious ? "text-red-700" : isRepeat ? "text-amber-800" : isInvalid ? "text-red-800" : "text-emerald-700"
                       }`}>
                         {isSuspicious 
-                          ? "SUSPICIOUS — LABEL REUSE ANOMALY" 
+                          ? "SUSPICIOUS — SCAN VELOCITY ANOMALY DETECTED" 
+                          : isRepeat
+                          ? "REPEAT SCAN — INSPECT PHYSICAL TAMPER SEAL"
                           : isInvalid 
-                          ? "INVALID / UNREGISTERED PRODUCT" 
-                          : "VERIFIED AUTHENTIC KVIC HONEY"}
+                          ? "INVALID / UNREGISTERED PRODUCT TOKEN" 
+                          : "VERIFIED AUTHENTIC KVIC PROVENANCE"}
                       </div>
-                      <div className="text-xs text-[#94a3b8] mt-1 max-w-xl">
+                      <div className="text-xs text-slate-700 mt-1 max-w-xl font-sans">
                         {data.message}
                       </div>
                     </div>
                   </div>
 
-                  <div className="text-right font-mono self-end sm:self-auto">
-                    <div className="text-[10px] text-[#64748b]">VERIFICATION SCAN COUNT</div>
-                    <div className="text-xl font-bold text-[#f1f5f9]">{data.scan_count} time(s)</div>
-                    <div className="text-[9px] text-[#64748b]">{data.anomaly_flag}</div>
+                  <div className="text-right font-mono self-end sm:self-auto border-t sm:border-t-0 sm:border-l border-slate-200 sm:pl-4 pt-2 sm:pt-0">
+                    <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">TOTAL SCANS</div>
+                    <div className="text-xl font-black text-slate-900">{data.scan_count} Time(s)</div>
+                    <div className="text-[10px] font-semibold text-slate-500 mt-0.5">Flag: {data.anomaly_flag || "NORMAL"}</div>
+                  </div>
+                </div>
+
+                {/* Repeat Scan Specific Warning Prompt */}
+                {isRepeat && (
+                  <div className="mt-4 pt-3 border-t border-amber-200 text-xs text-amber-900 flex items-start gap-2 bg-amber-100/60 p-2.5 rounded">
+                    <Info className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
+                    <span>
+                      <strong>Tamper-Evident Seal Inspection:</strong> This package QR token has been queried {data.scan_count} times previously. Verify that the physical KVIC tamper-evident security seal on the lid is fully intact and unbroken before purchasing.
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* TRUST BOUNDARY NOTICE */}
+              <div className="p-4 bg-slate-100 border border-slate-300 rounded-lg font-mono text-xs">
+                <div className="flex items-center gap-2 text-slate-800 font-bold uppercase mb-2">
+                  <ShieldCheck className="w-4 h-4 text-amber-600" />
+                  <span>Honey Chain Claim-Evidence Firewall & Trust Boundary</span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[11px] font-sans">
+                  <div className="p-2.5 bg-white border border-emerald-200 rounded text-emerald-950">
+                    <div className="font-bold text-emerald-800 mb-1">WHAT HONEY CHAIN PROVES:</div>
+                    <ul className="list-disc list-inside space-y-0.5 text-slate-700">
+                      <li>Complete cryptographic hash-chain from apiary harvest to packaging.</li>
+                      <li>Registered package token issued by authorized KVIC processing center.</li>
+                      <li>Accredited laboratory quality parameters entered & hashed at source.</li>
+                      <li>Scan velocity tracking to detect duplicate printed label reuse.</li>
+                    </ul>
+                  </div>
+                  <div className="p-2.5 bg-white border border-amber-200 rounded text-amber-950">
+                    <div className="font-bold text-amber-800 mb-1">WHAT HONEY CHAIN CANNOT PROVE:</div>
+                    <ul className="list-disc list-inside space-y-0.5 text-slate-700">
+                      <li>Physical contents of the jar if the tamper seal is breached.</li>
+                      <li>Fraudulent off-chain laboratory testing or unrecorded manual data entry.</li>
+                      <li>Physical liquid authenticity outside verified inspection checkpoints.</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -219,109 +188,121 @@ export default function ClientVerificationPage({ packageId }: { packageId: strin
               {prov && (
                 <div className="space-y-6">
                   {/* Origin & Apiary Provenance */}
-                  <div className="p-5 bg-[#11141d] border border-[#283144] rounded-lg font-mono">
-                    <div className="flex items-center gap-2 text-[#f59e0b] font-bold text-xs uppercase mb-4">
+                  <div className="p-5 bg-white border border-slate-200 rounded-lg shadow-sm font-mono">
+                    <div className="flex items-center gap-2 text-amber-700 font-bold text-xs uppercase mb-4">
                       <MapPin className="w-4 h-4" />
-                      <span>Origin & Apiary Provenance</span>
+                      <span>Apiary Origin & Regional Cluster</span>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs font-sans">
                       <div>
-                        <div className="text-[#64748b] text-[10px]">KVIC CLUSTER</div>
-                        <div className="font-bold text-[#f1f5f9] mt-0.5">{prov.origin.cluster_name}</div>
-                        <div className="text-[10px] text-[#94a3b8]">{prov.origin.district}, {prov.origin.state}</div>
+                        <div className="text-slate-500 font-mono text-[10px] uppercase font-bold">KVIC CLUSTER</div>
+                        <div className="font-bold text-slate-900 mt-0.5">{prov.origin.cluster_name}</div>
+                        <div className="text-[11px] text-slate-600">{prov.origin.district}, {prov.origin.state}</div>
                       </div>
 
                       <div>
-                        <div className="text-[#64748b] text-[10px]">BEEKEEPER</div>
-                        <div className="font-bold text-[#f1f5f9] mt-0.5">{prov.origin.beekeeper_name}</div>
-                        <div className="text-[10px] text-[#94a3b8]">{prov.origin.beekeeper_reg}</div>
+                        <div className="text-slate-500 font-mono text-[10px] uppercase font-bold">REGISTERED BEEKEEPER</div>
+                        <div className="font-bold text-slate-900 mt-0.5">{prov.origin.beekeeper_name}</div>
+                        <div className="text-[11px] text-slate-600">{prov.origin.beekeeper_reg}</div>
                       </div>
 
                       <div>
-                        <div className="text-[#64748b] text-[10px]">APIARY & ELEVATION</div>
-                        <div className="font-bold text-[#f1f5f9] mt-0.5">{prov.origin.apiary_name}</div>
-                        <div className="text-[10px] text-[#94a3b8]">Elevation: {prov.origin.elevation_m}m AMSL</div>
+                        <div className="text-slate-500 font-mono text-[10px] uppercase font-bold">APIARY & ELEVATION</div>
+                        <div className="font-bold text-slate-900 mt-0.5">{prov.origin.apiary_name}</div>
+                        <div className="text-[11px] text-slate-600">Elevation: {prov.origin.elevation_m}m AMSL</div>
                       </div>
 
                       <div>
-                        <div className="text-[#64748b] text-[10px]">PRIMARY FLORA</div>
-                        <div className="font-bold text-[#f1f5f9] mt-0.5">{prov.batch.floral_source}</div>
-                        <div className="text-[10px] text-[#94a3b8]">Harvest Moisture: {prov.harvest.field_moisture_pct}%</div>
+                        <div className="text-slate-500 font-mono text-[10px] uppercase font-bold">BOTANICAL FLORA</div>
+                        <div className="font-bold text-slate-900 mt-0.5">{prov.batch.floral_source}</div>
+                        <div className="text-[11px] text-slate-600">Harvest Field Moisture: {prov.harvest.field_moisture_pct}%</div>
                       </div>
                     </div>
                   </div>
 
                   {/* Laboratory Quality Certificate */}
-                  {prov.quality && (
-                    <div className="p-5 bg-[#11141d] border border-[#283144] rounded-lg font-mono">
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-2 text-[#10b981] font-bold text-xs uppercase">
+                  {prov.quality ? (
+                    <div className="p-5 bg-white border border-slate-200 rounded-lg shadow-sm font-mono">
+                      <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+                        <div className="flex items-center gap-2 text-emerald-700 font-bold text-xs uppercase">
                           <FlaskConical className="w-4 h-4" />
-                          <span>Accredited Laboratory Quality Certificate</span>
+                          <span>Quality Control Record (FSSAI & KVIC Standards)</span>
                         </div>
-                        <span className="text-[10px] px-2 py-0.5 rounded bg-[#10b981]/20 text-[#10b981] font-bold">
-                          {prov.quality.status} • 100% PURE
+                        <span className="text-[10px] px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 font-bold border border-emerald-200">
+                          {prov.quality.verification_level || "RECORDED_LAB_CERTIFICATE"}: {prov.quality.status}
                         </span>
                       </div>
 
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs mb-4">
-                        <div className="p-3 bg-[#181d28] border border-[#283144] rounded">
-                          <div className="text-[10px] text-[#64748b]">MOISTURE CONTENT</div>
-                          <div className="text-base font-bold text-[#f1f5f9] mt-0.5">{prov.quality.moisture_pct}%</div>
-                          <div className="text-[10px] text-[#10b981]">Standard: ≤20.0%</div>
+                        <div className="p-3 bg-slate-50 border border-slate-200 rounded">
+                          <div className="text-[10px] text-slate-500 font-bold">MOISTURE CONTENT</div>
+                          <div className="text-base font-bold text-slate-900 mt-0.5">
+                            {prov.quality.moisture_pct !== null && prov.quality.moisture_pct !== undefined ? `${prov.quality.moisture_pct}%` : "NOT AVAILABLE"}
+                          </div>
+                          <div className="text-[10px] text-emerald-700 font-semibold">Standard: ≤20.0%</div>
                         </div>
 
-                        <div className="p-3 bg-[#181d28] border border-[#283144] rounded">
-                          <div className="text-[10px] text-[#64748b]">HMF CONTENT</div>
-                          <div className="text-base font-bold text-[#f1f5f9] mt-0.5">{prov.quality.hmf_mg_kg} mg/kg</div>
-                          <div className="text-[10px] text-[#10b981]">Standard: ≤40.0 mg/kg</div>
+                        <div className="p-3 bg-slate-50 border border-slate-200 rounded">
+                          <div className="text-[10px] text-slate-500 font-bold">HMF CONTENT</div>
+                          <div className="text-base font-bold text-slate-900 mt-0.5">
+                            {prov.quality.hmf_mg_kg !== null && prov.quality.hmf_mg_kg !== undefined ? `${prov.quality.hmf_mg_kg} mg/kg` : "NOT AVAILABLE"}
+                          </div>
+                          <div className="text-[10px] text-emerald-700 font-semibold">Standard: ≤40.0 mg/kg</div>
                         </div>
 
-                        <div className="p-3 bg-[#181d28] border border-[#283144] rounded">
-                          <div className="text-[10px] text-[#64748b]">DIASTASE NUMBER</div>
-                          <div className="text-base font-bold text-[#f1f5f9] mt-0.5">{prov.quality.diastase_number}</div>
-                          <div className="text-[10px] text-[#10b981]">Standard: ≥8.0 (Enzymatic)</div>
+                        <div className="p-3 bg-slate-50 border border-slate-200 rounded">
+                          <div className="text-[10px] text-slate-500 font-bold">DIASTASE NUMBER</div>
+                          <div className="text-base font-bold text-slate-900 mt-0.5">
+                            {prov.quality.diastase_number !== null && prov.quality.diastase_number !== undefined ? prov.quality.diastase_number : "NOT AVAILABLE"}
+                          </div>
+                          <div className="text-[10px] text-emerald-700 font-semibold">Standard: ≥8.0 (Enzymatic)</div>
                         </div>
 
-                        <div className="p-3 bg-[#181d28] border border-[#283144] rounded">
-                          <div className="text-[10px] text-[#64748b]">ADULTERATION TEST</div>
-                          <div className="text-base font-bold text-[#10b981] mt-0.5">{prov.quality.adulteration_result}</div>
-                          <div className="text-[10px] text-[#64748b]">0.0% Exogenous Sugars</div>
+                        <div className="p-3 bg-slate-50 border border-slate-200 rounded">
+                          <div className="text-[10px] text-slate-500 font-bold">ADULTERATION TEST</div>
+                          <div className="text-base font-bold text-emerald-700 mt-0.5">
+                            {prov.quality.adulteration_result || "NOT AVAILABLE"}
+                          </div>
+                          <div className="text-[10px] text-slate-500">C4/C3 Exogenous Sugar Screen</div>
                         </div>
                       </div>
 
-                      <div className="text-[10px] text-[#64748b] flex flex-col sm:flex-row justify-between border-t border-[#283144] pt-2">
-                        <span>Testing Center: {prov.quality.lab_name}</span>
-                        <span className="truncate max-w-sm">Certificate Hash: {prov.quality.certificate_hash}</span>
+                      <div className="text-[10px] text-slate-500 flex flex-col sm:flex-row justify-between border-t border-slate-100 pt-2 gap-1">
+                        <span>Testing Center: <strong>{prov.quality.lab_name}</strong></span>
+                        <span className="truncate max-w-sm">Certificate Hash: <code className="text-slate-700 font-mono">{prov.quality.certificate_hash}</code></span>
                       </div>
+                    </div>
+                  ) : (
+                    <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg text-xs font-mono text-amber-900">
+                      <strong>Quality Record Status:</strong> NOT AVAILABLE for this batch. No lab certificate recorded yet.
                     </div>
                   )}
 
                   {/* Processing & Packaging Details */}
                   {prov.processing && (
-                    <div className="p-5 bg-[#11141d] border border-[#283144] rounded-lg font-mono">
-                      <div className="flex items-center gap-2 text-[#3b82f6] font-bold text-xs uppercase mb-3">
+                    <div className="p-5 bg-white border border-slate-200 rounded-lg shadow-sm font-mono">
+                      <div className="flex items-center gap-2 text-blue-700 font-bold text-xs uppercase mb-3">
                         <Boxes className="w-4 h-4" />
                         <span>Processing & Packaging Specifications</span>
                       </div>
 
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs font-sans">
                         <div>
-                          <div className="text-[#64748b] text-[10px]">FACILITY</div>
-                          <div className="font-bold text-[#f1f5f9]">{prov.processing.facility_name}</div>
+                          <div className="text-slate-500 font-mono text-[10px] uppercase font-bold">FACILITY</div>
+                          <div className="font-bold text-slate-900">{prov.processing.facility_name}</div>
                         </div>
                         <div>
-                          <div className="text-[#64748b] text-[10px]">MICRO-FILTRATION TEMP</div>
-                          <div className="font-bold text-[#f1f5f9]">{prov.processing.filtering_temp_c}°C (Gentle / Raw)</div>
+                          <div className="text-slate-500 font-mono text-[10px] uppercase font-bold">MICRO-FILTRATION TEMP</div>
+                          <div className="font-bold text-slate-900">{prov.processing.filtering_temp_c}°C (Gentle/Raw)</div>
                         </div>
                         <div>
-                          <div className="text-[#64748b] text-[10px]">SETTLING DURATION</div>
-                          <div className="font-bold text-[#f1f5f9]">{prov.processing.settling_hours} Hours</div>
+                          <div className="text-slate-500 font-mono text-[10px] uppercase font-bold">SETTLING DURATION</div>
+                          <div className="font-bold text-slate-900">{prov.processing.settling_hours} Hours</div>
                         </div>
                         <div>
-                          <div className="text-[#64748b] text-[10px]">EXPIRY PERIOD</div>
-                          <div className="font-bold text-[#f1f5f9]">{prov.package.expiry_date}</div>
+                          <div className="text-slate-500 font-mono text-[10px] uppercase font-bold">EXPIRY DATE</div>
+                          <div className="font-bold text-slate-900">{prov.package.expiry_date}</div>
                         </div>
                       </div>
                     </div>
@@ -329,39 +310,39 @@ export default function ClientVerificationPage({ packageId }: { packageId: strin
 
                   {/* IMMUTABLE CRYPTOGRAPHIC LEDGER PROOF */}
                   {prov.ledger && (
-                    <div className="p-5 bg-[#11141d] border border-[#3d4964] rounded-lg font-mono">
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center gap-2 text-[#ffc833] font-bold text-xs uppercase">
-                          <Lock className="w-4 h-4" />
-                          <span>Permissioned Cryptographic Ledger Proof</span>
+                    <div className="p-5 bg-white border border-slate-300 rounded-lg shadow-sm font-mono">
+                      <div className="flex items-center justify-between mb-3 border-b border-slate-100 pb-2">
+                        <div className="flex items-center gap-2 text-slate-900 font-bold text-xs uppercase">
+                          <Lock className="w-4 h-4 text-amber-600" />
+                          <span>Permissioned Cryptographic Ledger Integrity</span>
                         </div>
-                        <span className="text-[10px] px-2 py-0.5 rounded bg-[#10b981]/20 text-[#10b981] font-bold">
+                        <span className="text-[10px] px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 font-bold border border-emerald-200">
                           SHA-256 HASH CHAIN: INTACT
                         </span>
                       </div>
 
-                      <p className="text-xs text-[#94a3b8] mb-4 leading-relaxed">
+                      <p className="text-xs text-slate-600 mb-4 leading-relaxed font-sans">
                         Every state change from hive harvest to retail QR token generation is mathematically sealed into an immutable, tamper-evident hash chain.
                       </p>
 
-                      <div className="p-3 bg-[#090b10] border border-[#283144] rounded text-xs space-y-1.5 mb-4">
+                      <div className="p-3 bg-slate-50 border border-slate-200 rounded text-xs space-y-1.5 mb-4">
                         <div className="flex justify-between">
-                          <span className="text-[#64748b]">Total Chained Events:</span>
-                          <span className="text-[#f1f5f9] font-bold">{prov.ledger.total_events} Blocks</span>
+                          <span className="text-slate-500 font-semibold">Total Chained Events:</span>
+                          <span className="text-slate-900 font-bold">{prov.ledger.total_events} Blocks</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-[#64748b]">Cryptographic Tamper Status:</span>
-                          <span className="text-[#10b981] font-bold">False (0 Anomalies Detected)</span>
+                          <span className="text-slate-500 font-semibold">Cryptographic Tamper Status:</span>
+                          <span className="text-emerald-700 font-bold">False (0 Anomalies Detected)</span>
                         </div>
                       </div>
 
-                      <div className="pt-3 border-t border-[#283144] flex flex-col sm:flex-row items-center justify-between gap-2">
-                        <span className="text-[11px] text-[#64748b]">Explore raw ledger blocks:</span>
+                      <div className="pt-3 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2">
+                        <span className="text-[11px] text-slate-500">Explore complete hash timeline:</span>
                         <Link
                           href="/batches"
-                          className="px-3 py-1.5 bg-[#181d28] hover:bg-[#1f2637] border border-[#283144] text-[11px] text-[#ffc833] rounded font-bold transition-colors"
+                          className="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white rounded font-bold text-xs transition-colors"
                         >
-                          View Full Blockchain Ledger
+                          View Full Batch Ledger
                         </Link>
                       </div>
                     </div>

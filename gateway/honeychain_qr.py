@@ -107,15 +107,15 @@ class HoneyChainQREngine:
         prior_scans = cursor.fetchone()["count"]
         current_scan_count = prior_scans + 1
 
-        # Determine anomaly flag
+        # Determine anomaly flag and verification status
         anomaly_flag = "NORMAL"
         verification_status = "VERIFIED"
-        message = "Authentic KVIC Honey. First consumer scan; seal genuine."
+        message = "Authentic KVIC Honey. First consumer verification; digital seal intact."
 
         if pkg["status"] == "RECALLED":
-            anomaly_flag = "REVOKED_ATTEMPT"
+            anomaly_flag = "RECALLED_ATTEMPT"
             verification_status = "RECALLED"
-            message = "CAUTION: This lot has been flagged and recalled by KVIC quality control."
+            message = "CAUTION: This lot has been flagged and recalled by KVIC quality authority."
         elif pkg["status"] == "REVOKED":
             anomaly_flag = "REVOKED_ATTEMPT"
             verification_status = "INVALID"
@@ -123,11 +123,11 @@ class HoneyChainQREngine:
         elif current_scan_count > 5:
             anomaly_flag = "EXCESSIVE_SCANS"
             verification_status = "SUSPICIOUS"
-            message = f"WARNING: QR code scanned {current_scan_count} times across multiple sessions. Potential copied label."
+            message = f"WARNING: QR code scanned {current_scan_count} times across multiple sessions. Potential cloned label."
         elif current_scan_count > 1:
-            anomaly_flag = "REUSE_DETECTED"
-            verification_status = "VERIFIED"
-            message = f"Authentic KVIC Honey (Previously verified {prior_scans} time(s))."
+            anomaly_flag = "REPEAT_SCAN"
+            verification_status = "REPEAT_SCAN"
+            message = f"Authentic KVIC Registered Packaging (Prior consumer scans: {prior_scans}). Check physical tamper seal."
 
         # Log the scan
         cursor.execute("""
@@ -202,20 +202,21 @@ class HoneyChainQREngine:
                 "floral_source": prov["floral_source"] if prov else "Multiflora"
             },
             "quality": {
-                "lab_name": quality["lab_name"] if quality else "KVIC Regional Testing Center",
-                "moisture_pct": quality["moisture_pct"] if quality else 17.1,
-                "hmf_mg_kg": quality["hmf_mg_kg"] if quality else 11.2,
-                "diastase_number": quality["diastase_number"] if quality else 14.5,
-                "electrical_conductivity": quality["electrical_conductivity"] if quality else 0.42,
-                "adulteration_result": quality["adulteration_result"] if quality else "PURE_AUTHENTIC",
-                "status": quality["status"] if quality else "PASS",
-                "certificate_hash": quality["certificate_hash"] if quality else "0x0"
+                "lab_name": quality["lab_name"] if quality else "NOT_AVAILABLE",
+                "moisture_pct": quality["moisture_pct"] if quality else None,
+                "hmf_mg_kg": quality["hmf_mg_kg"] if quality else None,
+                "diastase_number": quality["diastase_number"] if quality else None,
+                "electrical_conductivity": quality["electrical_conductivity"] if quality else None,
+                "adulteration_result": quality["adulteration_result"] if quality else "NOT_RECORDED",
+                "status": quality["status"] if quality else "QUALITY_PENDING",
+                "certificate_hash": quality["certificate_hash"] if quality else None,
+                "verification_level": "RECORDED_LAB_CERTIFICATE" if (quality and quality["certificate_hash"]) else "UNVERIFIED"
             } if quality else None,
             "processing": {
-                "facility_name": proc["facility_name"] if proc else "KVIC Regional Processing Center",
-                "filtering_temp_c": proc["filtering_temp_c"] if proc else 38.5,
-                "settling_hours": proc["settling_hours"] if proc else 48.0,
-                "status": proc["status"] if proc else "COMPLETED"
+                "facility_name": proc["facility_name"] if proc else "NOT_RECORDED",
+                "filtering_temp_c": proc["filtering_temp_c"] if proc else None,
+                "settling_hours": proc["settling_hours"] if proc else None,
+                "status": proc["status"] if proc else "PENDING"
             } if proc else None,
             "ledger": {
                 "verified": ledger_res["verified"],
@@ -226,7 +227,7 @@ class HoneyChainQREngine:
         }
 
         return {
-            "verified": (verification_status in ["VERIFIED", "SUSPICIOUS"]),
+            "verified": (verification_status in ["VERIFIED", "REPEAT_SCAN"]),
             "status": verification_status,
             "anomaly_flag": anomaly_flag,
             "message": message,

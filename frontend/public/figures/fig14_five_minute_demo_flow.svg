@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" width="100%" height="100%" style="background:#ffffff; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <style>
+      .title { font-size: 20px; font-weight: 700; fill: #0f172a; }
+      .subtitle { font-size: 13px; font-weight: 500; fill: #64748b; }
+      .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 6px; }
+      .box-primary { fill: #f0f9ff; stroke: #0284c7; stroke-width: 1.5; rx: 6px; }
+      .box-success { fill: #f0fdf4; stroke: #16a34a; stroke-width: 1.5; rx: 6px; }
+      .box-warning { fill: #fffbeb; stroke: #d97706; stroke-width: 1.5; rx: 6px; }
+      .box-alert { fill: #fff1f2; stroke: #e11d48; stroke-width: 1.5; rx: 6px; }
+      .label { font-size: 13px; font-weight: 600; fill: #0f172a; }
+      .desc { font-size: 11px; fill: #64748b; }
+      .tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+      .line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      .line-accent { stroke: #0284c7; stroke-width: 2; fill: none; }
+      .arrow { fill: #0284c7; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7"/>
+    </marker>
+    <marker id="arrow-dark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="40" y="45" class="title">FIG 14 — FIVE-MINUTE GRAND JURY DEMONSTRATION FLOW</text>
+  <text x="40" y="68" class="subtitle">Complete 17-step end-to-end evaluation journey for SIH 2026 Problem Statement 26021</text>
+
+  <!-- Flow Grid: 3 Rows -->
+  <!-- Row 1: Production to Harvest -->
+  <rect x="40" y="110" width="170" height="110" class="box" />
+  <text x="50" y="130" class="tag">STEP 1: KVIC DASHBOARD</text>
+  <text x="50" y="155" class="label">Macro Overview</text>
+  <text x="50" y="175" class="desc">View 3 active clusters</text>
+  <text x="50" y="195" class="desc">Nilgiris, Gir, Kashmir</text>
+
+  <line x1="210" y1="165" x2="230" y2="165" class="line-accent" marker-end="url(#arrow)" />
+
+  <rect x="230" y="110" width="170" height="110" class="box" />
+  <text x="240" y="130" class="tag">STEP 2: BEEKEEPER VIEW</text>
+  <text x="240" y="155" class="label">Apiary Monitoring</text>
+  <text x="240" y="175" class="desc">Open Beekeeper #001</text>
+  <text x="240" y="195" class="desc">Inspect Hive Fleet</text>
+
+  <line x1="400" y1="165" x2="420" y2="165" class="line-accent" marker-end="url(#arrow)" />
+
+  <rect x="420" y="110" width="170" height="110" class="box-primary" />
+  <text x="430" y="130" class="tag" style="fill:#0284c7;">STEP 3: SMART HIVE</text>
+  <text x="430" y="155" class="label">Live Telemetry</text>
+  <text x="430" y="175" class="desc">16-Sensor dimensions</text>
+  <text x="430" y="195" class="desc">TMP117 brood temp: 34.8°C</text>
+
+  <line x1="590" y1="165" x2="610" y2="165" class="line-accent" marker-end="url(#arrow)" />
+
+  <rect x="610" y="110" width="170" height="110" class="box" />
+  <text x="620" y="130" class="tag">STEP 4: AI RISK &amp; YIELD</text>
+  <text x="620" y="155" class="label">Colony Diagnostics</text>
+  <text x="620" y="175" class="desc">Thermal stability confirmed</text>
+  <text x="620" y="195" class="desc">Yield forecast: 32 kg ready</text>
+
+  <line x1="780" y1="165" x2="800" y2="165" class="line-accent" marker-end="url(#arrow)" />
+
+  <rect x="800" y="110" width="160" height="110" class="box-success" />
+  <text x="810" y="130" class="tag" style="fill:#16a34a;">STEP 5: RECORD HARVEST</text>
+  <text x="810" y="155" class="label">Honey Extraction</text>
+  <text x="810" y="175" class="desc">Record 45 kg extracted</text>
+  <text x="810" y="195" class="desc">Field moisture: 17.6%</text>
+
+  <!-- Row 2: Batch to QR -->
+  <line x1="880" y1="220" x2="880" y2="250" class="line-accent" marker-end="url(#arrow)" />
+
+  <rect x="800" y="250" width="160" height="110" class="box" />
+  <text x="810" y="270" class="tag">STEP 6: BATCH CREATION</text>
+  <text x="810" y="295" class="label">Raw Honey Batch</text>
+  <text x="810" y="315" class="desc">Consolidate into batch</text>
+  <text x="810" y="335" class="desc">Tag Nilgiris Wild Flora</text>
+
+  <line x1="800" y1="305" x2="780" y2="305" class="line-accent" marker-end="url(#arrow)" />
+
+  <rect x="610" y="250" width="170" height="110" class="box-success" />
+  <text x="620" y="270" class="tag" style="fill:#16a34a;">STEP 7: QUALITY LAB</text>
+  <text x="620" y="295" class="label">Attach Lab Cert</text>
+  <text x="620" y="315" class="desc">Moisture, HMF, Diastase</text>
+  <text x="620" y="335" class="desc">Digital Cert Hash bound</text>
+
+  <line x1="610" y1="305" x2="590" y2="305" class="line-accent" marker-end="url(#arrow)" />
+
+  <rect x="420" y="250" width="170" height="110" class="box" />
+  <text x="430" y="270" class="tag">STEP 8: PROCESSING</text>
+  <text x="430" y="295" class="label">Controlled Settling</text>
+  <text x="430" y="315" class="desc">Hygienic 38°C filtering</text>
+  <text x="430" y="335" class="desc">Record operator ID</text>
+
+  <line x1="420" y1="305" x2="400" y2="305" class="line-accent" marker-end="url(#arrow)" />
+
+  <rect x="230" y="250" width="170" height="110" class="box" />
+  <text x="240" y="270" class="tag">STEP 9: PACKAGING LOT</text>
+  <text x="240" y="295" class="label">Jars Bottled</text>
+  <text x="240" y="315" class="desc">90 units of 500g jars</text>
+  <text x="240" y="335" class="desc">Assign lot &amp; expiry</text>
+
+  <line x1="230" y1="305" x2="210" y2="305" class="line-accent" marker-end="url(#arrow)" />
+
+  <rect x="40" y="250" width="170" height="110" class="box-primary" />
+  <text x="50" y="270" class="tag" style="fill:#0284c7;">STEP 10: ISSUE QR</text>
+  <text x="50" y="295" class="label">Package Identities</text>
+  <text x="50" y="315" class="desc">HC-PKG-A7F93E12</text>
+  <text x="50" y="335" class="desc">Unique token generated</text>
+
+  <!-- Row 3: Verification to Tamper -->
+  <line x1="125" y1="360" x2="125" y2="390" class="line-accent" marker-end="url(#arrow)" />
+
+  <rect x="40" y="390" width="200" height="130" class="box-primary" />
+  <text x="50" y="410" class="tag" style="fill:#0284c7;">STEP 11: CONSUMER SCAN</text>
+  <text x="50" y="435" class="label">Scan Package QR</text>
+  <text x="50" y="455" class="desc">Open /v/HC-PKG-A7F93E12</text>
+  <text x="50" y="475" class="desc">Show full journey timeline</text>
+  <text x="50" y="495" class="tag" style="fill:#16a34a;">STATUS: VERIFIED</text>
+
+  <line x1="240" y1="455" x2="270" y2="455" class="line-accent" marker-end="url(#arrow)" />
+
+  <rect x="270" y="390" width="210" height="130" class="box" />
+  <text x="280" y="410" class="tag">STEP 12: LEDGER AUDIT</text>
+  <text x="280" y="435" class="label">Cryptographic Proof</text>
+  <text x="280" y="455" class="desc">Inspect SHA-256 event chain</text>
+  <text x="280" y="475" class="desc">Genesis ➔ QR Issued intact</text>
+  <text x="280" y="495" class="tag" style="fill:#0284c7;">CHAIN INTACT: TRUE</text>
+
+  <line x1="480" y1="455" x2="510" y2="455" class="line-accent" marker-end="url(#arrow)" />
+
+  <rect x="510" y="390" width="210" height="130" class="box-alert" />
+  <text x="520" y="410" class="tag" style="fill:#be123c;">STEP 13: TAMPER SIMULATOR</text>
+  <text x="520" y="435" class="label" style="fill:#be123c;">Demonstrate Fraud Break</text>
+  <text x="520" y="455" class="desc">Inject altered lab moisture</text>
+  <text x="520" y="475" class="desc">Ledger instantly trips invalid</text>
+  <text x="520" y="495" class="tag" style="fill:#be123c;">TAMPER DETECTED: TRUE</text>
+
+  <line x1="720" y1="455" x2="750" y2="455" class="line-accent" marker-end="url(#arrow)" />
+
+  <rect x="750" y="390" width="210" height="130" class="box-warning" />
+  <text x="760" y="410" class="tag" style="fill:#b45309;">STEP 14: CLONED QR ALERT</text>
+  <text x="760" y="435" class="label" style="fill:#b45309;">Counterfeit Reuse</text>
+  <text x="760" y="455" class="desc">Scan HC-PKG-B8C24D91</text>
+  <text x="760" y="475" class="desc">Excessive scan velocity alert</text>
+  <text x="760" y="495" class="tag" style="fill:#b45309;">SUSPICIOUS: REUSE FLAGGED</text>
+</svg>

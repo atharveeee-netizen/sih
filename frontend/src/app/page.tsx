@@ -17,13 +17,16 @@ import {
   CheckCircle2, 
   AlertTriangle, 
   ArrowRight,
-  Sparkles,
-  Layers,
   MapPin,
   TrendingUp,
   Activity,
-  FileCheck
+  Factory,
+  FlaskConical,
+  Lock,
+  Eye,
+  Info
 } from "lucide-react";
+import { getKvicStats } from "@/lib/api";
 
 export default function HoneyChainHome() {
   const router = useRouter();
@@ -42,14 +45,11 @@ export default function HoneyChainHome() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/v1/stats/kvic")
-      .then((res) => res.ok ? res.json() : null)
-      .then((data) => {
-        if (data) setStats(data);
+    getKvicStats()
+      .then((res) => {
+        if (res.data) setStats(res.data as any);
       })
-      .catch(() => {
-        // Graceful fallback to seeded values
-      });
+      .catch(() => {});
   }, []);
 
   const handleVerify = (e: React.FormEvent) => {
@@ -59,42 +59,39 @@ export default function HoneyChainHome() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#090b10] text-[#f1f5f9] font-sans selection:bg-[#f59e0b] selection:text-[#090b10]">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-amber-500 selection:text-white">
       <Navbar />
 
       <main className="flex-grow">
         {/* HERO SECTION */}
-        <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 border-b border-[#283144] overflow-hidden">
-          {/* Subtle Ambient Glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-[#f59e0b]/10 to-transparent pointer-events-none blur-3xl -z-10" />
-
+        <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-white">
           <div className="max-w-6xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181d28] border border-[#283144] text-[11px] font-mono text-[#ffc833]">
-              <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
-              <span>Smart India Hackathon 2024 • Problem Statement ID 26021</span>
-              <span className="text-[#64748b]">•</span>
-              <span className="text-[#94a3b8]">Ministry of MSME — KVIC Honey Mission</span>
+            
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-xs font-mono text-amber-900 font-semibold shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Smart India Hackathon 2026 • Problem Statement ID 26021</span>
+              <span className="text-amber-400">•</span>
+              <span className="text-amber-800">Ministry of MSME — KVIC Honey Mission</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-[#f1f5f9] uppercase font-mono">
-              HONEY <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#d97706]">CHAIN</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-950 uppercase font-mono leading-tight">
+              HONEY <span className="text-amber-600">CHAIN</span>
             </h1>
 
-            <p className="max-w-3xl mx-auto text-base sm:text-lg text-[#94a3b8] leading-relaxed">
-              An integrated <span className="text-[#f1f5f9] font-semibold">Permissioned Cryptographic Ledger</span>, 
-              <span className="text-[#f1f5f9] font-semibold"> IoT Smart Hive Monitoring</span>, and 
-              <span className="text-[#f1f5f9] font-semibold"> QR Consumer Verification</span> ecosystem designed to eliminate counterfeit honey, 
-              restore consumer trust, and empower rural beekeepers across national KVIC clusters.
+            <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-600 leading-relaxed font-sans">
+              An integrated <strong className="text-slate-900 font-semibold">Permissioned Cryptographic Ledger</strong>, 
+              <strong className="text-slate-900 font-semibold"> Smart Hive IoT Telemetry Node</strong>, and 
+              <strong className="text-slate-900 font-semibold"> Anti-Counterfeit QR Engine</strong> for verified honey traceability and apiculture governance across national KVIC clusters.
             </p>
 
-            {/* QUICK CONSUMER QR TRACKER */}
-            <div className="max-w-2xl mx-auto mt-8 p-4 bg-[#11141d] border border-[#3d4964] rounded-lg shadow-xl font-mono text-left">
-              <label htmlFor="package-input" className="block text-xs uppercase tracking-wider text-[#94a3b8] mb-2 font-semibold">
-                Instant Package Authenticity & Provenance Check
+            {/* INSTANT CONSUMER QR TRACKER */}
+            <div className="max-w-2xl mx-auto mt-8 p-6 bg-slate-900 border border-slate-800 rounded-xl shadow-xl font-mono text-left text-slate-100">
+              <label htmlFor="package-input" className="block text-xs uppercase tracking-wider text-amber-400 mb-2 font-bold">
+                Consumer Verification: Instant Package Provenance Check
               </label>
               <form onSubmit={handleVerify} className="flex flex-col sm:flex-row gap-2">
                 <div className="relative flex-grow">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#64748b]">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                     <QrCode className="w-4 h-4" />
                   </div>
                   <input
@@ -103,12 +100,12 @@ export default function HoneyChainHome() {
                     value={packageCode}
                     onChange={(e) => setPackageCode(e.target.value)}
                     placeholder="Enter Package Code (e.g. HC-PKG-A7F93E12)"
-                    className="w-full pl-9 pr-3 py-2.5 bg-[#090b10] border border-[#283144] rounded text-sm text-[#f1f5f9] placeholder-[#64748b] focus:outline-none focus:border-[#f59e0b]"
+                    className="w-full pl-10 pr-3 py-2.5 bg-slate-950 border border-slate-700 rounded-md text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400 font-mono uppercase"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 bg-[#f59e0b] hover:bg-[#d97706] text-[#090b10] font-bold text-xs uppercase tracking-wider rounded transition-colors flex items-center justify-center gap-2"
+                  className="px-6 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider rounded-md transition-colors flex items-center justify-center gap-2 shadow-sm"
                 >
                   <ShieldCheck className="w-4 h-4" />
                   <span>Verify</span>
@@ -116,311 +113,338 @@ export default function HoneyChainHome() {
               </form>
 
               {/* Demo Test Chips */}
-              <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
-                <span className="text-[#64748b] text-[11px]">Demo Profiles:</span>
+              <div className="mt-4 pt-3 border-t border-slate-800 flex flex-wrap items-center gap-2 text-xs">
+                <span className="text-slate-400 text-[11px] font-medium">Demonstration Jars:</span>
                 <button
                   type="button"
                   onClick={() => router.push("/v/HC-PKG-A7F93E12")}
-                  className="px-2 py-1 bg-[#181d28] hover:bg-[#1f2637] border border-[#10b981]/50 text-[#10b981] rounded text-[11px] flex items-center gap-1.5 transition-colors"
+                  className="px-2.5 py-1 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-600/60 text-emerald-300 rounded text-[11px] flex items-center gap-1.5 transition-colors font-medium"
                 >
-                  <CheckCircle2 className="w-3 h-3" />
-                  <span>Authentic Nilgiris (HC-PKG-A7F93E12)</span>
+                  <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                  <span>Authentic Jar (HC-PKG-A7F93E12)</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => router.push("/v/HC-PKG-B8C24D91")}
-                  className="px-2 py-1 bg-[#181d28] hover:bg-[#1f2637] border border-[#ef4444]/50 text-[#ef4444] rounded text-[11px] flex items-center gap-1.5 transition-colors"
+                  className="px-2.5 py-1 bg-red-950/80 hover:bg-red-900 border border-red-600/60 text-red-300 rounded text-[11px] flex items-center gap-1.5 transition-colors font-medium"
                 >
-                  <AlertTriangle className="w-3 h-3" />
+                  <AlertTriangle className="w-3 h-3 text-red-400" />
                   <span>Flagged Reuse Anomaly (HC-PKG-B8C24D91)</span>
                 </button>
               </div>
             </div>
+
           </div>
         </section>
 
         {/* KVIC MACRO IMPACT METRICS */}
-        <section className="py-10 px-4 sm:px-6 lg:px-8 bg-[#0b0e14] border-b border-[#283144] font-mono">
+        <section className="py-8 px-4 sm:px-6 lg:px-8 bg-slate-100 border-b border-slate-200 font-mono">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
               <div>
-                <h2 className="text-sm uppercase tracking-wider font-bold text-[#f1f5f9]">National Apiculture Status</h2>
-                <p className="text-xs text-[#94a3b8]">Live telemetry & audit aggregates from KVIC Honey Mission regional nodes</p>
+                <h2 className="text-xs uppercase tracking-wider font-bold text-slate-700">National Beekeeping Aggregates</h2>
+                <p className="text-[11px] text-slate-500 font-sans">Operational telemetry & batch audits across regional KVIC clusters</p>
               </div>
-              <Link href="/kvic" className="text-xs text-[#f59e0b] hover:underline flex items-center gap-1">
+              <Link href="/kvic" className="text-xs text-amber-700 hover:text-amber-800 font-bold flex items-center gap-1">
                 <span>View Full KVIC Console</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="p-4 bg-[#11141d] border border-[#283144] rounded-sm">
-                <div className="flex items-center justify-between text-[#94a3b8] text-xs mb-1">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+              <div className="p-4 bg-white border border-slate-200 rounded-lg shadow-xs">
+                <div className="flex items-center justify-between text-slate-500 text-[11px] mb-1">
                   <span>ACTIVE CLUSTERS</span>
-                  <MapPin className="w-3.5 h-3.5 text-[#f59e0b]" />
+                  <MapPin className="w-3.5 h-3.5 text-amber-600" />
                 </div>
-                <div className="text-2xl font-bold text-[#f1f5f9]">{stats.clusters_active}</div>
-                <div className="text-[10px] text-[#64748b] mt-1">Nilgiris, Gir, Kashmir Valley</div>
+                <div className="text-2xl font-bold text-slate-900">{stats.clusters_active}</div>
+                <div className="text-[10px] text-slate-500 mt-1">Nilgiris, Gir, Kashmir</div>
               </div>
 
-              <div className="p-4 bg-[#11141d] border border-[#283144] rounded-sm">
-                <div className="flex items-center justify-between text-[#94a3b8] text-xs mb-1">
+              <div className="p-4 bg-white border border-slate-200 rounded-lg shadow-xs">
+                <div className="flex items-center justify-between text-slate-500 text-[11px] mb-1">
                   <span>MONITORED HIVES</span>
-                  <Activity className="w-3.5 h-3.5 text-[#10b981]" />
+                  <Activity className="w-3.5 h-3.5 text-emerald-600" />
                 </div>
-                <div className="text-2xl font-bold text-[#f1f5f9]">{stats.total_monitored_hives}</div>
-                <div className="text-[10px] text-[#10b981] mt-1">{stats.healthy_colonies} Healthy • {stats.at_risk_colonies} At-Risk</div>
+                <div className="text-2xl font-bold text-slate-900">{stats.total_monitored_hives}</div>
+                <div className="text-[10px] text-emerald-700 font-semibold mt-1">{stats.healthy_colonies} Healthy • {stats.at_risk_colonies} Risk Flagged</div>
               </div>
 
-              <div className="p-4 bg-[#11141d] border border-[#283144] rounded-sm">
-                <div className="flex items-center justify-between text-[#94a3b8] text-xs mb-1">
+              <div className="p-4 bg-white border border-slate-200 rounded-lg shadow-xs">
+                <div className="flex items-center justify-between text-slate-500 text-[11px] mb-1">
                   <span>HONEY HARVESTED</span>
-                  <TrendingUp className="w-3.5 h-3.5 text-[#3b82f6]" />
+                  <TrendingUp className="w-3.5 h-3.5 text-blue-600" />
                 </div>
-                <div className="text-2xl font-bold text-[#f1f5f9]">{stats.total_harvested_honey_kg} kg</div>
-                <div className="text-[10px] text-[#64748b] mt-1">{stats.total_honey_batches} Verified Batches</div>
+                <div className="text-2xl font-bold text-slate-900">{stats.total_harvested_honey_kg} kg</div>
+                <div className="text-[10px] text-slate-500 mt-1">{stats.total_honey_batches} Verified Batches</div>
               </div>
 
-              <div className="p-4 bg-[#11141d] border border-[#283144] rounded-sm">
-                <div className="flex items-center justify-between text-[#94a3b8] text-xs mb-1">
+              <div className="p-4 bg-white border border-slate-200 rounded-lg shadow-xs">
+                <div className="flex items-center justify-between text-slate-500 text-[11px] mb-1">
                   <span>LEDGER INTEGRITY</span>
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#10b981]" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 </div>
-                <div className="text-2xl font-bold text-[#10b981]">{stats.traceability_compliance_pct}%</div>
-                <div className="text-[10px] text-[#64748b] mt-1">SHA-256 Unbroken Chain</div>
+                <div className="text-2xl font-bold text-emerald-700">{stats.traceability_compliance_pct}%</div>
+                <div className="text-[10px] text-slate-500 mt-1">SHA-256 Intact Chain</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 6-TIER CANONICAL ARCHITECTURE PIPELINE */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-[#283144]">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="text-xs font-mono font-bold text-[#f59e0b] uppercase tracking-wider">End-to-End Cyber-Physical Architecture</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#f1f5f9] font-mono mt-1 uppercase">
-                From Smart Hive to Verified Bottle
+        {/* CONSUMER / USER JOURNEY SECTION */}
+        <section className="py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-white">
+          <div className="max-w-6xl mx-auto space-y-8">
+            <div className="text-center max-w-2xl mx-auto">
+              <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">Consumer Trust Framework</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-mono mt-1 uppercase">
+                What Happens When You Scan A Jar?
               </h2>
-              <p className="max-w-2xl mx-auto text-sm text-[#94a3b8] mt-2">
-                Every physical action generates an immutable cryptographic event with cryptographic proof and anti-tamper verification.
+              <p className="text-sm text-slate-600 mt-2 font-sans">
+                Every retail jar carries a unique cryptographic QR token linked to five verifiable checkpoints in the HoneyChain ledger.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3 font-mono text-xs">
-              {/* Stage 1 */}
-              <div className="p-4 bg-[#11141d] border border-[#283144] rounded-sm flex flex-col justify-between">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 font-mono text-xs">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg flex flex-col justify-between">
                 <div>
-                  <div className="text-[10px] text-[#f59e0b] font-bold mb-1">STAGE 01</div>
-                  <div className="font-bold text-[#f1f5f9] mb-2">SMART HIVES</div>
-                  <p className="text-[11px] text-[#94a3b8] leading-tight">
-                    16-sensor IoT matrix with 5-point frame temperature gradient, load-cell comb weight, CO2, and acoustics.
+                  <div className="text-[10px] text-amber-700 font-bold mb-1">STEP 01</div>
+                  <div className="font-bold text-slate-900 text-sm mb-1">WHAT IS IT?</div>
+                  <p className="text-slate-600 font-sans text-[11px] leading-relaxed">
+                    Floral source, jar size, batch code, and packaging date authenticated against official records.
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-[#283144] text-[10px] text-[#64748b]">
-                  LoRa 865-867 MHz
+                <div className="mt-3 pt-2 border-t border-slate-200 text-[10px] text-slate-500">
+                  Identity Token
                 </div>
               </div>
 
-              {/* Stage 2 */}
-              <div className="p-4 bg-[#11141d] border border-[#283144] rounded-sm flex flex-col justify-between">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg flex flex-col justify-between">
                 <div>
-                  <div className="text-[10px] text-[#f59e0b] font-bold mb-1">STAGE 02</div>
-                  <div className="font-bold text-[#f1f5f9] mb-2">EDGE AI</div>
-                  <p className="text-[11px] text-[#94a3b8] leading-tight">
-                    On-MCU CMSIS-DSP 256-pt Real FFT, Page-CUSUM drift detector, and gateway sensor fusion diagnostics.
+                  <div className="text-[10px] text-amber-700 font-bold mb-1">STEP 02</div>
+                  <div className="font-bold text-slate-900 text-sm mb-1">WHERE FROM?</div>
+                  <p className="text-slate-600 font-sans text-[11px] leading-relaxed">
+                    Regional KVIC cluster, registered tribal beekeeper, apiary name, and GPS coordinates.
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-[#283144] text-[10px] text-[#64748b]">
-                  Colony Health Risk
+                <div className="mt-3 pt-2 border-t border-slate-200 text-[10px] text-slate-500">
+                  Apiary Provenance
                 </div>
               </div>
 
-              {/* Stage 3 */}
-              <div className="p-4 bg-[#11141d] border border-[#283144] rounded-sm flex flex-col justify-between">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg flex flex-col justify-between">
                 <div>
-                  <div className="text-[10px] text-[#f59e0b] font-bold mb-1">STAGE 03</div>
-                  <div className="font-bold text-[#f1f5f9] mb-2">HARVEST LOG</div>
-                  <p className="text-[11px] text-[#94a3b8] leading-tight">
-                    Farmer records harvest with comb tare weight, field refractometer moisture, and GPS-tagged flora source.
+                  <div className="text-[10px] text-amber-700 font-bold mb-1">STEP 03</div>
+                  <div className="font-bold text-slate-900 text-sm mb-1">WAS IT TESTED?</div>
+                  <p className="text-slate-600 font-sans text-[11px] leading-relaxed">
+                    Accredited QA laboratory certificate hash: Moisture, HMF, Diastase, and C4/C3 sugar adulteration screen.
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-[#283144] text-[10px] text-[#64748b]">
-                  Consolidated Batch
+                <div className="mt-3 pt-2 border-t border-slate-200 text-[10px] text-slate-500">
+                  FSSAI & KVIC QA
                 </div>
               </div>
 
-              {/* Stage 4 */}
-              <div className="p-4 bg-[#11141d] border border-[#283144] rounded-sm flex flex-col justify-between">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg flex flex-col justify-between">
                 <div>
-                  <div className="text-[10px] text-[#f59e0b] font-bold mb-1">STAGE 04</div>
-                  <div className="font-bold text-[#f1f5f9] mb-2">KVIC LAB QA</div>
-                  <p className="text-[11px] text-[#94a3b8] leading-tight">
-                    FSSAI/KVIC laboratory test: Moisture ≤20%, HMF ≤40 mg/kg, diastase activity, and C4/C3 sugar purity test.
+                  <div className="text-[10px] text-amber-700 font-bold mb-1">STEP 04</div>
+                  <div className="font-bold text-slate-900 text-sm mb-1">PROCESSING?</div>
+                  <p className="text-slate-600 font-sans text-[11px] leading-relaxed">
+                    Co-operative processing event: gentle micro-filtration temperature (≤40°C) and settling duration.
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-[#283144] text-[10px] text-[#64748b]">
-                  Quality Certificate
+                <div className="mt-3 pt-2 border-t border-slate-200 text-[10px] text-slate-500">
+                  Chain of Custody
                 </div>
               </div>
 
-              {/* Stage 5 */}
-              <div className="p-4 bg-[#11141d] border border-[#283144] rounded-sm flex flex-col justify-between">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg flex flex-col justify-between">
                 <div>
-                  <div className="text-[10px] text-[#f59e0b] font-bold mb-1">STAGE 05</div>
-                  <div className="font-bold text-[#f1f5f9] mb-2">BLOCKCHAIN</div>
-                  <p className="text-[11px] text-[#94a3b8] leading-tight">
-                    Immutable SHA-256 event chaining. Each stage links cryptographically to previous block hash.
+                  <div className="text-[10px] text-amber-700 font-bold mb-1">STEP 05</div>
+                  <div className="font-bold text-slate-900 text-sm mb-1">CAN I TRUST IT?</div>
+                  <p className="text-slate-600 font-sans text-[11px] leading-relaxed">
+                    SHA-256 hash-chain verification from genesis block, plus scan velocity anomaly detection against label cloning.
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-[#283144] text-[10px] text-[#64748b]">
-                  Zero Tampering
-                </div>
-              </div>
-
-              {/* Stage 6 */}
-              <div className="p-4 bg-[#11141d] border border-[#283144] rounded-sm flex flex-col justify-between">
-                <div>
-                  <div className="text-[10px] text-[#f59e0b] font-bold mb-1">STAGE 06</div>
-                  <div className="font-bold text-[#f1f5f9] mb-2">CONSUMER QR</div>
-                  <p className="text-[11px] text-[#94a3b8] leading-tight">
-                    Unique retail package tokens (`HC-PKG-...`) with real-time scan frequency, velocity, and reuse anomaly detection.
-                  </p>
-                </div>
-                <div className="mt-4 pt-3 border-t border-[#283144] text-[10px] text-[#64748b]">
-                  Proof of Authenticity
+                <div className="mt-3 pt-2 border-t border-slate-200 text-[10px] text-slate-500">
+                  Cryptographic Ledger
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* WORKSPACE PORTALS GRID */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#0b0e14] border-b border-[#283144] font-mono">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-10">
-              <span className="text-xs font-bold text-[#f59e0b] uppercase tracking-wider">Operational Portals</span>
-              <h2 className="text-2xl font-bold text-[#f1f5f9] mt-1 uppercase">
-                Explore Honey Chain Subsystems
+        {/* CANONICAL VISUAL ARCHITECTURE FIGURE */}
+        <section className="py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-slate-50">
+          <div className="max-w-6xl mx-auto space-y-6">
+            <div className="text-center max-w-2xl mx-auto">
+              <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">System Specification</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-mono mt-1 uppercase">
+                End-to-End Cyber-Physical Topology
               </h2>
+              <p className="text-sm text-slate-600 mt-1 font-sans">
+                Six-tier architecture linking physical smart hive nodes over rural Sub-GHz LoRa to edge gateways, cloud ledgers, and consumer verify endpoints.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Card 1: Consumer QR Verification */}
-              <Link href="/verify" className="p-5 bg-[#11141d] border border-[#283144] hover:border-[#f59e0b] transition-all rounded-sm group">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="p-2.5 rounded bg-[#181d28] text-[#f59e0b] group-hover:scale-110 transition-transform">
+            <div className="p-4 sm:p-6 bg-white border border-slate-200 rounded-xl shadow-xs">
+              <img 
+                src="/figures/fig02_end_to_end_architecture.svg" 
+                alt="HoneyChain End-to-End Architecture" 
+                className="w-full h-auto rounded border border-slate-100"
+              />
+              <div className="mt-3 text-[11px] font-mono text-slate-500 text-center">
+                FIG 02: Canonical HoneyChain End-to-End Cyber-Physical Architecture (SIH 2026 Problem Statement 26021)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ROLE PORTALS MATRIX */}
+        <section className="py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-200 bg-white">
+          <div className="max-w-6xl mx-auto space-y-8">
+            <div className="text-center max-w-2xl mx-auto">
+              <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider">System Access</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-mono mt-1 uppercase">
+                Role-Oriented Operational Portals
+              </h2>
+              <p className="text-sm text-slate-600 mt-1 font-sans">
+                Each actor in the honey value chain accesses dedicated interfaces tailored to their responsibilities.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
+              {/* Consumer Portal */}
+              <Link href="/verify" className="p-5 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-300 rounded-lg transition-all group flex flex-col justify-between">
+                <div>
+                  <div className="p-2.5 bg-amber-100 text-amber-800 rounded-md w-fit mb-3">
                     <QrCode className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] text-[#64748b] uppercase">Public Portal</span>
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-amber-700 transition-colors">Consumer Portal</h3>
+                  <p className="text-slate-600 font-sans text-[11px] leading-relaxed">
+                    Instant retail package verification, lab certificate viewing, and tamper-evident seal audit.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#f1f5f9] group-hover:text-[#f59e0b] transition-colors mb-1">
-                  Consumer Verification
-                </h3>
-                <p className="text-xs text-[#94a3b8] leading-normal mb-3">
-                  Verify retail honey jars, trace flower to jar provenance, inspect lab quality certificates, and verify cryptographic hashes.
-                </p>
-                <div className="text-xs text-[#f59e0b] flex items-center gap-1 font-semibold">
-                  <span>Verify Bottle</span>
+                <div className="mt-4 flex items-center gap-1 text-amber-700 font-bold text-[11px]">
+                  <span>Verify Jar</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
 
-              {/* Card 2: KVIC Admin Command */}
-              <Link href="/kvic" className="p-5 bg-[#11141d] border border-[#283144] hover:border-[#f59e0b] transition-all rounded-sm group">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="p-2.5 rounded bg-[#181d28] text-[#10b981] group-hover:scale-110 transition-transform">
-                    <Building2 className="w-5 h-5" />
-                  </div>
-                  <span className="text-[10px] text-[#64748b] uppercase">Government</span>
-                </div>
-                <h3 className="text-base font-bold text-[#f1f5f9] group-hover:text-[#f59e0b] transition-colors mb-1">
-                  KVIC Admin Console
-                </h3>
-                <p className="text-xs text-[#94a3b8] leading-normal mb-3">
-                  Macro cluster management, beekeeper census, regional honey yields, at-risk colony interventions, and counterfeit alarms.
-                </p>
-                <div className="text-xs text-[#10b981] flex items-center gap-1 font-semibold">
-                  <span>Open KVIC Console</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-
-              {/* Card 3: Beekeeper Workspace */}
-              <Link href="/beekeeper" className="p-5 bg-[#11141d] border border-[#283144] hover:border-[#f59e0b] transition-all rounded-sm group">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="p-2.5 rounded bg-[#181d28] text-[#3b82f6] group-hover:scale-110 transition-transform">
+              {/* Beekeeper Dashboard */}
+              <Link href="/beekeeper" className="p-5 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-300 rounded-lg transition-all group flex flex-col justify-between">
+                <div>
+                  <div className="p-2.5 bg-blue-100 text-blue-800 rounded-md w-fit mb-3">
                     <LayoutDashboard className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] text-[#64748b] uppercase">Rural Farmer</span>
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-amber-700 transition-colors">Beekeeper App</h3>
+                  <p className="text-slate-600 font-sans text-[11px] leading-relaxed">
+                    Colony health telemetry, comb weight dynamics, harvest recording, and apiary box management.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#f1f5f9] group-hover:text-[#f59e0b] transition-colors mb-1">
-                  Beekeeper Portal
-                </h3>
-                <p className="text-xs text-[#94a3b8] leading-normal mb-3">
-                  Apiary management, smart hive health cards, record harvests, view AI productivity predictions, and track batch curing.
-                </p>
-                <div className="text-xs text-[#3b82f6] flex items-center gap-1 font-semibold">
-                  <span>Farmer Workspace</span>
+                <div className="mt-4 flex items-center gap-1 text-amber-700 font-bold text-[11px]">
+                  <span>My Apiaries</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
 
-              {/* Card 4: Smart Hive Fleet Telemetry */}
-              <Link href="/hives" className="p-5 bg-[#11141d] border border-[#283144] hover:border-[#f59e0b] transition-all rounded-sm group">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="p-2.5 rounded bg-[#181d28] text-[#f59e0b] group-hover:scale-110 transition-transform">
+              {/* Hives IoT Fleet */}
+              <Link href="/hives" className="p-5 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-300 rounded-lg transition-all group flex flex-col justify-between">
+                <div>
+                  <div className="p-2.5 bg-emerald-100 text-emerald-800 rounded-md w-fit mb-3">
                     <Cpu className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] text-[#64748b] uppercase">IoT Network</span>
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-amber-700 transition-colors">Smart Hives Fleet</h3>
+                  <p className="text-slate-600 font-sans text-[11px] leading-relaxed">
+                    Multi-sensor telemetry matrix, 5-frame thermal gradient, load-cell kinetics, and anomaly flags.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#f1f5f9] group-hover:text-[#f59e0b] transition-colors mb-1">
-                  Smart Hive Fleet
-                </h3>
-                <p className="text-xs text-[#94a3b8] leading-normal mb-3">
-                  Live multi-sensor telemetry streams: 5-point frame gradient, acoustic FFT spectrograms, Varroa load, and tamper knockdown.
-                </p>
-                <div className="text-xs text-[#f59e0b] flex items-center gap-1 font-semibold">
-                  <span>Monitor Hives</span>
+                <div className="mt-4 flex items-center gap-1 text-amber-700 font-bold text-[11px]">
+                  <span>Hive Telemetry</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
 
-              {/* Card 5: Traceability Batches */}
-              <Link href="/batches" className="p-5 bg-[#11141d] border border-[#283144] hover:border-[#f59e0b] transition-all rounded-sm group">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="p-2.5 rounded bg-[#181d28] text-[#8b5cf6] group-hover:scale-110 transition-transform">
+              {/* Co-op Processor & QA */}
+              <Link href="/processor" className="p-5 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-300 rounded-lg transition-all group flex flex-col justify-between">
+                <div>
+                  <div className="p-2.5 bg-indigo-100 text-indigo-800 rounded-md w-fit mb-3">
+                    <Factory className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-amber-700 transition-colors">Processor & Lab</h3>
+                  <p className="text-slate-600 font-sans text-[11px] leading-relaxed">
+                    Attach lab test certificates, log micro-filtration settling runs, and issue serialized QR tokens.
+                  </p>
+                </div>
+                <div className="mt-4 flex items-center gap-1 text-amber-700 font-bold text-[11px]">
+                  <span>Process Batches</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+
+              {/* Traceability Batches */}
+              <Link href="/batches" className="p-5 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-300 rounded-lg transition-all group flex flex-col justify-between">
+                <div>
+                  <div className="p-2.5 bg-purple-100 text-purple-800 rounded-md w-fit mb-3">
                     <Boxes className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] text-[#64748b] uppercase">Traceability</span>
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-amber-700 transition-colors">Batches & Ledger</h3>
+                  <p className="text-slate-600 font-sans text-[11px] leading-relaxed">
+                    Explore SHA-256 block chains, verify hash continuity, and test real-time tamper injection.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#f1f5f9] group-hover:text-[#f59e0b] transition-colors mb-1">
-                  Honey Batches & Ledger
-                </h3>
-                <p className="text-xs text-[#94a3b8] leading-normal mb-3">
-                  Inspect batch consolidation, curing timelines, lab test attachments, packaging lots, and SHA-256 event chains.
-                </p>
-                <div className="text-xs text-[#8b5cf6] flex items-center gap-1 font-semibold">
-                  <span>Batch Explorer</span>
+                <div className="mt-4 flex items-center gap-1 text-amber-700 font-bold text-[11px]">
+                  <span>Inspect Ledger</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
 
-              {/* Card 6: Smart Hive Foundation */}
-              <Link href="/system" className="p-5 bg-[#11141d] border border-[#283144] hover:border-[#f59e0b] transition-all rounded-sm group">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="p-2.5 rounded bg-[#181d28] text-[#10b981] group-hover:scale-110 transition-transform">
+              {/* KVIC Command Center */}
+              <Link href="/kvic" className="p-5 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-300 rounded-lg transition-all group flex flex-col justify-between">
+                <div>
+                  <div className="p-2.5 bg-amber-100 text-amber-800 rounded-md w-fit mb-3">
+                    <Building2 className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-amber-700 transition-colors">KVIC Command</h3>
+                  <p className="text-slate-600 font-sans text-[11px] leading-relaxed">
+                    National Honey Mission oversight, cluster performance, counterfeit alarms, and compliance.
+                  </p>
+                </div>
+                <div className="mt-4 flex items-center gap-1 text-amber-700 font-bold text-[11px]">
+                  <span>Command Center</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+
+              {/* Verified Marketplace */}
+              <Link href="/market" className="p-5 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-300 rounded-lg transition-all group flex flex-col justify-between">
+                <div>
+                  <div className="p-2.5 bg-rose-100 text-rose-800 rounded-md w-fit mb-3">
+                    <ShoppingBag className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-amber-700 transition-colors">Fair Trade Market</h3>
+                  <p className="text-slate-600 font-sans text-[11px] leading-relaxed">
+                    B2B market linkages connecting verified tribal beekeeper batches with Khadi India emporiums.
+                  </p>
+                </div>
+                <div className="mt-4 flex items-center gap-1 text-amber-700 font-bold text-[11px]">
+                  <span>Trade Orders</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+
+              {/* IoT System Diagnostics */}
+              <Link href="/system" className="p-5 bg-slate-50 hover:bg-amber-50/60 border border-slate-200 hover:border-amber-300 rounded-lg transition-all group flex flex-col justify-between">
+                <div>
+                  <div className="p-2.5 bg-slate-200 text-slate-800 rounded-md w-fit mb-3">
                     <Database className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] text-[#64748b] uppercase">Deep Tech</span>
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-amber-700 transition-colors">IoT Diagnostics</h3>
+                  <p className="text-slate-600 font-sans text-[11px] leading-relaxed">
+                    Technical console: 40-byte binary telemetry decoding, LoRa packet CRC-16 checks, and gateway stats.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-[#f1f5f9] group-hover:text-[#f59e0b] transition-colors mb-1">
-                  IoT Engineering Console
-                </h3>
-                <p className="text-xs text-[#94a3b8] leading-normal mb-3">
-                  Explore Beevil Knievel Smart Hive hardware: 16-sensor PCB schematics, ANSYS FEA/CFD multi-physics, and CMSIS-DSP FFT.
-                </p>
-                <div className="text-xs text-[#10b981] flex items-center gap-1 font-semibold">
-                  <span>Technical Hardware</span>
+                <div className="mt-4 flex items-center gap-1 text-amber-700 font-bold text-[11px]">
+                  <span>System Diagnostics</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -428,71 +452,84 @@ export default function HoneyChainHome() {
           </div>
         </section>
 
-        {/* SIH 26021 REQUIREMENT ALIGNMENT MATRIX */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 font-mono text-xs">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-8">
-              <span className="text-xs font-bold text-[#f59e0b] uppercase tracking-wider">Compliance Matrix</span>
-              <h2 className="text-xl sm:text-2xl font-bold text-[#f1f5f9] uppercase mt-1">
-                SIH Problem Statement 26021 Fulfillment
+        {/* TRUST BOUNDARY & CLAIM-EVIDENCE FIREWALL */}
+        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-100 border-b border-slate-200 font-mono">
+          <div className="max-w-6xl mx-auto space-y-6">
+            <div className="text-center max-w-2xl mx-auto">
+              <span className="text-xs font-bold text-amber-700 uppercase tracking-wider">SIH 2026 Defence Runbook</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1 uppercase">
+                Claim-Evidence Firewall & Trust Boundary
               </h2>
+              <p className="text-sm text-slate-600 mt-1 font-sans">
+                Honey Chain provides cryptographic guarantees on recorded events without making scientifically ungrounded claims.
+              </p>
             </div>
 
-            <div className="border border-[#283144] rounded-sm overflow-x-auto bg-[#11141d]">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="border-b border-[#283144] bg-[#181d28] text-[#ffc833]">
-                    <th className="py-3 px-4 uppercase">Mandated Requirement</th>
-                    <th className="py-3 px-4 uppercase">Honey Chain Implementation</th>
-                    <th className="py-3 px-4 uppercase">Verification Evidence</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[#283144] text-[#94a3b8]">
-                  <tr>
-                    <td className="py-3 px-4 font-semibold text-[#f1f5f9]">Blockchain Traceability</td>
-                    <td className="py-3 px-4">Permissioned SHA-256 chained event ledger from harvest to retail</td>
-                    <td className="py-3 px-4 text-[#10b981]">`honeychain_ledger.py` / 100% Chain Verification</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 font-semibold text-[#f1f5f9]">QR-Code Consumer Authentication</td>
-                    <td className="py-3 px-4">Unique tokenized retail package codes (`HC-PKG-XXXXXXXX`)</td>
-                    <td className="py-3 px-4 text-[#10b981]">Interactive `/verify` & `/v/[id]` portal</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 font-semibold text-[#f1f5f9]">Counterfeit & Reuse Detection</td>
-                    <td className="py-3 px-4">Velocity & IP geolocation anomaly detection on scan frequency</td>
-                    <td className="py-3 px-4 text-[#10b981]">`HoneyChainQREngine.detect_scan_anomaly()`</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 font-semibold text-[#f1f5f9]">IoT-Enabled Hive Monitoring</td>
-                    <td className="py-3 px-4">16-sensor smart hive node (TMP117 array, load-cell, CO2, acoustics)</td>
-                    <td className="py-3 px-4 text-[#10b981]">Sub-GHz LoRa star topology & 33-byte packet format</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 font-semibold text-[#f1f5f9]">AI Disease & Health Analytics</td>
-                    <td className="py-3 px-4">CMSIS-DSP FFT acoustic classification & Page-CUSUM thermal drift</td>
-                    <td className="py-3 px-4 text-[#10b981]">Tested on CMSIS-DSP & gateway Random Forest</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 font-semibold text-[#f1f5f9]">Productivity Prediction</td>
-                    <td className="py-3 px-4">Continuous comb weight velocity & 7-day harvest yield forecasting</td>
-                    <td className="py-3 px-4 text-[#10b981]">{"/api/v1/productivity/forecast/{id} API"}</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 font-semibold text-[#f1f5f9]">KVIC Rural Cluster Scalability</td>
-                    <td className="py-3 px-4">Hierarchical cluster deployment: Org → Cluster → Beekeeper → Apiary → Hive</td>
-                    <td className="py-3 px-4 text-[#10b981]">KVIC Command Center with 3 National Clusters</td>
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 font-semibold text-[#f1f5f9]">Market Linkages</td>
-                    <td className="py-3 px-4">Verified direct marketplace connecting rural beekeepers to institutional buyers</td>
-                    <td className="py-3 px-4 text-[#10b981]">`/market` Direct Order Portal</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans">
+              <div className="p-5 bg-white border border-emerald-300 rounded-xl shadow-xs">
+                <div className="flex items-center gap-2 text-emerald-800 font-mono font-bold uppercase mb-3">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                  <span>What Honey Chain Mathematically Proves</span>
+                </div>
+                <ul className="space-y-2 text-slate-700 text-xs">
+                  <li className="flex items-start gap-2">
+                    <span className="font-bold text-emerald-600 mt-0.5">•</span>
+                    <span><strong>Cryptographic Provenance:</strong> Unbroken SHA-256 event hash-chain from hive harvest to retail QR.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="font-bold text-emerald-600 mt-0.5">•</span>
+                    <span><strong>Registered Package Identity:</strong> Every retail jar has an authorized token generated during batch packaging.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="font-bold text-emerald-600 mt-0.5">•</span>
+                    <span><strong>Laboratory Hash Linkage:</strong> Lab certificates are digitally hashed and immutably bound to the batch record.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="font-bold text-emerald-600 mt-0.5">•</span>
+                    <span><strong>Label Clone & Reuse Anomaly:</strong> Real-time scan velocity tracking flags copied labels across multiple queries.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="p-5 bg-white border border-amber-300 rounded-xl shadow-xs">
+                <div className="flex items-center gap-2 text-amber-900 font-mono font-bold uppercase mb-3">
+                  <AlertTriangle className="w-5 h-5 text-amber-600" />
+                  <span>Physical Boundaries & Defensive Scope</span>
+                </div>
+                <ul className="space-y-2 text-slate-700 text-xs">
+                  <li className="flex items-start gap-2">
+                    <span className="font-bold text-amber-600 mt-0.5">•</span>
+                    <span><strong>Physical Seal Dependency:</strong> The QR proves recorded origin; liquid authenticity requires an intact physical tamper seal.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="font-bold text-amber-600 mt-0.5">•</span>
+                    <span><strong>Laboratory Testing Input:</strong> The system verifies that a signed certificate was filed, not that the testing lab was incorruptible.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="font-bold text-amber-600 mt-0.5">•</span>
+                    <span><strong>AI Anomaly Diagnostics:</strong> Edge DSP provides colony health risk classification, not clinical pathology diagnosis.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="font-bold text-amber-600 mt-0.5">•</span>
+                    <span><strong>Sub-GHz LoRa Range:</strong> Rural telemetry is designed for 865-867 MHz LoRa; actual range depends on terrain and line-of-sight.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="p-4 bg-white border border-slate-200 rounded-xl">
+              <img 
+                src="/figures/fig12_trust_boundary.svg" 
+                alt="Honey Chain Trust Boundary Architecture" 
+                className="w-full h-auto rounded border border-slate-100"
+              />
+              <div className="mt-2 text-[11px] font-mono text-slate-500 text-center">
+                FIG 12: Honey Chain Cryptographic Trust Boundary & Claim-Evidence Firewall
+              </div>
             </div>
           </div>
         </section>
+
       </main>
 
       <Footer />
