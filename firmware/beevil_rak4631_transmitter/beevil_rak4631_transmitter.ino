@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * BEEVIL KNIEVEL — SMART HIVE TRANSMITTER FIRMWARE (RAK4631 / NRF52840)
+ * BEEVIL KNIEVEL - SMART HIVE TRANSMITTER FIRMWARE (RAK4631 / NRF52840)
  * ============================================================================
  * Master Cyber-Physical Edge Engine:
  *   1. Battery State-of-Charge (SoC) Estimator (7-Point OCV + Temp Derating)
@@ -19,40 +19,7 @@
 #include <Wire.h>
 #include <SPI.h>
 
-// ----------------------------------------------------------------------------
-// RADIO FREQUENCY CONFIGURATION (IN865 WPC LICENSE-FREE BAND)
-// ----------------------------------------------------------------------------
-#define RF_FREQUENCY          865.0625   // MHz (India WPC Standard)
-#define DEFAULT_TX_POWER      14         // dBm (+14 dBm = 25 mW)
-#define MIN_TX_POWER          2          // dBm (+2 dBm for nearby gateway)
-#define MAX_TX_POWER          14         // dBm
-#define LORA_BANDWIDTH        125.0      // kHz
-#define LORA_SPREADING_FACTOR 7          // SF7 (1.024 ms/symbol)
-#define LORA_CODING_RATE      5          // 4/5
-
-// ----------------------------------------------------------------------------
-// PIN DEFINITIONS (RAK4631 / RAK5005-O WisBlock Base)
-// ----------------------------------------------------------------------------
-#ifndef LED_GREEN
-  #define LED_GREEN           35         // P1.03
-#endif
-#ifndef LED_BLUE
-  #define LED_BLUE            36         // P1.04
-#endif
-#ifndef WB_IO2
-  #define WB_IO2              34         // 3V3 Sensor Power Rail Switch (P1.02)
-#endif
-
-#define PIN_VBAT_SENSE        A0         // Battery / USB Voltage ADC (P0.05)
-#define PIN_VBAT_ENABLE       30         // Voltage Divider Gate (P0.29, LOW=Enabled)
-
-// ----------------------------------------------------------------------------
-// I2C SENSOR ADDRESSES
-// ----------------------------------------------------------------------------
-#define I2C_ADDR_TMP117       0x48       // Brood Probe
-#define I2C_ADDR_SCD41        0x62       // Sensirion CO2
-#define I2C_ADDR_BME688       0x76       // Bosch VOC Gas
-#define I2C_ADDR_LIS3DH       0x18       // 3-Axis Accelerometer
+#include "config.h"
 
 // ----------------------------------------------------------------------------
 // 32-BYTE BINARY TELEMETRY PACKET STRUCTURE (STRICT PACKING)
@@ -92,9 +59,9 @@ typedef struct {
 
 static CUSUMFilterState g_cusum = {
     .S_k = 0.0f,
-    .baseline_mean = 34.82f,
-    .slack_k = 0.15f,
-    .threshold_h = 1.20f,
+    .baseline_mean = CUSUM_BASELINE_MEAN_C,
+    .slack_k = CUSUM_SLACK_K_C,
+    .threshold_h = CUSUM_THRESHOLD_H,
     .alert_active = false,
     .samples_count = 0
 };
@@ -102,7 +69,6 @@ static CUSUMFilterState g_cusum = {
 // ----------------------------------------------------------------------------
 // ALGORITHM 3: NON-VOLATILE BLACKBOX CIRCULAR FLIGHT RECORDER
 // ----------------------------------------------------------------------------
-#define BLACKBOX_BUFFER_CAPACITY 64    // Circular buffer depth
 typedef struct {
     uint32_t timestamp_ms;
     float    die_temp_c;
@@ -141,7 +107,7 @@ static ADRState g_adr = {
 static BeevilLoRaPayload g_telemetry;
 static uint32_t g_packet_counter = 0;
 static uint32_t g_last_tx_time = 0;
-const uint32_t TX_INTERVAL_MS = 5000;
+const uint32_t TX_INTERVAL_MS = BENCHMARK_TELEMETRY_INTERVAL_MS;
 
 static bool g_has_tmp117 = false;
 static bool g_has_scd41  = false;
@@ -156,18 +122,18 @@ static bool g_has_bme688 = false;
  */
 float calculateBatterySoC(float vbat_mv, float die_temp_c) {
     // Temperature compensation (+0.8 mV per °C below 25°C baseline)
-    float v_comp = vbat_mv + (25.0f - die_temp_c) * 0.80f;
+    float v_comp = vbat_mv + (VBAT_TEMP_BASELINE_C - die_temp_c) * VBAT_TEMP_COEFF_MV_PER_C;
 
-    if (v_comp >= 4200.0f) return 100.0f;
-    if (v_comp <= 3270.0f) return 0.0f;
+    if (v_comp >= VBAT_MAX_FULL_MV) return 100.0f;
+    if (v_comp <= VBAT_MIN_EMPTY_MV) return 0.0f;
 
     // 7-Point Piecewise OCV Interpolation for LiPo / Li-Ion Chemistry
-    if (v_comp > 4050.0f) return 90.0f + (v_comp - 4050.0f) / 150.0f * 10.0f;
-    if (v_comp > 3920.0f) return 70.0f + (v_comp - 3920.0f) / 130.0f * 20.0f;
-    if (v_comp > 3810.0f) return 40.0f + (v_comp - 3810.0f) / 110.0f * 30.0f;
-    if (v_comp > 3730.0f) return 20.0f + (v_comp - 3730.0f) / 80.0f * 20.0f;
-    if (v_comp > 3650.0f) return 10.0f + (v_comp - 3650.0f) / 80.0f * 10.0f;
-    return (v_comp - 3270.0f) / 380.0f * 10.0f;
+    if (v_comp > OCV_PT_90_MV) return 90.0f + (v_comp - OCV_PT_90_MV) / (VBAT_MAX_FULL_MV - OCV_PT_90_MV) * 10.0f;
+    if (v_comp > OCV_PT_70_MV) return 70.0f + (v_comp - OCV_PT_70_MV) / (OCV_PT_90_MV - OCV_PT_70_MV) * 20.0f;
+    if (v_comp > OCV_PT_40_MV) return 40.0f + (v_comp - OCV_PT_40_MV) / (OCV_PT_70_MV - OCV_PT_40_MV) * 30.0f;
+    if (v_comp > OCV_PT_20_MV) return 20.0f + (v_comp - OCV_PT_20_MV) / (OCV_PT_40_MV - OCV_PT_20_MV) * 20.0f;
+    if (v_comp > OCV_PT_10_MV) return 10.0f + (v_comp - OCV_PT_10_MV) / (OCV_PT_20_MV - OCV_PT_10_MV) * 10.0f;
+    return (v_comp - VBAT_MIN_EMPTY_MV) / (OCV_PT_10_MV - VBAT_MIN_EMPTY_MV) * 10.0f;
 }
 
 // ----------------------------------------------------------------------------
@@ -175,7 +141,7 @@ float calculateBatterySoC(float vbat_mv, float die_temp_c) {
 // ----------------------------------------------------------------------------
 /**
  * Updates the recursive CUSUM thermal anomaly detector.
- * Detects progressive queen failure / brood detachment up to 72 hours early.
+ * Detects progressive thermal deficit with up to 72-hour warning horizon under modeled cluster cooling.
  */
 bool updateCUSUMFilter(float measured_temp_c) {
     g_cusum.samples_count++;
@@ -349,7 +315,7 @@ void setup() {
     while (!Serial && (millis() - start < 3000));
     
     Serial.println(F("\n========================================================"));
-    Serial.println(F("  BEEVIL KNIEVEL — RAK4631 SMART TRANSMITTER v2.0"));
+    Serial.println(F("  BEEVIL KNIEVEL - RAK4631 SMART TRANSMITTER v2.0"));
     Serial.println(F("  4 Master Embedded Algorithms: SoC + CUSUM + Blackbox + ADR"));
     Serial.println(F("========================================================"));
     

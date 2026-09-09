@@ -1,60 +1,86 @@
-"use client";
-
 import React from "react";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
-import { SystemSection } from "@/components/SystemSection";
-import { EdgeAISection } from "@/components/EdgeAISection";
-import { CatalogSection } from "@/components/CatalogSection";
-import { DeveloperSection } from "@/components/DeveloperSection";
-import { EducationSection } from "@/components/EducationSection";
-import { OrderAccessoriesSection } from "@/components/OrderAccessoriesSection";
-import { SpecsSection } from "@/components/SpecsSection";
-import { GallerySection } from "@/components/GallerySection";
-import { MissionSection } from "@/components/MissionSection";
-import { NewsletterAndHelpSection } from "@/components/NewsletterAndHelpSection";
+import { ProblemSection } from "@/components/ProblemSection";
+import { InspectionLimitsSection } from "@/components/InspectionLimitsSection";
+import { OurApproachSection } from "@/components/OurApproachSection";
+import { SensingMatrixSection } from "@/components/SensingMatrixSection";
+import { ThermalThermodynamicsSection } from "@/components/ThermalThermodynamicsSection";
+import { AcousticIntelligenceSection } from "@/components/AcousticIntelligenceSection";
+import { FieldNodeSection } from "@/components/FieldNodeSection";
+import { EmbeddedProcessingSection } from "@/components/EmbeddedProcessingSection";
+import { DualRadioNetworkSection } from "@/components/DualRadioNetworkSection";
+import { GatewayEdgeSection } from "@/components/GatewayEdgeSection";
+import { EdgeDiagnosticsSection } from "@/components/EdgeDiagnosticsSection";
+import { MultiHiveNetworkSection } from "@/components/MultiHiveNetworkSection";
+import { MultiPhysicsSimulationSection } from "@/components/MultiPhysicsSimulationSection";
+import { ValidationEvidenceSection } from "@/components/ValidationEvidenceSection";
+import { PrototypeBenchSection } from "@/components/PrototypeBenchSection";
+import { ResultsSection } from "@/components/ResultsSection";
+import { TechnicalDocsSection } from "@/components/TechnicalDocsSection";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#7a8085] text-white">
-      {/* Top Sticky Navbar with Universal Search */}
+    <div className="min-h-screen flex flex-col bg-[#090b10] text-[#f1f5f9] font-sans selection:bg-[#f59e0b] selection:text-[#090b10]">
+      {/* Top Technical Navigation */}
       <Navbar />
 
-      {/* Main Page Sections */}
+      {/* Main Narrative Pipeline: 16 Chronological Stages (IEEE HART Phase 2 Standard) */}
       <main className="flex-grow">
-        {/* 1. Hero Section with Live Telemetry */}
+        {/* 00. Hero Section: System Identification & Evaluation Prototype Status */}
         <HeroSection />
 
-        {/* 2. The System, The Design, The Acoustic Ear */}
-        <SystemSection />
+        {/* 01. The Problem: Commercial Apiary Mortality & Observability Gap */}
+        <ProblemSection />
 
-        {/* 3. Edge AI Intelligence (8 Core Diagnostic Models - Zero Game Cards) */}
-        <EdgeAISection />
+        {/* 02. Why Current Inspection Is Limited: Frame Pulls, Audio Loggers, Cloud Systems */}
+        <InspectionLimitsSection />
 
-        {/* 4. Model Variations by Hive Count (Catalog & Future Work) */}
-        <CatalogSection />
+        {/* 03. Our Approach: 3-Tier Cyber-Physical Pipeline & End-to-End Dataflow */}
+        <OurApproachSection />
 
-        {/* 5. Open Apiculture SDK & HiveOS App */}
-        <DeveloperSection />
+        {/* 04A. Where We Measure: In-Hive Sensor Matrix & 10-Frame Cutaway */}
+        <SensingMatrixSection />
 
-        {/* 6. University Research & Education Program (15% Off) */}
-        <EducationSection />
+        {/* 04B. Thermal Modeling: Brood Nest Thermoregulation & CUSUM Drift Filter */}
+        <ThermalThermodynamicsSection />
 
-        {/* 7. Hardware Packages & Antmicro CM4 Gateway */}
-        <OrderAccessoriesSection />
+        {/* 05. Acoustic Signal: CMSIS-DSP 256-pt Real FFT & Biological Sub-Bands */}
+        <AcousticIntelligenceSection />
 
-        {/* 8. Master Hardware & Software Specifications */}
-        <SpecsSection />
+        {/* 06. Sensor Node: RAK4631 nRF52840, Power Gating & Hardware Architecture */}
+        <FieldNodeSection />
 
-        {/* 9. Hardware Gallery (Images pulled from GitHub Repository) */}
-        <GallerySection />
+        {/* 07. Embedded DSP: State Machine Execution & 300s Power Duty Cycle */}
+        <EmbeddedProcessingSection />
 
-        {/* 10. Consolidated "Our Mission" & Marcus Varro 2,000-Year Heritage */}
-        <MissionSection />
+        {/* 08. Wireless Link: Sub-GHz LoRa Star Backhaul & Local BLE Topology */}
+        <DualRadioNetworkSection />
 
-        {/* 11. Research Newsletter & Support Portal */}
-        <NewsletterAndHelpSection />
+        {/* 09. Receiver / Gateway: Hardened Base Station, SQLite WAL & OverlayFS */}
+        <GatewayEdgeSection />
+
+        {/* 10. Analytics / AI: Multi-Modal Diagnostics & 5-Tier Truth Taxonomy */}
+        <EdgeDiagnosticsSection />
+
+        {/* 11. Multi-Hive System: 100-Hive Scalable Apiary Star Topology */}
+        <MultiHiveNetworkSection />
+
+        {/* 12. Simulation: 11 ANSYS Multi-Physics FEA/CFD Simulation Domains */}
+        <MultiPhysicsSimulationSection />
+
+        {/* 13. Validation: Claims vs. Empirical & Mathematical Evidence Ledger */}
+        <ValidationEvidenceSection />
+
+        {/* 14. Prototype: Bench Prototype Bring-Up Reality & Report Previews */}
+        <PrototypeBenchSection />
+
+        {/* 15. Results: Defensible Performance Tables (Measured / Calculated / Simulated / Estimated) */}
+        <ResultsSection />
+
+        {/* 16. Technical Documentation: Reproducibility Suite & 13 Canonical Figures */}
+        <TechnicalDocsSection />
       </main>
 
       {/* Site Footer */}
