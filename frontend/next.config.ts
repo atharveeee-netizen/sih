@@ -4,14 +4,14 @@ const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: isProd ? "/beevil-knievel" : "",
-  assetPrefix: isProd ? "/beevil-knievel/" : "",
+  basePath: isProd && process.env.GITHUB_PAGES ? "/sih" : "",
+  assetPrefix: isProd && process.env.GITHUB_PAGES ? "/sih/" : "",
   images: {
     unoptimized: true,
   },
   trailingSlash: true,
   env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? "/beevil-knievel" : "",
+    NEXT_PUBLIC_BASE_PATH: isProd && process.env.GITHUB_PAGES ? "/sih" : "",
   },
 };
 

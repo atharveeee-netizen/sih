@@ -2,21 +2,21 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Beevil Knievel — Edge AI Hive Health & Pathology System",
+  title: "Honey Chain — Blockchain Honey Traceability & Smart Beekeeping (SIH 26021)",
   description:
-    "Autonomous Edge-AI Environmental & Acoustic Health Monitoring System for Precision Apiculture. Powered by Raspberry Pi 3B+ Gateway, 16 Multi-Sensor Telemetry Fusion, and 96.84% Out-of-Sample Accuracy.",
+    "Ministry of MSME — KVIC Honey Mission: An integrated blockchain, AI, and IoT digital ecosystem for honey authenticity, QR-code verification, colony health monitoring, and rural market linkages.",
   openGraph: {
-    title: "Beevil Knievel — Edge AI Hive Health & Pathology System",
+    title: "Honey Chain — Digital Honey Traceability & Smart Beekeeping Platform",
     description:
-      "Autonomous Edge-AI Environmental & Acoustic Health Monitoring System for Precision Apiculture. IEEE HardwAIre Challenge Master Standard.",
-    siteName: "Beevil Knievel",
+      "SIH Problem Statement 26021: Tamper-evident cryptographic ledger, smart hive IoT telemetry, AI disease detection, and QR counterfeit prevention.",
+    siteName: "Honey Chain",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Beevil Knievel — Edge AI Hive Health & Pathology System",
+    title: "Honey Chain — Blockchain Honey Traceability (SIH 26021)",
     description:
-      "Autonomous Edge-AI Environmental & Acoustic Health Monitoring System for Precision Apiculture.",
+      "End-to-end honey traceability from smart hive to retail consumer with cryptographic verification.",
   },
 };
 
