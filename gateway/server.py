@@ -49,7 +49,7 @@ except ImportError:
 # -----------------------------------------------------------------------------
 BASE_DIR = Path(__file__).resolve().parent
 REPO_ROOT = BASE_DIR.parent
-DB_PATH = BASE_DIR / "beevil_telemetry.db"
+DB_PATH = BASE_DIR / "honeychain.db"
 MODEL_PATH = REPO_ROOT / "Cloud Model" / "beevil_fusion_net_edge_torchscript.pt"
 NORM_PARAMS_PATH = REPO_ROOT / "TinyML Model" / "norm_params.json"
 
@@ -300,15 +300,22 @@ ai_engine = EdgeDiagnosticEngine()
 # -----------------------------------------------------------------------------
 # FASTAPI APPLICATION & WEBSOCKET BROADCASTER
 # -----------------------------------------------------------------------------
+# Honey Chain Subsystem Integration
+try:
+    from . import honeychain_api, honeychain_db
+except ImportError:
+    import honeychain_api, honeychain_db
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_database()
+    honeychain_db.init_db()
     yield
 
 app = FastAPI(
-    title="Beevil Knievel - Edge Gateway Telemetry Server",
-    description="Edge-Native Smart Apiculture Monitoring & Diagnostic API",
-    version="2.0.0",
+    title="Honey Chain — Edge Gateway & Traceability Server",
+    description="SIH 26021: Blockchain Honey Traceability & Smart Beekeeping API",
+    version="2.1.0",
     lifespan=lifespan
 )
 
@@ -319,6 +326,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Mount Honey Chain SIH 26021 Traceability, QR, Ledger & KVIC Router
+app.include_router(honeychain_api.router)
 
 class ConnectionManager:
     def __init__(self):
