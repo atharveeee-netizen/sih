@@ -18,7 +18,7 @@ if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
 from honeychain_db import init_db, get_db
-from honeychain_ledger import HoneyChainLedger
+from blockchain_bridge import BlockchainLedgerFacade as HoneyChainLedger
 from honeychain_qr import HoneyChainQREngine
 
 def seed_demo_data():
