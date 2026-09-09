@@ -1,12 +1,24 @@
-# Beevil Knievel — High-Precision 75.4 KB TinyML 1D-CNN Model Architecture
+# Beevil Knievel - High-Precision 75.4 KB TinyML 1D-CNN Model Architecture
 
-This directory contains the official on-device **TinyML Model** designed for the **STM32WLE5JC Microcontroller (Wio-E5 node)** for real-time acoustic swarm prediction, queenless distress detection, and environmental noise suppression.
+This directory contains the official on-device **TinyML Model** designed for the **nRF52840 Microcontroller (RAK4631 node)** for real-time acoustic swarm prediction, queenless distress detection, and environmental noise suppression.
 
 ---
 
-## 📊 Microcontroller Memory Budget Allocation (STM32WLE5JC)
+## ⚡ Innovative Use of AI (IEEE HART Alignment)
 
-| Memory Type | Component | Size | % of STM32 Capacity |
+**Goal:** *Demonstrate the impact of AI in delivering optimal performance within the device itself.*
+
+By running this 1D-CNN directly on the RAK4631 Edge Node (TinyML), the system **analyzes the data locally instead of streaming it**. 
+
+*Note: Due to the lack of publicly available, annotated, high-frequency acoustic datasets for honeybee swarming, the current TinyML model acts as a structural proof-of-concept and simulation framework. It demonstrates the architecture and edge-compression capabilities, awaiting future real-world data collection.*
+
+A raw 10-second audio clip would require continuous, heavy LoRaWAN transmission, drastically reducing battery life. Instead, this TinyML model acts as an intelligent data compressor, reducing the complex audio into a **single 1-byte telemetry payload** (e.g., `0x01` for Active, `0x03` for Missing Queen). This reduces the RF payload by **>99%**, directly optimizing the system's **Energy Consumption KPI** and enabling the node's multi-year battery autonomy.
+
+---
+
+## 📊 Microcontroller Memory Budget Allocation (nRF52840)
+
+| Memory Type | Component | Size | % of nRF52840 Capacity |
 | :--- | :--- | :--- | :--- |
 | **Flash Memory** (256 KB Total) | **TinyML 1D-CNN Model** | **75.4 KB** | **29.5%** |
 | | 14-Day Offline Telemetry Cache | 80.6 KB | 31.5% |
@@ -22,10 +34,10 @@ This directory contains the official on-device **TinyML Model** designed for the
 
 The model processes audio across **4 distinct frequency bands** using Discrete Fourier Filtering:
 
-1. **Channel 1 (100 Hz – 180 Hz) — Ventilation & Fan Fanning:** Detects worker bees fanning wings to cool brood when hive temperatures rise.
-2. **Channel 2 (200 Hz – 400 Hz) — Swarm & Queen Piping:** Captures pre-swarm departure acoustic spikes and queen piping frequencies.
-3. **Channel 3 (450 Hz – 750 Hz) — Queenless Distress:** Detects colony distress, queen loss alarms, and parasite (Varroa) irritation.
-4. **Channel 4 (800 Hz – 1200 Hz) — Weather Noise Filter:** Monitors environmental rain/wind noise floor to suppress false alarms.
+1. **Channel 1 (100 Hz - 180 Hz) - Ventilation & Fan Fanning:** Detects worker bees fanning wings to cool brood when hive temperatures rise.
+2. **Channel 2 (200 Hz - 400 Hz) - Swarm & Queen Piping:** Captures pre-swarm departure acoustic spikes and queen piping frequencies.
+3. **Channel 3 (450 Hz - 750 Hz) - Queenless Distress:** Detects colony distress, queen loss alarms, and parasite (Varroa) irritation.
+4. **Channel 4 (800 Hz - 1200 Hz) - Weather Noise Filter:** Monitors environmental rain/wind noise floor to suppress false alarms.
 
 ---
 
