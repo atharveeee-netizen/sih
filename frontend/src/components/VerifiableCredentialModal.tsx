@@ -105,7 +105,7 @@ export default function VerifiableCredentialModal({ isOpen, onClose, batch }: Pr
     <div className="fixed inset-0 z-50 bg-charcoal/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
       <div className="border-2 border-gold bg-white max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden text-charcoal relative">
         {/* Header */}
-        <div className="px-6 py-5 border-b border-charcoal/10 bg-[#F9F8F6] flex items-center justify-between">
+        <div className="px-6 py-5 border-b border-charcoal/10 bg-[#EEF1F4] flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gold/10 border border-gold flex items-center justify-center text-gold">
               <FileCode className="w-5 h-5" />
@@ -132,14 +132,14 @@ export default function VerifiableCredentialModal({ isOpen, onClose, batch }: Pr
         </div>
 
         {/* Code Content */}
-        <div className="p-6 overflow-y-auto flex-1 bg-[#141414] text-[#E0E0E0]">
+        <div className="p-6 overflow-y-auto flex-1 bg-[#16212B] text-[#DFE5EB]">
           <pre className="text-xs font-mono leading-relaxed whitespace-pre-wrap select-all">
             {jsonString}
           </pre>
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-4 border-t border-charcoal/10 bg-[#F9F8F6] flex items-center justify-between gap-3">
+        <div className="px-6 py-4 border-t border-charcoal/10 bg-[#EEF1F4] flex items-center justify-between gap-3">
           <span className="text-xs font-mono text-warm-grey font-semibold">Standard: W3C VC 1.0 JSON-LD</span>
           <div className="flex items-center gap-3">
             <button

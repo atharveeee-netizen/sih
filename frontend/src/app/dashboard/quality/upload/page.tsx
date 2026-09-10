@@ -68,7 +68,7 @@ export default function UploadLabCertificatePage() {
           particleCount: 70,
           spread: 50,
           origin: { y: 0.6 },
-          colors: ["#D4AF37", "#009688", "#1A1A1A"],
+          colors: ["#14508C", "#009688", "#16212B"],
         });
       } else {
         alert(data.error || "Analysis failed");
@@ -96,7 +96,7 @@ CONCLUSION: Sample conforms to Grade A+ Premium Raw Organic Honey standards.`);
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#F9F8F6]">
+    <div className="min-h-screen flex flex-col justify-between bg-[#EEF1F4]">
       <Navbar />
 
       <main className="py-16 px-6 md:px-12 max-w-5xl mx-auto w-full flex-1">
@@ -231,42 +231,42 @@ CONCLUSION: Sample conforms to Grade A+ Premium Raw Organic Honey standards.`);
                 Extracted Physicochemical Parameters (FSSAI IS 4941:2020)
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="p-4 bg-[#F9F8F6] border border-charcoal/10">
+                <div className="p-4 bg-[#EEF1F4] border border-charcoal/10">
                   <span className="text-[9px] uppercase tracking-widest text-warm-grey block mb-1">Moisture Content</span>
                   <span className="text-xl font-mono font-bold text-charcoal">{extractedData.moisture_percent}%</span>
                   <span className="text-[9px] text-emerald-700 block mt-1">FSSAI Max: 20.0%</span>
                 </div>
-                <div className="p-4 bg-[#F9F8F6] border border-charcoal/10">
+                <div className="p-4 bg-[#EEF1F4] border border-charcoal/10">
                   <span className="text-[9px] uppercase tracking-widest text-warm-grey block mb-1">Brix Density</span>
                   <span className="text-xl font-mono font-bold text-charcoal">{extractedData.brix_index}°Bx</span>
                   <span className="text-[9px] text-emerald-700 block mt-1">Standard: &gt; 80°</span>
                 </div>
-                <div className="p-4 bg-[#F9F8F6] border border-charcoal/10">
+                <div className="p-4 bg-[#EEF1F4] border border-charcoal/10">
                   <span className="text-[9px] uppercase tracking-widest text-warm-grey block mb-1">HMF Freshness</span>
                   <span className="text-xl font-mono font-bold text-charcoal">{extractedData.hmf_mg_kg} mg/kg</span>
                   <span className="text-[9px] text-emerald-700 block mt-1">Limit: Max 80.0</span>
                 </div>
-                <div className="p-4 bg-[#F9F8F6] border border-charcoal/10">
+                <div className="p-4 bg-[#EEF1F4] border border-charcoal/10">
                   <span className="text-[9px] uppercase tracking-widest text-warm-grey block mb-1">Diastase Index</span>
                   <span className="text-xl font-mono font-bold text-charcoal">{extractedData.diastase_activity} DN</span>
                   <span className="text-[9px] text-emerald-700 block mt-1">Min: 8.0 DN</span>
                 </div>
-                <div className="p-4 bg-[#F9F8F6] border border-charcoal/10">
+                <div className="p-4 bg-[#EEF1F4] border border-charcoal/10">
                   <span className="text-[9px] uppercase tracking-widest text-warm-grey block mb-1">Conductivity</span>
                   <span className="text-xl font-mono font-bold text-charcoal">{extractedData.electrical_conductivity} mS/cm</span>
                   <span className="text-[9px] text-emerald-700 block mt-1">Max: 0.8 mS/cm</span>
                 </div>
-                <div className="p-4 bg-[#F9F8F6] border border-charcoal/10">
+                <div className="p-4 bg-[#EEF1F4] border border-charcoal/10">
                   <span className="text-[9px] uppercase tracking-widest text-warm-grey block mb-1">Delta 13C Isotope</span>
                   <span className="text-xl font-mono font-bold text-charcoal">{extractedData.c13_isotope_delta} ‰</span>
                   <span className="text-[9px] text-emerald-700 block mt-1">Authentic: &lt; -24.0</span>
                 </div>
-                <div className="p-4 bg-[#F9F8F6] border border-charcoal/10">
+                <div className="p-4 bg-[#EEF1F4] border border-charcoal/10">
                   <span className="text-[9px] uppercase tracking-widest text-warm-grey block mb-1">C4 Exogenous Sugars</span>
                   <span className="text-xl font-mono font-bold text-charcoal">{extractedData.c4_sugar_percent}%</span>
                   <span className="text-[9px] text-emerald-700 block mt-1">Max: 7.0%</span>
                 </div>
-                <div className="p-4 bg-[#F9F8F6] border border-charcoal/10">
+                <div className="p-4 bg-[#EEF1F4] border border-charcoal/10">
                   <span className="text-[9px] uppercase tracking-widest text-warm-grey block mb-1">SMR Rice Syrup</span>
                   <span className="text-xl font-mono font-bold text-charcoal">{extractedData.smr_marker}</span>
                   <span className="text-[9px] text-emerald-700 block mt-1">Marker: Negative</span>
@@ -282,7 +282,7 @@ CONCLUSION: Sample conforms to Grade A+ Premium Raw Organic Honey standards.`);
               </div>
               <Link
                 href="/dashboard/mint"
-                className="px-6 py-3 bg-gold text-charcoal uppercase tracking-widest text-xs font-bold hover:bg-white transition-colors"
+                className="px-6 py-3 bg-gold text-white uppercase tracking-widest text-xs font-bold hover:bg-white transition-colors"
               >
                 Mint Batch with Extracted Parameters →
               </Link>

@@ -80,7 +80,7 @@ export default function MobileBottomNav() {
   return (
     <>
       {/* ─── STICKY BOTTOM NAV BAR (Mobile Only: md:hidden) ───────────── */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#121212]/95 backdrop-blur-lg border-t border-white/10 px-2 py-1.5 shadow-2xl safe-area-bottom">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#16212B]/95 backdrop-blur-lg border-t border-white/10 px-2 py-1.5 shadow-2xl safe-area-bottom">
         <div className="flex items-center justify-around">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -110,7 +110,7 @@ export default function MobileBottomNav() {
                   href={item.href!}
                   className="flex flex-col items-center justify-center py-1 px-3 -mt-4 group active:scale-95 transition-all"
                 >
-                  <div className="w-12 h-12 rounded-full bg-gold text-charcoal border-2 border-[#121212] shadow-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-12 h-12 rounded-full bg-gold text-white border-2 border-[#16212B] shadow-lg flex items-center justify-center group-hover:scale-105 transition-transform">
                     <Icon className="w-6 h-6" />
                   </div>
                   <span className="text-[10px] font-mono font-bold tracking-tight mt-0.5 text-alabaster">

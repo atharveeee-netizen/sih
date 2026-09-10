@@ -77,7 +77,7 @@ export default function GovtInteroperabilityCard() {
           <button
             type="button"
             onClick={() => setShowJson(!showJson)}
-            className="px-3 py-1.5 bg-charcoal text-alabaster text-[10px] uppercase tracking-widest font-bold flex items-center gap-1.5 hover:bg-gold hover:text-charcoal transition-colors"
+            className="px-3 py-1.5 bg-charcoal text-alabaster text-[10px] uppercase tracking-widest font-bold flex items-center gap-1.5 hover:bg-gold hover:text-white transition-colors"
           >
             <Code className="w-3 h-3" />
             <span>{showJson ? "Hide JSON" : "View JSON Payload"}</span>
@@ -87,7 +87,7 @@ export default function GovtInteroperabilityCard() {
 
       {/* Status Badges Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <div className="p-4 bg-[#F9F8F6] border border-charcoal/10 flex items-start justify-between">
+        <div className="p-4 bg-[#EEF1F4] border border-charcoal/10 flex items-start justify-between">
           <div>
             <p className="text-[10px] uppercase tracking-widest text-warm-grey font-bold mb-1">
               National Bee Board
@@ -102,7 +102,7 @@ export default function GovtInteroperabilityCard() {
           </span>
         </div>
 
-        <div className="p-4 bg-[#F9F8F6] border border-charcoal/10 flex items-start justify-between">
+        <div className="p-4 bg-[#EEF1F4] border border-charcoal/10 flex items-start justify-between">
           <div>
             <p className="text-[10px] uppercase tracking-widest text-warm-grey font-bold mb-1">
               Ministry of Agriculture
@@ -117,7 +117,7 @@ export default function GovtInteroperabilityCard() {
           </span>
         </div>
 
-        <div className="p-4 bg-[#F9F8F6] border border-charcoal/10 flex items-start justify-between">
+        <div className="p-4 bg-[#EEF1F4] border border-charcoal/10 flex items-start justify-between">
           <div>
             <p className="text-[10px] uppercase tracking-widest text-warm-grey font-bold mb-1">
               MSME KVIC Scheme
@@ -135,7 +135,7 @@ export default function GovtInteroperabilityCard() {
 
       {/* JSON Schema Viewer Dropdown */}
       {showJson && (
-        <div className="p-4 bg-[#141414] text-[#E0E0E0] border-2 border-charcoal rounded-sm font-mono text-[11px] overflow-x-auto mb-4 animate-in fade-in duration-200">
+        <div className="p-4 bg-[#16212B] text-[#DFE5EB] border-2 border-charcoal rounded-sm font-mono text-[11px] overflow-x-auto mb-4 animate-in fade-in duration-200">
           <div className="flex justify-between items-center pb-2 mb-2 border-b border-white/10 text-warm-grey text-[10px]">
             <span>REST JSON WEBHOOK PAYLOAD (NBB & AGRISTACK RECONCILIATION)</span>
             <span className="text-gold">Status: LIVE_SYNC</span>

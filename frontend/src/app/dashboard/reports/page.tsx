@@ -152,7 +152,7 @@ export default function ReportsPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#F9F8F6]">
+    <div className="min-h-screen flex flex-col justify-between bg-[#EEF1F4]">
       <Navbar />
 
       <main className="py-8 sm:py-12 px-4 sm:px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full flex-1">
@@ -182,7 +182,7 @@ export default function ReportsPage() {
               </span>
             </div>
             <h1 className="text-2xl sm:text-4xl md:text-5xl serif text-charcoal font-normal">
-              Audit & Lab <span className="italic text-gold font-serif">Reports</span>
+              Audit & Lab <span className="text-gold font-semibold">Reports</span>
             </h1>
             <p className="text-xs text-warm-grey mt-1">
               Download certified NABL laboratory certificates, W3C Verifiable Credentials, and Ministry of MSME batch summaries.
@@ -212,7 +212,7 @@ export default function ReportsPage() {
                 placeholder="Search by farmer name, location, QR token, or batch #..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full h-11 pl-10 pr-4 border border-charcoal/20 bg-[#F9F8F6] text-xs font-mono font-medium focus:border-gold focus:outline-none"
+                className="w-full h-11 pl-10 pr-4 border border-charcoal/20 bg-[#EEF1F4] text-xs font-mono font-medium focus:border-gold focus:outline-none"
               />
             </div>
 
@@ -268,7 +268,7 @@ export default function ReportsPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="border-b-2 border-charcoal/15 bg-[#F9F8F6] text-[10px] uppercase tracking-widest text-warm-grey font-bold">
+                <tr className="border-b-2 border-charcoal/15 bg-[#EEF1F4] text-[10px] uppercase tracking-widest text-warm-grey font-bold">
                   <th className="p-3">Batch & QR</th>
                   <th className="p-3">Beekeeper / Origin</th>
                   <th className="p-3">Purity Score</th>
@@ -279,7 +279,7 @@ export default function ReportsPage() {
               </thead>
               <tbody className="divide-y divide-charcoal/10">
                 {filtered.map((item) => (
-                  <tr key={item.batchId} className="hover:bg-[#F9F8F6] transition-colors">
+                  <tr key={item.batchId} className="hover:bg-[#EEF1F4] transition-colors">
                     <td className="p-3">
                       <p className="font-mono font-bold text-charcoal">#00{item.batchId}</p>
                       <p className="text-[10px] font-mono text-warm-grey">{item.qrToken}</p>
@@ -336,7 +336,7 @@ export default function ReportsPage() {
                           type="button"
                           onClick={() => handleDownloadAPEDA(item)}
                           disabled={downloadingId === item.batchId}
-                          className="px-2.5 py-1 text-[10px] uppercase tracking-widest font-bold border border-gold/40 bg-gold/10 hover:bg-gold hover:text-charcoal text-charcoal transition-colors shadow-2xs inline-flex items-center gap-1"
+                          className="px-2.5 py-1 text-[10px] uppercase tracking-widest font-bold border border-gold/40 bg-gold/10 hover:bg-gold hover:text-white text-charcoal transition-colors shadow-2xs inline-flex items-center gap-1"
                         >
                           <Globe className="w-3 h-3 text-gold" />
                           <span>APEDA Passport</span>

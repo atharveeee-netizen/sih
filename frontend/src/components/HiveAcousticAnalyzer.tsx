@@ -277,7 +277,7 @@ export default function HiveAcousticAnalyzer() {
       const width = canvas.width;
       const height = canvas.height;
 
-      ctx.fillStyle = "#0D0C0B";
+      ctx.fillStyle = "#06182E";
       ctx.fillRect(0, 0, width, height);
 
       // Draw subtle frequency grid
@@ -330,8 +330,8 @@ export default function HiveAcousticAnalyzer() {
           grad.addColorStop(0.7, "#F43F5E");
           grad.addColorStop(1, "#FECDD3");
         } else if (currentProfile.status === "WARNING") {
-          grad.addColorStop(0, "#D97706");
-          grad.addColorStop(0.7, "#F59E0B");
+          grad.addColorStop(0, "#B87A08");
+          grad.addColorStop(0.7, "#F2A61C");
           grad.addColorStop(1, "#FEF3C7");
         } else if (currentProfile.status === "ANOMALY") {
           grad.addColorStop(0, "#8B5CF6");
@@ -339,7 +339,7 @@ export default function HiveAcousticAnalyzer() {
           grad.addColorStop(1, "#F3E8FF");
         } else {
           grad.addColorStop(0, "#B45309");
-          grad.addColorStop(0.6, "#F59E0B");
+          grad.addColorStop(0.6, "#F2A61C");
           grad.addColorStop(1, "#10B981");
         }
 
@@ -354,7 +354,7 @@ export default function HiveAcousticAnalyzer() {
       // Dominant frequency annotation marker
       const targetBin = Math.floor((currentProfile.fundamentalHz / 1000) * 64);
       const markerX = targetBin * (barWidth + barSpacing);
-      ctx.fillStyle = "#F59E0B";
+      ctx.fillStyle = "#F2A61C";
       ctx.font = "10px JetBrains Mono, monospace";
       ctx.fillText(`▲ ${currentProfile.fundamentalHz} Hz`, Math.min(width - 70, Math.max(10, markerX - 25)), 20);
 
@@ -391,7 +391,7 @@ export default function HiveAcousticAnalyzer() {
       {/* Header */}
       <div className="p-6 bg-charcoal text-alabaster border-b border-charcoal flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 border border-gold bg-[#121212] rounded-xl flex items-center justify-center text-gold">
+          <div className="w-10 h-10 border border-gold bg-[#16212B] rounded-xl flex items-center justify-center text-gold">
             <Radio className="w-5 h-5 animate-pulse" />
           </div>
           <div>
@@ -416,7 +416,7 @@ export default function HiveAcousticAnalyzer() {
             className={`px-4 py-2 text-xs uppercase tracking-widest font-mono font-bold flex items-center gap-2 transition-all ${
               isMicLive
                 ? "bg-rose-600 text-white shadow-lg animate-pulse"
-                : "border-2 border-gold/60 bg-gold/10 text-gold hover:bg-gold hover:text-charcoal shadow-xs"
+                : "border-2 border-gold/60 bg-gold/10 text-gold hover:bg-gold hover:text-white shadow-xs"
             }`}
           >
             {isMicLive ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
@@ -428,7 +428,7 @@ export default function HiveAcousticAnalyzer() {
             className={`px-4 py-2 text-xs uppercase tracking-widest font-mono font-bold flex items-center gap-2 transition-all ${
               isPlaying
                 ? "bg-rose-600 text-white shadow-lg animate-pulse"
-                : "bg-gold text-charcoal hover:bg-gold/90 shadow-xs"
+                : "bg-gold text-white hover:bg-gold/90 shadow-xs"
             }`}
           >
             {isPlaying ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
@@ -480,7 +480,7 @@ export default function HiveAcousticAnalyzer() {
           </div>
 
           {/* Spectrogram Canvas */}
-          <div className="border-2 border-charcoal/20 bg-[#0D0C0B] p-4 relative shadow-inner">
+          <div className="border-2 border-charcoal/20 bg-[#06182E] p-4 relative shadow-inner">
             <div className="flex justify-between items-center text-[9px] font-mono text-gold mb-2 border-b border-white/10 pb-1.5">
               <span className="flex items-center gap-1.5">
                 <Activity className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
@@ -493,7 +493,7 @@ export default function HiveAcousticAnalyzer() {
               ref={canvasRef}
               width={560}
               height={180}
-              className="w-full h-44 rounded bg-[#0D0C0B] block"
+              className="w-full h-44 rounded bg-[#06182E] block"
             />
 
             <div className="flex justify-between items-center text-[8px] font-mono text-warm-grey mt-2">
@@ -526,7 +526,7 @@ export default function HiveAcousticAnalyzer() {
 
         {/* Right Column: Real-Time Diagnostic Scorecard (5 cols) */}
         <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
-          <div className="p-5 border-2 border-charcoal/15 bg-[#F9F8F6] space-y-4">
+          <div className="p-5 border-2 border-charcoal/15 bg-[#EEF1F4] space-y-4">
             <div className="flex justify-between items-start border-b border-charcoal/10 pb-3">
               <div>
                 <span className="text-[9px] uppercase tracking-ultra text-warm-grey font-bold block">
@@ -628,7 +628,7 @@ export default function HiveAcousticAnalyzer() {
               <button
                 onClick={handleSendAlert}
                 disabled={isSimulatingAlert}
-                className="w-full py-2.5 bg-gold text-charcoal hover:bg-gold/90 font-bold text-xs uppercase tracking-widest font-mono flex items-center justify-center gap-2 shadow-xs transition-colors"
+                className="w-full py-2.5 bg-gold text-white hover:bg-gold/90 font-bold text-xs uppercase tracking-widest font-mono flex items-center justify-center gap-2 shadow-xs transition-colors"
               >
                 {isSimulatingAlert ? (
                   <>

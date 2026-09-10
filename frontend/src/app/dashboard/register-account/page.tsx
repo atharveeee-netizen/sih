@@ -135,7 +135,7 @@ export default function RegisterAccountPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#F9F8F6]">
+    <div className="min-h-screen flex flex-col justify-between bg-[#EEF1F4]">
       <Navbar />
 
       <main className="py-8 sm:py-20 px-4 sm:px-6 md:px-12 max-w-xl mx-auto w-full flex-1">
@@ -299,7 +299,7 @@ export default function RegisterAccountPage() {
           {/* STEP 2: Email OTP Verification */}
           {step === "VERIFY_EMAIL" && (
             <form onSubmit={handleVerifyEmail} className="space-y-6">
-              <div className="p-4 bg-[#F9F8F6] border border-charcoal/10 text-xs">
+              <div className="p-4 bg-[#EEF1F4] border border-charcoal/10 text-xs">
                 {emailDemoOtp ? (
                   <>
                     <p className="text-warm-grey mb-1">Email verification OTP for:</p>
@@ -359,7 +359,7 @@ export default function RegisterAccountPage() {
           {/* STEP 3: Phone OTP Verification */}
           {step === "VERIFY_PHONE" && (
             <form onSubmit={handleVerifyPhone} className="space-y-6">
-              <div className="p-4 bg-[#F9F8F6] border border-charcoal/10 text-xs">
+              <div className="p-4 bg-[#EEF1F4] border border-charcoal/10 text-xs">
                 <p className="text-warm-grey mb-1">
                   We sent a SMS verification code to:
                 </p>

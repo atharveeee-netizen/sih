@@ -153,14 +153,14 @@ export default function OfflineSMSSimulator({ isOpen, onClose }: OfflineSMSSimul
           <button
             type="button"
             onClick={() => setQueryText(channel === "sms" ? "VERIFY TT-2026-00001" : "*99*4941*001#")}
-            className="text-[10px] font-mono px-2 py-1 bg-[#F9F8F6] border border-charcoal/15 hover:border-gold text-charcoal"
+            className="text-[10px] font-mono px-2 py-1 bg-[#EEF1F4] border border-charcoal/15 hover:border-gold text-charcoal"
           >
             Batch #1 (Bihar Litchi)
           </button>
           <button
             type="button"
             onClick={() => setQueryText(channel === "sms" ? "VERIFY TT-2026-00002" : "*99*4941*002#")}
-            className="text-[10px] font-mono px-2 py-1 bg-[#F9F8F6] border border-charcoal/15 hover:border-gold text-charcoal"
+            className="text-[10px] font-mono px-2 py-1 bg-[#EEF1F4] border border-charcoal/15 hover:border-gold text-charcoal"
           >
             Batch #2 (Sundarbans)
           </button>

@@ -111,7 +111,7 @@ export default function PollinationCreditCalculator() {
       {/* Header */}
       <div className="p-4 sm:p-6 bg-charcoal text-alabaster border-b border-charcoal flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 border border-gold bg-[#121212] rounded-xl flex items-center justify-center text-gold">
+          <div className="w-10 h-10 border border-gold bg-[#16212B] rounded-xl flex items-center justify-center text-gold">
             <Leaf className="w-5 h-5" />
           </div>
           <div>
@@ -131,7 +131,7 @@ export default function PollinationCreditCalculator() {
         <button
           onClick={handleGenerate}
           disabled={isGenerating}
-          className="px-4 py-2 bg-gold text-charcoal hover:bg-gold/90 text-xs uppercase tracking-widest font-mono font-bold flex items-center gap-2 shadow-xs transition-colors self-start md:self-auto disabled:opacity-70"
+          className="px-4 py-2 bg-gold text-white hover:bg-gold/90 text-xs uppercase tracking-widest font-mono font-bold flex items-center gap-2 shadow-xs transition-colors self-start md:self-auto disabled:opacity-70"
         >
           {isGenerating ? (
             <><RefreshCw className="w-4 h-4 animate-spin" /><span>Calculating...</span></>
@@ -291,7 +291,7 @@ export default function PollinationCreditCalculator() {
                 color: "amber",
               },
             ].map((m) => (
-              <div key={m.label} className={`p-4 border-2 border-charcoal/15 bg-[#F9F8F6]`}>
+              <div key={m.label} className={`p-4 border-2 border-charcoal/15 bg-[#EEF1F4]`}>
                 <div className="flex items-center gap-2 mb-2">
                   {m.icon}
                   <span className="text-[10px] uppercase tracking-widest text-warm-grey font-bold font-mono truncate">{m.label}</span>
@@ -340,7 +340,7 @@ export default function PollinationCreditCalculator() {
       {/* ─── Certificate Modal ──────────────────────────────────────────── */}
       {showCertificate && (
         <div className="fixed inset-0 z-50 bg-charcoal/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="border-4 border-charcoal bg-[#FDFCF7] max-w-2xl w-full p-4 sm:p-8 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200 max-h-[92vh] overflow-y-auto">
+          <div className="border-4 border-charcoal bg-[#F7F9FB] max-w-2xl w-full p-4 sm:p-8 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200 max-h-[92vh] overflow-y-auto">
             <div className="absolute inset-2 border border-gold/50 pointer-events-none" />
             <div className="absolute inset-4 border border-gold/20 pointer-events-none" />
 

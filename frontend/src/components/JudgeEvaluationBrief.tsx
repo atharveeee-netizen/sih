@@ -32,7 +32,7 @@ export default function JudgeEvaluationBrief() {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-20 left-3 sm:bottom-6 sm:left-6 z-40 px-3.5 py-2.5 bg-[#121212] hover:bg-[#1A1A1A] text-white font-bold text-xs uppercase tracking-wider shadow-2xl flex items-center gap-2 transition-all hover:scale-105 active:scale-95 border-2 border-gold"
+        className="fixed bottom-20 left-3 sm:bottom-6 sm:left-6 z-40 px-3.5 py-2.5 bg-[#16212B] hover:bg-[#16212B] text-white font-bold text-xs uppercase tracking-wider shadow-2xl flex items-center gap-2 transition-all hover:scale-105 active:scale-95 border-2 border-gold"
       >
         <Award className="w-4 h-4 text-gold shrink-0" />
         <span className="hidden sm:inline">SIH 2026 Jury Brief</span>
@@ -45,9 +45,9 @@ export default function JudgeEvaluationBrief() {
       {/* Full-Screen Modal */}
       {isOpen && (
         <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
-          <div className="bg-[#141414] border-2 border-gold max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden text-[#F9F8F6]">
+          <div className="bg-[#16212B] border-2 border-gold max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden text-[#EEF1F4]">
             {/* Modal Header */}
-            <div className="px-6 py-5 border-b border-white/15 bg-[#1A1A1A] flex items-center justify-between">
+            <div className="px-6 py-5 border-b border-white/15 bg-[#16212B] flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gold/10 border border-gold flex items-center justify-center text-gold">
                   <Award className="w-5 h-5" />
@@ -75,7 +75,7 @@ export default function JudgeEvaluationBrief() {
             </div>
 
             {/* Tab Navigation */}
-            <div className="flex border-b border-white/15 bg-[#141414] px-6 overflow-x-auto scrollbar-none">
+            <div className="flex border-b border-white/15 bg-[#16212B] px-6 overflow-x-auto scrollbar-none">
               {[
                 { id: "overview", label: "Executive Summary" },
                 { id: "innovations", label: "Built vs. Roadmap" },
@@ -117,19 +117,19 @@ export default function JudgeEvaluationBrief() {
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    <div className="p-4 bg-[#1A1A1A] border border-white/10">
+                    <div className="p-4 bg-[#16212B] border border-white/10">
                       <p className="text-2xl serif font-bold text-gold">2</p>
                       <p className="text-xs text-warm-grey mt-1">Smart Contracts, Deployed &amp; Tested</p>
                     </div>
-                    <div className="p-4 bg-[#1A1A1A] border border-white/10">
+                    <div className="p-4 bg-[#16212B] border border-white/10">
                       <p className="text-2xl serif font-bold text-emerald-400">0</p>
                       <p className="text-xs text-warm-grey mt-1">Wallet Installs Required (Farmer or Officer)</p>
                     </div>
-                    <div className="p-4 bg-[#1A1A1A] border border-white/10">
+                    <div className="p-4 bg-[#16212B] border border-white/10">
                       <p className="text-2xl serif font-bold text-alabaster">₹0</p>
                       <p className="text-xs text-warm-grey mt-1">Gas Paid By The Farmer, Ever</p>
                     </div>
-                    <div className="p-4 bg-[#1A1A1A] border border-white/10">
+                    <div className="p-4 bg-[#16212B] border border-white/10">
                       <p className="text-2xl serif font-bold text-gold-light">2</p>
                       <p className="text-xs text-warm-grey mt-1">Real On-Chain Transactions Per Batch Minted</p>
                     </div>
@@ -143,7 +143,7 @@ export default function JudgeEvaluationBrief() {
                   <div>
                     <p className="text-xs uppercase font-bold text-emerald-400 tracking-wider mb-3">Built &amp; verifiable in this demo</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="p-4 bg-[#1A1A1A] border border-emerald-500/30 space-y-2">
+                      <div className="p-4 bg-[#16212B] border border-emerald-500/30 space-y-2">
                         <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
                           <FlaskConical className="w-4 h-4" />
                           <span>Physics-Bounded AI Purity Scoring</span>
@@ -153,7 +153,7 @@ export default function JudgeEvaluationBrief() {
                         </p>
                       </div>
 
-                      <div className="p-4 bg-[#1A1A1A] border border-emerald-500/30 space-y-2">
+                      <div className="p-4 bg-[#16212B] border border-emerald-500/30 space-y-2">
                         <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
                           <Layers className="w-4 h-4" />
                           <span>Server-Signed On-Chain Provenance</span>
@@ -163,7 +163,7 @@ export default function JudgeEvaluationBrief() {
                         </p>
                       </div>
 
-                      <div className="p-4 bg-[#1A1A1A] border border-emerald-500/30 space-y-2">
+                      <div className="p-4 bg-[#16212B] border border-emerald-500/30 space-y-2">
                         <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
                           <ShieldCheck className="w-4 h-4" />
                           <span>Commit-Reveal QR Binding</span>
@@ -173,7 +173,7 @@ export default function JudgeEvaluationBrief() {
                         </p>
                       </div>
 
-                      <div className="p-4 bg-[#1A1A1A] border border-emerald-500/30 space-y-2">
+                      <div className="p-4 bg-[#16212B] border border-emerald-500/30 space-y-2">
                         <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
                           <Zap className="w-4 h-4" />
                           <span>Zero Gas Fees For The Farmer</span>
@@ -188,7 +188,7 @@ export default function JudgeEvaluationBrief() {
                   <div>
                     <p className="text-xs uppercase font-bold text-amber-400 tracking-wider mb-3">Designed / prototyped, not wired to production infrastructure yet</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="p-4 bg-[#1A1A1A] border border-amber-500/20 space-y-2">
+                      <div className="p-4 bg-[#16212B] border border-amber-500/20 space-y-2">
                         <div className="flex items-center gap-2 text-warm-grey font-bold text-xs uppercase tracking-wider">
                           <Globe className="w-4 h-4" />
                           <span>MadhuKranti / AgriStack Bridge</span>
@@ -197,7 +197,7 @@ export default function JudgeEvaluationBrief() {
                           UI mockups for government-registry interoperability exist; no live webhook integration with an actual National Bee Board or AgriStack endpoint.
                         </p>
                       </div>
-                      <div className="p-4 bg-[#1A1A1A] border border-amber-500/20 space-y-2">
+                      <div className="p-4 bg-[#16212B] border border-amber-500/20 space-y-2">
                         <div className="flex items-center gap-2 text-warm-grey font-bold text-xs uppercase tracking-wider">
                           <Smartphone className="w-4 h-4" />
                           <span>Offline SMS / USSD Verification</span>
@@ -206,7 +206,7 @@ export default function JudgeEvaluationBrief() {
                           A working in-browser simulator demonstrates the intended UX (text VERIFY &lt;token&gt;, get a purity result back). No live carrier SMS/USSD gateway is connected.
                         </p>
                       </div>
-                      <div className="p-4 bg-[#1A1A1A] border border-amber-500/20 space-y-2">
+                      <div className="p-4 bg-[#16212B] border border-amber-500/20 space-y-2">
                         <div className="flex items-center gap-2 text-warm-grey font-bold text-xs uppercase tracking-wider">
                           <ShieldCheck className="w-4 h-4" />
                           <span>NFC Tap Tags &amp; Tamper-Seal PIN</span>
@@ -215,7 +215,7 @@ export default function JudgeEvaluationBrief() {
                           HoneyChainQR.sol has tested contract functions for an under-cap secret PIN that permanently "claims" a jar on first open (blocking refill-and-resell). Not yet called from the app -- contract-level only.
                         </p>
                       </div>
-                      <div className="p-4 bg-[#1A1A1A] border border-amber-500/20 space-y-2">
+                      <div className="p-4 bg-[#16212B] border border-amber-500/20 space-y-2">
                         <div className="flex items-center gap-2 text-warm-grey font-bold text-xs uppercase tracking-wider">
                           <Heart className="w-4 h-4" />
                           <span>Direct UPI Micro-Patronage</span>
@@ -232,7 +232,7 @@ export default function JudgeEvaluationBrief() {
               {/* TAB 3: SYSTEM ARCHITECTURE */}
               {activeTab === "architecture" && (
                 <div className="space-y-4 font-mono text-xs">
-                  <div className="p-4 bg-[#0D0D0D] border border-white/10 space-y-2">
+                  <div className="p-4 bg-[#0B2545] border border-white/10 space-y-2">
                     <p className="text-gold font-bold uppercase">Smart Contract Deployment (this session)</p>
                     <p className="text-taupe/80">
                       Network: {isLocalChain ? "Local Hardhat node (offline demo -- architecture is network-agnostic, redeployed to Polygon Amoy testnet with one env var change)" : "Polygon Amoy Testnet (Chain ID: 80002)"}
@@ -242,14 +242,14 @@ export default function JudgeEvaluationBrief() {
                     <p className="text-taupe/80">Standards: Custom role-gated registry (OpenZeppelin AccessControl) -- not an ERC-1155/721 token standard.</p>
                   </div>
 
-                  <div className="p-4 bg-[#0D0D0D] border border-white/10 space-y-2">
+                  <div className="p-4 bg-[#0B2545] border border-white/10 space-y-2">
                     <p className="text-gold font-bold uppercase">Transaction Signing</p>
                     <p className="text-taupe/80">No browser wallet, no MetaMask -- every transaction is signed server-side with a plain EOA (externally-owned account) private key.</p>
                     <p className="text-taupe/80">One officer wallet (admin + field-officer roles); one deterministic wallet per farmer, auto-funded by the officer wallet before it signs.</p>
                     <p className="text-taupe/80">Not a meta-transaction standard (no EIP-2771 relayer, no account abstraction) -- the officer wallet directly pays gas for its own and the farmer's transactions.</p>
                   </div>
 
-                  <div className="p-4 bg-[#0D0D0D] border border-white/10 space-y-2">
+                  <div className="p-4 bg-[#0B2545] border border-white/10 space-y-2">
                     <p className="text-gold font-bold uppercase">AI &amp; Data Pipeline</p>
                     <p className="text-taupe/80">FastAPI / Python microservice for purity scoring, when configured; graceful fallback otherwise.</p>
                     <p className="text-taupe/80">Batch metadata hashes are deterministic content-addressed placeholders (SHA-256), not pinned to a live IPFS network -- real IPFS pinning (Pinata) is supported but requires an API key not configured in this demo.</p>
@@ -260,21 +260,21 @@ export default function JudgeEvaluationBrief() {
               {/* TAB 4: JUDGE DEFENSE */}
               {activeTab === "defense" && (
                 <div className="space-y-3">
-                  <div className="p-4 bg-[#1A1A1A] border border-white/10 space-y-1">
+                  <div className="p-4 bg-[#16212B] border border-white/10 space-y-1">
                     <p className="text-gold font-bold text-xs uppercase">Q: What if a fraudster photocopies a genuine jar's QR code?</p>
                     <p className="text-xs text-taupe/80 leading-relaxed">
                       <strong>A:</strong> The QR itself is bound to its batch via a commit-reveal scheme on HoneyChainQR.sol, so the binding can't be silently repointed. The contract also has tested scan-count and geo-velocity tracking functions designed to flag anomalous repeat/duplicate scans -- currently contract-level and not yet wired into the live scan flow, which we'll say plainly if asked to show it running.
                     </p>
                   </div>
 
-                  <div className="p-4 bg-[#1A1A1A] border border-white/10 space-y-1">
+                  <div className="p-4 bg-[#16212B] border border-white/10 space-y-1">
                     <p className="text-gold font-bold text-xs uppercase">Q: How do poor rural beekeepers afford blockchain gas fees?</p>
                     <p className="text-xs text-taupe/80 leading-relaxed">
                       <strong>A:</strong> They pay <strong>zero</strong>, literally never touching a wallet. Each beekeeper has a real on-chain identity (a private key our server derives and holds), and our officer wallet automatically funds it with enough gas right before it needs to sign -- verified live in this demo, not simulated.
                     </p>
                   </div>
 
-                  <div className="p-4 bg-[#1A1A1A] border border-white/10 space-y-1">
+                  <div className="p-4 bg-[#16212B] border border-white/10 space-y-1">
                     <p className="text-gold font-bold text-xs uppercase">Q: How would this work in areas with poor connectivity?</p>
                     <p className="text-xs text-taupe/80 leading-relaxed">
                       <strong>A:</strong> We've prototyped the UX for an SMS/USSD verification channel (try the simulator) so a consumer could text a token and get a purity result back without a smartphone app -- but we have not connected a live telecom gateway, and we'll say so directly if asked to demonstrate it working on a real phone number.
@@ -285,12 +285,12 @@ export default function JudgeEvaluationBrief() {
             </div>
 
             {/* Modal Footer */}
-            <div className="px-6 py-4 border-t border-white/15 bg-[#1A1A1A] flex justify-between items-center text-xs">
+            <div className="px-6 py-4 border-t border-white/15 bg-[#16212B] flex justify-between items-center text-xs">
               <span className="text-warm-grey">Smart India Hackathon 2026 Grand Finale</span>
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="px-4 py-2 bg-gold hover:bg-gold-light text-charcoal font-bold text-xs uppercase tracking-wider"
+                className="px-4 py-2 bg-gold hover:bg-gold-light text-white font-bold text-xs uppercase tracking-wider"
               >
                 Close Brief
               </button>

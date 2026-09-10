@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import NoiseOverlay from "@/components/NoiseOverlay";
-import GridLines from "@/components/GridLines";
+import GovMasthead from "@/components/GovMasthead";
 import IoTStageController from "@/components/IoTStageController";
 import JudgeEvaluationBrief from "@/components/JudgeEvaluationBrief";
 import MobileBottomNav from "@/components/MobileBottomNav";
@@ -10,21 +9,26 @@ import { LanguageProvider } from "@/lib/LanguageContext";
 import { Toaster } from "@/components/ui/sonner";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 
-const display = Space_Grotesk({
+// One institutional family, two roles. Plex has a matched mono, which this
+// interface genuinely needs: transaction hashes, batch ids and lab figures sit
+// beside running text on nearly every screen.
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const plexDisplay = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
-const inter = Inter({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
+  weight: ["400", "500"],
   variable: "--font-mono",
   display: "swap",
 });
@@ -53,7 +57,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Beevil Knievel — Blockchain Honey Authenticity & Provenance",
-    description: "KVIC & National Bee Board verifiable honey authentication powered by Polygon PoS, AI quality scoring, and cryptographic QR provenance.",
+    description:
+      "KVIC & National Bee Board verifiable honey authentication powered by Polygon PoS, AI quality scoring, and cryptographic QR provenance.",
     images: [{ url: "/beevil_knievel_og.png", width: 1200, height: 630, alt: "Beevil Knievel" }],
   },
 };
@@ -64,21 +69,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${display.variable} ${inter.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${plexDisplay.variable} ${plexSans.variable} ${plexMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <link rel="icon" href="/beevil_knievel_icon.png" type="image/png" />
         <link rel="shortcut icon" href="/beevil_knievel_icon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#14141A" />
+        <meta name="theme-color" content="#06182E" />
       </head>
       <body
-        className="min-h-screen bg-alabaster text-charcoal relative selection:bg-gold selection:text-charcoal"
+        className="min-h-screen bg-ground text-text-primary relative selection:bg-gov-blue selection:text-white"
         suppressHydrationWarning
       >
         <LanguageProvider>
-          <NoiseOverlay />
-          <GridLines />
+          {/* The film-grain overlay and the decorative vertical hairlines were
+              removed with the redesign. Both were texture for its own sake,
+              and both are signatures of the editorial template look this
+              interface is moving away from. */}
+          <GovMasthead />
           <div className="relative z-10 pb-44 md:pb-0">{children}</div>
           <MobileBottomNav />
           <IoTStageController />

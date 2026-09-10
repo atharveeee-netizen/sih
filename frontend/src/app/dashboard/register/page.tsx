@@ -132,7 +132,7 @@ export default function RegisterFarmerPage() {
           particleCount: 80,
           spread: 60,
           origin: { y: 0.6 },
-          colors: ["#D4AF37", "#1A1A1A", "#FFFFFF"],
+          colors: ["#14508C", "#16212B", "#FFFFFF"],
         });
       } else {
         alert("Failed to onboard beekeeper to database");
@@ -223,7 +223,7 @@ export default function RegisterFarmerPage() {
                   type="button"
                   onClick={handleFetchGps}
                   disabled={gpsLoading}
-                  className="px-4 py-2.5 bg-charcoal text-alabaster hover:bg-gold hover:text-charcoal text-xs uppercase tracking-wider font-bold flex items-center gap-2 transition-colors shrink-0"
+                  className="px-4 py-2.5 bg-charcoal text-alabaster hover:bg-gold hover:text-white text-xs uppercase tracking-wider font-bold flex items-center gap-2 transition-colors shrink-0"
                 >
                   {gpsLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Compass className="w-3.5 h-3.5 text-gold" />}
                   <span>{gpsLoading ? "Acquiring GPS..." : "📍 Fetch GPS Location"}</span>

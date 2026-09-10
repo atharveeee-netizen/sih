@@ -4,34 +4,77 @@
 
 @layer base {
   :root {
-    /* Beevil Knievel palette. Token NAMES are kept from the previous identity
-       (charcoal/gold/alabaster) because ~100 files use them as Tailwind classes;
-       only the VALUES moved. Accurate aliases are provided alongside. */
-    --ink: #14141A;
-    --ink-raised: #1D1D25;
-    --bone: #F7F5EF;
-    --bone-card: #FFFFFF;
+    /* ─── Beevil Knievel · civic system ──────────────────────────────────
+       Reads as public infrastructure rather than a boutique brand: cool
+       ground, institutional navy, structural rules, flat surfaces.
+
+       Token NAMES are inherited from the previous identity because ~48
+       files use them as Tailwind classes; only the VALUES move. The whole
+       palette flips from warm (cream, gold, warm grey) to cool (paper,
+       official blue, slate), which is most of the redesign in one place. */
+
+    /* structure */
+    --navy-deep: #06182E;      /* masthead band */
+    --navy: #0B2545;           /* primary structure, filled controls */
+    --navy-ink: #16212B;       /* body text, dark panels */
+    --gov-blue: #14508C;       /* interactive accent, links, active state */
+    --gov-blue-light: #2E6FB0;
+    --gov-blue-dark: #0E3A68;
+
+    /* ground and paper */
+    --ground: #EEF1F4;
+    --paper: #FFFFFF;
+    --paper-alt: #F7F9FB;      /* table banding */
+
+    /* rules */
+    --rule-faint: #DFE5EB;
+    --rule: #C6D0DA;
+    --rule-strong: #93A3B3;
+
+    /* text */
+    --text: #16212B;
+    --text-2: #4E5F6E;
+    --text-3: #7A8896;
+
+    /* status */
+    --verified: #0F6B3F;
+    --verified-bg: #E7F2EC;
+    --alert: #A5231B;
+    --alert-bg: #FBEBEA;
+    --pending: #8A6A00;
+    --pending-bg: #FBF3DC;
+
+    /* brand: honey amber, deliberately held back for the mark and for
+       honey-grade status so it reads as meaning, not decoration */
     --amber: #F2A61C;
     --amber-light: #FFC24D;
-    --amber-dark: #C97F0A;
-    --signal-red: #C8322B;
-    --slate-grey: #6B6760;
-    --taupe: #E6E0D5;
+    --amber-dark: #B87A08;
 
-    /* legacy aliases -> new values (single source of truth) */
-    --alabaster: var(--bone);
-    --alabaster-card: var(--bone-card);
-    --charcoal: var(--ink);
-    --charcoal-light: var(--ink-raised);
-    --warm-grey: var(--slate-grey);
-    --gold: var(--amber);
-    --gold-light: var(--amber-light);
+    /* ── legacy aliases mapped onto civic values (single source of truth) ── */
+    --ink: var(--navy-ink);
+    --ink-raised: var(--navy);
+    --bone: var(--ground);
+    --bone-card: var(--paper);
+    --alabaster: var(--ground);
+    --alabaster-card: var(--paper);
+    --charcoal: var(--navy-ink);
+    --charcoal-light: var(--navy);
+    --warm-grey: var(--text-2);
+    --slate-grey: var(--text-2);
+    --taupe: var(--rule);
+    --signal-red: var(--alert);
+    /* `gold` becomes the official blue: the accent that used to be purely
+       decorative is now the one that means "interactive". */
+    --gold: var(--gov-blue);
+    --gold-light: var(--gov-blue-light);
   }
 
-  html, body {
-    background-color: var(--alabaster);
-    color: var(--charcoal);
-    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  html,
+  body {
+    background-color: var(--ground);
+    color: var(--text);
+    font-family: var(--font-sans), "IBM Plex Sans", system-ui, -apple-system,
+      "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -40,16 +83,44 @@
     touch-action: manipulation;
   }
 
-  /* Prevent awkward mobile tap flashes */
   * {
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* .serif is a legacy class name kept for the ~40 files that use it; the
-     display face is a grotesque now, not a serif. Prefer .display in new code. */
-  h1, h2, h3, h4, .serif, .display {
-    font-family: var(--font-display), "Space Grotesk", "Segoe UI", system-ui, sans-serif;
-    letter-spacing: -0.01em;
+  /* `.serif` is a legacy class name kept for the ~41 files that use it.
+     There is no serif here: institutional weight and tight tracking do the
+     work an editorial display face used to. */
+  h1,
+  h2,
+  h3,
+  h4,
+  .serif,
+  .display {
+    font-family: var(--font-display), "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.011em;
+    color: var(--text);
+  }
+
+  /* Official records do not hide their structure. */
+  .section-title {
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 0.5rem;
+  }
+
+  a {
+    color: var(--gov-blue);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Visible focus is a civic accessibility requirement, not a preference. */
+  :focus-visible {
+    outline: 2px solid var(--gov-blue);
+    outline-offset: 2px;
   }
 
   .safe-area-bottom {
@@ -61,136 +132,259 @@
   }
 }
 
-/* ─── Luxury Editorial Typography & Components ────────────────────────────── */
+/* ─── Masthead ──────────────────────────────────────────────────────────── */
 
+.gov-masthead {
+  background: var(--navy-deep);
+  color: #e6ecf2;
+  border-bottom: 3px solid var(--amber);
+}
+
+.gov-strip {
+  background: var(--navy);
+  color: #c9d6e3;
+}
+
+/* ─── Surfaces ──────────────────────────────────────────────────────────── */
+
+/* Legacy name, civic behaviour: a bordered record, not a floating card.
+   No shadow, no radius, no hover lift; the border carries the state. */
 .luxury-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(18, 18, 18, 0.15);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  box-shadow: none;
+  transition: border-color 140ms ease, background-color 140ms ease;
 }
 
 .luxury-card:hover {
-  border-color: rgba(212, 175, 55, 0.6);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border-color: var(--rule-strong);
+  box-shadow: none;
 }
 
 .luxury-card-dark {
-  background: #161616;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #F5F3EB;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  background: var(--navy);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0;
+  color: #e6ecf2;
+  box-shadow: none;
 }
 
-/* Gold sliding hover animation on primary button */
+.gov-panel {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+
+.gov-panel-head {
+  background: var(--paper-alt);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.625rem 1rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+/* ─── Controls ──────────────────────────────────────────────────────────── */
+
+/* Was a gold panel sliding in behind the label over 400ms. Now a solid
+   official control that responds immediately: a government tool should feel
+   operated, not animated. */
 .btn-gold-slide {
   position: relative;
-  overflow: hidden;
-  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: #121212;
-  color: #FFFFFF;
-  border: 1px solid #121212;
-  z-index: 1;
+  background-color: var(--navy);
+  color: #ffffff;
+  border: 1px solid var(--navy);
+  border-radius: 0;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
-}
-
-.btn-gold-slide > * {
-  position: relative;
-  z-index: 2;
-}
-
-.btn-gold-slide::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #D4AF37;
-  transform: translateX(-100%);
-  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 1;
-}
-
-.btn-gold-slide:hover::before {
-  transform: translateX(0);
+  font-weight: 600;
+  transition: background-color 120ms ease, border-color 120ms ease;
 }
 
 .btn-gold-slide:hover {
-  color: #121212;
-  border-color: #D4AF37;
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+  background-color: var(--gov-blue);
+  border-color: var(--gov-blue);
+  color: #ffffff;
+  box-shadow: none;
 }
 
-/* Secondary outline button */
+.btn-gold-slide:active {
+  background-color: var(--gov-blue-dark);
+}
+
 .btn-outline-luxury {
-  border: 1px solid #121212;
-  background: #FFFFFF;
-  color: #121212;
-  transition: all 400ms ease;
+  border: 1px solid var(--rule-strong);
+  background: var(--paper);
+  color: var(--navy);
+  border-radius: 0;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
+  font-weight: 600;
+  transition: background-color 120ms ease, border-color 120ms ease,
+    color 120ms ease;
 }
 
 .btn-outline-luxury:hover {
-  background-color: #121212;
-  color: #FFFFFF;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  background-color: var(--navy);
+  border-color: var(--navy);
+  color: #ffffff;
+  box-shadow: none;
 }
 
-/* High contrast inputs */
+/* Boxed field, not an underline. Underlined inputs read as minimal-luxury;
+   an official form gives you an obvious, hit-able box. */
 .luxury-input {
-  background: #FFFFFF;
-  border-bottom: 2px solid rgba(18, 18, 18, 0.3);
-  padding: 0.75rem 0.5rem;
+  background: var(--paper);
+  border: 1px solid var(--rule-strong);
+  border-radius: 0;
+  padding: 0.5rem 0.625rem;
   font-size: 0.875rem;
-  color: #121212;
-  transition: border-color 300ms ease;
+  color: var(--text);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
 }
 
 .luxury-input:focus {
   outline: none;
-  border-bottom-color: #D4AF37;
+  border-color: var(--gov-blue);
+  box-shadow: inset 0 0 0 1px var(--gov-blue);
 }
 
-/* Ultra-slow image reveal */
+/* Small-caps label above a value: the workhorse of a record layout. */
+.field-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* ─── Data ──────────────────────────────────────────────────────────────── */
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.data-table th {
+  background: var(--navy);
+  color: #ffffff;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  white-space: nowrap;
+}
+
+.data-table td {
+  border-bottom: 1px solid var(--rule-faint);
+  padding: 0.5rem 0.75rem;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background: var(--paper-alt);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Status ────────────────────────────────────────────────────────────── */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.chip-verified {
+  background: var(--verified-bg);
+  color: var(--verified);
+  border-color: var(--verified);
+}
+
+.chip-alert {
+  background: var(--alert-bg);
+  color: var(--alert);
+  border-color: var(--alert);
+}
+
+.chip-pending {
+  background: var(--pending-bg);
+  color: var(--pending);
+  border-color: var(--pending);
+}
+
+/* ─── Accents on dark surfaces ──────────────────────────────────────────────
+   `gold` now resolves to the official blue, which is a mid-dark colour chosen
+   to sit on paper. On the dark panels (purity score, telemetry, spectra) that
+   same blue is unreadable, where the old gold had been fine. Accents on dark
+   fall back to the brand amber, which is the high-contrast choice there and
+   keeps honey as the meaning of the colour. */
+.bg-charcoal .text-gold,
+.bg-charcoal-light .text-gold,
+.bg-navy .text-gold,
+.bg-navy-deep .text-gold,
+.bg-navy-ink .text-gold,
+.bg-\[\#16212B\] .text-gold,
+.bg-\[\#0B2545\] .text-gold,
+.bg-\[\#06182E\] .text-gold,
+.luxury-card-dark .text-gold {
+  color: var(--amber);
+}
+
+.bg-charcoal .border-gold,
+.bg-navy .border-gold,
+.bg-navy-deep .border-gold,
+.bg-\[\#16212B\] .border-gold,
+.luxury-card-dark .border-gold {
+  border-color: var(--amber);
+}
+
+/* ─── Neutralised ornament ──────────────────────────────────────────────────
+   These class names are still referenced across the app. Rather than edit
+   every call site, the decoration is removed here and the names kept. */
+
+.gold-glow {
+  text-shadow: none;
+  color: var(--amber);
+}
+
 .luxury-image-hover {
-  filter: grayscale(100%);
-  transition: filter 1200ms cubic-bezier(0.16, 1, 0.3, 1),
-              transform 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+  filter: none;
+  transition: transform 160ms ease;
 }
 
 .group:hover .luxury-image-hover {
-  filter: grayscale(0%);
-  transform: scale(1.02);
+  filter: none;
+  transform: none;
 }
 
-/* Gold glow effect */
-.gold-glow {
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-}
-
-/* Timeline architectural line */
 .timeline-line {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 20px;
-  width: 1px;
-  background: rgba(18, 18, 18, 0.2);
-}
-
-/* Mobile Safe Area & Scrollbar Utilities */
-.safe-area-bottom {
-  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  width: 2px;
+  background: var(--rule);
 }
 
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
+
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;

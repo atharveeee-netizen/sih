@@ -92,10 +92,9 @@ export default function LiveTelemetryStream() {
         ? "border-rose-500 bg-rose-950/40 text-alabaster"
         : "border-charcoal/20 bg-charcoal text-alabaster"
     }`}>
-      {/* Background ambient glow */}
-      <div className={`absolute top-0 right-0 w-64 h-64 blur-3xl pointer-events-none ${
-        hasAnomaly ? "bg-rose-500/20 animate-pulse" : "bg-gold/5"
-      }`} />
+      {/* An ambient blurred glow used to sit here. Removed with the civic
+          redesign: state is carried by the border and the alert banner, which
+          stay legible when the panel is projected or filmed. */}
 
       {/* Critical Alert Banner if active */}
       {hasAnomaly && (

@@ -95,7 +95,7 @@ export default function BeekeeperTipModal({
         particleCount: 100,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ["#D4AF37", "#138808", "#FF9933", "#1A1A1A"],
+        colors: ["#14508C", "#138808", "#FF9933", "#16212B"],
       });
     }
   };
@@ -133,7 +133,7 @@ export default function BeekeeperTipModal({
               Your direct micro-patronage token has been routed via UPI to{" "}
               <span className="font-mono font-bold text-charcoal">{farmerVpa}</span> and logged in the KVIC provenance ledger.
             </p>
-            <div className="p-4 bg-[#F9F8F6] border border-charcoal/10 text-left text-xs mb-6 space-y-1.5 font-mono">
+            <div className="p-4 bg-[#EEF1F4] border border-charcoal/10 text-left text-xs mb-6 space-y-1.5 font-mono">
               <p className="flex justify-between">
                 <span className="text-warm-grey">Beekeeper:</span>
                 <span className="font-bold text-charcoal">{farmerName}</span>
@@ -221,7 +221,7 @@ export default function BeekeeperTipModal({
             </div>
 
             {/* Dynamic UPI QR Code */}
-            <div className="p-4 bg-[#F9F8F6] border border-charcoal/15 text-center mb-6">
+            <div className="p-4 bg-[#EEF1F4] border border-charcoal/15 text-center mb-6">
               <div className="inline-block p-3 bg-white border border-charcoal/15 shadow-xs mb-2">
                 <QRCodeSVG
                   value={upiUrl}

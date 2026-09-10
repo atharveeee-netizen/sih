@@ -95,7 +95,7 @@ export default function PollenInspector({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6">
         {/* Left: Interactive Microscope Reticle Viewport (5 Cols) */}
         <div className="lg:col-span-5 flex flex-col items-center">
-          <div className="w-64 h-64 sm:w-72 sm:h-72 rounded-full border-4 border-charcoal bg-[#141414] relative overflow-hidden flex items-center justify-center shadow-inner group">
+          <div className="w-64 h-64 sm:w-72 sm:h-72 rounded-full border-4 border-charcoal bg-[#16212B] relative overflow-hidden flex items-center justify-center shadow-inner group">
             {/* Circular Crosshair Grid */}
             <div className="absolute inset-0 border border-gold/30 rounded-full scale-75 pointer-events-none" />
             <div className="absolute inset-0 border border-gold/20 rounded-full scale-50 pointer-events-none" />
@@ -114,22 +114,22 @@ export default function PollenInspector({
                 cx="100"
                 cy="100"
                 r="36"
-                fill="#D4AF37"
+                fill="#14508C"
                 stroke="#F3E5AB"
                 strokeWidth="2.5"
                 opacity="0.9"
               />
-              <circle cx="100" cy="100" r="28" fill="none" stroke="#B89528" strokeWidth="1.5" strokeDasharray="3 2" />
+              <circle cx="100" cy="100" r="28" fill="none" stroke="#0E3A68" strokeWidth="1.5" strokeDasharray="3 2" />
               {/* Pores / Colpi */}
-              <ellipse cx="100" cy="68" rx="4" ry="7" fill="#141414" />
-              <ellipse cx="74" cy="120" rx="6" ry="4" fill="#141414" />
-              <ellipse cx="126" cy="120" rx="6" ry="4" fill="#141414" />
+              <ellipse cx="100" cy="68" rx="4" ry="7" fill="#16212B" />
+              <ellipse cx="74" cy="120" rx="6" ry="4" fill="#16212B" />
+              <ellipse cx="126" cy="120" rx="6" ry="4" fill="#16212B" />
 
               {/* Secondary Pollen Grains Floating in Nectar Substrate */}
-              <circle cx="48" cy="52" r="14" fill="#E4DDD3" stroke="#D4AF37" strokeWidth="1.5" opacity="0.8" />
-              <circle cx="156" cy="62" r="16" fill="#E4DDD3" stroke="#D4AF37" strokeWidth="1.5" opacity="0.8" />
-              <circle cx="145" cy="148" r="12" fill="#E4DDD3" stroke="#D4AF37" strokeWidth="1.5" opacity="0.8" />
-              <circle cx="58" cy="152" r="10" fill="#E4DDD3" stroke="#D4AF37" strokeWidth="1.5" opacity="0.7" />
+              <circle cx="48" cy="52" r="14" fill="#DFE5EB" stroke="#14508C" strokeWidth="1.5" opacity="0.8" />
+              <circle cx="156" cy="62" r="16" fill="#DFE5EB" stroke="#14508C" strokeWidth="1.5" opacity="0.8" />
+              <circle cx="145" cy="148" r="12" fill="#DFE5EB" stroke="#14508C" strokeWidth="1.5" opacity="0.8" />
+              <circle cx="58" cy="152" r="10" fill="#DFE5EB" stroke="#14508C" strokeWidth="1.5" opacity="0.7" />
             </svg>
 
             {/* Live Reticle HUD overlay */}
@@ -200,7 +200,7 @@ export default function PollenInspector({
 
           {/* Micro-Details Grid */}
           <div className="grid grid-cols-2 gap-4 mt-6 pt-4 border-t border-charcoal/10 text-xs font-mono">
-            <div className="p-3 bg-[#F9F8F6] border border-charcoal/10">
+            <div className="p-3 bg-[#EEF1F4] border border-charcoal/10">
               <p className="text-[9px] uppercase tracking-widest text-warm-grey font-bold mb-0.5">
                 Absolute Pollen Count (APC)
               </p>
@@ -212,7 +212,7 @@ export default function PollenInspector({
               </p>
             </div>
 
-            <div className="p-3 bg-[#F9F8F6] border border-charcoal/10">
+            <div className="p-3 bg-[#EEF1F4] border border-charcoal/10">
               <p className="text-[9px] uppercase tracking-widest text-warm-grey font-bold mb-0.5">
                 Exine Morphology
               </p>

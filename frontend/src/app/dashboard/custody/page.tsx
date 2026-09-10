@@ -56,7 +56,7 @@ export default function CustodyLoggingPage() {
         particleCount: 70,
         spread: 60,
         origin: { y: 0.6 },
-        colors: ["#D4AF37", "#1A1A1A"],
+        colors: ["#14508C", "#16212B"],
       });
     }, 1000);
   };

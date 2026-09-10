@@ -64,7 +64,7 @@ const FLORAL_BLOOMS: FloraBloom[] = [
     nectarRating: "VERY_HIGH",
     avgYieldPerBoxKg: 24.5,
     giTagStatus: "Geographical Indication Applied",
-    color: "#F59E0B",
+    color: "#F2A61C",
   },
   {
     id: "litchi",
@@ -116,7 +116,7 @@ const FLORAL_BLOOMS: FloraBloom[] = [
     nectarRating: "HIGH",
     avgYieldPerBoxKg: 16.5,
     giTagStatus: "Commercial Agro-Cluster",
-    color: "#D97706",
+    color: "#B87A08",
   },
   {
     id: "jamun",
@@ -209,7 +209,7 @@ export default function MigratoryRoutePlanner() {
       {/* Header */}
       <div className="p-4 sm:p-6 bg-charcoal text-alabaster border-b border-charcoal flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 border border-gold bg-[#121212] rounded-xl flex items-center justify-center text-gold">
+          <div className="w-10 h-10 border border-gold bg-[#16212B] rounded-xl flex items-center justify-center text-gold">
             <Compass className="w-5 h-5 animate-spin-slow" />
           </div>
           <div>
@@ -229,7 +229,7 @@ export default function MigratoryRoutePlanner() {
 
         <button
           onClick={() => setShowPassModal(true)}
-          className="px-4 py-2 bg-gold text-charcoal hover:bg-gold/90 text-xs uppercase tracking-widest font-mono font-bold flex items-center gap-2 shadow-xs transition-colors self-start md:self-auto"
+          className="px-4 py-2 bg-gold text-white hover:bg-gold/90 text-xs uppercase tracking-widest font-mono font-bold flex items-center gap-2 shadow-xs transition-colors self-start md:self-auto"
         >
           <ShieldCheck className="w-4 h-4" />
           <span>Generate KVIC Transit Pass</span>
@@ -292,7 +292,7 @@ export default function MigratoryRoutePlanner() {
               {activeBlooms.map((bloom) => (
                 <div
                   key={bloom.id}
-                  className="p-4 border-2 border-charcoal/15 bg-[#FDFCF7] hover:border-gold transition-all shadow-xs flex flex-col justify-between"
+                  className="p-4 border-2 border-charcoal/15 bg-[#F7F9FB] hover:border-gold transition-all shadow-xs flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex justify-between items-start mb-1.5">
@@ -368,7 +368,7 @@ export default function MigratoryRoutePlanner() {
                   className={`p-5 border-2 cursor-pointer transition-all flex flex-col justify-between ${
                     isSelected
                       ? "border-charcoal bg-white shadow-md scale-[1.01]"
-                      : "border-charcoal/15 bg-[#F9F8F6] hover:border-charcoal/40"
+                      : "border-charcoal/15 bg-[#EEF1F4] hover:border-charcoal/40"
                   }`}
                 >
                   <div>
@@ -426,7 +426,7 @@ export default function MigratoryRoutePlanner() {
       {/* ─── KVIC MIGRATION TRANSIT PASS MODAL ──────────────────────────── */}
       {showPassModal && (
         <div className="fixed inset-0 z-50 bg-charcoal/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="border-4 border-charcoal bg-[#FDFCF7] max-w-xl w-full p-4 sm:p-8 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200 max-h-[92vh] overflow-y-auto">
+          <div className="border-4 border-charcoal bg-[#F7F9FB] max-w-xl w-full p-4 sm:p-8 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200 max-h-[92vh] overflow-y-auto">
             {/* Outer Security Border Trim */}
             <div className="absolute inset-2 border border-gold/60 pointer-events-none" />
 

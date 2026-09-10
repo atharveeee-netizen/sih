@@ -112,7 +112,7 @@ export default function GITagBadge({ location, batchId, gpsLat, gpsLng }: GITagB
       <button
         type="button"
         onClick={() => setShowModal(true)}
-        className="inline-flex items-center gap-2 px-3 py-1.5 border-2 border-gold/40 bg-gold/10 hover:bg-gold hover:text-charcoal text-charcoal transition-all text-left group shadow-xs"
+        className="inline-flex items-center gap-2 px-3 py-1.5 border-2 border-gold/40 bg-gold/10 hover:bg-gold hover:text-white text-charcoal transition-all text-left group shadow-xs"
       >
         <Award className="w-4 h-4 text-gold group-hover:text-charcoal shrink-0" />
         <div>
@@ -167,19 +167,19 @@ export default function GITagBadge({ location, batchId, gpsLat, gpsLng }: GITagB
 
             {/* Botanical Details Grid */}
             <div className="grid grid-cols-2 gap-4 mb-6 text-xs">
-              <div className="p-3 bg-[#F9F8F6] border border-charcoal/10">
+              <div className="p-3 bg-[#EEF1F4] border border-charcoal/10">
                 <span className="text-[9px] uppercase tracking-widest text-warm-grey block mb-1">Botanical Taxon</span>
                 <span className="font-serif italic font-bold text-charcoal">{giData.botanicalName}</span>
               </div>
-              <div className="p-3 bg-[#F9F8F6] border border-charcoal/10">
+              <div className="p-3 bg-[#EEF1F4] border border-charcoal/10">
                 <span className="text-[9px] uppercase tracking-widest text-warm-grey block mb-1">Pollen Analysis</span>
                 <span className="font-bold text-charcoal">{giData.pollenPurity}</span>
               </div>
-              <div className="p-3 bg-[#F9F8F6] border border-charcoal/10">
+              <div className="p-3 bg-[#EEF1F4] border border-charcoal/10">
                 <span className="text-[9px] uppercase tracking-widest text-warm-grey block mb-1">Harvest Window</span>
                 <span className="font-bold text-charcoal">{giData.harvestWindow}</span>
               </div>
-              <div className="p-3 bg-[#F9F8F6] border border-charcoal/10">
+              <div className="p-3 bg-[#EEF1F4] border border-charcoal/10">
                 <span className="text-[9px] uppercase tracking-widest text-warm-grey block mb-1">KVIC Production Cluster</span>
                 <span className="font-mono font-bold text-charcoal">{giData.kvicCluster}</span>
               </div>
@@ -188,7 +188,7 @@ export default function GITagBadge({ location, batchId, gpsLat, gpsLng }: GITagB
             {/* Terroir Description */}
             <div className="mb-6">
               <h4 className="text-[10px] uppercase tracking-widest font-bold text-charcoal mb-2">Terroir & Ecosystem Characteristics:</h4>
-              <p className="text-xs text-warm-grey leading-relaxed bg-[#F9F8F6] p-4 border border-charcoal/10">
+              <p className="text-xs text-warm-grey leading-relaxed bg-[#EEF1F4] p-4 border border-charcoal/10">
                 {giData.description}
               </p>
             </div>

@@ -136,9 +136,9 @@ const PREVIEW_IMAGES = [
   { id: "acacia_kashmir", label: "Kashmir Acacia Sample", color: "#0284C7" },
   { id: "litchi_bihar", label: "Shahi Litchi Sample", color: "#E11D48" },
   { id: "mangrove_sundarban", label: "Sundarbans Mangrove Sample", color: "#059669" },
-  { id: "mustard_rajasthan", label: "Mustard Sarson Sample", color: "#F59E0B" },
+  { id: "mustard_rajasthan", label: "Mustard Sarson Sample", color: "#F2A61C" },
   { id: "cardamom_kerala", label: "Idukki Cardamom Sample", color: "#7C3AED" },
-  { id: "sunflower_deccan", label: "Deccan Sunflower Sample", color: "#D97706" },
+  { id: "sunflower_deccan", label: "Deccan Sunflower Sample", color: "#B87A08" },
 ];
 
 function simulateClassification(pollenId: string): ClassificationResult {
@@ -199,7 +199,7 @@ export default function PollenVisionAnalyzer() {
     <div className="border-2 border-charcoal/20 bg-white shadow-luxury-card overflow-hidden">
       {/* Header */}
       <div className="p-4 sm:p-6 bg-charcoal text-alabaster border-b border-charcoal flex flex-col sm:flex-row sm:items-center gap-3">
-        <div className="w-10 h-10 border border-gold bg-[#121212] rounded-xl flex items-center justify-center text-gold shrink-0">
+        <div className="w-10 h-10 border border-gold bg-[#16212B] rounded-xl flex items-center justify-center text-gold shrink-0">
           <Microscope className="w-5 h-5" />
         </div>
         <div>
@@ -285,7 +285,7 @@ export default function PollenVisionAnalyzer() {
         {/* ─── Right: Classification Results ──────────────────────────────── */}
         <div className="lg:col-span-7">
           {isAnalyzing && (
-            <div className="h-full flex flex-col items-center justify-center space-y-4 p-12 bg-[#F9F8F6] border-2 border-charcoal/10">
+            <div className="h-full flex flex-col items-center justify-center space-y-4 p-12 bg-[#EEF1F4] border-2 border-charcoal/10">
               <div className="relative w-20 h-20">
                 <div className="w-20 h-20 rounded-full border-4 border-charcoal/10 border-t-gold animate-spin" />
                 <Microscope className="absolute inset-0 m-auto w-8 h-8 text-charcoal" />
@@ -310,7 +310,7 @@ export default function PollenVisionAnalyzer() {
           )}
 
           {!isAnalyzing && !result && (
-            <div className="h-full flex flex-col items-center justify-center space-y-3 p-12 bg-[#F9F8F6] border-2 border-dashed border-charcoal/15">
+            <div className="h-full flex flex-col items-center justify-center space-y-3 p-12 bg-[#EEF1F4] border-2 border-dashed border-charcoal/15">
               <Scan className="w-12 h-12 text-warm-grey/30 mx-auto" />
               <p className="text-sm serif text-warm-grey text-center">Upload a microscopic pollen slide or select a demo sample to begin botanical origin classification.</p>
             </div>
@@ -337,7 +337,7 @@ export default function PollenVisionAnalyzer() {
 
               {/* Morphological Details */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                <div className="p-4 border-2 border-charcoal/15 bg-[#F9F8F6] space-y-1.5 text-xs font-mono">
+                <div className="p-4 border-2 border-charcoal/15 bg-[#EEF1F4] space-y-1.5 text-xs font-mono">
                   <p className="text-[9px] uppercase tracking-widest text-warm-grey font-bold mb-2">Grain Morphology</p>
                   <p><span className="text-warm-grey">Shape:</span> <strong className="text-charcoal">{result.dominantPollen.shape}</strong></p>
                   <p><span className="text-warm-grey">Aperture:</span> <strong className="text-charcoal">{result.dominantPollen.apertureType}</strong></p>
@@ -345,7 +345,7 @@ export default function PollenVisionAnalyzer() {
                   <p><span className="text-warm-grey">Exine:</span> <strong className="text-charcoal">{result.dominantPollen.surfacePattern}</strong></p>
                 </div>
 
-                <div className="p-4 border-2 border-charcoal/15 bg-[#F9F8F6] space-y-1.5 text-xs font-mono">
+                <div className="p-4 border-2 border-charcoal/15 bg-[#EEF1F4] space-y-1.5 text-xs font-mono">
                   <p className="text-[9px] uppercase tracking-widest text-warm-grey font-bold mb-2">Botanical Origin</p>
                   <p><span className="text-warm-grey">Region:</span> <strong className="text-charcoal">{result.dominantPollen.origin}</strong></p>
                   <p><span className="text-warm-grey">State:</span> <strong className="text-charcoal">{result.dominantPollen.state}</strong></p>

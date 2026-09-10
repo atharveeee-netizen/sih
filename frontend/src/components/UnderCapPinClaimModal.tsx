@@ -55,7 +55,7 @@ export default function UnderCapPinClaimModal({
           particleCount: 120,
           spread: 80,
           origin: { y: 0.6 },
-          colors: ["#D4AF37", "#138808", "#FF9933", "#1A1A1A"],
+          colors: ["#14508C", "#138808", "#FF9933", "#16212B"],
         });
       }
     }, 900);

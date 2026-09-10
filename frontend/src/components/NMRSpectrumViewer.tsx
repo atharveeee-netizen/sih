@@ -24,7 +24,7 @@ export default function NMRSpectrumViewer({ purityScore, adulterantClass }: NMRS
     const height = canvas.height;
 
     // Clear background
-    ctx.fillStyle = "#1A1A1A";
+    ctx.fillStyle = "#16212B";
     ctx.fillRect(0, 0, width, height);
 
     // Draw subtle frequency gridlines
@@ -103,7 +103,7 @@ export default function NMRSpectrumViewer({ purityScore, adulterantClass }: NMRS
     }
 
     // Stroke the spectrum curve in Metallic Gold / Emerald or Warning Rose
-    ctx.strokeStyle = isPure ? "#D4AF37" : "#F43F5E";
+    ctx.strokeStyle = isPure ? "#14508C" : "#F43F5E";
     ctx.lineWidth = 2;
     ctx.shadowColor = isPure ? "rgba(212, 175, 55, 0.5)" : "rgba(244, 63, 94, 0.5)";
     ctx.shadowBlur = 8;

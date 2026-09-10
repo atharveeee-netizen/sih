@@ -82,7 +82,7 @@ export default function QrLabelsPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#F9F8F6]">
+    <div className="min-h-screen flex flex-col justify-between bg-[#EEF1F4]">
       <div className="print:hidden">
         <Navbar />
       </div>
@@ -139,7 +139,7 @@ export default function QrLabelsPage() {
                 <button
                   onClick={handleDownloadPDF}
                   disabled={isGeneratingPdf}
-                  className="h-11 px-5 bg-gold text-charcoal hover:bg-gold/90 text-xs uppercase tracking-widest font-bold flex items-center gap-2 shadow-sm transition-all"
+                  className="h-11 px-5 bg-gold text-white hover:bg-gold/90 text-xs uppercase tracking-widest font-bold flex items-center gap-2 shadow-sm transition-all"
                 >
                   <Download className="w-4 h-4 text-charcoal" />
                   <span>{isGeneratingPdf ? "Generating PDF..." : "📥 Download A4 PDF Sheet"}</span>
@@ -275,14 +275,14 @@ export default function QrLabelsPage() {
               {Array.from({ length: sheetCount }).map((_, i) => (
                 <div
                   key={i}
-                  className="w-64 h-64 rounded-full border-4 border-charcoal bg-[#F9F8F6] relative overflow-hidden flex flex-col items-center justify-between p-4 shadow-sm group hover:border-gold transition-colors"
+                  className="w-64 h-64 rounded-full border-4 border-charcoal bg-[#EEF1F4] relative overflow-hidden flex flex-col items-center justify-between p-4 shadow-sm group hover:border-gold transition-colors"
                 >
                   {/* Guilloche Security Background */}
                   {includeGuilloche && (
                     <svg className="absolute inset-0 w-full h-full opacity-20 pointer-events-none" viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="45" fill="none" stroke="#D4AF37" strokeWidth="0.5" strokeDasharray="1 1" />
-                      <circle cx="50" cy="50" r="38" fill="none" stroke="#141414" strokeWidth="0.5" strokeDasharray="2 1" />
-                      <circle cx="50" cy="50" r="30" fill="none" stroke="#D4AF37" strokeWidth="0.5" />
+                      <circle cx="50" cy="50" r="45" fill="none" stroke="#14508C" strokeWidth="0.5" strokeDasharray="1 1" />
+                      <circle cx="50" cy="50" r="38" fill="none" stroke="#16212B" strokeWidth="0.5" strokeDasharray="2 1" />
+                      <circle cx="50" cy="50" r="30" fill="none" stroke="#14508C" strokeWidth="0.5" />
                     </svg>
                   )}
 
@@ -341,7 +341,7 @@ export default function QrLabelsPage() {
               {Array.from({ length: sheetCount }).map((_, i) => (
                 <div
                   key={i}
-                  className="w-64 h-96 border-4 border-charcoal bg-[#FDFCF7] p-5 flex flex-col justify-between relative overflow-hidden shadow-sm"
+                  className="w-64 h-96 border-4 border-charcoal bg-[#F7F9FB] p-5 flex flex-col justify-between relative overflow-hidden shadow-sm"
                 >
                   {/* Outer Gold Border Trim */}
                   <div className="absolute inset-1.5 border border-gold/60 pointer-events-none" />
@@ -422,7 +422,7 @@ export default function QrLabelsPage() {
               {Array.from({ length: sheetCount }).map((_, i) => (
                 <div
                   key={i}
-                  className="w-full max-w-md border-4 border-charcoal bg-[#141414] text-alabaster p-6 flex flex-col justify-between relative shadow-lg overflow-hidden"
+                  className="w-full max-w-md border-4 border-charcoal bg-[#16212B] text-alabaster p-6 flex flex-col justify-between relative shadow-lg overflow-hidden"
                 >
                   {/* Security Watermark in Drum Tag Background */}
                   <div className="absolute right-4 top-1/2 -translate-y-1/2 w-56 h-56 opacity-[0.07] pointer-events-none select-none">
@@ -503,7 +503,7 @@ export default function QrLabelsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 text-xs font-mono">
-            <div className="p-4 bg-[#F9F8F6] border border-charcoal/10">
+            <div className="p-4 bg-[#EEF1F4] border border-charcoal/10">
               <span className="text-[10px] uppercase tracking-widest text-warm-grey font-bold block mb-1">
                 Hardware Tap Counter
               </span>
@@ -513,7 +513,7 @@ export default function QrLabelsPage() {
               </p>
             </div>
 
-            <div className="p-4 bg-[#F9F8F6] border border-charcoal/10 md:col-span-2">
+            <div className="p-4 bg-[#EEF1F4] border border-charcoal/10 md:col-span-2">
               <span className="text-[10px] uppercase tracking-widest text-warm-grey font-bold block mb-1">
                 Single-Use AES-128 CMAC Token Generated
               </span>
