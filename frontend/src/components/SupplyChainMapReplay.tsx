@@ -171,7 +171,7 @@ export default function SupplyChainMapReplay({
       <div className="my-6">
         <div className="flex justify-between items-center mb-2">
           <span className="text-[10px] uppercase tracking-widest text-warm-grey font-mono">
-            Origin $\rightarrow$ Retail Transit Progress
+            Origin &rarr; Retail Transit Progress
           </span>
           <span className="text-xs font-mono font-bold text-charcoal">
             {current.distanceKm} km of {totalDistance} km Total Distance
