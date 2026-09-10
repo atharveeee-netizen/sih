@@ -193,7 +193,7 @@ export const HiveDetailModal: React.FC<HiveDetailModalProps> = ({
               }}
               className="w-full min-h-[48px] py-3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm rounded-2xl shadow-md transition-all flex items-center justify-center gap-2 active:scale-98"
             >
-              <ClipboardCheck size={18} /> Start Field Inspection (Hive-Pal)
+              <ClipboardCheck size={18} /> Start HoneyChain Field Inspection
             </button>
           )}
 
