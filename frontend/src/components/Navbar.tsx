@@ -4,7 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 import HoneyChainLogo from "@/components/HoneyChainLogo";
 import { useLanguage } from "@/lib/LanguageContext";
+import { POLYGON_AMOY_RPC } from "@/lib/constants";
 import { QrCode, LayoutDashboard, Menu, X, PlusCircle, Microscope, Globe } from "lucide-react";
+
+const isLocalChain = POLYGON_AMOY_RPC.includes("127.0.0.1") || POLYGON_AMOY_RPC.includes("localhost");
 
 export default function Navbar() {
   const { lang, setLang, t } = useLanguage();
@@ -30,7 +33,7 @@ export default function Navbar() {
         {/* Center Pill: Live Status (Desktop only) */}
         <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 border border-charcoal/20 bg-white text-[10px] uppercase tracking-widest text-charcoal font-semibold shadow-xs shrink-0">
           <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse shrink-0" />
-          <span>{t("liveStatus")}</span>
+          <span>{isLocalChain ? "Local Demo Mode • Live Provenance" : t("liveStatus")}</span>
         </div>
 
         {/* Right Navigation & Action Items */}

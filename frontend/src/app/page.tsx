@@ -69,98 +69,40 @@ export default function HomePage() {
         {/* 2. STATS BAR (Dark Obsidian) */}
         <section className="py-16 px-6 md:px-12 lg:px-24 bg-[#141414] text-alabaster border-b-2 border-charcoal">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-2 mb-6">
-              <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-              <span className="text-[10px] uppercase tracking-ultra text-warm-grey font-mono">
-                {t("statsHeader")}
+            <div className="flex items-center gap-2 mb-6 px-3 py-2 border border-gold/40 bg-gold/10 w-fit">
+              <span className="w-1.5 h-1.5 bg-gold rounded-full shrink-0" />
+              <span className="text-[11px] sm:text-xs uppercase tracking-ultra text-charcoal font-bold">
+                Projected Target — {t("statsHeader")}
               </span>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="border-t border-white/15 pt-6">
                 <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-1 font-semibold">{t("statsBeekeepers")}</p>
-                <p className="text-4xl serif text-gold font-bold">14,240+</p>
+                <p className="text-4xl serif text-gold font-bold">14,240+ <span className="text-[9px] align-top uppercase tracking-wider text-amber-400 font-sans font-bold border border-amber-400/50 px-1 py-0.5 ml-1">Target</span></p>
                 <p className="text-[10px] text-taupe/70 mt-1 font-mono">{t("statsBeekeepersSub")}</p>
               </div>
               <div className="border-t border-white/15 pt-6">
                 <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-1 font-semibold">{t("statsBatches")}</p>
-                <p className="text-4xl serif text-alabaster font-bold">1.8M+</p>
+                <p className="text-4xl serif text-alabaster font-bold">1.8M+ <span className="text-[9px] align-top uppercase tracking-wider text-amber-400 font-sans font-bold border border-amber-400/50 px-1 py-0.5 ml-1">Target</span></p>
                 <p className="text-[10px] text-taupe/70 mt-1 font-mono">{t("statsBatchesSub")}</p>
               </div>
               <div className="border-t border-white/15 pt-6">
                 <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-1 font-semibold">{t("statsCompliance")}</p>
-                <p className="text-4xl serif text-emerald-400 font-bold">99.4%</p>
+                <p className="text-4xl serif text-emerald-400 font-bold">99.4% <span className="text-[9px] align-top uppercase tracking-wider text-amber-400 font-sans font-bold border border-amber-400/50 px-1 py-0.5 ml-1">Target</span></p>
                 <p className="text-[10px] text-taupe/70 mt-1 font-mono">{t("statsComplianceSub")}</p>
               </div>
               <div className="border-t border-white/15 pt-6">
                 <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-1 font-semibold">{t("statsScans")}</p>
-                <p className="text-4xl serif text-gold font-bold">4.2M+</p>
+                <p className="text-4xl serif text-gold font-bold">4.2M+ <span className="text-[9px] align-top uppercase tracking-wider text-amber-400 font-sans font-bold border border-amber-400/50 px-1 py-0.5 ml-1">Target</span></p>
                 <p className="text-[10px] text-taupe/70 mt-1 font-mono">{t("statsScansSub")}</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 3. THREE CORE PILLARS */}
-        <section className="py-24 px-6 md:px-12 lg:px-24 bg-[#F9F8F6] border-b-2 border-charcoal/10">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-left mb-16">
-              <p className="text-[10px] uppercase tracking-ultra text-warm-grey mb-2 font-bold">{t("archTag")}</p>
-              <h2 className="text-4xl md:text-5xl serif font-normal text-charcoal">
-                {t("archTitle")}
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Card 1 */}
-              <div className="p-8 border-2 border-charcoal/15 bg-white hover:border-gold transition-all duration-400 flex flex-col justify-between shadow-sm hover:shadow-md group">
-                <div>
-                  <div className="w-12 h-12 border border-charcoal bg-charcoal text-gold flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
-                    <ShieldCheck className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-2xl serif text-charcoal mb-3">{t("pillar1Title")}</h3>
-                  <p className="text-xs text-warm-grey leading-relaxed">
-                    {t("pillar1Desc")}
-                  </p>
-                </div>
-                <div className="mt-8 pt-4 border-t border-charcoal/10 text-[10px] uppercase tracking-widest text-charcoal font-semibold font-mono">
-                  Solidity 0.8.24 • OpenZeppelin RBAC
-                </div>
-              </div>
-
-              {/* Card 2 */}
-              <div className="p-8 border-2 border-charcoal/15 bg-white hover:border-gold transition-all duration-400 flex flex-col justify-between shadow-sm hover:shadow-md group">
-                <div>
-                  <div className="w-12 h-12 border border-charcoal bg-charcoal text-gold flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
-                    <Sparkles className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-2xl serif text-charcoal mb-3">{t("pillar2Title")}</h3>
-                  <p className="text-xs text-warm-grey leading-relaxed">
-                    {t("pillar2Desc")}
-                  </p>
-                </div>
-                <div className="mt-8 pt-4 border-t border-charcoal/10 text-[10px] uppercase tracking-widest text-charcoal font-semibold font-mono">
-                  Scikit-Learn • Random Forest Model
-                </div>
-              </div>
-
-              {/* Card 3 */}
-              <div className="p-8 border-2 border-charcoal/15 bg-white hover:border-gold transition-all duration-400 flex flex-col justify-between shadow-sm hover:shadow-md group">
-                <div>
-                  <div className="w-12 h-12 border border-charcoal bg-charcoal text-gold flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
-                    <Award className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-2xl serif text-charcoal mb-3">{t("pillar3Title")}</h3>
-                  <p className="text-xs text-warm-grey leading-relaxed">
-                    {t("pillar3Desc")}
-                  </p>
-                </div>
-                <div className="mt-8 pt-4 border-t border-charcoal/10 text-[10px] uppercase tracking-widest text-charcoal font-semibold font-mono">
-                  IPFS Decentralized Media Storage
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* 3. THREE CORE PILLARS -- removed from the homepage per explicit request.
+            Translation strings (archTag/archTitle/pillar1-3 Title/Desc) left in
+            src/lib/i18n.ts, untouched, in case this section is wanted back later. */}
 
         {/* 4. LIVE VERIFIED BATCHES PREVIEW */}
         <section className="py-24 px-6 md:px-12 lg:px-24 bg-white border-b-2 border-charcoal/10">
