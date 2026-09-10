@@ -7,10 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LiveTelemetryStream from "@/components/LiveTelemetryStream";
 import HiveAcousticAnalyzer from "@/components/HiveAcousticAnalyzer";
-import MigratoryRoutePlanner from "@/components/MigratoryRoutePlanner";
-import PollinationCreditCalculator from "@/components/PollinationCreditCalculator";
 import VoiceFieldAssistant from "@/components/VoiceFieldAssistant";
-import PollenVisionAnalyzer from "@/components/PollenVisionAnalyzer";
 import { useLanguage } from "@/lib/LanguageContext";
 import { DEMO_BATCHES } from "@/lib/constants";
 import {
@@ -213,10 +210,8 @@ export default function DashboardClient({ user }: { user: SessionUser }) {
               <DarkCard href="/dashboard/mint" icon={<Layers className="w-7 h-7 text-gold" />} title={t("dashApproveMint")} desc="Review harvest submission and mint on-chain." cta="Launch Mint" />
               <DarkCard href="/dashboard/custody" icon={<Truck className="w-7 h-7 text-gold" />} title={t("dashLogCustody")} desc="Processing, cold filtration, lab certification." cta="Log Step" />
               <DarkCard href="/dashboard/qr" icon={<QrCode className="w-7 h-7 text-gold" />} title={t("dashPrintQR")} desc="Vector PDF labels, breakable lid tamper seals & under-cap PIN scratch cards." cta="Open Studio" />
-              {/* Trimmed from the demo view (code intact, not deleted): Bulk CSV Mint (/dashboard/bulk),
-                  Migration Planner (/dashboard/migration), Pollination Credits (/dashboard/credits) --
-                  none of these are part of the on-chain flow being demonstrated. Restore by moving
-                  these DarkCard lines back out of this comment. */}
+              {/* Bulk CSV Mint (/dashboard/bulk) is trimmed from this view; it is not
+                  part of the on-chain flow being demonstrated. */}
             </div>
 
             <PendingRequestsTable t={t} />
@@ -240,7 +235,6 @@ export default function DashboardClient({ user }: { user: SessionUser }) {
               <DarkCard href="/dashboard/quality" icon={<Microscope className="w-7 h-7 text-gold" />} title={t("dashRunQuality")} desc="Submit batch ID for NMR spectrometry & adulterant classifier." cta="Analyse Batch" />
               <DarkCard href="/dashboard/custody" icon={<ClipboardList className="w-7 h-7 text-gold" />} title={t("dashLabCert")} desc="Record FSSAI IS 4941 & NMR fingerprint results on-chain." cta="Log Certification" />
               <DarkCard href="/dashboard/reports" icon={<FileText className="w-7 h-7 text-gold" />} title={t("dashDownloadReports")} desc="Export batch-wise PDF test certificates and W3C VC credentials." cta="Export Reports" />
-              <DarkCard href="/dashboard/pollen" icon={<Sparkles className="w-7 h-7 text-gold" />} title={t("dashPollenVision")} desc="Gemini Vision melissopalynology — classify floral botanical origin from microscope slides." cta="Launch Microscope" />
             </div>
 
             <div className="border-2 border-rose-200 bg-rose-50 p-4 sm:p-8 shadow-sm mb-12">
@@ -358,9 +352,6 @@ export default function DashboardClient({ user }: { user: SessionUser }) {
           <div id="telemetry"><LiveTelemetryStream /></div>
           <div id="acoustic"><HiveAcousticAnalyzer /></div>
           <div id="voice"><VoiceFieldAssistant /></div>
-          <div id="pollen"><PollenVisionAnalyzer /></div>
-          <div id="migration"><MigratoryRoutePlanner /></div>
-          <div id="credits"><PollinationCreditCalculator /></div>
         </section>
 
         <RecentBatchesTable batchesList={batchesList} t={t} />

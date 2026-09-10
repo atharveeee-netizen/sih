@@ -24,12 +24,12 @@ import { getSecureRandomInt } from "@/lib/crypto-utils";
 export default function RegisterFarmerPage() {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    name: "Subhash Chander",
+    name: "Devendra Kumar Mahto",
     location: "Kashmir Valley, Jammu & Kashmir",
     cooperativeId: "KVIC-JK-004",
     gpsLat: "34.0837",
     gpsLng: "74.7973",
-    upiVpa: "subhash.chander@sbi",
+    upiVpa: "devendra.mahto@sbi",
     ipfsHash: "bafybeicx3m2j5t7qrv47u98zxp123456789",
   });
 
@@ -278,7 +278,7 @@ export default function RegisterFarmerPage() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Subhash Chander"
+                    placeholder="e.g. Devendra Kumar Mahto"
                     className="w-full h-12 border-b border-charcoal/30 bg-transparent px-2 text-sm font-sans focus:border-gold focus:outline-none"
                   />
                 </div>
