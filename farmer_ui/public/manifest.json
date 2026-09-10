@@ -1,0 +1,16 @@
+{
+  "short_name": "HoneyChain",
+  "name": "HoneyChain — Farmer Hive Companion App",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#fffbeb",
+  "theme_color": "#d97706",
+  "display": "standalone",
+  "orientation": "portrait"
+}
