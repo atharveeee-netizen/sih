@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HoneyChainLogo from "@/components/HoneyChainLogo";
+import BeevilKnievelLogo from "@/components/BeevilKnievelLogo";
 import { ShieldCheck, Sparkles, QrCode, ArrowRight, Layers, Award, Activity, CheckCircle2, ChevronRight } from "lucide-react";
 import { DEMO_BATCHES } from "@/lib/constants";
 import { useLanguage } from "@/lib/LanguageContext";
@@ -28,7 +28,7 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 sm:gap-3 px-2.5 sm:px-3 py-1.5 border border-charcoal/20 bg-white mb-6 shadow-xs max-w-full">
                 <span className="h-2 w-2 bg-gold shrink-0" />
                 <span className="text-[9px] sm:text-[10px] uppercase tracking-wider sm:tracking-ultra text-charcoal font-bold leading-none truncate">
-                  KVIC • National Bee Board • TrueTag Platform
+                  KVIC • National Bee Board • Beevil Knievel Platform
                 </span>
               </div>
               <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl serif text-charcoal font-normal leading-[1.02] tracking-tight mb-8 break-words">
@@ -59,9 +59,9 @@ export default function HomePage() {
 
             {/* Brand Seal Emblem - Visible on all devices */}
             <div className="flex flex-col items-center justify-center shrink-0 mt-8 lg:mt-0 w-full lg:w-auto">
-              <HoneyChainLogo size="md" variant="seal" className="sm:hidden" />
-              <HoneyChainLogo size="lg" variant="seal" className="hidden sm:inline-flex lg:hidden" />
-              <HoneyChainLogo size="xl" variant="seal" className="hidden lg:inline-flex" />
+              <BeevilKnievelLogo size="md" variant="seal" className="sm:hidden" />
+              <BeevilKnievelLogo size="lg" variant="seal" className="hidden sm:inline-flex lg:hidden" />
+              <BeevilKnievelLogo size="xl" variant="seal" className="hidden lg:inline-flex" />
             </div>
           </div>
         </section>

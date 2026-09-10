@@ -1,5 +1,5 @@
 /**
- * Contract ABI & System Constants for HoneyChain by TrueTag
+ * Contract ABI & System Constants for Beevil Knievel
  */
 
 export const HONEYCHAIN_CONTRACT_ADDRESS =

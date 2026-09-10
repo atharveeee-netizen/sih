@@ -50,7 +50,7 @@ export default function Scorecard({ report }: ScorecardProps) {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 pb-6 border-b border-charcoal/10">
         <div>
           <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-1">
-            TrueTag AI Spectrometry & Isotope Engine
+            Beevil Knievel AI Spectrometry & Isotope Engine
           </p>
           <h3 className="text-3xl serif text-charcoal">FSSAI Lab & NMR Spectrometry</h3>
         </div>

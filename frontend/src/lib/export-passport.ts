@@ -9,8 +9,7 @@ import { BatchMetadata } from "./types";
  * - EU Council Directive 2001/110/EC on Honey
  * - USFDA 21 CFR 168.130
  * - FSSAI IS 4941:2020 Gazette Standards
- * 
- * Author: Shivam Gawade (@ShivamGawade-XS) for SIH 2026
+ *
  */
 export function generateExportPassportPDF(data: BatchMetadata) {
   const { batch, farmer, labReport, txHash, qrToken } = data;
@@ -196,7 +195,7 @@ export function generateExportPassportPDF(data: BatchMetadata) {
   y += 5;
   doc.text(`IPFS Metadata CID:    ${batch.ipfsMetadataHash || "bafybeicx3m2j5t7qrv47u98zxp123456789abcdefghijklmnopqrstuvwxyz"}`, 16, y);
   y += 5;
-  doc.text(`TrueTag Seal Token:   ${qrToken}`, 16, y);
+  doc.text(`Beevil Knievel Seal Token:   ${qrToken}`, 16, y);
 
   y += 12;
 
@@ -215,7 +214,7 @@ export function generateExportPassportPDF(data: BatchMetadata) {
   doc.setTextColor(100, 100, 100);
   doc.text("Dr. Vikramaditya Sharma (Chief Quality Officer, APEDA & KVIC)", 20, y + 12);
   doc.text("Electronic Signature Hash: SHA256: 8f4a7c2b3e810564921ad58ec73d091fb5e3962b", 20, y + 17);
-  doc.text("Verification Portal: https://honeychain.org/verify/" + batch.batchId, 20, y + 22);
+  doc.text("Verification Portal: https://beevilknievel.org/verify/" + batch.batchId, 20, y + 22);
 
   // Save the PDF
   doc.save(`APEDA_Export_Passport_Batch_00${batch.batchId}.pdf`);

@@ -1,5 +1,5 @@
 /**
- * Demo Authentication Constants for HoneyChain by TrueTag
+ * Demo Authentication Constants for Beevil Knievel
  * Passwords sourced from environment variables with safe fallback for offline demo.
  * In production, all credentials must be stored in secure vaults (AWS Secrets Manager / Vault).
  */
@@ -37,10 +37,10 @@ export const DEMO_OFFICERS: DemoOfficer[] = [
     cooperative: "NBB-DEL-LAB-01",
   },
   {
-    email: "admin@truetag.in",
+    email: "admin@beevilknievel.in",
     password: ADMIN_PASS,
     name: "Demo Administrator",
     role: "ADMIN",
-    cooperative: "TRUETAG-HQ",
+    cooperative: "BEEVILKNIEVEL-HQ",
   },
 ];

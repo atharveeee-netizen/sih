@@ -1,7 +1,6 @@
 /**
  * Dynamic Batch & Farmer Registry Manager
  * Synchronizes SQLite database, memory, and browser storage for seamless persistence
- * Author: Shivam Gawade (@ShivamGawade-XS)
  */
 
 import { DEMO_BATCHES } from "./constants";

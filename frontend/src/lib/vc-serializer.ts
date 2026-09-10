@@ -1,19 +1,18 @@
 /**
- * W3C Verifiable Credential Serializer for HoneyChain by TrueTag
- * Adapted from CertXchange (https://github.com/ShivamGawade-XS/zerocert)
- * Author: Shivam Gawade (@ShivamGawade-XS)
+ * W3C Verifiable Credential Serializer for Beevil Knievel
+ * Adapted from CertXchange
  */
 
 import { HONEYCHAIN_CONTRACT_ADDRESS } from "./constants";
 import { BatchMetadata } from "./types";
 
 /**
- * Serializes a HoneyChain batch into a standard W3C Verifiable Credential JSON-LD
- * compliant with W3C VC Data Model 1.1 and TrueTag Provenance Context
+ * Serializes a Beevil Knievel batch into a standard W3C Verifiable Credential JSON-LD
+ * compliant with W3C VC Data Model 1.1 and Beevil Knievel Provenance Context
  */
 export function exportHoneyBatchCredential(
   data: BatchMetadata,
-  appUrl: string = "https://honeychain.truetag.in"
+  appUrl: string = "https://beevilknievel.beevilknievel.in"
 ) {
   const { batch, farmer, custodyChain, labReport, txHash, qrToken } = data;
   const issuedAt = new Date(batch.harvestTimestamp * 1000).toISOString();
@@ -21,12 +20,12 @@ export function exportHoneyBatchCredential(
   return {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
-      "https://truetag.in/context/honey/v1.jsonld",
+      "https://beevilknievel.in/context/honey/v1.jsonld",
       "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.1.json",
     ],
     id: `${appUrl}/verify?batch=${batch.batchId}`,
     type: ["VerifiableCredential", "HoneyProvenanceCredential"],
-    name: `HoneyChain Provenance Certificate — Batch #${batch.batchId}`,
+    name: `Beevil Knievel Provenance Certificate — Batch #${batch.batchId}`,
     issuer: {
       id: `${appUrl}/org/kvic`,
       type: ["Organization", "Profile"],

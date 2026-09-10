@@ -1,6 +1,5 @@
 /**
- * TypeScript type definitions for HoneyChain by TrueTag
- * Author: Shivam Gawade (@ShivamGawade-XS)
+ * TypeScript type definitions for Beevil Knievel
  */
 
 export interface Farmer {

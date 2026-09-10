@@ -9,7 +9,7 @@ const SMTP_HOST = process.env.SMTP_HOST;
 const SMTP_PORT = Number(process.env.SMTP_PORT) || 587;
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
-const SMTP_FROM = process.env.SMTP_FROM || "noreply@honeychain.in";
+const SMTP_FROM = process.env.SMTP_FROM || "noreply@beevilknievel.in";
 
 const isConfigured = !!(SMTP_HOST && SMTP_USER && SMTP_PASS);
 
@@ -38,7 +38,7 @@ export async function sendVerificationEmail(
     <div style="font-family: 'Inter', Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 32px; border: 2px solid #D4AF37; background: #F9F8F6;">
       <div style="text-align: center; margin-bottom: 24px;">
         <div style="display: inline-block; width: 48px; height: 48px; background: #1A1A1A; color: #D4AF37; font-size: 24px; font-weight: bold; line-height: 48px; font-style: italic;">H</div>
-        <h2 style="margin: 8px 0 0; color: #1A1A1A; font-size: 18px; letter-spacing: 4px; text-transform: uppercase;">HoneyChain by TrueTag</h2>
+        <h2 style="margin: 8px 0 0; color: #1A1A1A; font-size: 18px; letter-spacing: 4px; text-transform: uppercase;">Beevil Knievel</h2>
         <p style="margin: 2px 0 0; color: #8A8478; font-size: 10px; letter-spacing: 3px; text-transform: uppercase;">KVIC • National Bee Board • SIH 2026</p>
       </div>
       <hr style="border: 1px solid #E5E2DC; margin: 20px 0;" />
@@ -65,9 +65,9 @@ export async function sendVerificationEmail(
 
   try {
     await transporter.sendMail({
-      from: `"HoneyChain by TrueTag" <${SMTP_FROM}>`,
+      from: `"Beevil Knievel" <${SMTP_FROM}>`,
       to: email,
-      subject: "🍯 HoneyChain — Email Verification Code",
+      subject: "🍯 Beevil Knievel — Email Verification Code",
       html: htmlBody,
     });
     return { success: true, devMode: false };
