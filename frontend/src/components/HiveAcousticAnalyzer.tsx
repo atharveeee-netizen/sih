@@ -16,7 +16,7 @@ import {
   Mic,
   MicOff,
 } from "lucide-react";
-import HoneyChainLogo, { HoneyChainBadge } from "./HoneyChainLogo";
+import BeevilKnievelLogo, { BeevilKnievelBadge } from "./BeevilKnievelLogo";
 
 interface AcousticProfile {
   id: string;

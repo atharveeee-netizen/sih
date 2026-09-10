@@ -49,7 +49,7 @@ export default function BeekeeperTipModal({
   if (!isOpen) return null;
 
   const currentAmount = isCustom ? Number(customAmount) || 0 : selectedAmount;
-  const note = `HoneyChain Tip - Batch #${batchId} to ${farmerName}`;
+  const note = `Beevil Knievel Tip - Batch #${batchId} to ${farmerName}`;
   const upiUrl = `upi://pay?pa=${farmerVpa}&pn=${encodeURIComponent(
     farmerName
   )}&am=${currentAmount}&cu=INR&tn=${encodeURIComponent(note)}`;
@@ -229,7 +229,7 @@ export default function BeekeeperTipModal({
                   level="H"
                   includeMargin={true}
                   imageSettings={{
-                    src: "/honeychain_app_icon.jpg",
+                    src: "/beevil_knievel_icon.png",
                     height: 28,
                     width: 28,
                     excavate: true,

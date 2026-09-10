@@ -29,7 +29,7 @@ export default function LiveTelemetryStream() {
 
   useEffect(() => {
     let eventSource: EventSource | null = null;
-    const aiUrl = process.env.NEXT_PUBLIC_AI_SERVICE_URL || "https://honeychain-ai-service.onrender.com";
+    const aiUrl = process.env.NEXT_PUBLIC_AI_SERVICE_URL || "https://beevilknievel-ai-service.onrender.com";
 
     let fallbackInterval: NodeJS.Timeout | null = null;
 

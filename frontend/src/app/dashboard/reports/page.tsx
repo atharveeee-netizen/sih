@@ -144,7 +144,7 @@ export default function ReportsPage() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", `KVIC-HoneyChain-Audit-Report-${Date.now()}.csv`);
+    link.setAttribute("download", `KVIC-Beevil Knievel-Audit-Report-${Date.now()}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

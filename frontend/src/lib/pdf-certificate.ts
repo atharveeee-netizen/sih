@@ -3,7 +3,6 @@ import { BatchMetadata } from "./types";
 
 /**
  * Generate an official KVIC Certificate of Provenance PDF
- * Author: Shivam Gawade (@ShivamGawade-XS)
  */
 export function generateCertificatePDF(data: BatchMetadata) {
   const { batch, farmer, labReport, txHash, qrToken } = data;
@@ -56,9 +55,9 @@ export function generateCertificatePDF(data: BatchMetadata) {
   doc.setFont("times", "bolditalic");
   doc.setFontSize(28);
   doc.setTextColor(242, 236, 222);
-  doc.text("HONEYCHAIN", centerX, centerY - 4, { align: "center" });
+  doc.text("BEEVIL KNIEVEL", centerX, centerY - 4, { align: "center" });
   doc.setFontSize(10);
-  doc.text("KVIC • TRUETAG IMMUTABLE PROVENANCE", centerX, centerY + 8, { align: "center" });
+  doc.text("KVIC • BEEVIL KNIEVEL IMMUTABLE PROVENANCE", centerX, centerY + 8, { align: "center" });
 
   // 4. Header: KVIC & National Bee Board
   doc.setFont("times", "bold");
@@ -85,7 +84,7 @@ export function generateCertificatePDF(data: BatchMetadata) {
   doc.setFont("times", "italic");
   doc.setFontSize(11);
   doc.setTextColor(212, 175, 55);
-  doc.text("TrueTag Cryptographic Anti-Adulteration Standard", pageWidth / 2, 50, { align: "center" });
+  doc.text("Beevil Knievel Cryptographic Anti-Adulteration Standard", pageWidth / 2, 50, { align: "center" });
 
   // 7. Divider Line
   doc.setDrawColor(212, 175, 55);
@@ -119,7 +118,7 @@ export function generateCertificatePDF(data: BatchMetadata) {
   doc.text(`Primary Beekeeper:  ${farmer.name}`, 32, 92);
   doc.text(`Apiary Location:    ${farmer.location}`, 32, 98);
   doc.text(`KVIC Cooperative:   ${farmer.cooperativeId}`, 32, 104);
-  doc.text(`TrueTag QR Token:   ${qrToken}`, 32, 110);
+  doc.text(`Beevil Knievel QR Token:   ${qrToken}`, 32, 110);
 
   // Purity Score Panel — official certification style
   const panelX = pageWidth - 83;
@@ -245,13 +244,13 @@ export function generateCertificatePDF(data: BatchMetadata) {
   doc.setFont("times", "bold");
   doc.setFontSize(5);
   doc.setTextColor(180, 140, 30);
-  doc.text("★ HONEYCHAIN VERIFIED ★", sealCenterX, sealCenterY - 7, { align: "center" });
+  doc.text("★ BEEVIL KNIEVEL VERIFIED ★", sealCenterX, sealCenterY - 7, { align: "center" });
   doc.setFontSize(7.5);
   doc.text("100% PURE", sealCenterX, sealCenterY - 1, { align: "center" });
   doc.setFontSize(6.5);
   doc.text("AUTHENTIC", sealCenterX, sealCenterY + 3, { align: "center" });
   doc.setFontSize(4.5);
-  doc.text("TRUETAG SECURED", sealCenterX, sealCenterY + 8, { align: "center" });
+  doc.text("BEEVIL KNIEVEL SECURED", sealCenterX, sealCenterY + 8, { align: "center" });
 
   // 13. Signatures
   const sigY = 186;
@@ -273,5 +272,5 @@ export function generateCertificatePDF(data: BatchMetadata) {
   doc.text("Quality Testing Officer", pageWidth - 60, sigY + 3.5, { align: "center" });
 
   // Save the PDF
-  doc.save(`HoneyChain_Batch_${batch.batchId}_Certificate.pdf`);
+  doc.save(`BeevilKnievel_Batch_${batch.batchId}_Certificate.pdf`);
 }

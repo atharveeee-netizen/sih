@@ -30,19 +30,19 @@ export default function VerifiableCredentialModal({ isOpen, onClose, batch }: Pr
   const w3cCredential = {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
-      "https://honeychain.org/contexts/honey-provenance-v1.jsonld",
+      "https://beevilknievel.org/contexts/honey-provenance-v1.jsonld",
       "https://schema.org",
     ],
-    id: `urn:uuid:honeychain:batch:${batch.qrToken}`,
+    id: `urn:uuid:beevilknievel:batch:${batch.qrToken}`,
     type: ["VerifiableCredential", "HoneyProvenanceCertificate", "FSSAIQualityCredential"],
     issuer: {
-      id: "did:honeychain:kvic:officer:0x892a0e3b97b0a7b45f3c1d9e2a8f4c6e1b7d5a3",
+      id: "did:beevilknievel:kvic:officer:0x892a0e3b97b0a7b45f3c1d9e2a8f4c6e1b7d5a3",
       name: "Khadi and Village Industries Commission (KVIC) - National Bee Board",
       jurisdiction: "Ministry of MSME, Government of India",
     },
     issuanceDate: new Date((batch.batch?.harvestTimestamp || Math.floor(Date.now() / 1000)) * 1000).toISOString(),
     credentialSubject: {
-      id: `did:honeychain:farmer:${batch.farmer.farmerId}`,
+      id: `did:beevilknievel:farmer:${batch.farmer.farmerId}`,
       batchId: batch.batchId,
       qrToken: batch.qrToken,
       farmer: {
@@ -74,7 +74,7 @@ export default function VerifiableCredentialModal({ isOpen, onClose, batch }: Pr
       type: "EcdsaSecp256k1Signature2019",
       created: new Date((batch.batch?.harvestTimestamp || 1723618800) * 1000).toISOString(),
       proofPurpose: "assertionMethod",
-      verificationMethod: "did:honeychain:kvic:officer:0x892a0e3b97b0a7b45f3c1d9e2a8f4c6e1b7d5a3#key-1",
+      verificationMethod: "did:beevilknievel:kvic:officer:0x892a0e3b97b0a7b45f3c1d9e2a8f4c6e1b7d5a3#key-1",
       jws: "eyJhbGciOiJFUzI1NksiLCJjcml0IjpbImJjIl19..MEQCIQC7a3f89d02e456b1c8f902a45b7e8d9c0e123456789abcdef0123456789abcdef01AiB89f2d9c4e7b1a56209ef43c8b1a32d67e891c345a6789b0cd1234ef56789a2f10",
     },
   };
@@ -93,7 +93,7 @@ export default function VerifiableCredentialModal({ isOpen, onClose, batch }: Pr
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `HoneyChain-${batch.qrToken}-W3C-Credential.jsonld`;
+    a.download = `Beevil Knievel-${batch.qrToken}-W3C-Credential.jsonld`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

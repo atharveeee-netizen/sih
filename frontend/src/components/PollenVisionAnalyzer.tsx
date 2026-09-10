@@ -16,7 +16,7 @@ import {
   FlaskConical,
 } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
-import HoneyChainLogo from "./HoneyChainLogo";
+import BeevilKnievelLogo from "./BeevilKnievelLogo";
 import { getSecureRandomInt } from "@/lib/crypto-utils";
 
 // ─── Pollen taxonomy & floral origin database ─────────────────────────────────
@@ -192,7 +192,7 @@ export default function PollenVisionAnalyzer() {
   };
 
   const verifyUrl = result
-    ? `https://honeychain-truetag.vercel.app/verify-pollen/${result.labReportId}`
+    ? `https://beevil-knievel.vercel.app/verify-pollen/${result.labReportId}`
     : "";
 
   return (
@@ -397,7 +397,7 @@ export default function PollenVisionAnalyzer() {
                     value={verifyUrl}
                     size={72}
                     level="H"
-                    imageSettings={{ src: "/honeychain_app_icon.jpg", height: 16, width: 16, excavate: true }}
+                    imageSettings={{ src: "/beevil_knievel_icon.png", height: 16, width: 16, excavate: true }}
                   />
                   <span className="text-[8px] font-mono text-warm-grey mt-1">Scan to Verify</span>
                 </div>

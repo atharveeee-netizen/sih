@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import HoneyChainLogo from "@/components/HoneyChainLogo";
+import BeevilKnievelLogo from "@/components/BeevilKnievelLogo";
 import { useLanguage } from "@/lib/LanguageContext";
 import { POLYGON_AMOY_RPC } from "@/lib/constants";
 import { QrCode, LayoutDashboard, Menu, X, PlusCircle, Microscope, Globe } from "lucide-react";
@@ -26,8 +26,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-2.5 sm:px-6 md:px-12 flex justify-between items-center h-16 sm:h-20 gap-1.5 sm:gap-4">
         {/* Brand */}
         <Link href="/" className="group flex items-center shrink-0">
-          <HoneyChainLogo size="sm" variant="full" showEndorsement={false} className="sm:hidden" />
-          <HoneyChainLogo size="md" variant="full" className="hidden sm:flex" />
+          <BeevilKnievelLogo size="sm" variant="full" className="sm:hidden" />
+          <BeevilKnievelLogo size="md" variant="full" className="hidden sm:flex" />
         </Link>
 
         {/* Center Pill: Live Status (Desktop only) */}

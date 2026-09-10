@@ -1,6 +1,5 @@
 /**
- * Rate limiting helper adapted from CertXchange (https://github.com/ShivamGawade-XS/zerocert)
- * Author: Shivam Gawade (@ShivamGawade-XS)
+ * Rate limiting helper adapted from CertXchange
  */
 
 import { Ratelimit } from "@upstash/ratelimit";
@@ -74,7 +73,7 @@ export const verifyRateLimiter = redisClient
       redis: redisClient,
       limiter: Ratelimit.slidingWindow(100, "1 m"),
       analytics: false,
-      prefix: "honeychain:verify",
+      prefix: "beevilknievel:verify",
     })
   : new FallbackRatelimit(100, 60000);
 
@@ -86,6 +85,6 @@ export const mintRateLimiter = redisClient
       redis: redisClient,
       limiter: Ratelimit.slidingWindow(20, "1 m"),
       analytics: false,
-      prefix: "honeychain:mint",
+      prefix: "beevilknievel:mint",
     })
   : new FallbackRatelimit(20, 60000);

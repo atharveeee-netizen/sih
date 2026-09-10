@@ -156,7 +156,7 @@ export default function MobileBottomNav() {
               <div className="flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-gold" />
                 <h3 className="text-base serif font-bold text-alabaster">
-                  HoneyChain AI Tool Suite
+                  Beevil Knievel AI Tool Suite
                 </h3>
               </div>
               <button

@@ -16,7 +16,7 @@ import {
   Zap,
 } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
-import HoneyChainLogo, { HoneyChainBadge } from "./HoneyChainLogo";
+import BeevilKnievelLogo, { BeevilKnievelBadge } from "./BeevilKnievelLogo";
 
 // ─── CONSTANTS ─────────────────────────────────────────────────────────────────
 // Avg Indian bee colony foraging radius ~ 2.5 km, pollinates ~0.8 ha per day
@@ -346,7 +346,7 @@ export default function PollinationCreditCalculator() {
 
             <div className="text-center border-b-2 border-charcoal/20 pb-4 sm:pb-5 mb-4 sm:mb-5">
               <div className="flex justify-center mb-2">
-                <HoneyChainLogo size="sm" variant="icon" />
+                <BeevilKnievelLogo size="sm" variant="icon" />
               </div>
               <p className="text-[9px] uppercase tracking-ultra text-warm-grey font-bold">
                 Government of India • Ministry of MSME • KVIC • National Bee Board
@@ -374,10 +374,10 @@ export default function PollinationCreditCalculator() {
               </div>
               <div className="flex flex-col items-center justify-center p-3 bg-white border border-charcoal/20">
                 <QRCodeSVG
-                  value={`https://honeychain-truetag.vercel.app/verify-credit/${certificateId}`}
+                  value={`https://beevil-knievel.vercel.app/verify-credit/${certificateId}`}
                   size={110}
                   level="H"
-                  imageSettings={{ src: "/honeychain_app_icon.jpg", height: 24, width: 24, excavate: true }}
+                  imageSettings={{ src: "/beevil_knievel_icon.png", height: 24, width: 24, excavate: true }}
                 />
                 <span className="text-[8px] font-mono text-warm-grey mt-1 text-center">Scan to verify on ICM</span>
               </div>

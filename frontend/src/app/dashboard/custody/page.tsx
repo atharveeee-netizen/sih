@@ -14,7 +14,7 @@ export default function CustodyLoggingPage() {
   const [batches, setBatches] = useState<BatchMetadata[]>([]);
   const [selectedBatchId, setSelectedBatchId] = useState<number>(1);
   const [facility, setFacility] = useState("KVIC Regional Honey Processing Center, Patna");
-  const [action, setAction] = useState("Cold Micro-Filtration & TrueTag NFC Sealing");
+  const [action, setAction] = useState("Cold Micro-Filtration & Beevil Knievel NFC Sealing");
   const [actorName, setActorName] = useState("Field Officer");
   
   const [loading, setLoading] = useState(false);
@@ -148,7 +148,7 @@ export default function CustodyLoggingPage() {
                   <option value="KVIC Regional Honey Processing Center, Patna">KVIC Regional Honey Processing Center, Patna</option>
                   <option value="KVIC Kolkata Central Processing & Packaging Hub">KVIC Kolkata Central Processing & Packaging Hub</option>
                   <option value="National Bee Board Central Quality Lab, New Delhi">National Bee Board Central Quality Lab, New Delhi</option>
-                  <option value="TrueTag Secure Distribution Center, Delhi NCR">TrueTag Secure Distribution Center, Delhi NCR</option>
+                  <option value="Beevil Knievel Secure Distribution Center, Delhi NCR">Beevil Knievel Secure Distribution Center, Delhi NCR</option>
                   <option value="Khadi India Flagship Store, Connaught Place, New Delhi">Khadi India Flagship Store, Connaught Place, New Delhi</option>
                 </select>
               </div>
@@ -185,7 +185,7 @@ id="custody-actor" name="actorName"                   type="text"
               <div className="p-6 border border-charcoal/10 bg-alabaster/40 flex items-start gap-4">
                 <ShieldCheck className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                 <p className="text-xs text-warm-grey leading-relaxed">
-                  Logging this custody step generates a cryptographic event on the Polygon PoS HoneyChain contract, permanently sealing the supply chain chain-of-custody.
+                  Logging this custody step generates a cryptographic event on the Polygon PoS Beevil Knievel contract, permanently sealing the supply chain chain-of-custody.
                 </p>
               </div>
 

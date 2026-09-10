@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 const AI_SERVICE_URL =
   process.env.AI_SERVICE_URL ||
   process.env.NEXT_PUBLIC_AI_SERVICE_URL ||
-  "https://honeychain-ai-service.onrender.com";
+  "https://beevilknievel-ai-service.onrender.com";
 
 export async function POST(req: NextRequest) {
   let body: any = {};

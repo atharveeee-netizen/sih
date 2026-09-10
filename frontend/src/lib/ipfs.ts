@@ -1,6 +1,5 @@
 /**
- * IPFS Pinata Service Integration for HoneyChain by TrueTag
- * Author: Shivam Gawade (ShivamGawade-XS)
+ * IPFS Pinata Service Integration for Beevil Knievel
  */
 
 export interface PinataResponse {
@@ -41,7 +40,7 @@ export async function pinJSONToIPFS(body: Record<string, any>, name: string): Pr
       },
       body: JSON.stringify({
         pinataOptions: { cidVersion: 1 },
-        pinataMetadata: { name: `HoneyChain_${name}` },
+        pinataMetadata: { name: `BeevilKnievel_${name}` },
         pinataContent: body,
       }),
     });
