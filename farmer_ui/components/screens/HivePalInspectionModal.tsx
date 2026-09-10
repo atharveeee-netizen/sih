@@ -392,7 +392,7 @@ export const HivePalInspectionModal: React.FC<HivePalInspectionModalProps> = ({
 
               {isSaved && (
                 <div className="p-3 bg-emerald-950 border border-emerald-500 rounded-xl text-emerald-300 text-xs font-black flex items-center justify-center gap-2">
-                  <Check size={16} /> Inspection Synced to HoneyChain
+                  <Check size={16} /> Inspection Synced to Beevil Knievel
                 </div>
               )}
             </div>
