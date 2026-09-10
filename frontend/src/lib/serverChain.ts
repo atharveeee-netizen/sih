@@ -314,7 +314,14 @@ export async function registerQrOnChain(params: {
   // Step 1: commit to a random secret without revealing it yet.
   const revealedSeed = ethers.hexlify(ethers.randomBytes(32));
   const seedHash = ethers.keccak256(ethers.AbiCoder.defaultAbiCoder().encode(["bytes32"], [revealedSeed]));
-  const commitTx = await qrContract.commitQRSeed(params.batchId, seedHash);
+  // Both transactions below are sent back to back by the same officer wallet.
+  // ethers briefly caches getTransactionCount, so letting it auto-fill the
+  // nonce makes the second transaction reuse the first one's nonce and revert
+  // with NONCE_EXPIRED -- the commit lands but the binding never does. Track
+  // the nonce explicitly, as contracts/deploy_amoy.js does across its two
+  // deployments.
+  let qrNonce = await provider.getTransactionCount(officer.address, "latest");
+  const commitTx = await qrContract.commitQRSeed(params.batchId, seedHash, { nonce: qrNonce++ });
   const commitReceipt = await withTimeout<ethers.ContractTransactionReceipt | null>(
     commitTx.wait(),
     30000,
@@ -335,7 +342,8 @@ export async function registerQrOnChain(params: {
     params.qrToken,
     params.batchId,
     revealedSeed,
-    officerSignature
+    officerSignature,
+    { nonce: qrNonce++ }
   );
   const registerReceipt = await withTimeout<ethers.ContractTransactionReceipt | null>(
     registerTx.wait(),
