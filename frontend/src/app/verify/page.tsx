@@ -61,7 +61,7 @@ export default function VerifySearchPage() {
 
   const sampleBatches = [
     { id: 1, name: "Muzaffarpur Litchi Honey", qr: "TT-2026-00001", score: 94, farmer: "Rajesh K. Verma (Bihar)" },
-    { id: 2, name: "Sundarbans Wild Mangrove Honey", qr: "TT-2026-00002", score: 91, farmer: "Lakshmi Devi & Coop (Bengal)" },
+    { id: 2, name: "Sundarbans Wild Mangrove Honey", qr: "TT-2026-00002", score: 91, farmer: "Anjali Mondal & Coop (Bengal)" },
   ];
 
   return (

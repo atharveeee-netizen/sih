@@ -51,7 +51,7 @@ export default function BulkMintPage() {
       "Rameshwar Singh,Muzaffarpur Bihar,KVIC-BH-002,17.4,81.8,14.2,18.5,150\n" +
       "Devi Lal Meena,Bharatpur Rajasthan,KVIC-RJ-009,18.0,80.5,18.0,16.0,120\n" +
       "Anowar Hossain,Sundarbans West Bengal,KVIC-WB-019,18.8,79.4,22.1,14.8,200\n" +
-      "Ghulam Hassan,Anantnag Kashmir,KVIC-JK-004,16.2,83.0,11.5,21.0,85\n";
+      "Bashir Ahmad Dar,Anantnag Kashmir,KVIC-JK-004,16.2,83.0,11.5,21.0,85\n";
 
     const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);

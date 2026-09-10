@@ -41,7 +41,7 @@ export default function OfflineSMSSimulator({ isOpen, onClose }: OfflineSMSSimul
         } else {
           setResponseMsg(
             isBatch2
-              ? `[KVIC-HONEY]: Batch #002 (Sundarbans Wild Mangrove Honey) is AUTHENTIC. Beekeeper: Lakshmi Devi (Bengal). Purity Score: 91/100 (FSSAI IS 4941 Passed). Polygon Blockchain Anchored.`
+              ? `[KVIC-HONEY]: Batch #002 (Sundarbans Wild Mangrove Honey) is AUTHENTIC. Beekeeper: Anjali Mondal (Bengal). Purity Score: 91/100 (FSSAI IS 4941 Passed). Polygon Blockchain Anchored.`
               : `[KVIC-HONEY]: Batch #001 (Muzaffarpur Litchi Honey) is AUTHENTIC. Beekeeper: Rajesh K. Verma (Bihar). Purity Score: 94/100 (Grade A+ Raw Organic). FSSAI Compliant. Polygon Tx: 0x98f4...`
           );
         }

@@ -1,5 +1,5 @@
 /**
- * Database Seeder for HoneyChain by TrueTag
+ * Database Seeder for Beevil Knievel
  * Seeds initial KVIC officers (with bcrypt password hashes), verified beekeepers with GPS coordinates,
  * authentic demo batches with FSSAI lab results, and initial complaints.
  */
@@ -55,12 +55,12 @@ async function main() {
 
   const admin = await prisma.user.create({
     data: {
-      email: "admin@truetag.in",
+      email: "admin@beevilknievel.in",
       passwordHash: adminHash,
-      name: "Shivam Gawade (TrueTag Director)",
+      name: "Registry Administrator",
       role: "ADMIN",
       phone: "+919876543212",
-      cooperative: "TRUETAG-HQ",
+      cooperative: "BEEVILKNIEVEL-HQ",
       isEmailVerified: true,
       isPhoneVerified: true,
     },
@@ -72,13 +72,13 @@ async function main() {
   const farmer1 = await prisma.farmer.create({
     data: {
       id: 1,
-      name: "Rajesh Kumar Verma",
-      location: "Muzaffarpur, Bihar",
+      name: "Mahesh Prasad Singh",
+      location: "Kanti Block, Muzaffarpur, Bihar",
       cooperativeId: "KVIC-BH-002",
       gpsLat: 26.1209,
       gpsLng: 85.3647,
       ipfsProfileHash: "bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi",
-      upiVpa: "rajesh.verma@sbi",
+      upiVpa: "mahesh.singh@sbi",
       isVerified: true,
       registeredById: officer.id,
     },
@@ -87,13 +87,13 @@ async function main() {
   const farmer2 = await prisma.farmer.create({
     data: {
       id: 2,
-      name: "Lakshmi Devi",
-      location: "Sundarbans Biosphere Reserve, West Bengal",
+      name: "Anjali Mondal",
+      location: "Gosaba Island, Sundarbans, West Bengal",
       cooperativeId: "KVIC-WB-009",
       gpsLat: 21.9497,
       gpsLng: 89.1833,
       ipfsProfileHash: "bafybeicx3m2j5t7qrv47u98zxp4321fedcba0987654321",
-      upiVpa: "lakshmi.devi@oksbi",
+      upiVpa: "anjali.mondal@oksbi",
       isVerified: true,
       registeredById: officer.id,
     },
@@ -102,13 +102,13 @@ async function main() {
   const farmer3 = await prisma.farmer.create({
     data: {
       id: 3,
-      name: "Ghulam Hassan Lone",
-      location: "Kashmir Valley, Jammu & Kashmir",
+      name: "Bashir Ahmad Dar",
+      location: "Pulwama District, Kashmir Valley, Jammu & Kashmir",
       cooperativeId: "KVIC-JK-004",
       gpsLat: 34.0837,
       gpsLng: 74.7973,
       ipfsProfileHash: "bafybeihq7k3z5l9pqr47u88yxp654321abcdef0123456789",
-      upiVpa: "ghulam.hassan@jkb",
+      upiVpa: "bashir.dar@jkb",
       isVerified: true,
       registeredById: officer.id,
     },
@@ -160,7 +160,7 @@ async function main() {
     data: [
       {
         batchId: batch1.id,
-        actor: "Rajesh Kumar Verma (Beekeeper)",
+        actor: "Mahesh Prasad Singh (Beekeeper)",
         entity: "Direct Producer — Muzaffarpur Apiary #04",
         action: "Harvest extracted and sealed in tamper-evident food-grade containers",
         timestamp: new Date("2026-08-14T07:00:00Z"),
@@ -233,7 +233,7 @@ async function main() {
     data: [
       {
         batchId: batch2.id,
-        actor: "Lakshmi Devi (Mouli Collector)",
+        actor: "Anjali Mondal (Mouli Collector)",
         entity: "Sundarbans Biosphere Reserve Cluster",
         action: "Wild tidal mangrove honey collected and filtered",
         timestamp: new Date("2026-08-18T05:30:00Z"),

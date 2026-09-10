@@ -7,12 +7,9 @@ import {
   Home,
   QrCode,
   LayoutDashboard,
-  Compass,
   Sparkles,
   X,
   Volume2,
-  Leaf,
-  Microscope,
   Mic,
   ShieldCheck,
 } from "lucide-react";
@@ -25,7 +22,6 @@ export default function MobileBottomNav() {
     { label: "Home", href: "/", icon: Home },
     { label: "Verify", href: "/verify", icon: QrCode, highlight: true },
     { label: "Panel", href: "/dashboard", icon: LayoutDashboard },
-    { label: "Map", href: "/dashboard/migration", icon: Compass },
     {
       label: "AI Tools",
       onClick: () => setShowToolsSheet(true),
@@ -42,22 +38,6 @@ export default function MobileBottomNav() {
       icon: Volume2,
       color: "text-amber-500",
       bgColor: "bg-amber-500/10",
-    },
-    {
-      title: "Pollen Vision AI",
-      desc: "Melissopalynology slide classifier",
-      href: "/dashboard/pollen",
-      icon: Microscope,
-      color: "text-purple-500",
-      bgColor: "bg-purple-500/10",
-    },
-    {
-      title: "Green Pollination Credits",
-      desc: "Carbon offset & impact tokenizer",
-      href: "/dashboard/credits",
-      icon: Leaf,
-      color: "text-emerald-500",
-      bgColor: "bg-emerald-500/10",
     },
     {
       title: "Voice Field Assistant",

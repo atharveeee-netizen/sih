@@ -7,8 +7,8 @@ export const dynamic = "force-dynamic";
 const DEMO_FARMERS: Farmer[] = [
   {
     farmerId: 1,
-    name: "Rajesh Kumar Verma",
-    location: "Muzaffarpur, Bihar",
+    name: "Mahesh Prasad Singh",
+    location: "Kanti Block, Muzaffarpur, Bihar",
     cooperativeId: "KVIC-BIHAR-001",
     gpsLat: 26.1208,
     gpsLng: 85.3905,
@@ -19,8 +19,8 @@ const DEMO_FARMERS: Farmer[] = [
   },
   {
     farmerId: 2,
-    name: "Lakshmi Devi & Sundarbans Cooperative",
-    location: "Sundarbans Biosphere Reserve, West Bengal",
+    name: "Anjali Mondal & Sundarbans Cooperative",
+    location: "Gosaba Island, Sundarbans, West Bengal",
     cooperativeId: "KVIC-BENGAL-009",
     gpsLat: 21.9497,
     gpsLng: 89.1833,
