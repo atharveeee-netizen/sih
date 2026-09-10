@@ -149,41 +149,8 @@ export default function Navbar() {
               <span className="text-gold text-lg">→</span>
             </Link>
 
-            <Link
-              href="/dashboard/migration"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-4 border border-charcoal/15 bg-alabaster/50 hover:bg-alabaster flex items-center justify-between text-sm md:text-xs font-bold text-charcoal uppercase tracking-wider"
-            >
-              <div className="flex items-center gap-3">
-                <span className="text-lg">🗺️</span>
-                <span>Migratory Bloom Planner</span>
-              </div>
-              <span className="text-gold text-lg">→</span>
-            </Link>
-
-            <Link
-              href="/dashboard/credits"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-4 border border-charcoal/15 bg-alabaster/50 hover:bg-alabaster flex items-center justify-between text-sm md:text-xs font-bold text-charcoal uppercase tracking-wider"
-            >
-              <div className="flex items-center gap-3">
-                <span className="text-lg">🌿</span>
-                <span>Green Pollination Credits</span>
-              </div>
-              <span className="text-gold text-lg">→</span>
-            </Link>
-
-            <Link
-              href="/dashboard/pollen"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-4 border border-charcoal/15 bg-alabaster/50 hover:bg-alabaster flex items-center justify-between text-sm md:text-xs font-bold text-charcoal uppercase tracking-wider"
-            >
-              <div className="flex items-center gap-3">
-                <Microscope className="w-5 h-5 text-gold" />
-                <span>Pollen Vision AI</span>
-              </div>
-              <span className="text-gold text-lg">→</span>
-            </Link>
+            {/* Trimmed from the demo view (code intact, not deleted): Migratory Bloom Planner,
+                Green Pollination Credits, Pollen Vision AI -- not part of the on-chain flow. */}
           </div>
         </div>
       )}

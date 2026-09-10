@@ -210,12 +210,13 @@ export default function DashboardClient({ user }: { user: SessionUser }) {
             <SectionLabel>{t("dashFieldOfficerActions")}</SectionLabel>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               <DarkCard href="/dashboard/register" icon={<PlusCircle className="w-7 h-7 text-gold" />} title={t("dashRegisterBeekeeper")} desc="KYC, cooperative code, GPS location, IPFS photo." cta="Open Form" />
-              <DarkCard href="/dashboard/mint" icon={<Layers className="w-7 h-7 text-gold" />} title={t("dashApproveMint")} desc="Review harvest submission and mint on Polygon." cta="Launch Mint" />
+              <DarkCard href="/dashboard/mint" icon={<Layers className="w-7 h-7 text-gold" />} title={t("dashApproveMint")} desc="Review harvest submission and mint on-chain." cta="Launch Mint" />
               <DarkCard href="/dashboard/custody" icon={<Truck className="w-7 h-7 text-gold" />} title={t("dashLogCustody")} desc="Processing, cold filtration, lab certification." cta="Log Step" />
-              <DarkCard href="/dashboard/bulk" icon={<FileSpreadsheet className="w-7 h-7 text-gold" />} title={t("dashBulkMint")} desc="High-throughput multi-barrel CSV minting." cta="Upload CSV" />
-              <DarkCard href="/dashboard/migration" icon={<Compass className="w-7 h-7 text-gold" />} title={t("dashMigration")} desc="Pan-India floral calendar, convoy logistics & KVIC transit pass." cta="Plan Route" />
-              <DarkCard href="/dashboard/credits" icon={<Bell className="w-7 h-7 text-gold" />} title={t("dashCredits")} desc="Carbon offset tokenizer, ecological impact & KVIC Green Credit Certificate." cta="Calculate Credits" />
               <DarkCard href="/dashboard/qr" icon={<QrCode className="w-7 h-7 text-gold" />} title={t("dashPrintQR")} desc="Vector PDF labels, breakable lid tamper seals & under-cap PIN scratch cards." cta="Open Studio" />
+              {/* Trimmed from the demo view (code intact, not deleted): Bulk CSV Mint (/dashboard/bulk),
+                  Migration Planner (/dashboard/migration), Pollination Credits (/dashboard/credits) --
+                  none of these are part of the on-chain flow being demonstrated. Restore by moving
+                  these DarkCard lines back out of this comment. */}
             </div>
 
             <PendingRequestsTable t={t} />
