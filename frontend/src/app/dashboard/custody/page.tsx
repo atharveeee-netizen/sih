@@ -15,7 +15,7 @@ export default function CustodyLoggingPage() {
   const [selectedBatchId, setSelectedBatchId] = useState<number>(1);
   const [facility, setFacility] = useState("KVIC Regional Honey Processing Center, Patna");
   const [action, setAction] = useState("Cold Micro-Filtration & TrueTag NFC Sealing");
-  const [actorName, setActorName] = useState("Dr. Ananya Ray (Lead Chemist)");
+  const [actorName, setActorName] = useState("Field Officer");
   
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);

@@ -34,7 +34,6 @@ export default function Footer() {
               SIH 2026 Finalist
             </div>
             <p className="text-[10px] text-warm-grey uppercase tracking-widest">Problem Statement: SIH26021</p>
-            <p className="text-xs text-taupe/80 mt-2">Lead Developer: <span className="text-gold font-medium">Shivam Gawade</span></p>
           </div>
         </div>
 

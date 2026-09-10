@@ -245,7 +245,7 @@ export function generateCertificatePDF(data: BatchMetadata) {
   doc.setFont("times", "bold");
   doc.setFontSize(5);
   doc.setTextColor(180, 140, 30);
-  doc.text("★ KVIC • NATIONAL BEE BOARD ★", sealCenterX, sealCenterY - 7, { align: "center" });
+  doc.text("★ HONEYCHAIN VERIFIED ★", sealCenterX, sealCenterY - 7, { align: "center" });
   doc.setFontSize(7.5);
   doc.text("100% PURE", sealCenterX, sealCenterY - 1, { align: "center" });
   doc.setFontSize(6.5);
@@ -263,15 +263,15 @@ export function generateCertificatePDF(data: BatchMetadata) {
   doc.setFont("times", "italic");
   doc.setFontSize(8);
   doc.setTextColor(80, 80, 80);
-  doc.text("Dr. Ananya Ray", 60, sigY - 2, { align: "center" });
-  doc.text("K. S. Narayanan", pageWidth - 60, sigY - 2, { align: "center" });
+  doc.text("Field Officer", 60, sigY - 2, { align: "center" });
+  doc.text("Lab Analyst", pageWidth - 60, sigY - 2, { align: "center" });
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(6.5);
   doc.setTextColor(120, 120, 120);
-  doc.text("Authorized KVIC Field Officer", 60, sigY + 3.5, { align: "center" });
-  doc.text("Chief Quality Chemist (NBB)", pageWidth - 60, sigY + 3.5, { align: "center" });
+  doc.text("Authorized Field Officer", 60, sigY + 3.5, { align: "center" });
+  doc.text("Quality Testing Officer", pageWidth - 60, sigY + 3.5, { align: "center" });
 
   // Save the PDF
-  doc.save(`HoneyChain_Batch_${batch.batchId}_KVIC_Certificate.pdf`);
+  doc.save(`HoneyChain_Batch_${batch.batchId}_Certificate.pdf`);
 }

@@ -277,7 +277,7 @@ export async function POST(req: NextRequest) {
         },
         {
           batchId: newBatch.id,
-          actor: actorName || "Dr. Ananya Ray (KVIC Field Officer)",
+          actor: actorName || "Field Officer",
           entity: farmer.cooperativeId,
           action: `Physical inspection passed, AI purity verified at ${score}/100`,
           timestamp: new Date(),
