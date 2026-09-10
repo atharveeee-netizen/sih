@@ -10,7 +10,7 @@ import { DEMO_BATCHES } from "@/lib/constants";
 import { fetchBatchesFromDB } from "@/lib/registry";
 import { BatchMetadata } from "@/lib/types";
 import { generateStickerSheetPDF } from "@/lib/pdf-stickers";
-import HoneyChainLogo from "@/components/HoneyChainLogo";
+import BeevilKnievelLogo from "@/components/BeevilKnievelLogo";
 import {
   QrCode,
   ArrowLeft,
@@ -47,11 +47,11 @@ export default function QrLabelsPage() {
   }, []);
 
   const selectedBatch = batches.find((b) => b.batchId === selectedBatchId) || batches[0];
-  const verifyUrl = `https://honeychain-truetag.vercel.app/verify/${selectedBatch.batchId}?qr=${selectedBatch.qrToken}`;
+  const verifyUrl = `https://beevil-knievel.vercel.app/verify/${selectedBatch.batchId}?qr=${selectedBatch.qrToken}`;
 
   // Deterministic Dynamic NTAG 424 DNA Cryptographic CMAC Tag URI
   const cmacToken = ((0x9f8e7d6c5b4a3f2e + nfcSimulatedCount * 0x1337) % 0xffffffffffffffff).toString(16).padStart(16, "0");
-  const nfcDynamicUri = `https://honeychain-truetag.vercel.app/verify/${selectedBatch.batchId}?nfc_tag=${selectedBatch.qrToken}&cmac=${cmacToken}&ctr=${nfcSimulatedCount}`;
+  const nfcDynamicUri = `https://beevil-knievel.vercel.app/verify/${selectedBatch.batchId}?nfc_tag=${selectedBatch.qrToken}&cmac=${cmacToken}&ctr=${nfcSimulatedCount}`;
 
   const handlePrint = () => {
     window.print();
@@ -107,7 +107,7 @@ export default function QrLabelsPage() {
                 </p>
               </div>
               <h1 className="text-3xl serif text-charcoal font-normal">
-                TrueTag™ Cryptographic Label & Packaging Generator
+                Beevil Knievel™ Cryptographic Label & Packaging Generator
               </h1>
               <p className="text-xs text-warm-grey mt-1 max-w-2xl">
                 Generate tamper-evident micro-QR seals, anti-counterfeit guilloche waveforms, and dynamic NFC tags for honey jars and bulk transport drums.
@@ -295,7 +295,7 @@ export default function QrLabelsPage() {
                       ★ KVIC • NATIONAL BEE BOARD ★
                     </span>
                     <span className="text-[7px] font-mono text-gold font-bold block">
-                      TRUETAG™ TAMPER-EVIDENT SEAL
+                      BEEVIL KNIEVEL™ TAMPER-EVIDENT SEAL
                     </span>
                   </div>
 
@@ -307,7 +307,7 @@ export default function QrLabelsPage() {
                       level="H"
                       includeMargin={false}
                       imageSettings={{
-                        src: "/honeychain_app_icon.jpg",
+                        src: "/beevil_knievel_icon.png",
                         height: 22,
                         width: 22,
                         excavate: true,
@@ -348,7 +348,7 @@ export default function QrLabelsPage() {
 
                   {/* Security Watermark in Label Background */}
                   <div className="absolute right-[-20px] bottom-8 w-44 h-44 opacity-[0.08] pointer-events-none select-none mix-blend-multiply">
-                    <Image src="/honeychain_logo_badge.jpg" alt="" width={176} height={176} className="w-full h-full object-contain" />
+                    <Image src="/beevil_knievel_badge.png" alt="" width={176} height={176} className="w-full h-full object-contain" />
                   </div>
 
                   {/* Top Brand Header */}
@@ -356,9 +356,9 @@ export default function QrLabelsPage() {
                     <span className="text-[8px] uppercase tracking-ultra text-warm-grey font-bold block mb-1">
                       Govt. of India • Ministry of MSME
                     </span>
-                    <HoneyChainLogo size="sm" variant="icon" />
+                    <BeevilKnievelLogo size="sm" variant="icon" />
                     <h3 className="text-lg serif font-bold text-charcoal tracking-wide mt-1">
-                      Honey<span className="text-gold">Chain</span>
+                      Beevil<span className="text-gold">Knievel</span>
                     </h3>
                     <p className="text-[8px] font-serif italic text-warm-grey">
                       100% Certified Organic Raw Nectar
@@ -373,7 +373,7 @@ export default function QrLabelsPage() {
                         size={88}
                         level="H"
                         imageSettings={{
-                          src: "/honeychain_app_icon.jpg",
+                          src: "/beevil_knievel_icon.png",
                           height: 18,
                           width: 18,
                           excavate: true,
@@ -426,7 +426,7 @@ export default function QrLabelsPage() {
                 >
                   {/* Security Watermark in Drum Tag Background */}
                   <div className="absolute right-4 top-1/2 -translate-y-1/2 w-56 h-56 opacity-[0.07] pointer-events-none select-none">
-                    <Image src="/honeychain_logo_badge.jpg" alt="" width={224} height={224} className="w-full h-full object-contain" />
+                    <Image src="/beevil_knievel_badge.png" alt="" width={224} height={224} className="w-full h-full object-contain" />
                   </div>
 
                   <div className="flex justify-between items-start border-b border-white/20 pb-4 relative z-10">
@@ -450,7 +450,7 @@ export default function QrLabelsPage() {
                         size={110}
                         level="H"
                         imageSettings={{
-                          src: "/honeychain_app_icon.jpg",
+                          src: "/beevil_knievel_icon.png",
                           height: 24,
                           width: 24,
                           excavate: true,
@@ -458,7 +458,7 @@ export default function QrLabelsPage() {
                       />
                     </div>
                     <div className="text-xs font-mono space-y-1.5">
-                      <p className="text-warm-grey">TrueTag Token: <span className="text-alabaster font-bold">{selectedBatch.qrToken}</span></p>
+                      <p className="text-warm-grey">Beevil Knievel Token: <span className="text-alabaster font-bold">{selectedBatch.qrToken}</span></p>
                       <p className="text-warm-grey">Beekeeper: <span className="text-alabaster">{selectedBatch.farmer.name}</span></p>
                       <p className="text-warm-grey">Cooperative: <span className="text-alabaster">{selectedBatch.farmer.cooperativeId}</span></p>
                       <p className="text-warm-grey">Quality Score: <span className="text-gold font-bold">{selectedBatch.batch.qualityScore}/100</span></p>
@@ -489,7 +489,7 @@ export default function QrLabelsPage() {
                 </span>
               </div>
               <h3 className="text-2xl serif text-charcoal font-normal">
-                TrueTag™ Dynamic NFC (NTAG 424 DNA) Anti-Clone Engine
+                Beevil Knievel™ Dynamic NFC (NTAG 424 DNA) Anti-Clone Engine
               </h3>
             </div>
 

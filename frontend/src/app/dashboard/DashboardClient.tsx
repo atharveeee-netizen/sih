@@ -50,7 +50,7 @@ const ROLE_META: Record<Role, { badge: string; station: string }> = {
   },
   ADMIN: {
     badge: "bg-rose-100 text-rose-800 border-rose-300",
-    station: "TrueTag HQ • KVIC Central Administration",
+    station: "Beevil Knievel HQ • KVIC Central Administration",
   },
 };
 

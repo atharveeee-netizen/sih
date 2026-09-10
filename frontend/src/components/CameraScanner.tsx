@@ -13,7 +13,7 @@ export default function CameraScanner({ onScanSuccess, onClose }: CameraScannerP
   const [error, setError] = useState<string | null>(null);
   const [isScanning, setIsScanning] = useState(false);
   const scannerRef = useRef<Html5Qrcode | null>(null);
-  const regionId = "honeychain-qr-scanner-region";
+  const regionId = "beevilknievel-qr-scanner-region";
 
   useEffect(() => {
     let isMounted = true;

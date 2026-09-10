@@ -48,7 +48,7 @@ export default function OfflineSMSSimulator({ isOpen, onClose }: OfflineSMSSimul
       } else {
         // USSD response
         setResponseMsg(
-          `*99*4941# KVIC HoneyChain:\n1. Status: VERIFIED PURE\n2. Batch: #001 (Litchi Honey)\n3. Farmer: Rajesh Verma (Bihar)\n4. Score: 94/100 (Grade A+)\nPress 0 for Voice Hindi`
+          `*99*4941# KVIC Beevil Knievel:\n1. Status: VERIFIED PURE\n2. Batch: #001 (Litchi Honey)\n3. Farmer: Rajesh Verma (Bihar)\n4. Score: 94/100 (Grade A+)\nPress 0 for Voice Hindi`
         );
       }
     }, 400);

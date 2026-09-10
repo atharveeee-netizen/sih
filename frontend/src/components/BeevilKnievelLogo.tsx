@@ -11,15 +11,13 @@ export interface LogoProps {
   size?: LogoSize;
   variant?: LogoVariant;
   theme?: LogoTheme;
-  showEndorsement?: boolean;
   className?: string;
 }
 
-export default function HoneyChainLogo({
+export default function BeevilKnievelLogo({
   size = "md",
   variant = "full",
   theme = "auto",
-  showEndorsement = true,
   className = "",
 }: LogoProps) {
   const sizeMap: Record<LogoSize, { icon: string; px: number; text: string; sub: string; badge: string }> = {
@@ -46,8 +44,8 @@ export default function HoneyChainLogo({
     <div className={`relative ${currentSize.icon} shrink-0 group ${className}`}>
       <div className="w-full h-full relative rounded-xl overflow-hidden border border-gold/50 shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:border-gold group-hover:shadow-md bg-[#121212]">
         <Image
-          src="/honeychain_app_icon.jpg"
-          alt="HoneyChain App Icon"
+          src="/beevil_knievel_icon.png"
+          alt="Beevil Knievel App Icon"
           width={currentSize.px}
           height={currentSize.px}
           className="w-full h-full object-cover"
@@ -66,8 +64,8 @@ export default function HoneyChainLogo({
     <div className={`relative ${currentSize.icon} shrink-0 group ${className}`}>
       <div className="w-full h-full relative rounded-2xl overflow-hidden border-2 border-gold/70 shadow-md transition-all duration-300 group-hover:scale-105 group-hover:border-gold bg-[#121212]">
         <Image
-          src="/honeychain_logo_badge.jpg"
-          alt="HoneyChain Emblem Badge"
+          src="/beevil_knievel_badge.png"
+          alt="Beevil Knievel Emblem Badge"
           width={currentSize.px}
           height={currentSize.px}
           className="w-full h-full object-cover"
@@ -106,8 +104,8 @@ export default function HoneyChainLogo({
         {/* Emblem Image Asset */}
         <div className={`${sealDim} relative rounded-xl overflow-hidden border border-gold/40 shadow-sm transition-transform duration-500 group-hover:scale-102 bg-[#121212]`}>
           <Image
-            src="/honeychain_logo_badge.jpg"
-            alt="HoneyChain Organic Emblem"
+            src="/beevil_knievel_badge.png"
+            alt="Beevil Knievel Organic Emblem"
             width={sealPx}
             height={sealPx}
             className="w-full h-full object-cover"
@@ -118,7 +116,7 @@ export default function HoneyChainLogo({
 
         <div className="mt-3">
           <span className="font-serif font-bold tracking-widest text-sm uppercase block">
-            Honey<span className="text-gold">Chain</span>
+            Beevil <span className="text-gold">Knievel</span>
           </span>
           <span className="text-[9px] uppercase tracking-ultra text-warm-grey font-mono block mt-1 flex items-center justify-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
@@ -136,8 +134,8 @@ export default function HoneyChainLogo({
         <div className="relative">
           <div className={`${currentSize.icon} relative rounded-2xl overflow-hidden border-2 border-gold/60 shadow-md bg-[#121212] transition-transform group-hover:scale-105`}>
             <Image
-              src="/honeychain_logo_badge.jpg"
-              alt="HoneyChain Brand"
+              src="/beevil_knievel_badge.png"
+              alt="Beevil Knievel Brand"
               width={currentSize.px}
               height={currentSize.px}
               className="w-full h-full object-cover"
@@ -150,13 +148,8 @@ export default function HoneyChainLogo({
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-1.5">
             <span className={`font-bold tracking-widest uppercase font-sans ${currentSize.text} ${primaryTextColor}`}>
-              Honey<span className="text-gold">Chain</span>
+              Beevil <span className="text-gold">Knievel</span>
             </span>
-            {showEndorsement && (
-              <span className={`border uppercase tracking-widest font-mono font-semibold ${badgeBg} ${currentSize.badge}`}>
-                TrueTag™
-              </span>
-            )}
           </div>
           <span className={`uppercase tracking-ultra font-medium ${subTextColor} ${currentSize.sub} mt-0.5`}>
             KVIC • National Bee Board
@@ -173,13 +166,8 @@ export default function HoneyChainLogo({
       <div className="flex flex-col">
         <div className="flex items-center gap-1.5 whitespace-nowrap">
           <span className={`font-bold tracking-widest uppercase font-sans ${currentSize.text} ${primaryTextColor}`}>
-            Honey<span className="text-gold">Chain</span>
+            Beevil <span className="text-gold">Knievel</span>
           </span>
-          {showEndorsement && (
-            <span className={`border uppercase tracking-widest font-mono font-semibold ${badgeBg} ${currentSize.badge}`}>
-              TrueTag™
-            </span>
-          )}
         </div>
         <span className={`uppercase tracking-wider sm:tracking-ultra font-medium ${subTextColor} ${currentSize.sub} whitespace-nowrap hidden xs:block`}>
           KVIC • National Bee Board
@@ -190,14 +178,14 @@ export default function HoneyChainLogo({
 }
 
 // Named exports for quick convenience
-export function HoneyChainIcon(props: Omit<LogoProps, "variant">) {
-  return <HoneyChainLogo {...props} variant="icon" />;
+export function BeevilKnievelIcon(props: Omit<LogoProps, "variant">) {
+  return <BeevilKnievelLogo {...props} variant="icon" />;
 }
 
-export function HoneyChainBadge(props: Omit<LogoProps, "variant">) {
-  return <HoneyChainLogo {...props} variant="badge" />;
+export function BeevilKnievelBadge(props: Omit<LogoProps, "variant">) {
+  return <BeevilKnievelLogo {...props} variant="badge" />;
 }
 
-export function HoneyChainSeal(props: Omit<LogoProps, "variant">) {
-  return <HoneyChainLogo {...props} variant="seal" />;
+export function BeevilKnievelSeal(props: Omit<LogoProps, "variant">) {
+  return <BeevilKnievelLogo {...props} variant="seal" />;
 }

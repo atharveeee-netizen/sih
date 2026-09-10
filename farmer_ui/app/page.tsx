@@ -158,7 +158,7 @@ export default function Home() {
     await saveCachedFieldOfficer(MOCK_FIELD_OFFICER);
     await saveCachedHives(INITIAL_HIVES);
 
-    showToast('Login Verified! Welcome to HoneyChain Companion');
+    showToast('Login Verified! Welcome to Beevil Knievel Companion');
 
     if (farmerData.voiceEnabled) {
       speakNarration('लॉगिन सफल। हनीचैन किसान ऐप में आपका स्वागत है', farmerData.preferredLanguage, true);

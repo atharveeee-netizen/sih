@@ -1,5 +1,5 @@
 /**
- * Geolocation, Reverse Geocoding & GI Zone Geofencing for HoneyChain
+ * Geolocation, Reverse Geocoding & GI Zone Geofencing for Beevil Knievel
  * Uses Browser Geolocation API + OpenStreetMap Nominatim (free, no API key)
  */
 
@@ -198,7 +198,7 @@ export async function reverseGeocode(
       {
         signal: controller.signal,
         headers: {
-          "User-Agent": "HoneyChain-SIH2026/2.0 (honeychain@truetag.in)",
+          "User-Agent": "Beevil Knievel-SIH2026/2.0 (beevilknievel@beevilknievel.in)",
         },
       }
     );

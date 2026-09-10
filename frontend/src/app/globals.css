@@ -4,14 +4,28 @@
 
 @layer base {
   :root {
-    --alabaster: #F5F3EB;
-    --alabaster-card: #FFFFFF;
-    --charcoal: #121212;
-    --charcoal-light: #1E1E1E;
-    --taupe: #E4DDD3;
-    --warm-grey: #6E685F;
-    --gold: #D4AF37;
-    --gold-light: #F3E5AB;
+    /* Beevil Knievel palette. Token NAMES are kept from the previous identity
+       (charcoal/gold/alabaster) because ~100 files use them as Tailwind classes;
+       only the VALUES moved. Accurate aliases are provided alongside. */
+    --ink: #14141A;
+    --ink-raised: #1D1D25;
+    --bone: #F7F5EF;
+    --bone-card: #FFFFFF;
+    --amber: #F2A61C;
+    --amber-light: #FFC24D;
+    --amber-dark: #C97F0A;
+    --signal-red: #C8322B;
+    --slate-grey: #6B6760;
+    --taupe: #E6E0D5;
+
+    /* legacy aliases -> new values (single source of truth) */
+    --alabaster: var(--bone);
+    --alabaster-card: var(--bone-card);
+    --charcoal: var(--ink);
+    --charcoal-light: var(--ink-raised);
+    --warm-grey: var(--slate-grey);
+    --gold: var(--amber);
+    --gold-light: var(--amber-light);
   }
 
   html, body {
@@ -31,8 +45,10 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  h1, h2, h3, h4, .serif {
-    font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  /* .serif is a legacy class name kept for the ~40 files that use it; the
+     display face is a grotesque now, not a serif. Prefer .display in new code. */
+  h1, h2, h3, h4, .serif, .display {
+    font-family: var(--font-display), "Space Grotesk", "Segoe UI", system-ui, sans-serif;
     letter-spacing: -0.01em;
   }
 

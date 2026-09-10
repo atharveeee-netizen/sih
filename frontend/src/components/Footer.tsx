@@ -1,12 +1,12 @@
 import Link from "next/link";
-import HoneyChainLogo from "@/components/HoneyChainLogo";
+import BeevilKnievelLogo from "@/components/BeevilKnievelLogo";
 
 export default function Footer() {
   return (
     <footer className="py-12 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 bg-charcoal text-alabaster border-t border-charcoal">
       <div className="max-w-6xl mx-auto">
         <div className="mb-8 sm:mb-12">
-          <HoneyChainLogo size="lg" variant="full" theme="dark" />
+          <BeevilKnievelLogo size="lg" variant="full" theme="dark" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 md:gap-16 mb-12 sm:mb-20">
           {/* Col 1 */}
@@ -22,7 +22,7 @@ export default function Footer() {
           {/* Col 2 */}
           <div>
             <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-4 sm:mb-6">Architectural Core</p>
-            <p className="text-lg sm:text-xl serif text-alabaster">TrueTag Universal Authentication</p>
+            <p className="text-lg sm:text-xl serif text-alabaster">Beevil Knievel Universal Authentication</p>
             <p className="text-xs text-taupe/70 mt-2 leading-relaxed">
               Decentralized provenance protocol combining Polygon PoS immutable ledger, AI-driven anti-adulteration models, and physical tamper-evident micro-QR seals.
             </p>
@@ -40,16 +40,8 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-8 sm:pt-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 sm:gap-6">
           <p className="text-[10px] uppercase tracking-widest text-warm-grey">
-            © 2026 HoneyChain by TrueTag. Open Source Under MIT License.
+            © 2026 Beevil Knievel. Open Source Under MIT License.
           </p>
-          <div className="flex flex-wrap gap-4 sm:gap-8">
-            <Link href="https://github.com/ShivamGawade-XS/SIH_2026" target="_blank" className="text-[10px] uppercase tracking-widest text-warm-grey hover:text-gold transition-colors duration-300">
-              GitHub Repository
-            </Link>
-            <Link href="https://github.com/ShivamGawade-XS/zerocert" target="_blank" className="text-[10px] uppercase tracking-widest text-warm-grey hover:text-gold transition-colors duration-300">
-              ZeroCert Engine
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

@@ -1,7 +1,6 @@
 /**
- * Comprehensive Indic Multilingual Localization Dictionary for HoneyChain by TrueTag
+ * Comprehensive Indic Multilingual Localization Dictionary for Beevil Knievel
  * Languages: English (en), Hindi (hi), Bengali (bn), Tamil (ta), Kannada (kn)
- * Author: Shivam Gawade (@ShivamGawade-XS)
  */
 
 export type Language = "en" | "hi" | "bn" | "ta" | "kn";
@@ -9,8 +8,8 @@ export type Language = "en" | "hi" | "bn" | "ta" | "kn";
 export const TRANSLATIONS = {
   en: {
     // Navigation & Hero
-    brandName: "HoneyChain",
-    brandTag: "by TrueTag • KVIC",
+    brandName: "Beevil Knievel",
+    brandTag: "by Beevil Knievel • KVIC",
     liveStatus: "Polygon PoS • Live Provenance",
     verifyNav: "Verify Jar",
     fieldNav: "Field Officer Login",
@@ -33,7 +32,7 @@ export const TRANSLATIONS = {
     statsScansSub: "Zero Consumer Gas Fee",
 
     // Pillars
-    archTag: "The TrueTag Architecture",
+    archTag: "The Beevil Knievel Architecture",
     archTitle: "Engineered For Zero Trust",
     pillar1Title: "Polygon Immutable Ledger",
     pillar1Desc: "Harvest events, custody transfers, and lab test results are minted permanently onto the Polygon PoS network. Tamper-evident and independently auditable.",
@@ -322,7 +321,7 @@ export const TRANSLATIONS = {
   },
   ta: {
     brandName: "ஹனி-செயின்",
-    brandTag: "TrueTag • KVIC",
+    brandTag: "Beevil Knievel • KVIC",
     liveStatus: "Polygon PoS • நேரடி ஆதாரம்",
     verifyNav: "பாட்டிலை சரிபார்க்கவும்",
     fieldNav: "அதிகாரி உள்நுழைவு",
@@ -343,7 +342,7 @@ export const TRANSLATIONS = {
     statsComplianceSub: "IS 4941:2020 தரம்",
     statsScansSub: "பூஜ்ஜிய கட்டணம்",
 
-    archTag: "TrueTag கட்டமைப்பு",
+    archTag: "Beevil Knievel கட்டமைப்பு",
     archTitle: "பூஜ்ஜிய நம்பிக்கை பாதுகாப்புக்காக வடிவமைக்கப்பட்டது",
     pillar1Title: "Polygon மாற்ற முடியாத லெட்ஜர்",
     pillar1Desc: "அறுவடை நிகழ்வுகள், விநியோக பரிமாற்றங்கள் மற்றும் ஆய்வக முடிவுகள் பிளாக்செயினில் நிரந்தரமாக சேமிக்கப்படுகின்றன.",
@@ -425,7 +424,7 @@ export const TRANSLATIONS = {
   },
   kn: {
     brandName: "ಹನಿ-ಚೈನ್",
-    brandTag: "TrueTag • KVIC",
+    brandTag: "Beevil Knievel • KVIC",
     liveStatus: "Polygon PoS • ನೇರ ಮೂಲ ದೃಢೀಕರಣ",
     verifyNav: "ಜೇನು ಜಾರ್ ಪರಿಶೀಲಿಸಿ",
     fieldNav: "ಅಧಿಕಾರಿ ಲಾಗಿನ್",
@@ -446,7 +445,7 @@ export const TRANSLATIONS = {
     statsComplianceSub: "IS 4941:2020 ಮಾನದಂಡ",
     statsScansSub: "ಶೂನ್ಯ ಅನಿಲ ಶುಲ್ಕ",
 
-    archTag: "TrueTag ವಾಸ್ತುಶಿಲ್ಪ",
+    archTag: "Beevil Knievel ವಾಸ್ತುಶಿಲ್ಪ",
     archTitle: "ಸಂಪೂರ್ಣ ಸುರಕ್ಷತೆಗಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ",
     pillar1Title: "Polygon ಬದಲಾಯಿಸಲಾಗದ ಲೆಡ್ಜರ್",
     pillar1Desc: "ಕೊಯ್ಲು ದಿನಾಂಕ, ಪೂರೈಕೆ ಸರಪಳಿ ಹಸ್ತಾಂತರ ಮತ್ತು ಲ್ಯಾಬ್ ಪರೀಕ್ಷಾ ಫಲಿತಾಂಶಗಳು ಬ್ಲಾಕ್‌ಚೈನ್‌ನಲ್ಲಿ ಶಾಶ್ವತವಾಗಿ ಉಳಿಯುತ್ತವೆ.",

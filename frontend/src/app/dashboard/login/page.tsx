@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HoneyChainLogo from "@/components/HoneyChainLogo";
+import BeevilKnievelLogo from "@/components/BeevilKnievelLogo";
 import { DEMO_OFFICERS } from "@/lib/auth-constants";
 import { ShieldCheck, Lock, ArrowRight, UserCheck } from "lucide-react";
 
@@ -67,7 +67,7 @@ export default function LoginPage() {
         <div className="border border-charcoal/20 bg-white p-8 md:p-16 shadow-luxury-card">
           <div className="max-w-xl mx-auto">
             <div className="text-center mb-10 flex flex-col items-center">
-              <HoneyChainLogo variant="stacked" size="lg" className="mb-4" />
+              <BeevilKnievelLogo variant="stacked" size="lg" className="mb-4" />
               <h1 className="text-3xl serif text-charcoal font-normal">Officer Portal Login</h1>
               <p className="text-xs text-warm-grey mt-2">
                 Restricted to authorized field officers, certified testing laboratories, and registry admins.

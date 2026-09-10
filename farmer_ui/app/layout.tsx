@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'HoneyChain - Farmer Companion App',
+  title: 'Beevil Knievel - Farmer Companion App',
   description: 'Voice-assisted, offline-first mobile app for rural beekeepers (KVIC Apiary Cluster)',
   manifest: '/manifest.json',
 };
