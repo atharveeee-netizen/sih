@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="100%" height="100%" style="background:#ffffff; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <style>
+      .title { font-size: 20px; font-weight: 700; fill: #0f172a; }
+      .subtitle { font-size: 13px; font-weight: 500; fill: #64748b; }
+      .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 6px; }
+      .box-primary { fill: #f0f9ff; stroke: #0284c7; stroke-width: 1.5; rx: 6px; }
+      .box-success { fill: #f0fdf4; stroke: #16a34a; stroke-width: 1.5; rx: 6px; }
+      .box-warning { fill: #fffbeb; stroke: #d97706; stroke-width: 1.5; rx: 6px; }
+      .box-alert { fill: #fff1f2; stroke: #e11d48; stroke-width: 1.5; rx: 6px; }
+      .label { font-size: 13px; font-weight: 600; fill: #0f172a; }
+      .desc { font-size: 11px; fill: #64748b; }
+      .tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+      .line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      .line-accent { stroke: #0284c7; stroke-width: 2; fill: none; }
+      .arrow { fill: #0284c7; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7"/>
+    </marker>
+    <marker id="arrow-dark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="40" y="45" class="title">FIG 10 — KVIC NATIONAL APICULTURE CLUSTER OPERATIONS</text>
+  <text x="40" y="68" class="subtitle">Multi-tier federation connecting rural beekeeping clusters to state &amp; national command</text>
+
+  <!-- 3 Clusters -->
+  <rect x="40" y="110" width="280" height="230" class="box" />
+  <rect x="40" y="110" width="280" height="28" style="fill:#e2e8f0; rx:6px 6px 0 0;" />
+  <text x="55" y="129" class="tag">CLUSTER 1: NILGIRIS FOREST, TN</text>
+  <text x="55" y="160" class="label">Tribal Apiculture Cooperative</text>
+  <text x="55" y="180" class="desc">• 18 Registered tribal beekeepers</text>
+  <text x="55" y="200" class="desc">• 45 Smart hives (High elevation)</text>
+  <text x="55" y="220" class="desc">• Primary flora: Eucalyptus &amp; Wild Rose</text>
+  <text x="55" y="240" class="desc">• 2026 Production: 1,840 kg</text>
+  <text x="55" y="260" class="desc">• Traceability Compliance: 98.4%</text>
+  <text x="55" y="290" class="tag" style="fill:#16a34a;">STATUS: 96% HEALTHY</text>
+
+  <rect x="360" y="110" width="280" height="230" class="box" />
+  <rect x="360" y="110" width="280" height="28" style="fill:#e2e8f0; rx:6px 6px 0 0;" />
+  <text x="375" y="129" class="tag">CLUSTER 2: GIR FOREST, GUJARAT</text>
+  <text x="375" y="160" class="label">Saurashtra Beekeepers Union</text>
+  <text x="375" y="180" class="desc">• 24 Registered beekeepers</text>
+  <text x="375" y="200" class="desc">• 60 Smart hives (Buffer zone)</text>
+  <text x="375" y="220" class="desc">• Primary flora: Forest Jamun &amp; Mustard</text>
+  <text x="375" y="240" class="desc">• 2026 Production: 2,450 kg</text>
+  <text x="375" y="260" class="desc">• Traceability Compliance: 94.2%</text>
+  <text x="375" y="290" class="tag" style="fill:#16a34a;">STATUS: 92% HEALTHY</text>
+
+  <rect x="680" y="110" width="280" height="230" class="box" />
+  <rect x="680" y="110" width="280" height="28" style="fill:#e2e8f0; rx:6px 6px 0 0;" />
+  <text x="695" y="129" class="tag">CLUSTER 3: KASHMIR VALLEY, J&amp;K</text>
+  <text x="695" y="160" class="label">Himalayan Apiculture Society</text>
+  <text x="695" y="180" class="desc">• 32 Registered beekeepers</text>
+  <text x="695" y="200" class="desc">• 80 Smart hives (Valley floor)</text>
+  <text x="695" y="220" class="desc">• Primary flora: White Clover &amp; Acacia</text>
+  <text x="695" y="240" class="desc">• 2026 Production: 3,120 kg</text>
+  <text x="695" y="260" class="desc">• Traceability Compliance: 100.0%</text>
+  <text x="695" y="290" class="tag" style="fill:#16a34a;">STATUS: 98% HEALTHY</text>
+
+  <!-- Connectors to Central KVIC -->
+  <line x1="180" y1="340" x2="450" y2="390" class="line-accent" marker-end="url(#arrow)" />
+  <line x1="500" y1="340" x2="500" y2="390" class="line-accent" marker-end="url(#arrow)" />
+  <line x1="820" y1="340" x2="550" y2="390" class="line-accent" marker-end="url(#arrow)" />
+
+  <!-- KVIC Command Dashboard -->
+  <rect x="40" y="390" width="920" height="90" class="box-primary" />
+  <text x="60" y="415" class="label" style="fill:#0369a1; font-size:15px;">KVIC National Honey Mission Command Dashboard (/kvic)</text>
+  <text x="60" y="440" class="desc" style="font-size:13px; fill:#0f172a;">Total Monitored Hives: 185 | Active Beekeepers: 74 | Total Honey Harvested: 7,410 kg | Verified Jars Issued: 14,820</text>
+  <text x="60" y="460" class="desc" style="font-size:13px; fill:#0f172a;">Counterfeit Alerts Flagged: 1 (Suspicious QR Reuse in Delhi/Bengaluru) | Overall Colony Health Rate: 95.1%</text>
+</svg>

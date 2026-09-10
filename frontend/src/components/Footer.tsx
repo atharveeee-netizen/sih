@@ -1,156 +1,56 @@
-"use client";
-
-import React from "react";
 import Link from "next/link";
+import HoneyChainLogo from "@/components/HoneyChainLogo";
 
-export function Footer() {
+export default function Footer() {
   return (
-    <footer className="bg-[#6c00ff] text-white py-16 px-4 sm:px-6 lg:px-8 border-t-2 border-white/20">
-      <div className="max-w-6xl mx-auto space-y-12">
-        
-        {/* Brand Info & Attribution */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-white/20 text-xs text-white/80 font-medium">
-          <div className="space-y-1">
-            <p className="font-bold text-white text-sm">
-              &copy; {new Date().getFullYear()} Beevil Knievel Team. All rights reserved.
-            </p>
-            <p>Autonomous Edge-AI Environmental &amp; Acoustic Health Monitoring System for Precision Apiculture.</p>
+    <footer className="py-12 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 bg-charcoal text-alabaster border-t border-charcoal">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-8 sm:mb-12">
+          <HoneyChainLogo size="lg" variant="full" theme="dark" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 md:gap-16 mb-12 sm:mb-20">
+          {/* Col 1 */}
+          <div>
+            <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-4 sm:mb-6">Collaborators & Governance</p>
+            <div className="flex flex-col gap-2 sm:gap-3">
+              <p className="text-lg sm:text-xl serif italic font-normal text-alabaster">Khadi and Village Industries Commission (KVIC)</p>
+              <p className="text-sm sm:text-base serif italic text-taupe/80">National Bee Board — Honey Mission</p>
+              <p className="text-xs text-warm-grey mt-2">Ministry of Micro, Small & Medium Enterprises, Govt. of India</p>
+            </div>
           </div>
 
-          <div className="space-y-1 text-left md:text-right">
-            <p>IEEE HardwAIre Challenge Master Standard • Standardized on Antmicro CM4 Baseboard (Rev 1.0.5)</p>
-            <p>
-              <Link
-                href="https://github.com/atharveeee-netizen/beevil-knievel"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-[#ffc833]"
-              >
-                GitHub Repository: atharveeee-netizen/beevil-knievel
-              </Link>
+          {/* Col 2 */}
+          <div>
+            <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-4 sm:mb-6">Architectural Core</p>
+            <p className="text-lg sm:text-xl serif text-alabaster">TrueTag Universal Authentication</p>
+            <p className="text-xs text-taupe/70 mt-2 leading-relaxed">
+              Decentralized provenance protocol combining Polygon PoS immutable ledger, AI-driven anti-adulteration models, and physical tamper-evident micro-QR seals.
             </p>
+          </div>
+
+          {/* Col 3 */}
+          <div className="flex flex-col items-start md:items-end">
+            <div className="bg-alabaster text-charcoal px-4 py-2 font-bold text-xs uppercase tracking-widest mb-4">
+              SIH 2026 Finalist
+            </div>
+            <p className="text-[10px] text-warm-grey uppercase tracking-widest">Problem Statement: SIH26021</p>
           </div>
         </div>
 
-        {/* 4-Column Sitemap */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
-          {/* Column 1 */}
-          <div className="space-y-3">
-            <div className="font-mono text-xs uppercase tracking-widest text-[#ffc833] font-bold">
-              System Architecture
-            </div>
-            <ul className="space-y-2">
-              <li>
-                <Link href="#the_system" className="hover:text-[#ffc833] transition-colors">
-                  The Sensor Node
-                </Link>
-              </li>
-              <li>
-                <Link href="#the_specs" className="hover:text-[#ffc833] transition-colors">
-                  Antmicro CM4 Gateway
-                </Link>
-              </li>
-              <li>
-                <Link href="#edge_ai" className="hover:text-[#ffc833] transition-colors">
-                  BeevilFusionNetEdge (96.84%)
-                </Link>
-              </li>
-              <li>
-                <Link href="#the_specs" className="hover:text-[#ffc833] transition-colors">
-                  TinyML 1D-CNN MCU
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 2 */}
-          <div className="space-y-3">
-            <div className="font-mono text-xs uppercase tracking-widest text-[#ffc833] font-bold">
-              Fleet &amp; Catalog
-            </div>
-            <ul className="space-y-2">
-              <li>
-                <Link href="#catalog" className="hover:text-[#ffc833] transition-colors">
-                  Beevil Solo (1-4 Hives)
-                </Link>
-              </li>
-              <li>
-                <Link href="#catalog" className="hover:text-[#ffc833] transition-colors">
-                  Beevil Apiary Pro (5-25 Hives)
-                </Link>
-              </li>
-              <li>
-                <Link href="#catalog" className="hover:text-[#ffc833] transition-colors">
-                  Pollination Grid (25-100+ Hives)
-                </Link>
-              </li>
-              <li>
-                <Link href="#catalog" className="hover:text-[#ffc833] transition-colors">
-                  Future Work &amp; Custom Sizing
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3 */}
-          <div className="space-y-3">
-            <div className="font-mono text-xs uppercase tracking-widest text-[#ffc833] font-bold">
-              Research &amp; Data
-            </div>
-            <ul className="space-y-2">
-              <li>
-                <Link href="https://github.com/atharveeee-netizen/beevil-knievel/tree/main/datasets" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffc833] transition-colors">
-                  1.05M Field Dataset
-                </Link>
-              </li>
-              <li>
-                <Link href="#education" className="hover:text-[#ffc833] transition-colors">
-                  University Grants (15% Off)
-                </Link>
-              </li>
-              <li>
-                <Link href="#gallery" className="hover:text-[#ffc833] transition-colors">
-                  Hardware Photo Gallery
-                </Link>
-              </li>
-              <li>
-                <Link href="#our_mission" className="hover:text-[#ffc833] transition-colors">
-                  Marcus Varro Heritage
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4 */}
-          <div className="space-y-3">
-            <div className="font-mono text-xs uppercase tracking-widest text-[#ffc833] font-bold">
-              Open Source
-            </div>
-            <ul className="space-y-2">
-              <li>
-                <Link href="https://github.com/atharveeee-netizen/beevil-knievel" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffc833] transition-colors">
-                  GitHub Repository
-                </Link>
-              </li>
-              <li>
-                <Link href="https://github.com/atharveeee-netizen/beevil-knievel/issues" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffc833] transition-colors">
-                  Issue Tracker
-                </Link>
-              </li>
-              <li>
-                <Link href="https://github.com/antmicro/cm4-baseboard" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffc833] transition-colors">
-                  Antmicro CM4 Hardware
-                </Link>
-              </li>
-              <li>
-                <Link href="#need-help" className="hover:text-[#ffc833] transition-colors">
-                  Contact Engineering
-                </Link>
-              </li>
-            </ul>
+        {/* Bottom bar */}
+        <div className="border-t border-white/10 pt-8 sm:pt-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 sm:gap-6">
+          <p className="text-[10px] uppercase tracking-widest text-warm-grey">
+            © 2026 HoneyChain by TrueTag. Open Source Under MIT License.
+          </p>
+          <div className="flex flex-wrap gap-4 sm:gap-8">
+            <Link href="https://github.com/ShivamGawade-XS/SIH_2026" target="_blank" className="text-[10px] uppercase tracking-widest text-warm-grey hover:text-gold transition-colors duration-300">
+              GitHub Repository
+            </Link>
+            <Link href="https://github.com/ShivamGawade-XS/zerocert" target="_blank" className="text-[10px] uppercase tracking-widest text-warm-grey hover:text-gold transition-colors duration-300">
+              ZeroCert Engine
+            </Link>
           </div>
         </div>
-
       </div>
     </footer>
   );

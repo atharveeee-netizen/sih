@@ -1,17 +1,27 @@
 {
   "name": "honeychain-contracts",
   "version": "1.0.0",
-  "description": "HoneyChain DePIN Smart Contracts Suite - Problem Statement 26021",
+  "description": "HoneyChain Smart Contracts on Polygon PoS for SIH 2026",
   "main": "index.js",
   "scripts": {
-    "test": "hardhat test",
     "compile": "hardhat compile",
-    "deploy": "hardhat run scripts/deploy.js"
+    "test": "hardhat test",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia"
   },
+  "keywords": [
+    "sih2026",
+    "blockchain",
+    "polygon",
+    "solidity",
+    "honeychain",
+    "kvic"
+  ],
+  "author": "Shivam Gawade",
+  "license": "MIT",
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "ethers": "^6.17.0",
-    "hardhat": "^2.29.1"
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "dotenv": "^16.6.1",
+    "hardhat": "^2.19.4"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.6.1"

@@ -1,22 +1,61 @@
 import type { Metadata } from "next";
+import { Playfair_Display, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import NoiseOverlay from "@/components/NoiseOverlay";
+import GridLines from "@/components/GridLines";
+import IoTStageController from "@/components/IoTStageController";
+import JudgeEvaluationBrief from "@/components/JudgeEvaluationBrief";
+import MobileBottomNav from "@/components/MobileBottomNav";
+import { LanguageProvider } from "@/lib/LanguageContext";
+import { Toaster } from "@/components/ui/sonner";
+import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Beevil Knievel — Edge AI Hive Health & Pathology System",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://honeychain-truetag.vercel.app"),
+  title: "HoneyChain by TrueTag — Blockchain Honey Authenticity & Provenance",
   description:
-    "Autonomous Edge-AI Environmental & Acoustic Health Monitoring System for Precision Apiculture. Powered by Antmicro CM4 Gateway, 16 Multi-Sensor Telemetry Fusion, and 96.84% Out-of-Sample Accuracy.",
-  openGraph: {
-    title: "Beevil Knievel — Edge AI Hive Health & Pathology System",
-    description:
-      "Autonomous Edge-AI Environmental & Acoustic Health Monitoring System for Precision Apiculture. IEEE HardwAIre Challenge Master Standard.",
-    siteName: "Beevil Knievel",
-    type: "website",
+    "KVIC & National Bee Board verifiable honey authentication powered by Polygon PoS, AI quality scoring, and cryptographic QR provenance.",
+  keywords: [
+    "HoneyChain",
+    "TrueTag",
+    "KVIC",
+    "National Bee Board",
+    "Honey Traceability",
+    "Polygon Blockchain",
+    "FSSAI Honey Purity",
+    "SIH 2026",
+  ],
+  authors: [{ name: "Shivam Gawade", url: "https://github.com/ShivamGawade-XS" }],
+  icons: {
+    icon: [
+      { url: "/honeychain_app_icon.jpg", sizes: "any" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/honeychain_app_icon.jpg", sizes: "180x180" }],
+    shortcut: "/honeychain_app_icon.jpg",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Beevil Knievel — Edge AI Hive Health & Pathology System",
-    description:
-      "Autonomous Edge-AI Environmental & Acoustic Health Monitoring System for Precision Apiculture.",
+  openGraph: {
+    title: "HoneyChain by TrueTag — Blockchain Honey Authenticity & Provenance",
+    description: "KVIC & National Bee Board verifiable honey authentication powered by Polygon PoS, AI quality scoring, and cryptographic QR provenance.",
+    images: [{ url: "/honeychain_logo_badge.jpg", width: 1024, height: 1024, alt: "HoneyChain Brand Emblem" }],
   },
 };
 
@@ -26,9 +65,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col font-sans bg-[#7a8085] text-white selection:bg-[#ffc833] selection:text-[#312f28]">
-        {children}
+    <html lang="en" className={`${playfair.variable} ${inter.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/honeychain_app_icon.jpg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/honeychain_app_icon.jpg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/honeychain_app_icon.jpg" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#1A1A1A" />
+      </head>
+      <body
+        className="min-h-screen bg-alabaster text-charcoal relative selection:bg-gold selection:text-charcoal"
+        suppressHydrationWarning
+      >
+        <LanguageProvider>
+          <NoiseOverlay />
+          <GridLines />
+          <div className="relative z-10 pb-44 md:pb-0">{children}</div>
+          <MobileBottomNav />
+          <IoTStageController />
+          <JudgeEvaluationBrief />
+          <Toaster position="top-right" />
+          <ServiceWorkerRegister />
+        </LanguageProvider>
       </body>
     </html>
   );
