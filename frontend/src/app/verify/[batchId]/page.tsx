@@ -453,9 +453,9 @@ export default function ConsumerVerificationPage() {
                       <Copy className="w-4 h-4 shrink-0" />
                       <span>{copiedTx ? "Tx Hash Copied" : "Copy Local Tx Hash"}</span>
                     </button>
-                  ) : (
+                  ) : txHash ? (
                     <a
-                      href={`https://amoy.polygonscan.com/tx/${txHash || "0x98f4c2b1e7a6d5c4b3a2f1e0d9c8b7a6f5e4d3c2b1a0f9e8d7c6b5a4f3e2d1c0"}`}
+                      href={`https://amoy.polygonscan.com/tx/${txHash}`}
                       target="_blank"
                       rel="noreferrer"
                       className="w-full sm:w-auto py-3 px-5 text-[11px] uppercase tracking-wider font-bold btn-outline-luxury flex items-center justify-center gap-2"
@@ -463,6 +463,14 @@ export default function ConsumerVerificationPage() {
                       <ExternalLink className="w-4 h-4 shrink-0" />
                       <span>Explorer</span>
                     </a>
+                  ) : (
+                    <span
+                      title="No transaction hash was recorded for this batch, so there is nothing to open on the explorer."
+                      className="w-full sm:w-auto py-3 px-5 text-[11px] uppercase tracking-wider font-bold btn-outline-luxury flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
+                    >
+                      <ExternalLink className="w-4 h-4 shrink-0" />
+                      <span>Not recorded on chain</span>
+                    </span>
                   )}
                 </div>
 
