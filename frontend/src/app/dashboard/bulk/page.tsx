@@ -22,7 +22,7 @@ const SimulationBanner = () => (
       <p className="text-xs font-semibold uppercase tracking-widest text-amber-800 mb-0.5">Demo / Simulation Mode</p>
       <p className="text-xs text-amber-700">
         Batches minted here are stored locally for demonstration purposes only. AI scores are
-        fetched from the live HoneyChain FastAPI microservice. Transaction hashes are simulation
+        fetched from the live Beevil Knievel FastAPI microservice. Transaction hashes are simulation
         placeholders — production deployment connects to the Polygon Amoy smart contract via ethers.js.
       </p>
     </div>
@@ -57,7 +57,7 @@ export default function BulkMintPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "HoneyChain_Bulk_Mint_Template.csv";
+    a.download = "BeevilKnievel_Bulk_Mint_Template.csv";
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -70,7 +70,7 @@ export default function BulkMintPage() {
       header: true,
       skipEmptyLines: true,
       complete: async (results) => {
-        // Score each row by calling the real HoneyChain FastAPI microservice.
+        // Score each row by calling the real Beevil Knievel FastAPI microservice.
         // Falls back to physics-based formula only if the AI service is unreachable.
         const AI_ENDPOINT = process.env.NEXT_PUBLIC_AI_SERVICE_URL || "http://localhost:8000";
 
@@ -190,7 +190,7 @@ export default function BulkMintPage() {
               actor: "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
               entity: `Harvest Site (${row.Location})`,
               timestamp: Math.floor(Date.now() / 1000),
-              action: `Bulk Harvested & TrueTag IoT Sealed [AI scored by: ${row.scoredBy ?? "physics-fallback"}]`,
+              action: `Bulk Harvested & Beevil Knievel IoT Sealed [AI scored by: ${row.scoredBy ?? "physics-fallback"}]`,
             },
           ],
           labReport: {
@@ -354,7 +354,7 @@ export default function BulkMintPage() {
                     className="w-full h-14 text-xs uppercase tracking-widest font-semibold btn-gold-slide flex items-center justify-center gap-2"
                   >
                     <Layers className="w-4 h-4" />
-                    <span>{loading ? "Bulk Anchoring on Polygon..." : `Mint All ${parsedRows.length} Batches on HoneyChain`}</span>
+                    <span>{loading ? "Bulk Anchoring on Polygon..." : `Mint All ${parsedRows.length} Batches on Beevil Knievel`}</span>
                   </button>
                 </div>
               )}

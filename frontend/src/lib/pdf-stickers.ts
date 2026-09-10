@@ -11,9 +11,8 @@ interface StickerSheetOptions {
 }
 
 /**
- * High-Resolution Vector PDF Generator for TrueTag™ Packaging Stickers & Labels
+ * High-Resolution Vector PDF Generator for Beevil Knievel™ Packaging Stickers & Labels
  * Supports Multi-Page Generation, Exact Print Dimension Grid Layouts & Under-Cap Security PINs
- * Author: Shivam Gawade (@ShivamGawade-XS)
  */
 export function generateStickerSheetPDF({
   batch,
@@ -36,7 +35,7 @@ export function generateStickerSheetPDF({
     doc.setFontSize(7.5);
     doc.setTextColor(120, 120, 120);
     doc.text(
-      `KVIC TRUETAG™ STICKER PRODUCTION SHEET — Batch #${batch.batchId} (${batch.qrToken}) — ${format} — Page ${pageNum} of ${totalPages}`,
+      `KVIC BEEVIL KNIEVEL™ STICKER PRODUCTION SHEET — Batch #${batch.batchId} (${batch.qrToken}) — ${format} — Page ${pageNum} of ${totalPages}`,
       10,
       8
     );
@@ -107,7 +106,7 @@ export function generateStickerSheetPDF({
         doc.setFont("helvetica", "bold");
         doc.setFontSize(4.5);
         doc.setTextColor(180, 140, 30);
-        doc.text("TRUETAG™ TAMPER-EVIDENT SEAL", cx, cy - 14, { align: "center" });
+        doc.text("BEEVIL KNIEVEL™ TAMPER-EVIDENT SEAL", cx, cy - 14, { align: "center" });
 
         // 6. QR Code Box
         const qrBoxSize = 18;
@@ -191,7 +190,7 @@ export function generateStickerSheetPDF({
         doc.setFont("times", "bold");
         doc.setFontSize(11);
         doc.setTextColor(26, 26, 26);
-        doc.text("HONEYCHAIN", x + labelW / 2, y + 11.5, { align: "center" });
+        doc.text("BEEVIL KNIEVEL", x + labelW / 2, y + 11.5, { align: "center" });
 
         doc.setFont("times", "italic");
         doc.setFontSize(5);
@@ -220,7 +219,7 @@ export function generateStickerSheetPDF({
         doc.setFont("courier", "bold");
         doc.setFontSize(5);
         doc.setTextColor(26, 26, 26);
-        doc.text("TRUETAG QR", qrX + qrS / 2, qrY + 11, { align: "center" });
+        doc.text("BEEVIL KNIEVEL QR", qrX + qrS / 2, qrY + 11, { align: "center" });
         doc.text(`ID: #${batch.batchId}`, qrX + qrS / 2, qrY + 16, { align: "center" });
 
         // 5. Right Details
@@ -360,5 +359,5 @@ export function generateStickerSheetPDF({
   }
 
   // Save the PDF
-  doc.save(`HoneyChain_Batch_${batch.batchId}_${format}_${sheetCount}Labels.pdf`);
+  doc.save(`BeevilKnievel_Batch_${batch.batchId}_${format}_${sheetCount}Labels.pdf`);
 }

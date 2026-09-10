@@ -120,8 +120,8 @@ const RESPONSES: Record<string, Record<string, string>> = {
     mr: "👑 राणी स्थिती: निरोगी राणी दररोज 1,500 अंडी घालते.",
   },
   TREATMENT: {
-    en: "💊 Treatment Schedule: Oxalic acid vapor — 3g/colony, winter broodless period only. Api-Life VAR thymol strips — place 2 between top frames, replace after 7 days for 3 cycles. Apivar amitraz strips — 2 strips for 6 weeks in spring/autumn. Always record all treatments on HoneyChain platform for traceability.",
-    hi: "💊 उपचार कार्यक्रम: ऑक्जेलिक एसिड वाष्प — 3ग्रा/कॉलोनी, केवल ब्रूड रहित सर्दी में। Apivar पट्टी — 6 सप्ताह। सभी उपचार HoneyChain पर दर्ज करें।",
+    en: "💊 Treatment Schedule: Oxalic acid vapor — 3g/colony, winter broodless period only. Api-Life VAR thymol strips — place 2 between top frames, replace after 7 days for 3 cycles. Apivar amitraz strips — 2 strips for 6 weeks in spring/autumn. Always record all treatments on Beevil Knievel platform for traceability.",
+    hi: "💊 उपचार कार्यक्रम: ऑक्जेलिक एसिड वाष्प — 3ग्रा/कॉलोनी, केवल ब्रूड रहित सर्दी में। Apivar पट्टी — 6 सप्ताह। सभी उपचार Beevil Knievel पर दर्ज करें।",
     bn: "💊 চিকিৎসা সূচি: Oxalic acid বাষ্প — 3g/কলোনি, শীতকালীন ব্রুড-মুক্ত সময়ে। Apivar স্ট্রিপ — 6 সপ্তাহ।",
     ta: "💊 சிகிச்சை அட்டவணை: Oxalic acid — 3g/கலனி, குஞ்சு இல்லாத காலம். Apivar — 6 வாரங்கள்.",
     kn: "💊 ಚಿಕಿತ್ಸೆ ವೇಳಾಪಟ್ಟಿ: Oxalic acid — 3g/ಕಲೋನಿ, ಮರಿ-ಇಲ್ಲದ ಶೀತ ಕಾಲ. Apivar — 6 ವಾರ.",

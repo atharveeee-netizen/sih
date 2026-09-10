@@ -18,7 +18,7 @@ import {
   Navigation,
 } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
-import HoneyChainLogo, { HoneyChainBadge } from "./HoneyChainLogo";
+import BeevilKnievelLogo, { BeevilKnievelBadge } from "./BeevilKnievelLogo";
 
 interface FloraBloom {
   id: string;
@@ -202,7 +202,7 @@ export default function MigratoryRoutePlanner() {
 
   const passVerifyUrl = typeof window !== "undefined"
     ? `${window.location.origin}/dashboard/migration?pass_id=KVIC-MIG-${selectedRoute.id}-2026`
-    : `https://honeychain-truetag.vercel.app/dashboard/migration?pass_id=KVIC-MIG-${selectedRoute.id}-2026`;
+    : `https://beevil-knievel.vercel.app/dashboard/migration?pass_id=KVIC-MIG-${selectedRoute.id}-2026`;
 
   return (
     <div className="border-2 border-charcoal/20 bg-white shadow-luxury-card overflow-hidden">
@@ -432,7 +432,7 @@ export default function MigratoryRoutePlanner() {
 
             <div className="text-center border-b-2 border-charcoal/20 pb-4 mb-4">
               <div className="flex justify-center mb-2">
-                <HoneyChainLogo size="sm" variant="icon" />
+                <BeevilKnievelLogo size="sm" variant="icon" />
               </div>
               <span className="text-[8px] uppercase tracking-ultra text-warm-grey font-bold block">
                 Govt. of India • Ministry of MSME • KVIC
@@ -462,7 +462,7 @@ export default function MigratoryRoutePlanner() {
                   size={100}
                   level="H"
                   imageSettings={{
-                    src: "/honeychain_app_icon.jpg",
+                    src: "/beevil_knievel_icon.png",
                     height: 22,
                     width: 22,
                     excavate: true,

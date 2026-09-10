@@ -3,14 +3,23 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   async headers() {
+    // Production content-hashes chunk filenames, so `immutable` is safe there.
+    // Dev reuses filenames (src_12mngh9._.js) across rebuilds, so `immutable`
+    // told browsers never to revalidate and they kept serving stale chunks
+    // under the same URL even after a normal reload. This is what Next warns
+    // about on startup ("Setting a custom Cache-Control header can break
+    // Next.js development behavior").
+    const isProd = process.env.NODE_ENV === "production";
     return [
-      // ── Static assets: immutable cache, no security header interference ──
+      // ── Static assets: immutable cache in prod, never cached in dev ──
       {
         source: "/_next/static/:path*",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            value: isProd
+              ? "public, max-age=31536000, immutable"
+              : "no-store, must-revalidate",
           },
         ],
       },

@@ -60,7 +60,7 @@ export default function JudgeEvaluationBrief() {
                     </span>
                   </div>
                   <p className="text-xs text-warm-grey mt-0.5">
-                    HoneyChain by TrueTag · Ministry of MSME / KVIC / National Bee Board
+                    Beevil Knievel · Ministry of MSME / KVIC / National Bee Board
                   </p>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default function JudgeEvaluationBrief() {
                   <div>
                     <h3 className="text-lg serif font-bold text-alabaster mb-2">What We Built</h3>
                     <p className="text-taupe/80 leading-relaxed mb-4">
-                      <strong>HoneyChain by TrueTag</strong> anchors every honey batch's harvest-to-jar journey on-chain, binds a QR code to that record with a tamper-evident cryptographic commitment, and scores purity against FSSAI IS 4941 parameters -- with zero wallet setup or gas fees for the beekeeper.
+                      <strong>Beevil Knievel</strong> anchors every honey batch's harvest-to-jar journey on-chain, binds a QR code to that record with a tamper-evident cryptographic commitment, and scores purity against FSSAI IS 4941 parameters -- with zero wallet setup or gas fees for the beekeeper.
                     </p>
                   </div>
 

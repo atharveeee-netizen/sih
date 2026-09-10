@@ -86,7 +86,7 @@ export default function VerifySearchPage() {
           <div className="inline-flex items-center gap-2 px-3 py-1 border border-charcoal/20 bg-white mb-4 shadow-xs">
             <ShieldCheck className="w-3.5 h-3.5 text-gold" />
             <span className="text-[10px] uppercase tracking-ultra text-charcoal font-bold">
-              TrueTag Universal Authentication
+              Beevil Knievel Universal Authentication
             </span>
           </div>
           <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl serif text-charcoal mb-6 font-normal break-words">

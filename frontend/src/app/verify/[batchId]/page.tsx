@@ -162,7 +162,7 @@ export default function ConsumerVerificationPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `HoneyChain_Batch_${batch.batchId}_W3C_VC.json`;
+    a.download = `BeevilKnievel_Batch_${batch.batchId}_W3C_VC.json`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -271,8 +271,8 @@ export default function ConsumerVerificationPage() {
             <div className="flex items-center gap-6">
               <div className="w-20 h-20 relative rounded-2xl overflow-hidden border-2 border-gold/70 shadow-lg shrink-0 bg-[#121212] group">
                 <Image
-                  src="/honeychain_logo_badge.jpg"
-                  alt="HoneyChain Certified Organic Seal"
+                  src="/beevil_knievel_badge.png"
+                  alt="Beevil Knievel Certified Organic Seal"
                   width={80}
                   height={80}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
