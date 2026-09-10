@@ -20,6 +20,8 @@ import {
 } from "lucide-react";
 import { HONEYCHAIN_CONTRACT_ADDRESS, POLYGON_AMOY_RPC } from "@/lib/constants";
 
+const isLocalChain = POLYGON_AMOY_RPC.includes("127.0.0.1") || POLYGON_AMOY_RPC.includes("localhost");
+
 export default function JudgeEvaluationBrief() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"overview" | "innovations" | "architecture" | "defense">("overview");
@@ -76,7 +78,7 @@ export default function JudgeEvaluationBrief() {
             <div className="flex border-b border-white/15 bg-[#141414] px-6 overflow-x-auto scrollbar-none">
               {[
                 { id: "overview", label: "Executive Summary" },
-                { id: "innovations", label: "6 Core Innovations" },
+                { id: "innovations", label: "Built vs. Roadmap" },
                 { id: "architecture", label: "System Architecture" },
                 { id: "defense", label: "Judge Q&A Defense" },
               ].map((tab) => (
@@ -103,99 +105,126 @@ export default function JudgeEvaluationBrief() {
                   <div className="p-4 bg-gold/10 border border-gold/40">
                     <p className="text-xs uppercase font-bold text-gold tracking-wider mb-1">The Problem Statement</p>
                     <p className="text-sm text-alabaster leading-relaxed">
-                      <strong>77% of commercial honey</strong> in Indian retail fails NMR spectroscopy tests due to synthetic C3/C4 corn and rice syrup adulteration. Smallholder beekeepers lose fair prices, while consumers consume adulterated inverted syrups with zero traceability.
+                      Commercial honey adulteration with synthetic C3/C4 corn and rice syrup is a well-documented, widespread problem in Indian retail, caught by NMR spectroscopy testing. Smallholder beekeepers lose fair prices to it, and consumers have no way to verify what they're buying.
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-lg serif font-bold text-alabaster mb-2">Our Complete Solution</h3>
+                    <h3 className="text-lg serif font-bold text-alabaster mb-2">What We Built</h3>
                     <p className="text-taupe/80 leading-relaxed mb-4">
-                      <strong>HoneyChain by TrueTag</strong> is India’s first decentralized, multi-tier honey provenance and quality validation infrastructure combining <strong>Polygon PoS blockchain</strong>, <strong>FSSAI IS 4941-calibrated AI</strong>, <strong>tamper-evident micro-QR seals</strong>, and <strong>Govt. of India MadhuKranti/AgriStack federation</strong>.
+                      <strong>HoneyChain by TrueTag</strong> anchors every honey batch's harvest-to-jar journey on-chain, binds a QR code to that record with a tamper-evident cryptographic commitment, and scores purity against FSSAI IS 4941 parameters -- with zero wallet setup or gas fees for the beekeeper.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     <div className="p-4 bg-[#1A1A1A] border border-white/10">
-                      <p className="text-2xl serif font-bold text-gold">14,240+</p>
-                      <p className="text-xs text-warm-grey mt-1">Beekeepers Registered</p>
+                      <p className="text-2xl serif font-bold text-gold">2</p>
+                      <p className="text-xs text-warm-grey mt-1">Smart Contracts, Deployed &amp; Tested</p>
                     </div>
                     <div className="p-4 bg-[#1A1A1A] border border-white/10">
-                      <p className="text-2xl serif font-bold text-emerald-400">99.4%</p>
-                      <p className="text-xs text-warm-grey mt-1">FSSAI Compliance</p>
+                      <p className="text-2xl serif font-bold text-emerald-400">0</p>
+                      <p className="text-xs text-warm-grey mt-1">Wallet Installs Required (Farmer or Officer)</p>
                     </div>
                     <div className="p-4 bg-[#1A1A1A] border border-white/10">
-                      <p className="text-2xl serif font-bold text-alabaster">&lt;3 sec</p>
-                      <p className="text-xs text-warm-grey mt-1">Consumer Verification</p>
+                      <p className="text-2xl serif font-bold text-alabaster">₹0</p>
+                      <p className="text-xs text-warm-grey mt-1">Gas Paid By The Farmer, Ever</p>
                     </div>
                     <div className="p-4 bg-[#1A1A1A] border border-white/10">
-                      <p className="text-2xl serif font-bold text-gold-light">0.0%</p>
-                      <p className="text-xs text-warm-grey mt-1">Farmer Tipping Fee</p>
+                      <p className="text-2xl serif font-bold text-gold-light">2</p>
+                      <p className="text-xs text-warm-grey mt-1">Real On-Chain Transactions Per Batch Minted</p>
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* TAB 2: 6 CORE INNOVATIONS */}
+              {/* TAB 2: BUILT VS ROADMAP -- honest split, not a single "innovations" list */}
               {activeTab === "innovations" && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="p-4 bg-[#1A1A1A] border border-white/10 space-y-2">
-                    <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
-                      <FlaskConical className="w-4 h-4" />
-                      <span>1. Physics-Bounded AI Scoring</span>
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-xs uppercase font-bold text-emerald-400 tracking-wider mb-3">Built &amp; verifiable in this demo</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="p-4 bg-[#1A1A1A] border border-emerald-500/30 space-y-2">
+                        <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
+                          <FlaskConical className="w-4 h-4" />
+                          <span>Physics-Bounded AI Purity Scoring</span>
+                        </div>
+                        <p className="text-xs text-taupe/80 leading-relaxed">
+                          Models FSSAI IS 4941 laboratory parameters -- moisture, brix, HMF, diastase activity, electrical conductivity, isotope ratio (&delta;13C), C4 sugar %, SMR marker -- to classify a batch's grade.
+                        </p>
+                      </div>
+
+                      <div className="p-4 bg-[#1A1A1A] border border-emerald-500/30 space-y-2">
+                        <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
+                          <Layers className="w-4 h-4" />
+                          <span>Server-Signed On-Chain Provenance</span>
+                        </div>
+                        <p className="text-xs text-taupe/80 leading-relaxed">
+                          Every harvest, approval, and mint is a real transaction on HoneyChain.sol, role-gated with OpenZeppelin AccessControl. No MetaMask, no browser wallet, anywhere -- every key is held and signed server-side.
+                        </p>
+                      </div>
+
+                      <div className="p-4 bg-[#1A1A1A] border border-emerald-500/30 space-y-2">
+                        <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
+                          <ShieldCheck className="w-4 h-4" />
+                          <span>Commit-Reveal QR Binding</span>
+                        </div>
+                        <p className="text-xs text-taupe/80 leading-relaxed">
+                          HoneyChainQR.sol locks a cryptographic commitment to each QR token before it's revealed, so nobody -- including someone with database access -- can retroactively repoint a QR to a different batch.
+                        </p>
+                      </div>
+
+                      <div className="p-4 bg-[#1A1A1A] border border-emerald-500/30 space-y-2">
+                        <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
+                          <Zap className="w-4 h-4" />
+                          <span>Zero Gas Fees For The Farmer</span>
+                        </div>
+                        <p className="text-xs text-taupe/80 leading-relaxed">
+                          Each farmer has a real, dedicated on-chain wallet, but never sees a key or pays gas -- the officer wallet automatically tops it up right before it needs to sign.
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-xs text-taupe/80 leading-relaxed">
-                      Models FSSAI IS 4941 laboratory standards, Isotope Ratio Mass Spectrometry (&delta;13C VPDB), C4 cane sugar %, and SMR rice syrup markers to classify pure honey vs. industrial adulterants.
-                    </p>
                   </div>
 
-                  <div className="p-4 bg-[#1A1A1A] border border-white/10 space-y-2">
-                    <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
-                      <Layers className="w-4 h-4" />
-                      <span>2. Polygon PoS Web3 Provenance</span>
+                  <div>
+                    <p className="text-xs uppercase font-bold text-amber-400 tracking-wider mb-3">Designed / prototyped, not wired to production infrastructure yet</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="p-4 bg-[#1A1A1A] border border-amber-500/20 space-y-2">
+                        <div className="flex items-center gap-2 text-warm-grey font-bold text-xs uppercase tracking-wider">
+                          <Globe className="w-4 h-4" />
+                          <span>MadhuKranti / AgriStack Bridge</span>
+                        </div>
+                        <p className="text-xs text-taupe/80 leading-relaxed">
+                          UI mockups for government-registry interoperability exist; no live webhook integration with an actual National Bee Board or AgriStack endpoint.
+                        </p>
+                      </div>
+                      <div className="p-4 bg-[#1A1A1A] border border-amber-500/20 space-y-2">
+                        <div className="flex items-center gap-2 text-warm-grey font-bold text-xs uppercase tracking-wider">
+                          <Smartphone className="w-4 h-4" />
+                          <span>Offline SMS / USSD Verification</span>
+                        </div>
+                        <p className="text-xs text-taupe/80 leading-relaxed">
+                          A working in-browser simulator demonstrates the intended UX (text VERIFY &lt;token&gt;, get a purity result back). No live carrier SMS/USSD gateway is connected.
+                        </p>
+                      </div>
+                      <div className="p-4 bg-[#1A1A1A] border border-amber-500/20 space-y-2">
+                        <div className="flex items-center gap-2 text-warm-grey font-bold text-xs uppercase tracking-wider">
+                          <ShieldCheck className="w-4 h-4" />
+                          <span>NFC Tap Tags &amp; Tamper-Seal PIN</span>
+                        </div>
+                        <p className="text-xs text-taupe/80 leading-relaxed">
+                          HoneyChainQR.sol has tested contract functions for an under-cap secret PIN that permanently "claims" a jar on first open (blocking refill-and-resell). Not yet called from the app -- contract-level only.
+                        </p>
+                      </div>
+                      <div className="p-4 bg-[#1A1A1A] border border-amber-500/20 space-y-2">
+                        <div className="flex items-center gap-2 text-warm-grey font-bold text-xs uppercase tracking-wider">
+                          <Heart className="w-4 h-4" />
+                          <span>Direct UPI Micro-Patronage</span>
+                        </div>
+                        <p className="text-xs text-taupe/80 leading-relaxed">
+                          UI concept for consumers tipping beekeepers via UPI QR. No live payment integration.
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-xs text-taupe/80 leading-relaxed">
-                      Immutable harvest-to-jar custody chain secured by OpenZeppelin RBAC (Field Officer, Lab Analyst, Admin) with IPFS metadata anchoring and gasless officer-sponsored transactions.
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-[#1A1A1A] border border-white/10 space-y-2">
-                    <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
-                      <ShieldCheck className="w-4 h-4" />
-                      <span>3. Physical Micro-QR & NFC CMAC</span>
-                    </div>
-                    <p className="text-xs text-taupe/80 leading-relaxed">
-                      Dual-factor anti-cloning: Micro-QR with server counter token + optional NTAG-424 DNA dynamic CMAC tags that invalidate photocopied labels on first legitimate scan.
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-[#1A1A1A] border border-white/10 space-y-2">
-                    <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
-                      <Globe className="w-4 h-4" />
-                      <span>4. MadhuKranti & AgriStack Bridge</span>
-                    </div>
-                    <p className="text-xs text-taupe/80 leading-relaxed">
-                      Interoperable REST webhook schemas supporting National Bee Board MadhuKranti portal and AgriStack FRID (Farmer Registry ID) federation.
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-[#1A1A1A] border border-white/10 space-y-2">
-                    <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
-                      <Smartphone className="w-4 h-4" />
-                      <span>5. Vernacular Voice & Offline USSD</span>
-                    </div>
-                    <p className="text-xs text-taupe/80 leading-relaxed">
-                      Zero-friction rural access: Full translation in Hindi, Bengali, Tamil, Telugu, and Kannada with Web Speech API audio synthesis and offline SMS batch verification.
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-[#1A1A1A] border border-white/10 space-y-2">
-                    <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
-                      <Heart className="w-4 h-4" />
-                      <span>6. Direct UPI Micro-Patronage</span>
-                    </div>
-                    <p className="text-xs text-taupe/80 leading-relaxed">
-                      Consumers tip beekeepers directly via zero-cut NPCI UPI QR codes (`upi://pay`), eliminating middleman exploitation and rewarding high-purity bee stewards.
-                    </p>
                   </div>
                 </div>
               )}
@@ -204,18 +233,26 @@ export default function JudgeEvaluationBrief() {
               {activeTab === "architecture" && (
                 <div className="space-y-4 font-mono text-xs">
                   <div className="p-4 bg-[#0D0D0D] border border-white/10 space-y-2">
-                    <p className="text-gold font-bold uppercase">Smart Contract Deployment Details</p>
-                    <p className="text-taupe/80">Network: Polygon PoS Amoy Testnet (Chain ID: 80002)</p>
-                    <p className="text-taupe/80 break-all">Contract: {HONEYCHAIN_CONTRACT_ADDRESS}</p>
-                    <p className="text-taupe/80">RPC Gateway: {POLYGON_AMOY_RPC}</p>
-                    <p className="text-taupe/80">Standards: ERC-1155 Batch Tokens + OpenZeppelin AccessControl</p>
+                    <p className="text-gold font-bold uppercase">Smart Contract Deployment (this session)</p>
+                    <p className="text-taupe/80">
+                      Network: {isLocalChain ? "Local Hardhat node (offline demo -- architecture is network-agnostic, redeployed to Polygon Amoy testnet with one env var change)" : "Polygon Amoy Testnet (Chain ID: 80002)"}
+                    </p>
+                    <p className="text-taupe/80 break-all">HoneyChain.sol: {HONEYCHAIN_CONTRACT_ADDRESS}</p>
+                    <p className="text-taupe/80">RPC: {POLYGON_AMOY_RPC}</p>
+                    <p className="text-taupe/80">Standards: Custom role-gated registry (OpenZeppelin AccessControl) -- not an ERC-1155/721 token standard.</p>
                   </div>
 
                   <div className="p-4 bg-[#0D0D0D] border border-white/10 space-y-2">
-                    <p className="text-gold font-bold uppercase">AI & Data Pipeline</p>
-                    <p className="text-taupe/80">Microservice: FastAPI / Python 3.11 on Render Container</p>
-                    <p className="text-taupe/80">ML Architecture: RandomForestRegressor (R2 0.92) + Multi-Class Adulteration Classifier</p>
-                    <p className="text-taupe/80">IPFS Gateway: 4-Tier Cascade (Pinata IPFS &rarr; dweb.link &rarr; ipfs.io &rarr; Local Hash Cache)</p>
+                    <p className="text-gold font-bold uppercase">Transaction Signing</p>
+                    <p className="text-taupe/80">No browser wallet, no MetaMask -- every transaction is signed server-side with a plain EOA (externally-owned account) private key.</p>
+                    <p className="text-taupe/80">One officer wallet (admin + field-officer roles); one deterministic wallet per farmer, auto-funded by the officer wallet before it signs.</p>
+                    <p className="text-taupe/80">Not a meta-transaction standard (no EIP-2771 relayer, no account abstraction) -- the officer wallet directly pays gas for its own and the farmer's transactions.</p>
+                  </div>
+
+                  <div className="p-4 bg-[#0D0D0D] border border-white/10 space-y-2">
+                    <p className="text-gold font-bold uppercase">AI &amp; Data Pipeline</p>
+                    <p className="text-taupe/80">FastAPI / Python microservice for purity scoring, when configured; graceful fallback otherwise.</p>
+                    <p className="text-taupe/80">Batch metadata hashes are deterministic content-addressed placeholders (SHA-256), not pinned to a live IPFS network -- real IPFS pinning (Pinata) is supported but requires an API key not configured in this demo.</p>
                   </div>
                 </div>
               )}
@@ -224,23 +261,23 @@ export default function JudgeEvaluationBrief() {
               {activeTab === "defense" && (
                 <div className="space-y-3">
                   <div className="p-4 bg-[#1A1A1A] border border-white/10 space-y-1">
-                    <p className="text-gold font-bold text-xs uppercase">Q: What if a fraudster photocopies a genuine jar QR code?</p>
+                    <p className="text-gold font-bold text-xs uppercase">Q: What if a fraudster photocopies a genuine jar's QR code?</p>
                     <p className="text-xs text-taupe/80 leading-relaxed">
-                      <strong>A:</strong> Our anti-counterfeiting engine (`HoneyChainQR.sol`) tracks scan timestamps, locations, and total scan count. The second scan flags a clone alert. Additionally, the optional NTAG 424 DNA NFC chip changes its cryptographic CMAC token with every physical phone tap, rendering duplicate static screenshots invalid.
+                      <strong>A:</strong> The QR itself is bound to its batch via a commit-reveal scheme on HoneyChainQR.sol, so the binding can't be silently repointed. The contract also has tested scan-count and geo-velocity tracking functions designed to flag anomalous repeat/duplicate scans -- currently contract-level and not yet wired into the live scan flow, which we'll say plainly if asked to show it running.
                     </p>
                   </div>
 
                   <div className="p-4 bg-[#1A1A1A] border border-white/10 space-y-1">
-                    <p className="text-gold font-bold text-xs uppercase">Q: How do poor rural beekeepers afford Polygon blockchain gas fees?</p>
+                    <p className="text-gold font-bold text-xs uppercase">Q: How do poor rural beekeepers afford blockchain gas fees?</p>
                     <p className="text-xs text-taupe/80 leading-relaxed">
-                      <strong>A:</strong> Beekeepers pay <strong>₹0.00</strong> in gas fees. All minting and verification transactions are gasless and sponsored by the KVIC Field Officer or cooperative node using meta-transactions (EIP-2771).
+                      <strong>A:</strong> They pay <strong>zero</strong>, literally never touching a wallet. Each beekeeper has a real on-chain identity (a private key our server derives and holds), and our officer wallet automatically funds it with enough gas right before it needs to sign -- verified live in this demo, not simulated.
                     </p>
                   </div>
 
                   <div className="p-4 bg-[#1A1A1A] border border-white/10 space-y-1">
-                    <p className="text-gold font-bold text-xs uppercase">Q: How does this work in areas with zero 4G/5G mobile connectivity?</p>
+                    <p className="text-gold font-bold text-xs uppercase">Q: How would this work in areas with poor connectivity?</p>
                     <p className="text-xs text-taupe/80 leading-relaxed">
-                      <strong>A:</strong> HoneyChain provides an offline SMS/USSD gateway. A consumer or farmer texts `VERIFY &lt;TOKEN&gt;` to `+91 9289-HONEY` to receive an instant FSSAI purity score and beekeeper origin via standard SMS without internet.
+                      <strong>A:</strong> We've prototyped the UX for an SMS/USSD verification channel (try the simulator) so a consumer could text a token and get a purity result back without a smartphone app -- but we have not connected a live telecom gateway, and we'll say so directly if asked to demonstrate it working on a real phone number.
                     </p>
                   </div>
                 </div>
