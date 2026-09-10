@@ -1,4 +1,4 @@
-# CANONICAL SYSTEM ARCHITECTURE — HONEY CHAIN SIH 2026
+# CANONICAL SYSTEM ARCHITECTURE — BEEVIL KNIEVEL SIH 2026
 **Target**: SIH 2026 Problem Statement 26021  
 **Authority**: Ministry of MSME / Coordination Section & KVIC Honey Mission  
 **Document**: Canonical Apicultural Provenance & Operational Analytics Architecture  
@@ -7,7 +7,7 @@
 
 ## 1. Dual-Path Architecture Overview
 
-Honey Chain separates operational cyber-physical smart-hive monitoring from post-harvest cryptographic traceability, while maintaining an immutable bridge between the two at extraction.
+Beevil Knievel separates operational cyber-physical smart-hive monitoring from post-harvest cryptographic traceability, while maintaining an immutable bridge between the two at extraction.
 
 ```
                     ┌────────────────────────────────────────┐
@@ -25,7 +25,7 @@ Honey Chain separates operational cyber-physical smart-hive monitoring from post
                                  │
                                  ▼
                     ┌───────────────────────────┐
-                    │      HONEY CHAIN API      │
+                    │      BEEVIL KNIEVEL API      │
                     │       FastAPI Engine      │
                     └────────────┬──────────────┘
                                  │
@@ -119,7 +119,7 @@ Honey Chain separates operational cyber-physical smart-hive monitoring from post
 ```
 Offset  Field Name                 Type       Bytes  Description / Valid Range
 ─────────────────────────────────────────────────────────────────────────────
-0x00    protocol_version           uint8_t    1      0x02 (Canonical Honey Chain)
+0x00    protocol_version           uint8_t    1      0x02 (Canonical Beevil Knievel)
 0x01    hive_id                    uint16_t   2      Node ID (0x0001 - 0xFFFF)
 0x03    sequence_number            uint16_t   2      Monotonic packet sequence counter
 0x05    presence_mask              uint8_t    1      Bitmask of 8 connected sensor types
@@ -142,7 +142,7 @@ TOTAL PAYLOAD SIZE = Exactly 40 Bytes
 
 ## 5. Security & Trust Boundaries
 
-| Capability | Supported by Honey Chain? | Technical Implementation |
+| Capability | Supported by Beevil Knievel? | Technical Implementation |
 | :--- | :--- | :--- |
 | **Proof of Origin** | YES | Linked from cluster GPS, registered beekeeper ID, and apiary location. |
 | **Tamper-Evident History** | YES | SHA-256 chained ledger blocks prevent retroactive record alteration. |

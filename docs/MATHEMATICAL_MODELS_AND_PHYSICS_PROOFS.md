@@ -13,7 +13,7 @@
 4. [Digital Signal Processing: CMSIS-DSP 256-Point Real FFT & Bio-Acoustics](#4-digital-signal-processing-cmsis-dsp-256-point-real-fft)
 5. [Brood Nest Biophysical Thermodynamics & CUSUM Drift Algorithm](#5-brood-nest-biophysical-thermodynamics--cusum-drift)
 6. [32-Byte Binary Wire Protocol Serialization & Zero-Overhead Packing](#6-32-byte-binary-wire-protocol-serialization)
-7. [Cryptographic Proof: SHA-256 Merkle Provenance Tree (Honey Chain)](#7-cryptographic-proof-sha-256-merkle-provenance-tree)
+7. [Cryptographic Proof: SHA-256 Merkle Provenance Tree (Beevil Knievel)](#7-cryptographic-proof-sha-256-merkle-provenance-tree)
 8. [Aerodynamic Colony Ventilation & Fick's Law of CO2 Gas Transport](#8-aerodynamic-colony-ventilation--ficks-law-of-co2-gas-transport)
 9. [24-Bit Differential Load Cell Weight Physics & Nectar Flow Kinetics](#9-24-bit-differential-load-cell-weight-physics--nectar-flow-kinetics)
 10. [Dynamic Hive Stability, Wind Shear Tip-Over & 3D Inertial Euler Angles](#10-dynamic-hive-stability-wind-shear-tip-over--3d-inertial-euler-angles)

@@ -1,12 +1,12 @@
-# 🎬 HoneyChain by TrueTag — SIH 2026 Grand Finale Demo & Pitch Script
+# 🎬 Beevil Knievel — SIH 2026 Grand Finale Demo & Pitch Script
 **Problem Statement**: SIH26021 | **Ministry**: Ministry of MSME (KVIC) & National Bee Board  
-**Platform**: TrueTag Universal Authentication Engine  
+**Platform**: Beevil Knievel Universal Authentication Engine  
 **Lead Contributor**: [Shivam Gawade](https://github.com/ShivamGawade-XS) ([@ShivamGawade-XS](https://github.com/ShivamGawade-XS))
 
 ---
 
 ## ⚡ 60-Second Minister / Evaluator Elevator Pitch
-> *"When an Indian beekeeper harvests raw honey, a KVIC field officer mints a tamper-proof certificate on the Polygon blockchain. Every jar gets a unique TrueTag micro-QR seal. Any consumer scans it with their phone camera to instantly see who harvested it, where, when, and what the AI purity score is. Nobody can fake it or alter lab data — it is cryptographically anchored. When fraud or tampering is suspected, supervisors flag and recall batches across India in real-time without erasing audit history. That's HoneyChain."*
+> *"When an Indian beekeeper harvests raw honey, a KVIC field officer mints a tamper-proof certificate on the Polygon blockchain. Every jar gets a unique Beevil Knievel micro-QR seal. Any consumer scans it with their phone camera to instantly see who harvested it, where, when, and what the AI purity score is. Nobody can fake it or alter lab data — it is cryptographically anchored. When fraud or tampering is suspected, supervisors flag and recall batches across India in real-time without erasing audit history. That's Beevil Knievel."*
 
 ---
 
@@ -14,7 +14,7 @@
 
 | Timestamp | Screen / Stage Action | What You Say & Demonstrate | Judge Impact |
 |---|---|---|---|
-| **00:00–00:30** | **Physical Jar Prop & Camera Scan** | Hand physical honey jar with TrueTag micro-QR to judge. Open `/verify`, click **"Scan Jar With Camera"** (or scan `TT-2026-00001`). Instant redirect to Batch #1. | 🎯 Tangible proof. Eliminates "just another screen demo" bias. |
+| **00:00–00:30** | **Physical Jar Prop & Camera Scan** | Hand physical honey jar with Beevil Knievel micro-QR to judge. Open `/verify`, click **"Scan Jar With Camera"** (or scan `TT-2026-00001`). Instant redirect to Batch #1. | 🎯 Tangible proof. Eliminates "just another screen demo" bias. |
 | **00:30–01:15** | **Consumer Provenance & GI Heritage** | Walk through verified card: Rajesh Kumar Verma (Muzaffarpur Shahi Litchi GI Honey), 94/100 Purity Score, FSSAI IS 4941 compliance, and click **"GI-Tag Heritage Dossier"** badge. | 🛡️ Connects directly to national GI-tagging & rural biodiversity initiatives. |
 | **01:15–01:45** | **Direct UPI Beekeeper Micro-Patronage** | Click **"Tip Beekeeper (Direct UPI)"**. Show dynamic UPI QR (0% platform cut) for instant direct farmer remittance to `rajesh.verma@sbi`. | 💰 Proves direct financial inclusion & beekeeper income multiplication. |
 | **01:45–02:30** | **Offline Rural SMS / USSD Verification** | Switch to `/verify` ➔ **"Offline SMS / USSD Mode"**. Simulate texting `VERIFY TT-2026-00001` to `56767` in Hindi/English. Instant carrier SMS reply renders on retro Nokia UI! | 📱 Solves the non-smartphone / rural elder access critique 100%. |
@@ -27,7 +27,7 @@
 
 ## 🍯 Physical Prop Setup Instructions (50 INR Preparation)
 1. **Purchase**: A standard 250g/500g glass honey jar (Dabur, Patanjali, or raw honey).
-2. **Label**: Print the TrueTag label sheet from `/dashboard/qr`.
+2. **Label**: Print the Beevil Knievel label sheet from `/dashboard/qr`.
 3. **QR Token**: Use `TT-2026-00001` (Muzaffarpur Litchi Honey) or `TT-2026-00002` (Sundarbans Mangrove).
 4. **Tape/Stick**: Affix the tamper-evident micro-QR over the lid seal.
 5. **Stage Test**: Point phone camera or laptop camera via `/verify` -> immediately opens Rajesh Kumar Verma's provenance profile.

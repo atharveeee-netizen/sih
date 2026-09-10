@@ -1,8 +1,8 @@
-# HONEY CHAIN — DETERMINISTIC DEMONSTRATION DATASET
+# BEEVIL KNIEVEL — DETERMINISTIC DEMONSTRATION DATASET
 ## Smart India Hackathon 2026 · Problem Statement ID: 26021
 **Ministry of MSME / KVIC Honey Mission (*Meethi Kranti*)**
 
-This document catalogs the complete deterministic demonstration dataset seeded into the Honey Chain SQLite WAL database by `gateway/seed_honeychain_demo.py` and embedded into `frontend/src/lib/api.ts` for offline evaluation.
+This document catalogs the complete deterministic demonstration dataset seeded into the Beevil Knievel SQLite WAL database by `gateway/seed_honeychain_demo.py` and embedded into `frontend/src/lib/api.ts` for offline evaluation.
 
 ---
 

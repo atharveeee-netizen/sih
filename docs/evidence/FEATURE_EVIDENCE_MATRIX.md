@@ -1,8 +1,8 @@
-# HONEY CHAIN — FEATURE EVIDENCE & DEFENSE MATRIX
+# BEEVIL KNIEVEL — FEATURE EVIDENCE & DEFENSE MATRIX
 ## Smart India Hackathon 2026 · Problem Statement ID: 26021
 **Ministry of MSME / KVIC Honey Mission (*Meethi Kranti*)**
 
-This matrix indexes every core technical feature of the Honey Chain platform against its concrete codebase implementation, automated verification suite, and physical/simulation validation level.
+This matrix indexes every core technical feature of the Beevil Knievel platform against its concrete codebase implementation, automated verification suite, and physical/simulation validation level.
 
 ---
 

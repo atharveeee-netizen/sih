@@ -1,7 +1,7 @@
 # 🏛️ SMART INDIA HACKATHON (SIH) — 180 GRAND JURY QUESTIONS & MASTER DEFENSE DOSSIER
 > **Problem Statement ID: 26021** | **Ministry of MSME, Coordination Section**
 > **Category: Software** | **Theme: Smart Automation**
-> **Project: HoneyChain (Beevil Knievel)** | **Target Repository:** `github.com/atharveeee-netizen/sih`
+> **Project: Beevil Knievel (Beevil Knievel)** | **Target Repository:** `github.com/atharveeee-netizen/sih`
 > **Format: 6 Team Members × 30 Questions = Exactly 180 Grilling Questions with Presentation Scripts & Cross-Counter Terminology Breakdowns**
 
 ---
@@ -31,7 +31,7 @@
 * **The Jury Trap / Intent:** *Testing if the team leader gets defensive or concedes that the project is hardware-dependent.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, HoneyChain is fundamentally a distributed software infrastructure. Our core deliverables are: (1) a 5-tier hierarchical edge-to-fog AI diagnostic pipeline, (2) an EVM-based decentralized provenance registry (HoneyProvenance.sol) with sorted-pair Keccak-256 Merkle aggregation, (3) a gasless, zero-wallet public RPC verification engine, and (4) an offline-first SQLite synchronization queue. The physical sensor node is merely an optional data ingress peripheral. In fact, under Tier 6 of our architecture, rural beekeepers who do not own a single piece of IoT hardware can onboard immediately through our /kvic-onboard software portal using manual inspection logs and optical photo verification. We provide the complete software operating system that turns any apiary—manual or automated—into a cryptographically auditable, tamper-evident supply chain."
+> "Sir, Beevil Knievel is fundamentally a distributed software infrastructure. Our core deliverables are: (1) a 5-tier hierarchical edge-to-fog AI diagnostic pipeline, (2) an EVM-based decentralized provenance registry (HoneyProvenance.sol) with sorted-pair Keccak-256 Merkle aggregation, (3) a gasless, zero-wallet public RPC verification engine, and (4) an offline-first SQLite synchronization queue. The physical sensor node is merely an optional data ingress peripheral. In fact, under Tier 6 of our architecture, rural beekeepers who do not own a single piece of IoT hardware can onboard immediately through our /kvic-onboard software portal using manual inspection logs and optical photo verification. We provide the complete software operating system that turns any apiary—manual or automated—into a cryptographically auditable, tamper-evident supply chain."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Cyber-Physical Software Platform]`**: A software infrastructure that monitors, aggregates, and cryptographically verifies state changes occurring in physical real-world environments without relying on trusted intermediaries.
@@ -70,13 +70,13 @@
 
 ---
 
-### Q4. BroodMinder has sold commercial hive sensors for a decade, and Arnia provides acoustic monitoring in the UK. What does HoneyChain do that these multi-million dollar commercial platforms cannot?
+### Q4. BroodMinder has sold commercial hive sensors for a decade, and Arnia provides acoustic monitoring in the UK. What does Beevil Knievel do that these multi-million dollar commercial platforms cannot?
 
 * **Interrogating Judge:** Prof. Elizabeth Mercer (Apiculture Biologist)
 * **The Jury Trap / Intent:** *Testing whether the team actually studied existing academic and commercial state-of-the-art.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Ma'am, we performed a systematic benchmark against both platforms across four engineering dimensions: 1. Transduction Location: BroodMinder sits on the top-bar outer cover, measuring peripheral attic air temperature rather than the biological brood core. HoneyChain positions an NIST-traceable TI TMP117 directly between Frames 4 and 5 in the brood cluster (+-0.1°C vs +-0.5°C). 2. On-Node Edge Intelligence: BroodMinder performs zero digital signal processing, streaming raw numbers over 2.4 GHz BLE. HoneyChain executes on-MCU CMSIS-DSP 256-point FFT and recursive Page's CUSUM anomaly filtering, capturing 24-hour pre-swarming shifts before bees abscond. 3. Radio Architecture: Arnia relies on proprietary 2G/3G cellular hubs requiring 800 rupees/month recurring SIM subscriptions that fail in rural forest valleys. HoneyChain utilizes license-free Sub-GHz LoRa (IN865), penetrating dense canopy up to 1.5 km with milliwatt power. 4. Verification vs. Logging: Both Arnia and BroodMinder are closed data loggers. Neither bridges the data to the consumer. HoneyChain anchors the 21-day curing history into an immutable cryptographic ledger, creating verifiable consumer trust that commands a 35%–50% price premium for the beekeeper."
+> "Ma'am, we performed a systematic benchmark against both platforms across four engineering dimensions: 1. Transduction Location: BroodMinder sits on the top-bar outer cover, measuring peripheral attic air temperature rather than the biological brood core. Beevil Knievel positions an NIST-traceable TI TMP117 directly between Frames 4 and 5 in the brood cluster (+-0.1°C vs +-0.5°C). 2. On-Node Edge Intelligence: BroodMinder performs zero digital signal processing, streaming raw numbers over 2.4 GHz BLE. Beevil Knievel executes on-MCU CMSIS-DSP 256-point FFT and recursive Page's CUSUM anomaly filtering, capturing 24-hour pre-swarming shifts before bees abscond. 3. Radio Architecture: Arnia relies on proprietary 2G/3G cellular hubs requiring 800 rupees/month recurring SIM subscriptions that fail in rural forest valleys. Beevil Knievel utilizes license-free Sub-GHz LoRa (IN865), penetrating dense canopy up to 1.5 km with milliwatt power. 4. Verification vs. Logging: Both Arnia and BroodMinder are closed data loggers. Neither bridges the data to the consumer. Beevil Knievel anchors the 21-day curing history into an immutable cryptographic ledger, creating verifiable consumer trust that commands a 35%–50% price premium for the beekeeper."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[NIST-Traceable Transduction]`**: Calibration of physical sensor hardware against National Institute of Standards and Technology primary standards, certifying absolute accuracy within +-0.1°C.
@@ -91,7 +91,7 @@
 * **The Jury Trap / Intent:** *Testing if the team understands government initiatives or just built an isolated tech demo.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Under the KVIC National Honey Mission, over 1.75 lakh bee boxes have been distributed to rural and tribal youth. However, these beekeepers face a severe realization crisis: middlemen buy their raw honey at depressed prices of 120–150 rupees/kg, claiming high moisture or adulteration, while retail adulterated honey sells for 400+ rupees/kg. Furthermore, Indian honey exports have repeatedly faced bans in the EU and US due to trace adulterants and lack of digital traceability. HoneyChain empowers KVIC beekeepers by establishing an accredited digital Certificate of Origin and Curing Stability on-chain. By proving that the honey was naturally cured inside a monitored hive (<18.5% moisture) and certified by a regional KVIC lab, the beekeeper can bypass predatory aggregators, access direct-to-consumer premium markets at 600–800 rupees/kg, and meet stringent FSSAI and EU traceability standards for export."
+> "Under the KVIC National Honey Mission, over 1.75 lakh bee boxes have been distributed to rural and tribal youth. However, these beekeepers face a severe realization crisis: middlemen buy their raw honey at depressed prices of 120–150 rupees/kg, claiming high moisture or adulteration, while retail adulterated honey sells for 400+ rupees/kg. Furthermore, Indian honey exports have repeatedly faced bans in the EU and US due to trace adulterants and lack of digital traceability. Beevil Knievel empowers KVIC beekeepers by establishing an accredited digital Certificate of Origin and Curing Stability on-chain. By proving that the honey was naturally cured inside a monitored hive (<18.5% moisture) and certified by a regional KVIC lab, the beekeeper can bypass predatory aggregators, access direct-to-consumer premium markets at 600–800 rupees/kg, and meet stringent FSSAI and EU traceability standards for export."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[KVIC National Honey Mission ('Sweet Revolution / Meethee Kranti')]`**: A flagship Government of India initiative launched to promote rural self-employment and augment agricultural incomes through scientific beekeeping and apiary cluster development.
@@ -121,7 +121,7 @@
 * **The Jury Trap / Intent:** *Looking for confusion between operational cache, historical records, and immutable consensus truth.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Authoritative state in HoneyChain is strictly stratified into three distinct domains: 1. Biological Real-Time State: Lives in the ephemeral RAM and local flash buffer of the Tier 1 nRF52840 node, representing uncommitted physical observations. 2. Operational Pipeline State: Lives in the Tier 2 Gateway SQLite database with Write-Ahead Logging. This is the authoritative staging ledger for acoustic spectrograms, raw temperature arrays, and pending Merkle tree constructions. 3. Legal & Commercial Truth: Lives exclusively on the Tier 3 EVM blockchain (HoneyProvenance.sol). Once a 21-day curing batch is finalized, its sorted-pair Merkle root and multi-oracle signatures are committed on-chain. At that moment, the smart contract becomes the sole, final, immutable arbiter of authenticity. Any discrepancy between a local database and the blockchain root is rejected by client-side verification engines."
+> "Authoritative state in Beevil Knievel is strictly stratified into three distinct domains: 1. Biological Real-Time State: Lives in the ephemeral RAM and local flash buffer of the Tier 1 nRF52840 node, representing uncommitted physical observations. 2. Operational Pipeline State: Lives in the Tier 2 Gateway SQLite database with Write-Ahead Logging. This is the authoritative staging ledger for acoustic spectrograms, raw temperature arrays, and pending Merkle tree constructions. 3. Legal & Commercial Truth: Lives exclusively on the Tier 3 EVM blockchain (HoneyProvenance.sol). Once a 21-day curing batch is finalized, its sorted-pair Merkle root and multi-oracle signatures are committed on-chain. At that moment, the smart contract becomes the sole, final, immutable arbiter of authenticity. Any discrepancy between a local database and the blockchain root is rejected by client-side verification engines."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[State Stratification]`**: Architectural separation of system state into ephemeral edge buffers, relational operational storage, and globally consensus-validated cryptographic ledgers.
@@ -166,7 +166,7 @@
 * **The Jury Trap / Intent:** *Testing distributed systems fundamentals (Consistency vs Availability under Partition).*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, in CAP theorem terminology, HoneyChain explicitly chooses Availability and Partition Tolerance (AP) at the edge, transitioning to Strong Consistency (CP) upon blockchain commitment: 1. Edge Partition Autonomy: In zero-cellular forest environments, the nRF52840 nodes and the Raspberry Pi gateway continue full autonomous operation over license-free LoRa. Telemetry is appended to the local SQLite Write-Ahead Log, and daily Merkle sub-roots are computed deterministically on the Pi. 2. Monotonic Cryptographic Queuing: Each batch is assigned a strictly monotonically increasing nonce and hash chain. When the beekeeper or KVIC mobile van visits the apiary with a cellular hotspot, the gateway drains its synchronization queue, submitting the cryptographic batch root and IPFS CID. 3. Zero Data Loss: The gateway's local 32 GB storage can buffer over 5 years of continuous apiary telemetry, ensuring that physical distance and telecom darkness never disrupt data integrity."
+> "Sir, in CAP theorem terminology, Beevil Knievel explicitly chooses Availability and Partition Tolerance (AP) at the edge, transitioning to Strong Consistency (CP) upon blockchain commitment: 1. Edge Partition Autonomy: In zero-cellular forest environments, the nRF52840 nodes and the Raspberry Pi gateway continue full autonomous operation over license-free LoRa. Telemetry is appended to the local SQLite Write-Ahead Log, and daily Merkle sub-roots are computed deterministically on the Pi. 2. Monotonic Cryptographic Queuing: Each batch is assigned a strictly monotonically increasing nonce and hash chain. When the beekeeper or KVIC mobile van visits the apiary with a cellular hotspot, the gateway drains its synchronization queue, submitting the cryptographic batch root and IPFS CID. 3. Zero Data Loss: The gateway's local 32 GB storage can buffer over 5 years of continuous apiary telemetry, ensuring that physical distance and telecom darkness never disrupt data integrity."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[CAP Theorem (Brewer's Theorem)]`**: A fundamental distributed systems theorem stating that any distributed data store can provide at most two out of three guarantees: Consistency, Availability, and Partition Tolerance.
@@ -181,7 +181,7 @@
 * **The Jury Trap / Intent:** *Testing if the leader thinks every sensor reading goes onto the blockchain directly.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, storing 4.8 million raw sensor transactions directly on Ethereum or Polygon would be catastrophic engineering malpractice, costing lakhs of rupees daily in gas fees. HoneyChain achieves infinite horizontal scalability through Merkle Tree Batch Aggregation: 1. Hierarchical Cryptographic Compression: Each hive generates 96 frames per day. Over a 21-day curing epoch, that is 2,016 telemetry frames per hive. 2. The Merkle Tree Factor: All 2,016 frames are hashed into a 32-byte Merkle root. For a 20-hive cooperative cluster, all 40,320 sensor frames over 3 weeks collapse mathematically into a SINGLE 32-byte root hash submitted in one single blockchain transaction costing less than 0.002 dollars on Polygon Amoy. 3. Zero-Footprint Verification: The consumer does not read raw transactions from the blockchain. They verify a 32-byte cryptographic Merkle proof against the single on-chain root in 3 milliseconds client-side."
+> "Sir, storing 4.8 million raw sensor transactions directly on Ethereum or Polygon would be catastrophic engineering malpractice, costing lakhs of rupees daily in gas fees. Beevil Knievel achieves infinite horizontal scalability through Merkle Tree Batch Aggregation: 1. Hierarchical Cryptographic Compression: Each hive generates 96 frames per day. Over a 21-day curing epoch, that is 2,016 telemetry frames per hive. 2. The Merkle Tree Factor: All 2,016 frames are hashed into a 32-byte Merkle root. For a 20-hive cooperative cluster, all 40,320 sensor frames over 3 weeks collapse mathematically into a SINGLE 32-byte root hash submitted in one single blockchain transaction costing less than 0.002 dollars on Polygon Amoy. 3. Zero-Footprint Verification: The consumer does not read raw transactions from the blockchain. They verify a 32-byte cryptographic Merkle proof against the single on-chain root in 3 milliseconds client-side."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Merkle Tree Batch Aggregation]`**: The process of hashing thousands of individual data transactions into a hierarchical binary tree where only the single top-level root hash is anchored to a blockchain, reducing storage cost by 99.99%.
@@ -211,7 +211,7 @@
 * **The Jury Trap / Intent:** *Probing deep cryptographic security in Merkle tree implementation.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, in standard naive Merkle trees, if hash(A || B) is computed without sorting, an attacker can swap siblings or craft intermediate nodes that evaluate to the same root, known as a second-preimage collision. In HoneyChain, we implement Sorted-Pair Keccak-256 Merkle Trees in both our Python gateway (merkle_builder.py) and Solidity contract (HoneyProvenance.sol): 1. Pairwise Sorting: For any two sibling nodes L and R, we compute parent = keccak256(min(L, R) || max(L, R)). 2. Leaf Hashing: Raw 32-byte telemetry frames are prefixed with a leaf domain separator byte (0x00) before hashing: leaf = keccak256(0x00 || payload), while internal nodes use (0x01 || min || max). 3. Proof Verification: In HoneyProvenance.verifyProof(), the client provides an array of 32-byte sibling hashes. The contract loops through the proof, iteratively sorting and hashing with the computed hash until reaching the root in O(log N) steps. If computedRoot == storedRoot, authenticity is mathematically certain."
+> "Sir, in standard naive Merkle trees, if hash(A || B) is computed without sorting, an attacker can swap siblings or craft intermediate nodes that evaluate to the same root, known as a second-preimage collision. In Beevil Knievel, we implement Sorted-Pair Keccak-256 Merkle Trees in both our Python gateway (merkle_builder.py) and Solidity contract (HoneyProvenance.sol): 1. Pairwise Sorting: For any two sibling nodes L and R, we compute parent = keccak256(min(L, R) || max(L, R)). 2. Leaf Hashing: Raw 32-byte telemetry frames are prefixed with a leaf domain separator byte (0x00) before hashing: leaf = keccak256(0x00 || payload), while internal nodes use (0x01 || min || max). 3. Proof Verification: In HoneyProvenance.verifyProof(), the client provides an array of 32-byte sibling hashes. The contract loops through the proof, iteratively sorting and hashing with the computed hash until reaching the root in O(log N) steps. If computedRoot == storedRoot, authenticity is mathematically certain."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Second-Preimage Attack]`**: A cryptographic vulnerability where an attacker finds a different input x' != x such that hash(x') == hash(x), allowing false transaction injection into a Merkle tree.
@@ -250,13 +250,13 @@
 
 ---
 
-### Q16. How does HoneyChain comply with the Food Safety and Standards Authority of India (FSSAI) Honey Regulations 2020 and European Union export standards?
+### Q16. How does Beevil Knievel comply with the Food Safety and Standards Authority of India (FSSAI) Honey Regulations 2020 and European Union export standards?
 
 * **Interrogating Judge:** Dr. R.K. Sharma (Ministry of MSME)
 * **The Jury Trap / Intent:** *Testing regulatory and international compliance knowledge.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, FSSAI regulations (2020) and EU Directive 2001/110/EC mandate three fundamental chemical criteria: 1. Moisture Content: Must be <= 20% (FSSAI) and <= 18.5% (Export/HoneyChain Gold). 2. Diastase Activity: Minimum 8 Schade units, proving the honey was not overheated. 3. Hydroxymethylfurfural (HMF): Maximum 40 mg/kg (80 mg/kg for tropical honey). 4. HoneyChain Compliance Mapping: Our system continuously monitors the in-hive curing trajectory. Because the bees naturally evaporate moisture below 18.5% through fanning, the beekeeper never needs to use thermal vacuum evaporators, preserving natural diastase enzymes and keeping HMF near zero (<5 mg/kg). Our IPFS registry stores NABL-accredited laboratory test reports alongside the blockchain batch root, providing an unalterable digital passport accepted by export inspection authorities."
+> "Sir, FSSAI regulations (2020) and EU Directive 2001/110/EC mandate three fundamental chemical criteria: 1. Moisture Content: Must be <= 20% (FSSAI) and <= 18.5% (Export/Beevil Knievel Gold). 2. Diastase Activity: Minimum 8 Schade units, proving the honey was not overheated. 3. Hydroxymethylfurfural (HMF): Maximum 40 mg/kg (80 mg/kg for tropical honey). 4. Beevil Knievel Compliance Mapping: Our system continuously monitors the in-hive curing trajectory. Because the bees naturally evaporate moisture below 18.5% through fanning, the beekeeper never needs to use thermal vacuum evaporators, preserving natural diastase enzymes and keeping HMF near zero (<5 mg/kg). Our IPFS registry stores NABL-accredited laboratory test reports alongside the blockchain batch root, providing an unalterable digital passport accepted by export inspection authorities."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Diastase Enzyme Activity (Schade Units)]`**: A biological enzyme added to honey by bees that converts starch into maltose; high heat destroys diastase, making it the gold standard indicator of thermal adulteration.
@@ -265,13 +265,13 @@
 
 ---
 
-### Q17. Can HoneyChain integrate with the Government of India's Agristack, DigiLocker, or the Unified Agriculture Platform (UAP)?
+### Q17. Can Beevil Knievel integrate with the Government of India's Agristack, DigiLocker, or the Unified Agriculture Platform (UAP)?
 
 * **Interrogating Judge:** Dr. R.K. Sharma (Ministry of MSME)
 * **The Jury Trap / Intent:** *Testing alignment with national digital infrastructure (India Stack).*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Yes, sir. HoneyChain was engineered with open API interfaces modeled after India Stack architectural principles: 1. DigiLocker Integration: When a batch achieves 2-of-3 consensus, our smart contract emits a BatchVerified event. Our backend formats a W3C-compliant Verifiable Credential and pushes the digitally signed Certificate of Curing directly into the beekeeper's personal DigiLocker account. 2. Agristack & Farmer ID: Our /kvic-onboard portal accepts the beekeeper's 12-digit Agristack Farmer ID, mapping their physical land parcel and apiary registry directly to their blockchain public key. 3. ONDC (Open Network for Digital Commerce): HoneyChain exposes an open Beckn-protocol gateway allowing verified beekeeper cooperatives to list their cryptographically certified honey jars directly on ONDC-enabled retail buyer apps."
+> "Yes, sir. Beevil Knievel was engineered with open API interfaces modeled after India Stack architectural principles: 1. DigiLocker Integration: When a batch achieves 2-of-3 consensus, our smart contract emits a BatchVerified event. Our backend formats a W3C-compliant Verifiable Credential and pushes the digitally signed Certificate of Curing directly into the beekeeper's personal DigiLocker account. 2. Agristack & Farmer ID: Our /kvic-onboard portal accepts the beekeeper's 12-digit Agristack Farmer ID, mapping their physical land parcel and apiary registry directly to their blockchain public key. 3. ONDC (Open Network for Digital Commerce): Beevil Knievel exposes an open Beckn-protocol gateway allowing verified beekeeper cooperatives to list their cryptographically certified honey jars directly on ONDC-enabled retail buyer apps."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[India Stack]`**: The unified framework of open digital APIs (Aadhaar, UPI, DigiLocker, Beckn) designed to facilitate presence-less, paperless, and cashless service delivery across India.
@@ -370,13 +370,13 @@
 
 ---
 
-### Q24. Is your software open-source or proprietary? How can the Ministry of MSME prevent vendor lock-in if we adopt HoneyChain?
+### Q24. Is your software open-source or proprietary? How can the Ministry of MSME prevent vendor lock-in if we adopt Beevil Knievel?
 
 * **Interrogating Judge:** Dr. R.K. Sharma (Ministry of MSME)
 * **The Jury Trap / Intent:** *Assessing open-source licensing, vendor neutrality, and government adoption viability.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, HoneyChain is built on an open-source, vendor-neutral philosophy: 1. Permissive Open-Source Licensing: All core smart contracts (Solidity), edge firmware (C/C++), and gateway AI pipelines are released under the MIT / Apache 2.0 open-source license. 2. Open Hardware Standard: Our schematic, Gerber files, and PCB layouts are open-sourced under CERN-OHL-P, allowing any Indian electronics manufacturer to produce nodes locally without paying royalties. 3. Zero Proprietary Lock-In: The entire software stack can be deployed on standard off-the-shelf Raspberry Pi, Linux servers, and public EVM blockchains. The Ministry of MSME retains 100% architectural sovereignty and can self-host the entire network on government NIC cloud servers."
+> "Sir, Beevil Knievel is built on an open-source, vendor-neutral philosophy: 1. Permissive Open-Source Licensing: All core smart contracts (Solidity), edge firmware (C/C++), and gateway AI pipelines are released under the MIT / Apache 2.0 open-source license. 2. Open Hardware Standard: Our schematic, Gerber files, and PCB layouts are open-sourced under CERN-OHL-P, allowing any Indian electronics manufacturer to produce nodes locally without paying royalties. 3. Zero Proprietary Lock-In: The entire software stack can be deployed on standard off-the-shelf Raspberry Pi, Linux servers, and public EVM blockchains. The Ministry of MSME retains 100% architectural sovereignty and can self-host the entire network on government NIC cloud servers."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[MIT / Apache 2.0 License]`**: Permissive open-source software licenses granting anyone the right to use, modify, distribute, and commercialize the code without restrictive copyleft requirements.
@@ -391,7 +391,7 @@
 * **The Jury Trap / Intent:** *Testing commercial pragmatism and smallholder financial modeling.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, our economic model shows a complete capital payback in just 4.2 months (less than one single harvesting season): 1. Baseline Farmer Economics: A 10-hive farmer currently produces 250 kg of honey/year, selling to middlemen at 130 rupees/kg = 32,500 rupees annual income. They lose an average of 4 hives annually to swarming/mites (4,000 rupees/box = 16,000 rupees loss). Net baseline: 16,500 rupees/year. 2. With HoneyChain: - Loss Prevention: 1D-CNN and LSTM early swarming alerts reduce colony losses by 85%, saving 13,600 rupees. - Premium Pricing: Cryptographically verified honey commands 450 rupees/kg directly to consumer/KVIC = 1,12,500 rupees revenue. 3. Hardware Amortization: In a 20-hive cooperative cluster, the amortized cost per hive is 1,850 rupees (18,500 rupees for 10 hives). Net First-Year Profit: 1,07,600 rupees—a net 6.5x increase in farmer income!"
+> "Sir, our economic model shows a complete capital payback in just 4.2 months (less than one single harvesting season): 1. Baseline Farmer Economics: A 10-hive farmer currently produces 250 kg of honey/year, selling to middlemen at 130 rupees/kg = 32,500 rupees annual income. They lose an average of 4 hives annually to swarming/mites (4,000 rupees/box = 16,000 rupees loss). Net baseline: 16,500 rupees/year. 2. With Beevil Knievel: - Loss Prevention: 1D-CNN and LSTM early swarming alerts reduce colony losses by 85%, saving 13,600 rupees. - Premium Pricing: Cryptographically verified honey commands 450 rupees/kg directly to consumer/KVIC = 1,12,500 rupees revenue. 3. Hardware Amortization: In a 20-hive cooperative cluster, the amortized cost per hive is 1,850 rupees (18,500 rupees for 10 hives). Net First-Year Profit: 1,07,600 rupees—a net 6.5x increase in farmer income!"
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Amortized Capital Cost]`**: The financial practice of spreading the initial capital expense of shared infrastructure (gateway, scale) across multiple beneficiaries over time.
@@ -436,7 +436,7 @@
 * **The Jury Trap / Intent:** *The digital-to-physical twin cloning attack (counterfeit packaging).*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "1. QR Code Verification: The QR code contains an encoded URL: honeychain.org/verify/1?batch=0x4a7...&leaf=0x9b2...&proof=0x... When scanned, our Next.js 16 app calls our smart contract's verifyJar() function, instantly proving that this specific jar's weight and curing leaf belong to an authentic batch. 2. The Photocopied QR Counterfeit Defense: If a fraudster photocopies the QR code onto 10,000 fake jars: - Volume Cap: Each batch registered on-chain has a strict maximum volume cap (e.g., Batch 12 = exactly 200 kg = 400 jars). - Geolocation Scan Anomaly Detection: When consumers scan the QR code, the dApp anonymously checks scan velocity and geographic dispersion. If Jar #12 is scanned simultaneously in Delhi, Bangalore, and London within 10 minutes, our fraud engine flags the batch as COMPROMISED and displays a red warning banner: 'Counterfeit Alert: Duplicate QR Code Detected!'"
+> "1. QR Code Verification: The QR code contains an encoded URL: beevilknievel.org/verify/1?batch=0x4a7...&leaf=0x9b2...&proof=0x... When scanned, our Next.js 16 app calls our smart contract's verifyJar() function, instantly proving that this specific jar's weight and curing leaf belong to an authentic batch. 2. The Photocopied QR Counterfeit Defense: If a fraudster photocopies the QR code onto 10,000 fake jars: - Volume Cap: Each batch registered on-chain has a strict maximum volume cap (e.g., Batch 12 = exactly 200 kg = 400 jars). - Geolocation Scan Anomaly Detection: When consumers scan the QR code, the dApp anonymously checks scan velocity and geographic dispersion. If Jar #12 is scanned simultaneously in Delhi, Bangalore, and London within 10 minutes, our fraud engine flags the batch as COMPROMISED and displays a red warning banner: 'Counterfeit Alert: Duplicate QR Code Detected!'"
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Digital Twin]`**: A digital cryptographic representation of a real-world physical product that mirrors its life cycle, origin, and sensory parameters.
@@ -451,7 +451,7 @@
 * **The Jury Trap / Intent:** *Testing legal admissibility, cryptographic timestamping, and evidence durability.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Yes, sir. HoneyChain provides court-admissible digital forensic evidence under Section 65B of the Indian Evidence Act (Electronic Records): 1. Unbroken Cryptographic Hash Chain: Every 15-minute sensor reading is mathematically bound into a daily Merkle root using Keccak-256 (NIST FIPS 202 standard). Altering a single temperature reading on Day 7 changes the entire root hash. 2. Trusted Timestamping: The batch roots are anchored into Polygon PoS blocks, providing an immutable mathematical timestamp verified by thousands of independent validator nodes worldwide. 3. Multi-Party Attestation: The batch contains the cryptographic signatures of both the autonomous gateway and the accredited KVIC field inspector. In court, an independent forensic expert can recompute the Merkle tree from raw IPFS data in 5 seconds to demonstrate zero tampering."
+> "Yes, sir. Beevil Knievel provides court-admissible digital forensic evidence under Section 65B of the Indian Evidence Act (Electronic Records): 1. Unbroken Cryptographic Hash Chain: Every 15-minute sensor reading is mathematically bound into a daily Merkle root using Keccak-256 (NIST FIPS 202 standard). Altering a single temperature reading on Day 7 changes the entire root hash. 2. Trusted Timestamping: The batch roots are anchored into Polygon PoS blocks, providing an immutable mathematical timestamp verified by thousands of independent validator nodes worldwide. 3. Multi-Party Attestation: The batch contains the cryptographic signatures of both the autonomous gateway and the accredited KVIC field inspector. In court, an independent forensic expert can recompute the Merkle tree from raw IPFS data in 5 seconds to demonstrate zero tampering."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Section 65B, Indian Evidence Act]`**: The statutory legal provision governing the admissibility of electronic computer records and cryptographic logs in Indian courts of law.
@@ -460,13 +460,13 @@
 
 ---
 
-### Q30. To conclude: What is the grand vision of HoneyChain? Where will this platform be 3 years from today?
+### Q30. To conclude: What is the grand vision of Beevil Knievel? Where will this platform be 3 years from today?
 
 * **Interrogating Judge:** Dr. R.K. Sharma (Ministry of MSME)
 * **The Jury Trap / Intent:** *Testing visionary leadership, strategic scaling, and passion for national impact.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, our 3-year vision is to establish HoneyChain as India's Sovereign Decentralized Physical Infrastructure (DePIN) for Precision Apiculture. Three years from now: 1. National Adoption: HoneyChain will be the default operating system across 5,00,000 KVIC bee boxes, transforming Indian honey from an unverified bulk commodity into the world's most trusted, digitally traceable botanical brand. 2. Rural Prosperity: By eliminating adulteration and middleman exploitation, we will double the annual incomes of over 50,000 tribal and rural beekeepers, realizing Prime Minister Modi's vision of 'Meethee Kranti' (Sweet Revolution). 3. Ecological Security: Beyond honey, our acoustic AI network will provide India's first real-time pollinator health surveillance grid, protecting agricultural crop pollination and biodiversity against climate change. HoneyChain proves that cutting-edge deep tech—TinyML, LoRa, and Cryptographic Ledgers—can be engineered not for Silicon Valley luxuries, but to uplift the humblest rural farmer in India!"
+> "Sir, our 3-year vision is to establish Beevil Knievel as India's Sovereign Decentralized Physical Infrastructure (DePIN) for Precision Apiculture. Three years from now: 1. National Adoption: Beevil Knievel will be the default operating system across 5,00,000 KVIC bee boxes, transforming Indian honey from an unverified bulk commodity into the world's most trusted, digitally traceable botanical brand. 2. Rural Prosperity: By eliminating adulteration and middleman exploitation, we will double the annual incomes of over 50,000 tribal and rural beekeepers, realizing Prime Minister Modi's vision of 'Meethee Kranti' (Sweet Revolution). 3. Ecological Security: Beyond honey, our acoustic AI network will provide India's first real-time pollinator health surveillance grid, protecting agricultural crop pollination and biodiversity against climate change. Beevil Knievel proves that cutting-edge deep tech—TinyML, LoRa, and Cryptographic Ledgers—can be engineered not for Silicon Valley luxuries, but to uplift the humblest rural farmer in India!"
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Sovereign DePIN Standard]`**: A nationally adopted decentralized physical infrastructure framework that operates openly across state and cooperative boundaries without foreign tech dependence.
@@ -910,7 +910,7 @@
 * **The Jury Trap / Intent:** *Testing Indian telecommunications regulations (DoT / WPC guidelines).*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "In India, wireless operation in the 865–867 MHz band is governed by the Wireless Planning & Coordination (WPC) wing of the Department of Telecommunications (DoT). Under Gazette Notification GSR 564(E), license-exempt devices must not exceed +30 dBm EIRP and must comply with a 1% duty cycle limit (or 36 seconds of transmission time per hour). HoneyChain transmits a 32-byte frame every 900 seconds (15 minutes), with an on-air time of 61.7 ms. This equates to 4 transmissions per hour = 0.2468 seconds of airtime per hour, representing a duty cycle of just 0.0068%—more than 140 times below the legal Indian government ceiling!"
+> "In India, wireless operation in the 865–867 MHz band is governed by the Wireless Planning & Coordination (WPC) wing of the Department of Telecommunications (DoT). Under Gazette Notification GSR 564(E), license-exempt devices must not exceed +30 dBm EIRP and must comply with a 1% duty cycle limit (or 36 seconds of transmission time per hour). Beevil Knievel transmits a 32-byte frame every 900 seconds (15 minutes), with an on-air time of 61.7 ms. This equates to 4 transmissions per hour = 0.2468 seconds of airtime per hour, representing a duty cycle of just 0.0068%—more than 140 times below the legal Indian government ceiling!"
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[WPC (Wireless Planning & Coordination Wing)]`**: The national radio regulatory authority in India under the Ministry of Communications that issues spectrum guidelines and equipment type approvals (ETA).
@@ -963,7 +963,7 @@
 * **The Jury Trap / Intent:** *Testing whether the student understands embedded edge compute constraints vs. cloud bloat.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, fine-tuning an Audio Spectrogram Transformer (AST) or Whisper model requires a multi-billion parameter network consuming hundreds of megabytes of RAM and several watts of compute. That is an anti-pattern for rural edge computing. HoneyChain operates on a decentralized, low-cost Raspberry Pi 3B+ edge gateway (1 GB RAM, ARM Cortex-A53). Our 1D-CNN operates directly on the pre-computed 8-band spectral energy vector supplied by the node's CMSIS-DSP FFT: Parameter count: Exactly 9,420 parameters. Model memory footprint: 38.4 KB (fits easily in L1/L2 cache). Inference latency: 4.2 ms on a single ARM Cortex-A53 core. Energy per inference: Less than 0.015 mJ. This allows the gateway to continuously service 100 hives in real time with less than 2% CPU utilization, zero cloud dependencies, and zero latency."
+> "Sir, fine-tuning an Audio Spectrogram Transformer (AST) or Whisper model requires a multi-billion parameter network consuming hundreds of megabytes of RAM and several watts of compute. That is an anti-pattern for rural edge computing. Beevil Knievel operates on a decentralized, low-cost Raspberry Pi 3B+ edge gateway (1 GB RAM, ARM Cortex-A53). Our 1D-CNN operates directly on the pre-computed 8-band spectral energy vector supplied by the node's CMSIS-DSP FFT: Parameter count: Exactly 9,420 parameters. Model memory footprint: 38.4 KB (fits easily in L1/L2 cache). Inference latency: 4.2 ms on a single ARM Cortex-A53 core. Energy per inference: Less than 0.015 mJ. This allows the gateway to continuously service 100 hives in real time with less than 2% CPU utilization, zero cloud dependencies, and zero latency."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[1D-CNN (1-Dimensional Convolutional Neural Network)]`**: A deep learning neural network architecture that applies sliding convolutional kernels along a single sequential axis (time or frequency bins) rather than a 2D image matrix, drastically reducing computational FLOPs.
@@ -1601,7 +1601,7 @@
 * **The Jury Trap / Intent:** *Testing knowledge of zero-knowledge rollups vs sidechains and proof generation costs.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "While zk-Rollups provide mathematical validity proofs (STARKs/SNARKs) anchored to Ethereum L1, they currently present higher proof-generation latency and higher transaction costs ($0.05 to $0.20 per batch) compared to Polygon POS (<$0.001). For smallholder rural honey cooperatives operating on tight margins, sub-cent transaction costs are paramount. Furthermore, our application already achieves cryptographic zero-knowledge compression at the application layer through our sorted-pair Keccak-256 Merkle tree. However, because our contracts are written in standard EVM Solidity ^0.8.20, HoneyChain can migrate seamlessly to Polygon zkEVM or Arbitrum Orbit with zero code modifications."
+> "While zk-Rollups provide mathematical validity proofs (STARKs/SNARKs) anchored to Ethereum L1, they currently present higher proof-generation latency and higher transaction costs ($0.05 to $0.20 per batch) compared to Polygon POS (<$0.001). For smallholder rural honey cooperatives operating on tight margins, sub-cent transaction costs are paramount. Furthermore, our application already achieves cryptographic zero-knowledge compression at the application layer through our sorted-pair Keccak-256 Merkle tree. However, because our contracts are written in standard EVM Solidity ^0.8.20, Beevil Knievel can migrate seamlessly to Polygon zkEVM or Arbitrum Orbit with zero code modifications."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[zk-Rollup (Zero-Knowledge Rollup)]`**: A Layer-2 scalability solution that bundles hundreds of transactions off-chain and posts a cryptographic validity proof (SNARK or STARK) back to Ethereum Layer 1.
@@ -1616,7 +1616,7 @@
 * **The Jury Trap / Intent:** *Testing digital hashing of physical laboratory reports.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "In traditional apiculture, testing certificates from FSSAI or private laboratories are issued as paper documents or standard PDFs. Dishonest middlemen regularly alter the moisture numbers or beekeeper names in Adobe Photoshop and reuse the same certificate for 50 different fake honey batches. Under HoneyChain: When an accredited laboratory tests a honey sample, they run an SHA-256 / Keccak-256 hash over the raw digital laboratory report PDF. The resulting 32-byte labCertificateHash is recorded directly into HoneyProvenance.sol by the lab's registered Ethereum address. When a consumer views the lab certificate in the verification portal, their browser computes the hash of the downloaded PDF and asserts that it matches labCertificateHash on-chain. If a single character was altered, the hashes do not match, exposing forgery instantly."
+> "In traditional apiculture, testing certificates from FSSAI or private laboratories are issued as paper documents or standard PDFs. Dishonest middlemen regularly alter the moisture numbers or beekeeper names in Adobe Photoshop and reuse the same certificate for 50 different fake honey batches. Under Beevil Knievel: When an accredited laboratory tests a honey sample, they run an SHA-256 / Keccak-256 hash over the raw digital laboratory report PDF. The resulting 32-byte labCertificateHash is recorded directly into HoneyProvenance.sol by the lab's registered Ethereum address. When a consumer views the lab certificate in the verification portal, their browser computes the hash of the downloaded PDF and asserts that it matches labCertificateHash on-chain. If a single character was altered, the hashes do not match, exposing forgery instantly."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Cryptographic Document Hashing]`**: Generating a fixed 256-bit digital fingerprint of an entire electronic document, guaranteeing that any alteration of content changes the fingerprint completely.
@@ -1721,7 +1721,7 @@
 * **The Jury Trap / Intent:** *Testing real-world regulatory enforcement, laboratory dispute resolution, and on-chain invalidation.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, this is the ultimate enforcement loop of HoneyChain: 1. Off-Shelf Sampling: An FSSAI inspector buys a certified jar, scans the QR code to note batch ID #42, and sends the honey to an accredited government laboratory (such as the National Bee Board laboratory or NDDB Anand) for Nuclear Magnetic Resonance (NMR) and C4 sugar testing. 2. Fraud Discovery: The lab discovers 15% added rice syrup. 3. Cryptographic Challenge: The authorized FSSAI QA address calls challengeBatch(42, evidenceHash) on HoneyProvenance.sol, locking the batch. 4. Slashing & Global Invalidation: The contract administrator reviews the lab evidence and executes resolveChallenge(42, isFraudulent = true). The oracles that attested to the batch are slashed, and batch #42 is permanently marked isInvalidated = true. 5. Instant Consumer Alert: From that exact second forward, any consumer scanning a jar from batch #42 anywhere in the world sees an unmistakable flashing red banner: 'ALERT: THIS BATCH HAS BEEN REVOKED BY FSSAI FOR FRAUD'."
+> "Sir, this is the ultimate enforcement loop of Beevil Knievel: 1. Off-Shelf Sampling: An FSSAI inspector buys a certified jar, scans the QR code to note batch ID #42, and sends the honey to an accredited government laboratory (such as the National Bee Board laboratory or NDDB Anand) for Nuclear Magnetic Resonance (NMR) and C4 sugar testing. 2. Fraud Discovery: The lab discovers 15% added rice syrup. 3. Cryptographic Challenge: The authorized FSSAI QA address calls challengeBatch(42, evidenceHash) on HoneyProvenance.sol, locking the batch. 4. Slashing & Global Invalidation: The contract administrator reviews the lab evidence and executes resolveChallenge(42, isFraudulent = true). The oracles that attested to the batch are slashed, and batch #42 is permanently marked isInvalidated = true. 5. Instant Consumer Alert: From that exact second forward, any consumer scanning a jar from batch #42 anywhere in the world sees an unmistakable flashing red banner: 'ALERT: THIS BATCH HAS BEEN REVOKED BY FSSAI FOR FRAUD'."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[NMR (Nuclear Magnetic Resonance) Testing]`**: An advanced magnetic spectroscopic technique capable of detecting trace adulteration of honey with C3/C4 inverted sugar syrups at molecular levels.
@@ -1909,7 +1909,7 @@
 * **The Jury Trap / Intent:** *Testing offline PWA capabilities, local caching, and direct hardware consoles.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Ma'am, our frontend is compiled as a Progressive Web App (PWA) with full service-worker caching: 1. Local Wi-Fi Direct Mode: The Raspberry Pi gateway broadcasts its own offline local Wi-Fi Access Point (SSID: HoneyChain-Gateway-Coorg). 2. Localhost Delivery: The technician connects directly to the gateway's local IP address (192.168.4.1:3000), accessing the /inspector and /playdate routes without requiring any external cellular internet. 3. Local Hardware Console: We also built a dedicated 1-bit Panic Playdate physical field terminal (docs/media/10-dashboard/playdate_console.png) that plugs directly into the gateway via USB serial at 115,200 baud, displaying real-time 5-point thermal grids under direct blinding sunlight."
+> "Ma'am, our frontend is compiled as a Progressive Web App (PWA) with full service-worker caching: 1. Local Wi-Fi Direct Mode: The Raspberry Pi gateway broadcasts its own offline local Wi-Fi Access Point (SSID: Beevil Knievel-Gateway-Coorg). 2. Localhost Delivery: The technician connects directly to the gateway's local IP address (192.168.4.1:3000), accessing the /inspector and /playdate routes without requiring any external cellular internet. 3. Local Hardware Console: We also built a dedicated 1-bit Panic Playdate physical field terminal (docs/media/10-dashboard/playdate_console.png) that plugs directly into the gateway via USB serial at 115,200 baud, displaying real-time 5-point thermal grids under direct blinding sunlight."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[PWA (Progressive Web App)]`**: A web application that uses service workers and web app manifests to provide app-like functionality, offline support, and push notifications on mobile devices.
@@ -1933,7 +1933,7 @@
 
 ---
 
-### Q126. Why Next.js 16 and React 19? What architectural benefit does the Next.js App Router provide for HoneyChain?
+### Q126. Why Next.js 16 and React 19? What architectural benefit does the Next.js App Router provide for Beevil Knievel?
 
 * **Interrogating Judge:** Vikramaditya Sen (Web3 & Systems)
 * **The Jury Trap / Intent:** *Testing frontend framework choice, Server Components vs Client Components, and performance.*
@@ -1969,7 +1969,7 @@
 * **The Jury Trap / Intent:** *Testing mobile browser API integration, camera permissions, and video stream handling.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "In frontend/src/components/QRScannerModal.tsx, we implemented a mobile-optimized camera scanner using the html5-qrcode library: 1. Cross-Browser MediaDevices API: It requests access via navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }), prioritizing the rear autofocus camera. 2. Real-Time Video Processing: It captures video frames at 10 frames per second directly onto a canvas element and decodes barcodes in real-time. 3. Automatic Parsing: Upon detecting a valid HoneyChain URL, it extracts the batchId parameter, closes the modal, and transitions the user to the verification dashboard in under 100 milliseconds without requiring full page reloads."
+> "In frontend/src/components/QRScannerModal.tsx, we implemented a mobile-optimized camera scanner using the html5-qrcode library: 1. Cross-Browser MediaDevices API: It requests access via navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }), prioritizing the rear autofocus camera. 2. Real-Time Video Processing: It captures video frames at 10 frames per second directly onto a canvas element and decodes barcodes in real-time. 3. Automatic Parsing: Upon detecting a valid Beevil Knievel URL, it extracts the batchId parameter, closes the modal, and transitions the user to the verification dashboard in under 100 milliseconds without requiring full page reloads."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[navigator.mediaDevices.getUserMedia()]`**: The browser JavaScript API that prompts the user for permission to access multimedia input devices, including video cameras and microphones.
@@ -2134,7 +2134,7 @@
 * **The Jury Trap / Intent:** *Testing viral marketing, consumer engagement, and social sharing features.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Yes, sir! Viral social proof is essential for helping smallholder beekeepers command premium prices: 1. One-Click Social Share: On /verify/{batchId}, we implemented a 'Share Verified Provenance' button using the Web Share API (navigator.share). 2. WhatsApp Integration: On mobile phones, clicking the button instantly formats a WhatsApp message: '🍯 I just verified my Coorg Single-Origin Raw Honey on HoneyChain! 100% pure, 17.4% naturally cured moisture, verified on-chain: https://.../verify/1'. 3. Dynamic OpenGraph Cards: The page includes dynamic OpenGraph meta tags, so sharing the link on Twitter, WhatsApp, or Facebook displays a rich preview card with the hive photo and KVIC certification seal."
+> "Yes, sir! Viral social proof is essential for helping smallholder beekeepers command premium prices: 1. One-Click Social Share: On /verify/{batchId}, we implemented a 'Share Verified Provenance' button using the Web Share API (navigator.share). 2. WhatsApp Integration: On mobile phones, clicking the button instantly formats a WhatsApp message: '🍯 I just verified my Coorg Single-Origin Raw Honey on Beevil Knievel! 100% pure, 17.4% naturally cured moisture, verified on-chain: https://.../verify/1'. 3. Dynamic OpenGraph Cards: The page includes dynamic OpenGraph meta tags, so sharing the link on Twitter, WhatsApp, or Facebook displays a rich preview card with the hive photo and KVIC certification seal."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Web Share API (navigator.share)]`**: A browser API that allows web applications to share text, links, and files to other native apps (like WhatsApp and Telegram) installed on the device.
@@ -2198,7 +2198,7 @@
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Babel Polyfills]`**: Code snippets that provide modern JavaScript features (like Promises or async/await) on older legacy web browsers that do not natively support them.
-* **`[Memory Footprint]`**: The total amount of system RAM consumed by a running program or web browser tab (kept under 65 MB for HoneyChain).
+* **`[Memory Footprint]`**: The total amount of system RAM consumed by a running program or web browser tab (kept under 65 MB for Beevil Knievel).
 * **`[Legacy Browser Support]`**: Ensuring that web applications remain functional on older operating systems and browser versions commonly found in rural institutions.
 
 ---
@@ -2254,7 +2254,7 @@
 * **The Jury Trap / Intent:** *Testing PWA installation, APK independence, and zero app-store friction.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Yes, sir! HoneyChain is a certified Progressive Web App: 1. Zero Play Store Friction: Rural beekeepers and consumers do not need a Google Play account or 50 MB of data to download an app. 2. Add to Home Screen: When visiting the portal, a native banner prompts 'Install HoneyChain Console'. Clicking install downloads a 200 KB lightweight web app container directly onto the phone home screen. 3. Standalone Window: It launches in full-screen standalone mode with its own desktop icon, splash screen, and offline service-worker cache, looking and feeling identical to a native Android APK."
+> "Yes, sir! Beevil Knievel is a certified Progressive Web App: 1. Zero Play Store Friction: Rural beekeepers and consumers do not need a Google Play account or 50 MB of data to download an app. 2. Add to Home Screen: When visiting the portal, a native banner prompts 'Install Beevil Knievel Console'. Clicking install downloads a 200 KB lightweight web app container directly onto the phone home screen. 3. Standalone Window: It launches in full-screen standalone mode with its own desktop icon, splash screen, and offline service-worker cache, looking and feeling identical to a native Android APK."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Add to Home Screen (A2HS)]`**: A feature in modern mobile browsers allowing users to install web applications as standalone native-like apps on their home screen without app store downloads.
@@ -2337,7 +2337,7 @@
 * **The Jury Trap / Intent:** *Testing social inclusion, rural equity, and accessibility for marginalized farmers.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, absolutely not. That is the core social innovation of HoneyChain: We implemented the Software-Only Onboarding Tier (/kvic-onboard): 1. Free Registration: Any smallholder beekeeper can onboard for free using their mobile phone or through their local village KVIC extension officer. 2. Visual & Manual Inspection Logging: They log frame comb status, queen presence, and harvest dates with smartphone photos. 3. Tier 1 Verified Certification: Their honey receives a Tier 1 'KVIC Cooperative Inspected' digital label. Hardware instrumentation is an optional premium upgrade. As beekeepers earn higher profits through direct sales, their cooperative can pool funds to add automated LoRa sentinel nodes. No farmer is left behind."
+> "Sir, absolutely not. That is the core social innovation of Beevil Knievel: We implemented the Software-Only Onboarding Tier (/kvic-onboard): 1. Free Registration: Any smallholder beekeeper can onboard for free using their mobile phone or through their local village KVIC extension officer. 2. Visual & Manual Inspection Logging: They log frame comb status, queen presence, and harvest dates with smartphone photos. 3. Tier 1 Verified Certification: Their honey receives a Tier 1 'KVIC Cooperative Inspected' digital label. Hardware instrumentation is an optional premium upgrade. As beekeepers earn higher profits through direct sales, their cooperative can pool funds to add automated LoRa sentinel nodes. No farmer is left behind."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Software-Only Onboarding Pathway]`**: A zero-hardware entry tier allowing rural producers to participate in digital supply chain certification using only basic mobile phones and manual logs.
@@ -2367,7 +2367,7 @@
 * **The Jury Trap / Intent:** *Testing real financial modeling, farmgate economics, and revenue multipliers.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, here is the exact financial modeling for a 10-hive apiary: 1. Baseline Status Quo (Without HoneyChain): Annual yield: 15 kg per hive * 10 = 150 kg. Middleman procurement price for uncertified raw honey: ₹150/kg. Annual Gross Revenue = 150 * 150 = ₹22,500. Colony loss rate: 40% (Loss of 4 colonies @ ₹3,500 replacement cost = ₹14,000 loss). Net Annual Profit = ₹8,500. 2. With HoneyChain Platform: Mortality Reduction: Early acoustic and thermal warnings reduce colony loss from 40% to under 10% (saving 3 colonies = ₹10,500 saved). Certified Premium Price: QR-verified, unadulterated raw honey with KVIC provenance commands ₹650/kg in direct-to-consumer and retail markets. Annual Gross Revenue: 150 kg * ₹650 = ₹97,500. Less System Cost: ₹2,250 (10 hives @ ₹225/hive). Net Annual Profit = ₹97,500 - 2,250 - 3,500 = ₹91,750. 3. Net Economic Gain: Over 10.7x increase in net beekeeper profit in Year 1!"
+> "Sir, here is the exact financial modeling for a 10-hive apiary: 1. Baseline Status Quo (Without Beevil Knievel): Annual yield: 15 kg per hive * 10 = 150 kg. Middleman procurement price for uncertified raw honey: ₹150/kg. Annual Gross Revenue = 150 * 150 = ₹22,500. Colony loss rate: 40% (Loss of 4 colonies @ ₹3,500 replacement cost = ₹14,000 loss). Net Annual Profit = ₹8,500. 2. With Beevil Knievel Platform: Mortality Reduction: Early acoustic and thermal warnings reduce colony loss from 40% to under 10% (saving 3 colonies = ₹10,500 saved). Certified Premium Price: QR-verified, unadulterated raw honey with KVIC provenance commands ₹650/kg in direct-to-consumer and retail markets. Annual Gross Revenue: 150 kg * ₹650 = ₹97,500. Less System Cost: ₹2,250 (10 hives @ ₹225/hive). Net Annual Profit = ₹97,500 - 2,250 - 3,500 = ₹91,750. 3. Net Economic Gain: Over 10.7x increase in net beekeeper profit in Year 1!"
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Farmgate Procurement Price]`**: The net price received by a farmer at the farm gate before transportation and middleman margins are added (often depressed to ₹120-150/kg for raw honey).
@@ -2391,13 +2391,13 @@
 
 ---
 
-### Q156. How does HoneyChain break the monopoly of commercial honey aggregators who exploit tribal beekeepers?
+### Q156. How does Beevil Knievel break the monopoly of commercial honey aggregators who exploit tribal beekeepers?
 
 * **Interrogating Judge:** Dr. R.K. Sharma (Ministry of MSME)
 * **The Jury Trap / Intent:** *Testing understanding of agricultural supply chain exploitation and disintermediation.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Currently, commercial FMCG brands maintain a monopsony: smallholder beekeepers have no cold storage, no testing equipment, and no direct access to urban retail shelves. Aggregators arrive at harvest time, claim the honey is 'too dark' or 'high moisture', and force the farmer to sell at distress prices of ₹120/kg. The aggregator blends this pure honey with cheap imported syrup and sells it at ₹450/kg. HoneyChain breaks this monopoly by establishing Decentralized Brand Equity: our cryptographic QR label provides verifiable proof of pure natural comb curing. Cooperatives can bypass aggregators entirely, packaging their own certified single-origin raw honey and selling directly to urban consumers via ONDC, farmers' markets, and organic retail stores at ₹650+/kg, keeping 85% of retail value in the village."
+> "Currently, commercial FMCG brands maintain a monopsony: smallholder beekeepers have no cold storage, no testing equipment, and no direct access to urban retail shelves. Aggregators arrive at harvest time, claim the honey is 'too dark' or 'high moisture', and force the farmer to sell at distress prices of ₹120/kg. The aggregator blends this pure honey with cheap imported syrup and sells it at ₹450/kg. Beevil Knievel breaks this monopoly by establishing Decentralized Brand Equity: our cryptographic QR label provides verifiable proof of pure natural comb curing. Cooperatives can bypass aggregators entirely, packaging their own certified single-origin raw honey and selling directly to urban consumers via ONDC, farmers' markets, and organic retail stores at ₹650+/kg, keeping 85% of retail value in the village."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Monopsony Exploitation]`**: A market structure where a single dominant buyer (or cartel of aggregators) controls the purchase of goods from many competing small producers, driving prices down.
@@ -2412,7 +2412,7 @@
 * **The Jury Trap / Intent:** *Testing startup economics, monetization streams, and venture viability.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, HoneyChain operates on a high-margin, scalable B2B2C revenue model: 1. Smart Provenance SaaS & Verification Micro-Fee: For every verified jar of honey sold at retail, HoneyChain earns a ₹3 micro-verification fee paid by the cooperative from their ₹350/kg increased margin. For a cooperative selling 50,000 jars, that generates ₹1.5 lakh in pure software revenue. 2. Hardware Margin: We manufacture and distribute the sentinel nodes and gateway HATs at a 35% gross margin (Node BOM ₹1,850, sold to KVIC schemes at ₹2,500). 3. Enterprise B2B Export Compliance Portal: We charge commercial export aggregators and international honey brands an enterprise SaaS subscription (₹50,000/month) for automated FSSAI, EU, and US FDA digital compliance reporting dossiers."
+> "Sir, Beevil Knievel operates on a high-margin, scalable B2B2C revenue model: 1. Smart Provenance SaaS & Verification Micro-Fee: For every verified jar of honey sold at retail, Beevil Knievel earns a ₹3 micro-verification fee paid by the cooperative from their ₹350/kg increased margin. For a cooperative selling 50,000 jars, that generates ₹1.5 lakh in pure software revenue. 2. Hardware Margin: We manufacture and distribute the sentinel nodes and gateway HATs at a 35% gross margin (Node BOM ₹1,850, sold to KVIC schemes at ₹2,500). 3. Enterprise B2B Export Compliance Portal: We charge commercial export aggregators and international honey brands an enterprise SaaS subscription (₹50,000/month) for automated FSSAI, EU, and US FDA digital compliance reporting dossiers."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[B2B2C Business Model]`**: A commercial model where a company sells its software/hardware to businesses or cooperatives (B2B), who in turn utilize it to deliver premium products to end consumers (B2C).
@@ -2487,7 +2487,7 @@
 * **The Jury Trap / Intent:** *Testing human capacity building, extension education, and training scalability.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, we leverage KVIC's existing training institutional infrastructure: 1. Central Bee Research and Training Institute (CBRTI, Pune): We partner with CBRTI to incorporate the HoneyChain digital inspection curriculum into their existing 5-day beekeeping certification course. 2. Training of Trainers (ToT): We train KVIC Master Trainers and lead beekeepers in each district, equipping them with demonstration kits (a transparent demo hive box with sensors and Playdate console). 3. Audio-Visual Vernacular Modules: We produce 2-minute WhatsApp animated tutorial videos in regional languages (Kannada, Marathi, Hindi) demonstrating how to check hive health dials and print labels."
+> "Sir, we leverage KVIC's existing training institutional infrastructure: 1. Central Bee Research and Training Institute (CBRTI, Pune): We partner with CBRTI to incorporate the Beevil Knievel digital inspection curriculum into their existing 5-day beekeeping certification course. 2. Training of Trainers (ToT): We train KVIC Master Trainers and lead beekeepers in each district, equipping them with demonstration kits (a transparent demo hive box with sensors and Playdate console). 3. Audio-Visual Vernacular Modules: We produce 2-minute WhatsApp animated tutorial videos in regional languages (Kannada, Marathi, Hindi) demonstrating how to check hive health dials and print labels."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[CBRTI (Central Bee Research & Training Institute)]`**: The premier national research and training institute for apiculture in Pune under the Khadi and Village Industries Commission (KVIC).
@@ -2511,13 +2511,13 @@
 
 ---
 
-### Q164. How does HoneyChain comply with FSSAI Honey Regulations 2020 and export standards?
+### Q164. How does Beevil Knievel comply with FSSAI Honey Regulations 2020 and export standards?
 
 * **Interrogating Judge:** Dr. R.K. Sharma (Ministry of MSME)
 * **The Jury Trap / Intent:** *Testing statutory regulatory knowledge, legal parameters, and compliance.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, under the FSSAI Food Safety and Standards (Food Products Standards and Food Additives) Regulations: 1. Moisture Mandate: Honey moisture must not exceed 20.0% (and strictly <18.5% for export grade). Our smart contract enforces _moisturePpm <= 1850 in code. 2. Diastase Activity: FSSAI mandates a minimum Diastase activity of 8 on the Schade scale (indicating raw unheated honey). Our 21-day continuous thermal log proves that core temperature never exceeded 36°C, guaranteeing that natural diastase enzymes were never destroyed. 3. Prohibited Sugar Syrup Markers: FSSAI prohibits added C3/C4 syrups (SMR, TMR, and foreign oligosaccharides). By certifying unadulterated in-situ comb curing confirmed by regional KVIC optical lab tests, HoneyChain provides the digital provenance dossier required for export clearance."
+> "Sir, under the FSSAI Food Safety and Standards (Food Products Standards and Food Additives) Regulations: 1. Moisture Mandate: Honey moisture must not exceed 20.0% (and strictly <18.5% for export grade). Our smart contract enforces _moisturePpm <= 1850 in code. 2. Diastase Activity: FSSAI mandates a minimum Diastase activity of 8 on the Schade scale (indicating raw unheated honey). Our 21-day continuous thermal log proves that core temperature never exceeded 36°C, guaranteeing that natural diastase enzymes were never destroyed. 3. Prohibited Sugar Syrup Markers: FSSAI prohibits added C3/C4 syrups (SMR, TMR, and foreign oligosaccharides). By certifying unadulterated in-situ comb curing confirmed by regional KVIC optical lab tests, Beevil Knievel provides the digital provenance dossier required for export clearance."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[FSSAI Honey Regulations 2020]`**: Statutory food quality guidelines issued by FSSAI defining 18 chemical and physical parameters for honey purity, including moisture, diastase, and sugar ratios.
@@ -2526,13 +2526,13 @@
 
 ---
 
-### Q165. Can HoneyChain be used to generate Carbon Credits or Biodiversity Offsets for beekeepers?
+### Q165. Can Beevil Knievel be used to generate Carbon Credits or Biodiversity Offsets for beekeepers?
 
 * **Interrogating Judge:** Vikramaditya Sen (Web3 & Systems)
 * **The Jury Trap / Intent:** *Testing forward-looking sustainability finance, environmental tokenomics, and ESG.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Yes, sir! Honeybees are the world's most critical pollinators, responsible for pollinating 71 of the 100 crop species that provide 90% of the world's food. Currently, beekeepers receive zero financial credit for this massive environmental service. Under Phase 3 of HoneyChain: 1. Pollination Telemetry: Our external VEML7700 light sensors and HX711 scale track daily forager flight hours and foraging biomass departure. 2. Verified Biodiversity Units: By proving that an apiary maintained 10 healthy, disease-free colonies providing an estimated 100 million foraging pollination visits to surrounding crops over 6 months, the platform mints verified Biodiversity Pollination Credits on-chain. 3. Corporate ESG Monetization: FMCG corporations and agricultural enterprises purchase these credits to fulfill corporate ESG (Environmental, Social, Governance) sustainability mandates, providing beekeepers with an additional ₹15,000/year in passive environmental income."
+> "Yes, sir! Honeybees are the world's most critical pollinators, responsible for pollinating 71 of the 100 crop species that provide 90% of the world's food. Currently, beekeepers receive zero financial credit for this massive environmental service. Under Phase 3 of Beevil Knievel: 1. Pollination Telemetry: Our external VEML7700 light sensors and HX711 scale track daily forager flight hours and foraging biomass departure. 2. Verified Biodiversity Units: By proving that an apiary maintained 10 healthy, disease-free colonies providing an estimated 100 million foraging pollination visits to surrounding crops over 6 months, the platform mints verified Biodiversity Pollination Credits on-chain. 3. Corporate ESG Monetization: FMCG corporations and agricultural enterprises purchase these credits to fulfill corporate ESG (Environmental, Social, Governance) sustainability mandates, providing beekeepers with an additional ₹15,000/year in passive environmental income."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Biodiversity Pollination Credits]`**: A verifiable environmental financial asset representing a quantified positive ecological contribution to insect pollination and plant biodiversity.
@@ -2547,7 +2547,7 @@
 * **The Jury Trap / Intent:** *Deep understanding of the root causes of failure in government beekeeping programs.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, this is the tragic reality of past initiatives: KVIC distributes thousands of subsidized bee boxes, but within 18 months, over 60% of boxes are abandoned! The root causes are: 1. Silent Swarming: A farmer goes to the field and finds the box empty because the colony swarmed unnoticed. 2. Undetected Queen Death: Without regular inspections, the queen dies, laying workers take over, and the colony collapses within 30 days. 3. Abandonment due to Depressed Prices: When farmers realize middlemen will only pay ₹120/kg, they lose financial interest in maintaining boxes. HoneyChain fixes both ends: our automated IoT alerts prevent silent swarming and queen loss, while our provenance branding multiplies honey prices by 4x, giving rural youth a profitable, sustainable livelihood."
+> "Sir, this is the tragic reality of past initiatives: KVIC distributes thousands of subsidized bee boxes, but within 18 months, over 60% of boxes are abandoned! The root causes are: 1. Silent Swarming: A farmer goes to the field and finds the box empty because the colony swarmed unnoticed. 2. Undetected Queen Death: Without regular inspections, the queen dies, laying workers take over, and the colony collapses within 30 days. 3. Abandonment due to Depressed Prices: When farmers realize middlemen will only pay ₹120/kg, they lose financial interest in maintaining boxes. Beevil Knievel fixes both ends: our automated IoT alerts prevent silent swarming and queen loss, while our provenance branding multiplies honey prices by 4x, giving rural youth a profitable, sustainable livelihood."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Box Abandonment Rate]`**: The percentage of government-subsidized beehives that fall into disuse due to colony mortality, swarming, or farmer discouragement.
@@ -2577,7 +2577,7 @@
 * **The Jury Trap / Intent:** *Testing national border defense, import adulteration, and geo-authenticity.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, over 50,000 tonnes of cheap inverted sugar syrup are imported into India annually under various customs HS codes (like 'fructose syrup') and blended into commercial honey. HoneyChain establishes a closed-loop Biological Proof of Domestic Origin: 1. In-Comb Telemetric Birth: A batch ID can ONLY be created if it has an unbroken 21-day time-series log originating from a physical sensor node registered to a geo-tagged Indian apiary. 2. Imported Syrup Has Zero Hive History: A factory importing sugar syrup from abroad has no sensor node, no brood nest thermoregulation logs, no acoustic flight hum, and no registered KVIC hive owner. It cannot generate a valid Merkle root. 3. Zero-Trust Verification: The smart contract will reject any attempt to propose an unmonitored batch, completely shutting the door on imported synthetic syrup."
+> "Sir, over 50,000 tonnes of cheap inverted sugar syrup are imported into India annually under various customs HS codes (like 'fructose syrup') and blended into commercial honey. Beevil Knievel establishes a closed-loop Biological Proof of Domestic Origin: 1. In-Comb Telemetric Birth: A batch ID can ONLY be created if it has an unbroken 21-day time-series log originating from a physical sensor node registered to a geo-tagged Indian apiary. 2. Imported Syrup Has Zero Hive History: A factory importing sugar syrup from abroad has no sensor node, no brood nest thermoregulation logs, no acoustic flight hum, and no registered KVIC hive owner. It cannot generate a valid Merkle root. 3. Zero-Trust Verification: The smart contract will reject any attempt to propose an unmonitored batch, completely shutting the door on imported synthetic syrup."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Inverted Sugar Syrup Imports]`**: Industrial corn, rice, or beet sugar syrups enzymatically treated to mimic the fructose-to-glucose ratio of natural honey, imported at low cost to adulterate pure honey.
@@ -2607,7 +2607,7 @@
 * **The Jury Trap / Intent:** *Testing integration with agricultural credit, risk profiling, and bank underwriting.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Currently, rural banks refuse to provide low-interest Kisan Credit Card (KCC) loans for beekeeping because bee colonies are considered 'invisible, high-risk assets': a banker cannot inspect a forest to see if colonies are alive. HoneyChain transforms bee colonies into Bankable Digital Assets: 1. Real-Time Hive Asset Verification: Through the /inspector portal, a bank loan officer can view a cryptographically attested health report proving that the farmer has 25 active, queen-right colonies with continuous 34.5°C thermoregulation. 2. Verified Harvest Cash Flows: The on-chain sales ledger proves historical honey yield over past seasons. 3. De-Risked Underwriting: With theft alerts and automated disease monitoring reducing mortality from 40% to <10%, banks can confidently disburse ₹2 to ₹5 lakh KCC micro-loans at subsidized 4% interest rates."
+> "Currently, rural banks refuse to provide low-interest Kisan Credit Card (KCC) loans for beekeeping because bee colonies are considered 'invisible, high-risk assets': a banker cannot inspect a forest to see if colonies are alive. Beevil Knievel transforms bee colonies into Bankable Digital Assets: 1. Real-Time Hive Asset Verification: Through the /inspector portal, a bank loan officer can view a cryptographically attested health report proving that the farmer has 25 active, queen-right colonies with continuous 34.5°C thermoregulation. 2. Verified Harvest Cash Flows: The on-chain sales ledger proves historical honey yield over past seasons. 3. De-Risked Underwriting: With theft alerts and automated disease monitoring reducing mortality from 40% to <10%, banks can confidently disburse ₹2 to ₹5 lakh KCC micro-loans at subsidized 4% interest rates."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Kisan Credit Card (KCC)]`**: A credit scheme introduced by the Government of India to provide agricultural producers with timely, affordable credit for crop and allied farming activities.
@@ -2661,7 +2661,7 @@
 
 ---
 
-### Q174. Can HoneyChain be used for migratory beekeeping when beekeepers move 200 boxes on trucks from Rajasthan to Himachal Pradesh?
+### Q174. Can Beevil Knievel be used for migratory beekeeping when beekeepers move 200 boxes on trucks from Rajasthan to Himachal Pradesh?
 
 * **Interrogating Judge:** Dr. R.K. Sharma (Ministry of MSME)
 * **The Jury Trap / Intent:** *Testing mobility, migratory apiculture logistics, and dynamic network re-association.*
@@ -2697,7 +2697,7 @@
 * **The Jury Trap / Intent:** *Testing cross-sectoral agricultural benefits, pollination contracts, and farmer-beekeeper matchmaking.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, crop yields in mustard, apples, and sunflower increase by 25% to 40% when adequate honeybee colonies are present for cross-pollination! HoneyChain bridges this gap via Managed Pollination Contracts: 1. Pollination Verification: An apple orchardist in Shimla can contract a beekeeper to place 20 hives in their orchard for 3 weeks during bloom. 2. Digital Proof of Pollination Service: HoneyChain's VEML7700 light sensors and scale mass flux prove that the bees actively flew and pollinated the orchard for 21 consecutive days. 3. Escrow Payment Release: The orchardist pays the beekeeper a verified pollination fee (e.g., ₹1,500 per hive) through our smart contract escrow, creating a dual revenue stream for beekeepers while boosting national crop productivity."
+> "Sir, crop yields in mustard, apples, and sunflower increase by 25% to 40% when adequate honeybee colonies are present for cross-pollination! Beevil Knievel bridges this gap via Managed Pollination Contracts: 1. Pollination Verification: An apple orchardist in Shimla can contract a beekeeper to place 20 hives in their orchard for 3 weeks during bloom. 2. Digital Proof of Pollination Service: Beevil Knievel's VEML7700 light sensors and scale mass flux prove that the bees actively flew and pollinated the orchard for 21 consecutive days. 3. Escrow Payment Release: The orchardist pays the beekeeper a verified pollination fee (e.g., ₹1,500 per hive) through our smart contract escrow, creating a dual revenue stream for beekeepers while boosting national crop productivity."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Cross-Pollination Yield Boost]`**: The documented increase in crop fruit set, seed yield, and quality resulting from insect cross-pollination (up to 40% in apples and mustard).
@@ -2706,13 +2706,13 @@
 
 ---
 
-### Q177. What is the environmental footprint of your blockchain transactions? Does HoneyChain contribute to global warming?
+### Q177. What is the environmental footprint of your blockchain transactions? Does Beevil Knievel contribute to global warming?
 
 * **Interrogating Judge:** Vikramaditya Sen (Web3 & Systems)
 * **The Jury Trap / Intent:** *The standard environmental sustainability trap regarding blockchain carbon emissions.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, HoneyChain runs on Polygon, which utilizes a high-efficiency Proof-of-Stake (PoS) consensus mechanism, NOT energy-intensive Proof-of-Work mining! A single transaction on Polygon consumes approximately 0.00079 kWh of electricity—roughly equivalent to sending two standard Google search queries or watching 3 seconds of a YouTube video. For an entire 21-day honey harvest batch, the carbon footprint is less than 0.2 grams of CO2. When compared to the hundreds of kilograms of carbon saved by eliminating unnecessary truck inspection trips into forest apiaries, HoneyChain is an overwhelmingly net-negative, climate-positive technology."
+> "Sir, Beevil Knievel runs on Polygon, which utilizes a high-efficiency Proof-of-Stake (PoS) consensus mechanism, NOT energy-intensive Proof-of-Work mining! A single transaction on Polygon consumes approximately 0.00079 kWh of electricity—roughly equivalent to sending two standard Google search queries or watching 3 seconds of a YouTube video. For an entire 21-day honey harvest batch, the carbon footprint is less than 0.2 grams of CO2. When compared to the hundreds of kilograms of carbon saved by eliminating unnecessary truck inspection trips into forest apiaries, Beevil Knievel is an overwhelmingly net-negative, climate-positive technology."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Proof-of-Stake (PoS)]`**: A blockchain consensus mechanism where validators stake cryptocurrency tokens rather than running energy-intensive computational mining hardware, reducing energy consumption by 99.99%.
@@ -2727,7 +2727,7 @@
 * **The Jury Trap / Intent:** *Testing international honey biochemistry, heat damage, and enzymatic degradation.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Diastase (alpha- and beta-amylase) is an enzyme added by honeybees that breaks down starch into maltose. It is extremely heat-sensitive: international food standards (Codex Alimentarius and FSSAI) mandate a minimum Diastase Number (DN) of 8 on the Schade scale. Commercial packers routinely overheat honey to 70°C to speed up filtration and destroy crystallization, which causes diastase activity to plummet to zero and produces harmful Hydroxymethylfurfural (HMF). HoneyChain provides continuous biological proof: our TI TMP117 log records brood core and honey super temperature every 15 minutes for 21 days, mathematically proving that the honey was never exposed to temperatures above 36.5°C during curing, guaranteeing maximum live enzymatic activity and low HMF (<10 mg/kg)."
+> "Diastase (alpha- and beta-amylase) is an enzyme added by honeybees that breaks down starch into maltose. It is extremely heat-sensitive: international food standards (Codex Alimentarius and FSSAI) mandate a minimum Diastase Number (DN) of 8 on the Schade scale. Commercial packers routinely overheat honey to 70°C to speed up filtration and destroy crystallization, which causes diastase activity to plummet to zero and produces harmful Hydroxymethylfurfural (HMF). Beevil Knievel provides continuous biological proof: our TI TMP117 log records brood core and honey super temperature every 15 minutes for 21 days, mathematically proving that the honey was never exposed to temperatures above 36.5°C during curing, guaranteeing maximum live enzymatic activity and low HMF (<10 mg/kg)."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Diastase Number (DN)]`**: A biochemical measurement on the Schade scale representing the amount of starch converted by honey enzymes per gram of honey per hour at 40°C.
@@ -2742,7 +2742,7 @@
 * **The Jury Trap / Intent:** *Testing financial independence from subsidies and commercial market viability.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Sir, HoneyChain does NOT depend on perpetual government subsidies: 1. Self-Sustaining Unit Economics: Because our system increases a beekeeper's net profit from ₹8,500 to ₹91,750 per 10 hives, the ₹2,250 annual system cost represents less than 3% of their new profit. Farmers gladly pay for equipment that earns them 10x returns. 2. Commercial Retail Demand: Premium urban grocery chains (Nature's Basket, Foodhall, organic D2C brands) actively seek verified raw honey suppliers to meet explosive consumer demand for organic health foods. 3. Cooperative Reinvestment Reserve: Cooperatives retain a 5% marketing margin from retail sales, creating an independent capital reserve to finance future hardware upgrades and maintenance without needing ongoing government grants."
+> "Sir, Beevil Knievel does NOT depend on perpetual government subsidies: 1. Self-Sustaining Unit Economics: Because our system increases a beekeeper's net profit from ₹8,500 to ₹91,750 per 10 hives, the ₹2,250 annual system cost represents less than 3% of their new profit. Farmers gladly pay for equipment that earns them 10x returns. 2. Commercial Retail Demand: Premium urban grocery chains (Nature's Basket, Foodhall, organic D2C brands) actively seek verified raw honey suppliers to meet explosive consumer demand for organic health foods. 3. Cooperative Reinvestment Reserve: Cooperatives retain a 5% marketing margin from retail sales, creating an independent capital reserve to finance future hardware upgrades and maintenance without needing ongoing government grants."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Self-Sustaining Unit Economics]`**: A financial state where each individual transaction or deployed unit generates sufficient independent profit to cover all capital and operational costs without external subsidies.
@@ -2751,13 +2751,13 @@
 
 ---
 
-### Q180. Give the Grand Jury your final 60-second closing statement. Why must HoneyChain win the Smart India Hackathon 2026 for Problem Statement 26021?
+### Q180. Give the Grand Jury your final 60-second closing statement. Why must Beevil Knievel win the Smart India Hackathon 2026 for Problem Statement 26021?
 
 * **Interrogating Judge:** Dr. R.K. Sharma (Ministry of MSME)
 * **The Jury Trap / Intent:** *The ultimate hackathon leadership test: inspiring, concise, technically airtight, and grounded in national impact.*
 
 **🎙️ Clean Word Script (What You Say to the Jury):**
-> "Honorable Grand Jury: Problem Statement 26021 asked for smart automation to solve the structural crisis in Indian apiculture. Commercial aggregators have broken consumer trust with sugar syrup, while smallholder beekeepers lose half their colonies to disease and poverty. HoneyChain is not a speculative prototype—it is an end-to-end, validated cyber-physical operating system: 1. It operates at the physical edge with switched-rail LoRa nodes lasting 3+ years on solar power with zero cellular dependence. 2. It deploys an edge-to-fog AI suite benchmarked on 10,000+ hours of acoustic data, detecting Varroa and swarming 24 hours in advance. 3. It anchors unbroken biological truth to an EVM smart contract using sorted-pair Keccak Merkle trees and 2-of-3 multi-oracle quorums. 4. It empowers the poorest tribal beekeepers through free software onboarding and ₹225 shared community gateways, multiplying net farm income by 10.7x. HoneyChain turns Indian honey from a commoditized, adulterated syrup into a globally accredited, premium agricultural export, realizing the vision of the National Honey Mission. We have the code, we have the hardware, and we have the deployment roadmap. Thank you."
+> "Honorable Grand Jury: Problem Statement 26021 asked for smart automation to solve the structural crisis in Indian apiculture. Commercial aggregators have broken consumer trust with sugar syrup, while smallholder beekeepers lose half their colonies to disease and poverty. Beevil Knievel is not a speculative prototype—it is an end-to-end, validated cyber-physical operating system: 1. It operates at the physical edge with switched-rail LoRa nodes lasting 3+ years on solar power with zero cellular dependence. 2. It deploys an edge-to-fog AI suite benchmarked on 10,000+ hours of acoustic data, detecting Varroa and swarming 24 hours in advance. 3. It anchors unbroken biological truth to an EVM smart contract using sorted-pair Keccak Merkle trees and 2-of-3 multi-oracle quorums. 4. It empowers the poorest tribal beekeepers through free software onboarding and ₹225 shared community gateways, multiplying net farm income by 10.7x. Beevil Knievel turns Indian honey from a commoditized, adulterated syrup into a globally accredited, premium agricultural export, realizing the vision of the National Honey Mission. We have the code, we have the hardware, and we have the deployment roadmap. Thank you."
 
 **🔍 Cross-Counter Terminology & Gateway Breakdown:**
 * **`[Cyber-Physical Operating System]`**: A comprehensive software platform that deeply integrates physical sensing, embedded computation, wireless communications, and cryptographic ledgers into a unified operational loop.

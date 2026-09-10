@@ -39,7 +39,7 @@ beevil-knievel/
 │       ├── 07-radio/                         # Calculated RF link budget & multi-hop mesh topology
 │       ├── 08-edge-ai/                       # Two-tier hierarchical edge intelligence pipeline
 │       ├── 10-dashboard/                     # Real application screenshots (Dashboard, Mobile, Playdate)
-│       ├── 11-evidence/                      # Cryptographic HoneyChain Merkle tree & CUSUM curves
+│       ├── 11-evidence/                      # Cryptographic Beevil Knievel Merkle tree & CUSUM curves
 │       ├── application/                      # Real screenshots of live deployed web applications
 │       └── research/                         # Public domain & CC-BY real apiary and brood frame photos
 ├── firmware/
@@ -86,5 +86,5 @@ beevil-knievel/
 | **Acoustic Signal Processing** | `firmware/beevil_rak4631_transmitter/` & `TinyML Model/` | CMSIS-DSP 256-point real FFT, $f_s=2000\text{ Hz}$, $\Delta f=7.8125\text{ Hz}$, 4-band spectral feature binning. |
 | **Mathematical Derivations** | `docs/MATHEMATICAL_MODELS_AND_PHYSICS_PROOFS.md` | 13 first-principles mathematical and engineering models with step-by-step numerical examples. |
 | **Edge Gateway Ingestion** | `gateway/server.py` & `tests/test_full_gateway_pipeline.py` | Asynchronous FastAPI architecture, SQLite WAL mode, 148.1 pkts/s throughput benchmark, sub-7ms latency. |
-| **Live Interactive UI** | `frontend/src/app/playdate/page.tsx` & `/app/page.tsx` | Retro 1-bit memory LCD emulator with mechanical crank, live Web Audio synthesizer, 5-frame thermal heatmap, and HoneyChain explorer. |
+| **Live Interactive UI** | `frontend/src/app/playdate/page.tsx` & `/app/page.tsx` | Retro 1-bit memory LCD emulator with mechanical crank, live Web Audio synthesizer, 5-frame thermal heatmap, and Beevil Knievel explorer. |
 | **External Evidence & Literature**| `docs/references/` & `docs/research/` | Authoritative citations from USDA, FAO, Science, PLOS ONE, DCASE, and Zenodo Record 1321278. |

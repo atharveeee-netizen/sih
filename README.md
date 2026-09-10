@@ -1,4 +1,4 @@
-# 🍯 HONEY CHAIN
+# 🍯 BEEVIL KNIEVEL
 ## Digital Trust & Blockchain Traceability for the Indian Honey Value Chain
 > **Smart India Hackathon (SIH) 2026 · Problem Statement ID: 26021**  
 > **Ministry of Micro, Small & Medium Enterprises (MSME) — Coordination Section**  
@@ -19,7 +19,7 @@
 
 Under the **KVIC Honey Mission (*Meethi Kranti*)**, the Government of India provides bee boxes, live bee colonies, and extraction toolkits to rural and tribal beekeepers across national clusters. However, rural beekeepers, cooperatives, and consumers face severe structural barriers that depress rural income and undermine public trust.
 
-**Honey Chain** is a complete, cyber-physical traceability ecosystem designed for SIH 2026 Problem Statement 26021. It unifies:
+**Beevil Knievel** is a complete, cyber-physical traceability ecosystem designed for SIH 2026 Problem Statement 26021. It unifies:
 1. **Smart Hive IoT Nodes**: 40-byte binary LoRa telemetry with a 5-point frame temperature gradient, comb load cell dynamics, photoacoustic CO2, and on-MCU acoustic spectral processing.
 2. **Sub-GHz LoRa Star Network**: License-free IN865 band (865–867 MHz) transmitting up to 1.5 km in dense canopy and 15 km in rural line-of-sight with zero cellular SIM cards.
 3. **Edge AI Anomaly Triage**: On-MCU CMSIS-DSP 256-point Real FFT and gateway sensor fusion categorizing colony health risk states (`NORMAL`, `SUSPICIOUS`, `ANOMALOUS`).
@@ -44,12 +44,12 @@ Under the **KVIC Honey Mission (*Meethi Kranti*)**, the Government of India prov
 
 ---
 
-## 💡 03 - The Honey Chain Solution
+## 💡 03 - The Beevil Knievel Solution
 
-Honey Chain replaces blind trust with **cryptographic provenance** and **automated cyber-physical monitoring**:
+Beevil Knievel replaces blind trust with **cryptographic provenance** and **automated cyber-physical monitoring**:
 
 ```text
-               HONEY CHAIN END-TO-END TRUST PIPELINE
+               BEEVIL KNIEVEL END-TO-END TRUST PIPELINE
 
  ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
  │  SMART HIVE  │ ──► │  SUB-GHz LORA│ ──► │ EDGE GATEWAY │ ──► │ RELATIONAL DB│
@@ -67,10 +67,10 @@ Honey Chain replaces blind trust with **cryptographic provenance** and **automat
 ## 📐 04 - Visual Architecture
 
 <p align="center">
-  <img src="docs/figures/fig02_end_to_end_architecture.svg" alt="HoneyChain End-to-End Architecture" width="100%" />
+  <img src="docs/figures/fig02_end_to_end_architecture.svg" alt="Beevil Knievel End-to-End Architecture" width="100%" />
 </p>
 
-*FIG 02: Canonical HoneyChain 6-tier cyber-physical architecture connecting physical transducers to national KVIC governance.*
+*FIG 02: Canonical Beevil Knievel 6-tier cyber-physical architecture connecting physical transducers to national KVIC governance.*
 
 ### Core Architectural Layers
 - **Tier 1 — Smart Hive Field Transducers:** Non-invasive comb transducers operating on solar-charged LiFePO4 batteries.
@@ -132,7 +132,7 @@ To eliminate protocol discrepancies, the telemetry packet is formalized as an ex
   - `NORMAL`: Colony acoustic humming centered in $200 - 260\text{ Hz}$; brood core held at $34.5^\circ\text{C} - 35.5^\circ\text{C}$; steady diurnal comb weight.
   - `SUSPICIOUS (POSSIBLE QUEENLESS RISK)`: Acoustic energy shift to $380 - 450\text{ Hz}$ ("queenless piping"); brood core cooling ($<33.5^\circ\text{C}$); comb weight stagnation.
   - `ANOMALOUS (SWARM RISK / PREDATION)`: Acoustic spike ($>450\text{ Hz}$); sudden drop in comb weight ($>1.5\text{ kg}$ in $<30\text{ mins}$); tilt vibration alert.
-- **Honesty Disclosure:** Honey Chain explicitly frames AI output as **risk triage** rather than clinical disease diagnosis. High-accuracy claims on synthetic data are labeled `PARAMETRIC_SYNTHETIC`.
+- **Honesty Disclosure:** Beevil Knievel explicitly frames AI output as **risk triage** rather than clinical disease diagnosis. High-accuracy claims on synthetic data are labeled `PARAMETRIC_SYNTHETIC`.
 
 ---
 
@@ -179,7 +179,7 @@ CONSUMER AUTHENTICATION (Recorded Provenance & Anti-Reuse Check)
 *FIG 06: Quality control gateway enforcing FSSAI and KVIC export standards before packaging authorization.*
 
 ### Standards & Verification Protocols
-| Parameter | FSSAI / KVIC Standard | Honey Chain Threshold | Analytical Purpose |
+| Parameter | FSSAI / KVIC Standard | Beevil Knievel Threshold | Analytical Purpose |
 | :--- | :--- | :--- | :--- |
 | **Moisture Content** | $\le 20.0\%$ | $\le 18.0\%$ (Export Grade) | Prevents natural fermentation and spoilage by osmotolerant yeasts |
 | **HMF (Hydroxymethylfurfural)** | $\le 40.0\text{ mg/kg}$ (Tropical) | $\le 20.0\text{ mg/kg}$ | Verifies honey has not been overheated or artificially caramelized |
@@ -200,7 +200,7 @@ CONSUMER AUTHENTICATION (Recorded Provenance & Anti-Reuse Check)
 *FIG 08: Smart contract architecture featuring HoneyChain.sol multi-role approval workflow and HoneyChainQR.sol anti-counterfeiting engine.*
 
 ### Dual-Layer Enterprise Architecture
-Honey Chain combines high-throughput edge IoT ingestion with decentralized, immutable smart contract settlement on **Polygon Amoy (EVM)**:
+Beevil Knievel combines high-throughput edge IoT ingestion with decentralized, immutable smart contract settlement on **Polygon Amoy (EVM)**:
 
 1. **`HoneyChain.sol` (Core Traceability & RBAC Workflow)**:
    - **3-Role Governance:** Strict Role-Based Access Control (`BEEKEEPER_ROLE`, `FIELD_OFFICER_ROLE`, `DISTRICT_SUPERVISOR_ROLE`, `ADMIN_ROLE`).
@@ -293,7 +293,7 @@ For the exact presenter script, timing cues, and click sequence, see [`docs/demo
 
 ## 🖥️ 14 - Application Screenshots & Operational Surfaces
 
-The Honey Chain frontend is reconstructed around user purpose, featuring a clean, editorial, trustworthy aesthetic:
+The Beevil Knievel frontend is reconstructed around user purpose, featuring a clean, editorial, trustworthy aesthetic:
 
 | Screen & Route | Operational Role | Key Functionality |
 | :--- | :--- | :--- |
@@ -348,9 +348,9 @@ tests/test_honeychain_e2e.py ...................                        [100%]
   <img src="docs/figures/fig13_sih_requirement_mapping.svg" alt="SIH Requirement Mapping" width="100%" />
 </p>
 
-*FIG 13: 1:1 mapping of SIH 2026 Problem Statement 26021 requirements to Honey Chain implementations.*
+*FIG 13: 1:1 mapping of SIH 2026 Problem Statement 26021 requirements to Beevil Knievel implementations.*
 
-| Mandated Requirement (SIH 26021) | Honey Chain Engineering Implementation | Verification Evidence & Source Truth |
+| Mandated Requirement (SIH 26021) | Beevil Knievel Engineering Implementation | Verification Evidence & Source Truth |
 | :--- | :--- | :--- |
 | **Prototype Blockchain-based Traceability** | Tamper-evident permissioned cryptographic event ledger using SHA-256 hash chaining. | `gateway/honeychain_ledger.py`, `tests/test_honeychain_e2e.py` (Passes 19/19) |
 | **QR-Code Consumer Authentication** | Unique tokenized retail package codes (`HC-PKG-XXXXXXXX`) encoding verification tokens without leaking private farmer data. | `gateway/honeychain_qr.py`, `/verify`, `/v/[packageId]` Next.js portal |
@@ -368,18 +368,18 @@ tests/test_honeychain_e2e.py ...................                        [100%]
 ## 🛡️ 17 - Trust Boundary & Claim-Evidence Firewall
 
 <p align="center">
-  <img src="docs/figures/fig12_trust_boundary.svg" alt="HoneyChain Trust Boundary" width="100%" />
+  <img src="docs/figures/fig12_trust_boundary.svg" alt="Beevil Knievel Trust Boundary" width="100%" />
 </p>
 
-*FIG 12: Honey Chain Cryptographic Trust Boundary & Claim-Evidence Firewall.*
+*FIG 12: Beevil Knievel Cryptographic Trust Boundary & Claim-Evidence Firewall.*
 
-### What Honey Chain Mathematically Proves
+### What Beevil Knievel Mathematically Proves
 1. **Recorded Cryptographic Provenance:** Unbroken SHA-256 hash chain from apiary harvest to retail QR token.
 2. **Package Identity Integrity:** Every retail jar has an authorized package code issued by a registered co-op processing lot.
 3. **Laboratory Certificate Binding:** Lab test parameters are digitally hashed and immutably bound to the batch record.
 4. **Label Clone Detection:** Scan velocity and frequency tracking immediately flags duplicate photocopied labels.
 
-### What Honey Chain Cannot Prove (Physical Boundaries)
+### What Beevil Knievel Cannot Prove (Physical Boundaries)
 1. **Physical Contents Outside Checkpoints:** A QR code proves recorded provenance; it cannot chemically analyze honey inside an unsealed or refilled jar. Consumers must verify that the physical KVIC tamper-evident seal is unbroken.
 2. **Human Collusion at Laboratory Input:** The ledger guarantees that a filed laboratory report was not altered; it does not eliminate the possibility of fraudulent data entry at corrupt testing facilities.
 3. **Clinical Pathology Diagnosis:** Edge AI provides non-invasive colony risk triage, not clinical veterinary diagnosis.
@@ -463,6 +463,6 @@ sih/
 
 ## 👥 20 - Team & Academic Attribution
 - **Competition:** Smart India Hackathon (SIH) 2026
-- **Problem Statement:** 26021 — Honey Chain: A blockchain-based system for honey traceability and smart beekeeping management.
+- **Problem Statement:** 26021 — Beevil Knievel: A blockchain-based system for honey traceability and smart beekeeping management.
 - **Organization:** Ministry of Micro, Small & Medium Enterprises (MSME) / Khadi and Village Industries Commission (KVIC).
 - **Engineering Framework:** Reconstructed & validated under the SYZYGY Multi-Agent Engineering Meta-Framework.
