@@ -377,7 +377,7 @@ export const DICTIONARIES: Record<LanguageCode, Record<string, string>> = {
     step_faq_2_body: '১. নিচে সাদা কাগজ রাখুন। ২. ২৪ ঘণ্টা পর পোকা গুনুন।',
   },
   en: {
-    app_title: 'HoneyChain - Farmer App',
+    app_title: 'Beevil Knievel - Farmer App',
     login_heading: 'Beekeeper Login',
     login_subtext: 'Enter your KVIC Beekeeper ID or registered mobile number',
     farmer_id_or_phone: 'Farmer ID / Phone Number',
