@@ -284,7 +284,11 @@ class HoneyChainBlockchainBridge:
         signed = account.sign_transaction(tx)
         tx_hash = self.w3.eth.send_raw_transaction(signed.raw_transaction)
         receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash)
-        return {"tx_hash": receipt["transactionHash"].hex(), "block_number": receipt["blockNumber"], "receipt": receipt}
+        # Web3.to_hex() (not .hex()): hexbytes>=1.0 dropped the "0x" prefix from
+        # HexBytes.hex(), which silently produced tx hashes like "817bc2..." instead
+        # of "0x817bc2..." -- harmless for internal use but breaks a "view on
+        # PolygonScan/explorer" link built by prepending the usual "0x".
+        return {"tx_hash": Web3.to_hex(receipt["transactionHash"]), "block_number": receipt["blockNumber"], "receipt": receipt}
 
     def ensure_farmer_registered(self, beekeeper_id: str, name: str, location: str, cooperative_id: str) -> Dict[str, Any]:
         """

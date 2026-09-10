@@ -66,3 +66,9 @@ tools/tectonic/
 submission/*.aux
 submission/*.log
 
+
+# Env files (contain private keys / secrets -- never commit)
+.env
+.env.local
+!.env.example
+*.tsbuildinfo

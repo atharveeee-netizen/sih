@@ -4,6 +4,7 @@ import { BatchMetadata } from "@/lib/types";
 import { DEMO_BATCHES } from "@/lib/constants";
 import { generateSecureCid, generateSecureHex } from "@/lib/crypto-utils";
 import { getSession } from "@/lib/auth";
+import { mintBatchOnChain, registerQrOnChain } from "@/lib/serverChain";
 
 export const dynamic = "force-dynamic";
 
@@ -171,6 +172,61 @@ export async function POST(req: NextRequest) {
     const score = Number(qualityScore) || 92;
     const finalGrade = grade || (score >= 90 ? "Grade A+ (Premium Raw Organic)" : "Grade A (Standard Pure Honey)");
 
+    // Try a real, server-signed on-chain mint before falling back to a
+    // fabricated tx hash. No browser wallet is involved -- see
+    // lib/serverChain.ts. If the chain isn't reachable (e.g. no local
+    // Hardhat node running) this fails fast and the mint still succeeds
+    // off-chain exactly as before, just honestly labeled as such.
+    let chainResult: Awaited<ReturnType<typeof mintBatchOnChain>> | null = null;
+    let chainStatus: "minted" | "offline" = "offline";
+    let chainError: string | undefined;
+    try {
+      chainResult = await mintBatchOnChain({
+        farmerId: farmer.id,
+        farmerName: farmer.name,
+        farmerLocation: farmer.location,
+        farmerCooperativeId: farmer.cooperativeId,
+        botanicalFlora: botanicalFlora || "Monofloral Flora",
+        quantityKg: Number(quantityKg) || 250,
+        qualityScore: score,
+        grade: finalGrade,
+        qrToken,
+      });
+      chainStatus = "minted";
+    } catch (err: any) {
+      chainStatus = "offline";
+      chainError = err?.message || String(err);
+      console.warn("[chain] on-chain mint skipped, falling back to off-chain-only record:", chainError);
+    }
+
+    // If the batch itself minted on-chain, also register its QR token
+    // against HoneyChainQR.sol's commit-reveal scheme -- the actual
+    // anti-counterfeiting layer, previously fully dormant. This is
+    // deliberately FIRE-AND-FORGET: it is NOT awaited before the response
+    // goes back to the Field Officer. Two on-chain transactions (commit +
+    // reveal) take real network time, and per explicit product requirement
+    // that must never sit in front of the officer's screen -- the mint
+    // itself already succeeded and should feel instant. Success/failure is
+    // only logged server-side; the response reports "pending", not a final
+    // outcome. Only attempted when we have a real on-chain batchId to bind
+    // it to.
+    const qrChainStatus: "pending" | "skipped" = chainResult ? "pending" : "skipped";
+    if (chainResult) {
+      const onChainBatchId = chainResult.batchId;
+      void registerQrOnChain({ batchId: onChainBatchId, qrToken })
+        .then((result) => {
+          console.log(
+            `[chain] QR commit-reveal registered for batch #${nextId} (on-chain batchId ${onChainBatchId}): commit ${result.commitTxHash}, register ${result.registerTxHash}`
+          );
+        })
+        .catch((err: any) => {
+          console.warn(
+            `[chain] QR commit-reveal registration failed for batch #${nextId} (on-chain batchId ${onChainBatchId}):`,
+            err?.message || String(err)
+          );
+        });
+    }
+
     // Create batch in database
     const newBatch = await prisma.batch.create({
       data: {
@@ -184,8 +240,8 @@ export async function POST(req: NextRequest) {
         isRevoked: false,
         isDisputed: false,
         qrToken,
-        txHash: txHash || `0x${generateSecureHex(32)}`,
-        blockNumber: blockNumber || 59350000 + nextId,
+        txHash: chainResult?.txHash || txHash || `0x${generateSecureHex(32)}`,
+        blockNumber: chainResult?.blockNumber ?? blockNumber ?? 59350000 + nextId,
         botanicalFlora: botanicalFlora || "Monofloral Flora",
       },
     });
@@ -234,7 +290,26 @@ export async function POST(req: NextRequest) {
       batchId: newBatch.id,
       qrToken: newBatch.qrToken,
       txHash: newBatch.txHash,
-      message: `Batch #${newBatch.id} tokenized and persisted successfully`,
+      chain: {
+        status: chainStatus,
+        error: chainStatus === "offline" ? chainError : undefined,
+        requestId: chainResult?.requestId,
+        onChainBatchId: chainResult?.batchId,
+        farmerWallet: chainResult?.farmerWallet,
+        officerWallet: chainResult?.officerWallet,
+        farmerRegisteredNow: chainResult?.farmerRegisteredNow,
+        qr: {
+          status: qrChainStatus,
+          note:
+            qrChainStatus === "pending"
+              ? "QR commit-reveal registration is running in the background; it does not block this response."
+              : undefined,
+        },
+      },
+      message:
+        chainStatus === "minted"
+          ? `Batch #${newBatch.id} minted on-chain (tx ${newBatch.txHash}) and persisted`
+          : `Batch #${newBatch.id} tokenized and persisted successfully (chain offline: ${chainError || "unreachable"})`,
     });
   } catch (err: any) {
     console.error("Create batch error:", err);
