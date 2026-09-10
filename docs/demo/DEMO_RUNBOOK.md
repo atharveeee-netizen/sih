@@ -1,8 +1,8 @@
-# HONEY CHAIN — 5-MINUTE LIVE JURY DEMO RUNBOOK
+# BEEVIL KNIEVEL — 5-MINUTE LIVE JURY DEMO RUNBOOK
 ## Smart India Hackathon 2026 · Problem Statement ID: 26021
 **Ministry of MSME / KVIC Honey Mission (*Meethi Kranti*)**
 
-This document provides the exact sequence, script, and interaction steps for executing an airtight, flawless 5-minute technical jury presentation for Honey Chain.
+This document provides the exact sequence, script, and interaction steps for executing an airtight, flawless 5-minute technical jury presentation for Beevil Knievel.
 
 ---
 
@@ -27,7 +27,7 @@ This document provides the exact sequence, script, and interaction steps for exe
 2. **Script / Narrative:**
    > *"Respected Jury Members, under the KVIC Honey Mission, rural and tribal beekeepers produce some of the finest raw honey in the world. Yet in the retail market, over 60% of commercial honey is adulterated with cheap inverted sugar syrups, while genuine beekeepers get depressed prices because consumers have zero way to verify origin or laboratory purity.*
    > 
-   > *Honey Chain solves SIH Problem Statement 26021 by building an unbroken, cyber-physical bridge from smart hive IoT nodes in the field to retail consumer QR verification, anchored in a permissioned cryptographic ledger."*
+   > *Beevil Knievel solves SIH Problem Statement 26021 by building an unbroken, cyber-physical bridge from smart hive IoT nodes in the field to retail consumer QR verification, anchored in a permissioned cryptographic ledger."*
 3. **Point to:** The 5-stage value chain and KVIC national macro metrics on the homepage.
 
 ---
@@ -59,7 +59,7 @@ This document provides the exact sequence, script, and interaction steps for exe
    - **Expand:** Origin (Nilgiris Mountain Forest Cluster, Ramanathan Pillai, Shola Ridge Apiary Alpha, 1,850m AMSL).
    - **Expand:** Quality Control (Pune KVIC Lab, Moisture $17.1\%$, HMF $11.2\text{ mg/kg}$, Diastase $14.8$).
    - **Point to the Claim-Evidence Firewall Card:**
-     > *"Notice our Trust Boundary card: Honey Chain mathematically proves recorded provenance, registered package identity, and ledger integrity. We explicitly disclose that liquid authenticity outside inspection points still depends on the physical tamper-evident seal."*
+     > *"Notice our Trust Boundary card: Beevil Knievel mathematically proves recorded provenance, registered package identity, and ledger integrity. We explicitly disclose that liquid authenticity outside inspection points still depends on the physical tamper-evident seal."*
 2. **Navigate to Flagged Clone:** `http://localhost:3000/v/HC-PKG-B8C24D91`
    - **Show:** **SUSPICIOUS — SCAN VELOCITY ANOMALY DETECTED** (Red status banner).
    - **Show:** Scan count: 6 times across geographically distinct network endpoints.
@@ -80,7 +80,7 @@ This document provides the exact sequence, script, and interaction steps for exe
      - Status immediately flips to **CRITICAL: SHA-256 HASH MISMATCH DETECTED!**
      - Ledger verification displays `chain_intact: False`, pinpointing the exact modified block.
 4. **Script / Narrative:**
-   > *"This proves that Honey Chain is not a simple database with a pretty dashboard. It is a genuine permissioned cryptographic ledger. The moment any historical value is altered, the entire subsequent hash chain breaks mathematically, exposing the tampering instantly."*
+   > *"This proves that Beevil Knievel is not a simple database with a pretty dashboard. It is a genuine permissioned cryptographic ledger. The moment any historical value is altered, the entire subsequent hash chain breaks mathematically, exposing the tampering instantly."*
 
 ---
 
@@ -90,14 +90,14 @@ This document provides the exact sequence, script, and interaction steps for exe
    - 3 active clusters: Nilgiris (Tamil Nadu), Gir Forest (Gujarat), Kashmir Valley (Jammu & Kashmir).
    - Real-time aggregate telemetry, healthy vs at-risk colonies, compliance rates, and direct market linkage orders.
 3. **Closing Pitch:**
-   > *"In summary, Honey Chain delivers an end-to-end, SIH-defensible, tamper-evident ecosystem. It protects consumer health, prevents commercial adulteration, empowers rural tribal beekeepers with fair market prices, and gives KVIC complete operational governance over the Honey Mission. Thank you, and we welcome your questions."*
+   > *"In summary, Beevil Knievel delivers an end-to-end, SIH-defensible, tamper-evident ecosystem. It protects consumer health, prevents commercial adulteration, empowers rural tribal beekeepers with fair market prices, and gives KVIC complete operational governance over the Honey Mission. Thank you, and we welcome your questions."*
 
 ---
 
 ### Jury Defense Quick Reference
-| Likely Jury Question | Exact Honey Chain Answer |
+| Likely Jury Question | Exact Beevil Knievel Answer |
 | :--- | :--- |
-| *"Can someone refill a genuine bottle with sugar syrup?"* | *"Yes, if they break the seal. That is why Honey Chain pairs the QR token with a physical tamper-evident seal and scan velocity tracking. The QR proves registered provenance; the physical seal protects the liquid. We explicitly document this in our Trust Boundary (FIG 12)."* |
+| *"Can someone refill a genuine bottle with sugar syrup?"* | *"Yes, if they break the seal. That is why Beevil Knievel pairs the QR token with a physical tamper-evident seal and scan velocity tracking. The QR proves registered provenance; the physical seal protects the liquid. We explicitly document this in our Trust Boundary (FIG 12)."* |
 | *"Why not use public Ethereum?"* | *"Public blockchains incur variable gas fees ($2–$15 per transaction) and high latency, which is economically unviable for a rural 500g jar costing ₹350. We implement an authorized, permissioned SHA-256 hash-chain that provides identical mathematical tamper-evidence at zero transaction cost."* |
 | *"Is your AI model clinically validated for bee diseases?"* | *"No. Our current AI model uses sensor fusion (temperature, comb acoustics, weight, CO2) to classify colony health risk states (`NORMAL`, `SUSPICIOUS`, `ANOMALOUS`). We explicitly label this as risk triage rather than clinical pathology diagnosis until certified field bio-assays are conducted."* |
 | *"How does the node transmit without cellular coverage?"* | *"Our sensor node uses an SX1262 LoRa transceiver operating on the license-free IN865 band (865–867 MHz). It transmits to a central apiary gateway up to 1.5 km through thick canopy or 15 km line-of-sight with zero SIM cards."* |

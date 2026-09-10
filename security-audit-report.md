@@ -1,6 +1,6 @@
 # Security Audit Report — 100% Remediated ✅
 
-**Project**: HoneyChain by TrueTag (SIH 2026 — Problem Statement SIH26021)  
+**Project**: Beevil Knievel (SIH 2026 — Problem Statement SIH26021)  
 **Date**: September 1, 2026  
 **Auditor**: Antigravity / Claude Security Audit  
 **Frameworks**: OWASP Top 10:2025 · NIST CSF 2.0 · CWE · SANS Top 25 · ASVS 5.0 · PCI DSS 4.0.1 · MITRE ATT&CK · SOC 2 · ISO 27001:2022  
