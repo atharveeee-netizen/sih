@@ -391,7 +391,7 @@ export default function ConsumerVerificationPage() {
                   <div className="p-6 border border-charcoal/15 bg-white">
                     <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-2">Polygon Transaction Hash</p>
                     <div className="flex items-center justify-between font-mono text-xs text-charcoal">
-                      <span className="truncate pr-4">{txHash || "0x98f4c2b1e7a6d5c4b3a2f1e0d9c8b7a6f5e4d3c2b1a0f9e8d7c6b5a4f3e2d1c0"}</span>
+                      <span className="truncate pr-4">{txHash || "Not recorded on chain"}</span>
                       <button
                         onClick={handleCopyTx}
                         className="text-gold hover:text-charcoal transition-colors flex items-center gap-1 text-[10px] uppercase font-semibold flex-shrink-0"
