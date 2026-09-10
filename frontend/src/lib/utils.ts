@@ -5,15 +5,43 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (process.env.NODE_ENV === "production" ? "/beevil-knievel" : "");
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const FULL_MONTHS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
-export function getAssetPath(path: string): string {
-  if (!path) return "";
-  if (path.startsWith("http://") || path.startsWith("https://") || path.startsWith("data:")) {
-    return path;
-  }
-  const cleanPath = path.startsWith("/") ? path : `/${path}`;
-  return `${basePath}${cleanPath}`;
+export function formatDeterministicDate(unixTimestamp: number, fullMonth = true): string {
+  const d = new Date(unixTimestamp * 1000);
+  const day = String(d.getUTCDate()).padStart(2, "0");
+  const month = fullMonth ? FULL_MONTHS[d.getUTCMonth()] : MONTHS[d.getUTCMonth()];
+  const year = d.getUTCFullYear();
+  return `${month} ${day}, ${year}`;
 }
 
+export function formatDeterministicMonthYear(unixTimestamp: number): string {
+  const d = new Date(unixTimestamp * 1000);
+  const month = FULL_MONTHS[d.getUTCMonth()];
+  const year = d.getUTCFullYear();
+  return `${month} ${year}`;
+}
 
+export function formatDeterministicDateTime(unixTimestamp: number): string {
+  const d = new Date(unixTimestamp * 1000);
+  const day = String(d.getUTCDate()).padStart(2, "0");
+  const month = MONTHS[d.getUTCMonth()];
+  const year = d.getUTCFullYear();
+  const hours = String(d.getUTCHours()).padStart(2, "0");
+  const minutes = String(d.getUTCMinutes()).padStart(2, "0");
+  return `${day} ${month} ${year}, ${hours}:${minutes} UTC`;
+}

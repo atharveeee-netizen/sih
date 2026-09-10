@@ -1,312 +1,181 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@font-face {
-  font-family: 'Roobert';
-  src: url('/fonts/Roobert-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
+@layer base {
+  :root {
+    --alabaster: #F5F3EB;
+    --alabaster-card: #FFFFFF;
+    --charcoal: #121212;
+    --charcoal-light: #1E1E1E;
+    --taupe: #E4DDD3;
+    --warm-grey: #6E685F;
+    --gold: #D4AF37;
+    --gold-light: #F3E5AB;
+  }
 
-@font-face {
-  font-family: 'Roobert';
-  src: url('/fonts/Roobert-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+  html, body {
+    background-color: var(--alabaster);
+    color: var(--charcoal);
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+    touch-action: manipulation;
+  }
 
-@font-face {
-  font-family: 'Roobert';
-  src: url('/fonts/Roobert-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+  /* Prevent awkward mobile tap flashes */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
 
-@font-face {
-  font-family: 'Roobert';
-  src: url('/fonts/Roobert-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
+  h1, h2, h3, h4, .serif {
+    font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+    letter-spacing: -0.01em;
+  }
 
-@font-face {
-  font-family: 'Roobert';
-  src: url('/fonts/Roobert-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+  .safe-area-bottom {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
 
-@font-face {
-  font-family: 'Roobert';
-  src: url('/fonts/Roobert-Heavy.woff2') format('woff2');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
+  .safe-area-top {
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+  }
 }
 
-@theme inline {
-  --font-sans: 'Roobert', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-roobert: 'Roobert', sans-serif;
-  --color-brand-yellow: #ffc833;
-  --color-device-yellow: #fbc651;
-  --color-screen-black: #312f28;
-  --color-screen-white: #b1afa8;
-  --color-psd-darkest-gray: #212223;
-  --color-psd-dark-gray: #7a8085;
-  --color-psd-mid-gray: #64676c;
-  --color-psd-light-gray: #bbb;
-  --color-psd-lightest-gray: #efefef;
-  --color-purple: #6c00ff;
-  --color-aqua: #00a88a;
-  --color-aqua-light: #21c6a9;
-  --color-aqua-dark: #127866;
-  --color-alert-red: #ef5023;
+/* ─── Luxury Editorial Typography & Components ────────────────────────────── */
+
+.luxury-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 18, 18, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-:root {
-  --brand-yellow: #ffc833;
-  --screen-black: #312f28;
-  --screen-white: #b1afa8;
-  --psd-darkest-gray: #212223;
-  --psd-dark-gray: #7a8085;
-  --psd-mid-gray: #64676c;
-  --psd-light-gray: #bbbbbb;
-  --psd-lightest-gray: #efefef;
-  --purple: #6c00ff;
-  --aqua: #00a88a;
-  --aqua-light: #21c6a9;
-  --aqua-dark: #127866;
-  --white: #ffffff;
-  --black: #000000;
+.luxury-card:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
-html {
-  scroll-behavior: smooth;
-  font-family: 'Roobert', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--psd-dark-gray);
-  color: var(--white);
-  overflow-x: hidden;
+.luxury-card-dark {
+  background: #161616;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #F5F3EB;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
-body {
-  font-family: 'Roobert', -apple-system, BlinkMacSystemFont, sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* 3D Order Button */
-.btn-order-purple {
-  display: inline-block;
-  text-decoration: none;
-  padding: 0.35em 1.2em 0.45em 1.2em;
-  border-radius: 3em;
-  user-select: none;
-  cursor: pointer;
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-align: center;
-  text-shadow: 0 0.02em 0.04em rgba(0, 0, 0, 0.4);
-  color: var(--white);
-  background-color: var(--purple);
-  background-image: linear-gradient(#9400ff, #5c00ff);
-  box-shadow:
-    inset 0 0.05em 0.05em rgba(255, 255, 255, 0.6),
-    inset 0 -0.05em 0.08em rgba(0, 0, 0, 0.5),
-    inset 0 -0.01em 0.5em rgba(255, 255, 255, 0.3),
-    0 0.05em 0.1em rgba(0, 0, 0, 0.4);
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-}
-
-.btn-order-purple:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    inset 0 0.05em 0.05em rgba(255, 255, 255, 0.7),
-    inset 0 -0.05em 0.08em rgba(0, 0, 0, 0.5),
-    inset 0 -0.01em 0.5em rgba(255, 255, 255, 0.4),
-    0 0.15em 0.25em rgba(0, 0, 0, 0.5);
-}
-
-.btn-order-purple:active {
-  transform: translateY(1px);
-  background-image: linear-gradient(#4a00d1, #7800ff);
-  box-shadow:
-    inset 0 0.05em 0.15em rgba(0, 0, 0, 0.5),
-    inset 0 -0.03em 0.03em rgba(255, 255, 255, 0.6),
-    0 0.05em 0.2em rgba(0, 0, 0, 0.2);
-}
-
-/* Secondary Buttons */
-.btn-pill-black {
-  display: inline-block;
-  background-color: var(--screen-black);
-  color: var(--white);
-  padding: 0.6em 1.6em;
-  border-radius: 2em;
-  font-weight: 700;
-  font-size: 1.15rem;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-.btn-pill-black:hover {
-  background-color: #000000;
-  transform: translateY(-1px);
-}
-
-.btn-pill-yellow {
-  display: inline-block;
-  background-color: var(--brand-yellow);
-  color: var(--screen-black);
-  padding: 0.6em 1.6em;
-  border-radius: 2em;
-  font-weight: 700;
-  font-size: 1.15rem;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-.btn-pill-yellow:hover {
-  background-color: #ffd659;
-  transform: translateY(-1px);
-}
-
-.btn-pill-aqua-dark {
-  display: inline-block;
-  background-color: var(--aqua-dark);
-  color: var(--white);
-  padding: 0.6em 1.6em;
-  border-radius: 2em;
-  font-weight: 700;
-  font-size: 1.15rem;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-.btn-pill-aqua-dark:hover {
-  background-color: #0d5a4d;
-  transform: translateY(-1px);
-}
-
-/* Large Header Download Button */
-.btn-header-download {
+/* Gold sliding hover animation on primary button */
+.btn-gold-slide {
+  position: relative;
+  overflow: hidden;
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: #121212;
+  color: #FFFFFF;
+  border: 1px solid #121212;
+  z-index: 1;
+  white-space: nowrap;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background-color: var(--brand-yellow);
-  color: var(--screen-black);
-  padding: 0.55em 1.4em;
-  border-radius: 9999px;
-  font-weight: 800;
-  font-size: 0.95rem;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: all 0.2s ease;
-}
-.btn-header-download:hover {
-  background-color: #ffe066;
-  transform: translateY(-1px) scale(1.03);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-}
-.btn-header-download:active {
-  transform: translateY(1px) scale(0.98);
 }
 
-/* Perspective & 3D Helpers */
-.perspective-1000 {
-  perspective: 1000px;
+.btn-gold-slide > * {
+  position: relative;
+  z-index: 2;
 }
 
-.transform-style-3d {
-  transform-style: preserve-3d;
+.btn-gold-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #D4AF37;
+  transform: translateX(-100%);
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
 }
 
-.backface-hidden {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+.btn-gold-slide:hover::before {
+  transform: translateX(0);
 }
 
-.rotate-y-180 {
-  transform: rotateY(180deg);
+.btn-gold-slide:hover {
+  color: #121212;
+  border-color: #D4AF37;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
 }
 
-/* Clouds Blobble Animation */
-@keyframes blobble {
-  0% { transform: scale(1, 1); }
-  30% { transform: scale(1.05, 0.97); }
-  70% { transform: scale(0.99, 1.03); }
-  100% { transform: scale(1.03, 0.99); }
+/* Secondary outline button */
+.btn-outline-luxury {
+  border: 1px solid #121212;
+  background: #FFFFFF;
+  color: #121212;
+  transition: all 400ms ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
 }
 
-.animate-blobble {
-  animation: blobble 5s infinite ease-in-out alternate;
+.btn-outline-luxury:hover {
+  background-color: #121212;
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Playdate 1-Bit Dither & LCD Screen Aesthetics */
-.playdate-screen {
-  background-color: var(--screen-black);
-  color: var(--screen-white);
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6), inset 0 0 0 2px rgba(0, 0, 0, 0.4);
+/* High contrast inputs */
+.luxury-input {
+  background: #FFFFFF;
+  border-bottom: 2px solid rgba(18, 18, 18, 0.3);
+  padding: 0.75rem 0.5rem;
+  font-size: 0.875rem;
+  color: #121212;
+  transition: border-color 300ms ease;
 }
 
-.playdate-scanlines {
-  background-image: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.15) 0px,
-    rgba(0, 0, 0, 0.15) 1px,
-    transparent 1px,
-    transparent 2px
-  );
+.luxury-input:focus {
+  outline: none;
+  border-bottom-color: #D4AF37;
 }
 
-.playdate-dither-light {
-  background-image: radial-gradient(#312f28 1px, transparent 0);
-  background-size: 4px 4px;
+/* Ultra-slow image reveal */
+.luxury-image-hover {
+  filter: grayscale(100%);
+  transition: filter 1200ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1200ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.playdate-dither-dark {
-  background-image: radial-gradient(#b1afa8 1px, transparent 0);
-  background-size: 4px 4px;
+.group:hover .luxury-image-hover {
+  filter: grayscale(0%);
+  transform: scale(1.02);
 }
 
-/* Tactile Playdate Hardware Buttons */
-.playdate-dpad-btn {
-  background-color: #212223;
-  box-shadow: 0 3px 0 #111112, 0 4px 6px rgba(0, 0, 0, 0.4);
-  transition: all 0.05s ease-in-out;
-}
-.playdate-dpad-btn:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 #111112, 0 2px 3px rgba(0, 0, 0, 0.4);
+/* Gold glow effect */
+.gold-glow {
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
-.playdate-action-btn {
-  background-color: #312f28;
-  color: #ffc833;
-  box-shadow: 0 4px 0 #1a1915, 0 6px 10px rgba(0, 0, 0, 0.35);
-  transition: all 0.08s ease-in-out;
-}
-.playdate-action-btn:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 #1a1915, 0 2px 4px rgba(0, 0, 0, 0.35);
+/* Timeline architectural line */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 1px;
+  background: rgba(18, 18, 18, 0.2);
 }
 
-/* Custom Scrollbar for 100-Hive Matrix */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* Mobile Safe Area & Scrollbar Utilities */
+.safe-area-bottom {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
 }
-::-webkit-scrollbar-track {
-  background: #212223;
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
-::-webkit-scrollbar-thumb {
-  background: #64676c;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #ffc833;
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

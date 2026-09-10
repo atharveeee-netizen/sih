@@ -9,20 +9,17 @@ __pycache__/
 *.db-shm
 venv/
 .venv/
+.pytest_cache/
 
 # OS / Temporary
 .DS_Store
 Thumbs.db
 node_modules/
 .next/
+out/
+frontend/out/
+scratch/
 *.tmp
-
-# Hardhat & Smart Contracts
-contracts/node_modules/
-contracts/artifacts/
-contracts/cache/
-artifacts/
-cache/
 
 # IDE / Editor Files
 .vscode/
@@ -30,3 +27,48 @@ cache/
 
 # Local Dev Server Logs
 server.log
+
+# Ansys Solver Files
+*.rth
+*.DSP
+*.dat
+*.err
+*.gst
+*.mntr
+*.nlh
+*.aapresults
+*.cmdb
+*.asol
+*.page
+*.efld
+
+# Large Audio Files
+ml_models/datasets/sample_bee_audio/zenodo_*.wav
+TinyML Model/datasets/sample_bee_audio/zenodo_*.wav
+
+# Firmware Local Build Output
+firmware/build/
+.pio/
+*.elf
+*.hex
+*.bin
+*.zip
+*.map
+
+# Local Serial Logs
+logs/
+
+# Raw Video Downloads (Outside Submission Package)
+assets/video_sources/raw/
+
+# Local TeX Engine
+tools/tectonic/
+submission/*.aux
+submission/*.log
+
+
+# Env files (contain private keys / secrets -- never commit)
+.env
+.env.local
+!.env.example
+*.tsbuildinfo

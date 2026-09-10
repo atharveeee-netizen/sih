@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# BEEVIL KNIEVEL — POWER-LOSS IMMUNE OVERLAYFS SETUP SCRIPT
+# BEEVIL KNIEVEL - POWER-LOSS IMMUNE OVERLAYFS SETUP SCRIPT
 # =============================================================================
 # Configures a 100% Read-Only Root Filesystem with RAM Overlay on Raspberry Pi OS.
 # Eliminates eMMC / SD Card corruption from violent power pulls in rural fields.
@@ -14,7 +14,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 echo "================================================================="
-echo "  BEEVIL KNIEVEL — ENABLING HARDENED READ-ONLY OVERLAYFS"
+echo "  BEEVIL KNIEVEL - ENABLING HARDENED READ-ONLY OVERLAYFS"
 echo "================================================================="
 
 # Create isolated persistent telemetry data partition directory
@@ -36,5 +36,5 @@ echo "================================================================="
 echo "🎉 OVERLAYFS CONFIGURED SUCCESSFULLY!"
 echo "   • The OS is now 100% immune to abrupt power cuts."
 echo "   • Telemetry writes persist safely in WAL database mode."
-echo "   • Reboot the CM4 now to activate: sudo reboot"
+echo "   • Reboot the Raspberry Pi now to activate: sudo reboot"
 echo "================================================================="
