@@ -18,6 +18,7 @@ import DBTPayoutCard from "@/components/DBTPayoutCard";
 import VerifiableCredentialModal from "@/components/VerifiableCredentialModal";
 import UnderCapPinClaimModal from "@/components/UnderCapPinClaimModal";
 import { fetchBatchById, fetchBatchByQR } from "@/lib/contract";
+import { POLYGON_AMOY_RPC } from "@/lib/constants";
 import { exportHoneyBatchCredential } from "@/lib/vc-serializer";
 import { generateCertificatePDF } from "@/lib/pdf-certificate";
 import { generateExportPassportPDF } from "@/lib/export-passport";
@@ -442,15 +443,27 @@ export default function ConsumerVerificationPage() {
                     <Download className="w-4 h-4 shrink-0" />
                     <span>W3C Credential (JSON-LD)</span>
                   </button>
-                  <a
-                    href={`https://amoy.polygonscan.com/tx/${txHash || "0x98f4c2b1e7a6d5c4b3a2f1e0d9c8b7a6f5e4d3c2b1a0f9e8d7c6b5a4f3e2d1c0"}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-full sm:w-auto py-3 px-5 text-[11px] uppercase tracking-wider font-bold btn-outline-luxury flex items-center justify-center gap-2"
-                  >
-                    <ExternalLink className="w-4 h-4 shrink-0" />
-                    <span>Explorer</span>
-                  </a>
+                  {POLYGON_AMOY_RPC.includes("127.0.0.1") || POLYGON_AMOY_RPC.includes("localhost") ? (
+                    <button
+                      type="button"
+                      onClick={handleCopyTx}
+                      title="Running on a local offline demo chain -- no public explorer. Copies the real transaction hash instead."
+                      className="w-full sm:w-auto py-3 px-5 text-[11px] uppercase tracking-wider font-bold btn-outline-luxury flex items-center justify-center gap-2"
+                    >
+                      <Copy className="w-4 h-4 shrink-0" />
+                      <span>{copiedTx ? "Tx Hash Copied" : "Copy Local Tx Hash"}</span>
+                    </button>
+                  ) : (
+                    <a
+                      href={`https://amoy.polygonscan.com/tx/${txHash || "0x98f4c2b1e7a6d5c4b3a2f1e0d9c8b7a6f5e4d3c2b1a0f9e8d7c6b5a4f3e2d1c0"}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-full sm:w-auto py-3 px-5 text-[11px] uppercase tracking-wider font-bold btn-outline-luxury flex items-center justify-center gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4 shrink-0" />
+                      <span>Explorer</span>
+                    </a>
+                  )}
                 </div>
 
                 {/* Report Counterfeit / Broken Seal */}

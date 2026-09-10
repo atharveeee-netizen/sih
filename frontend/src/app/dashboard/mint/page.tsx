@@ -8,6 +8,7 @@ import confetti from "canvas-confetti";
 import { Layers, ArrowLeft, Sparkles, CheckCircle2, QrCode, ExternalLink, ShieldCheck, Activity } from "lucide-react";
 
 import { saveCustomBatch, getCustomFarmers, getCustomBatches, fetchFarmersFromDB } from "@/lib/registry";
+import { POLYGON_AMOY_RPC } from "@/lib/constants";
 import { generateSecureHex, generateSecureCid } from "@/lib/crypto-utils";
 
 export default function MintBatchPage() {
@@ -42,6 +43,17 @@ export default function MintBatchPage() {
     grade: string;
     qrToken: string;
     txHash: string;
+    blockNumber?: number;
+    chain?: {
+      status: "minted" | "offline";
+      error?: string;
+      requestId?: number;
+      onChainBatchId?: number;
+      farmerWallet?: string;
+      officerWallet?: string;
+      farmerRegisteredNow?: boolean;
+      qr?: { status: string; note?: string };
+    } | null;
   } | null>(null);
 
   // Debounced API call to FastAPI AI microservice
@@ -104,12 +116,16 @@ export default function MintBatchPage() {
       let newBatchId = 3;
       let generatedToken = `TT-2026-00003`;
       let generatedTx = `0x${generateSecureHex(32)}`;
+      let generatedChain: any = null;
+      let generatedBlockNumber: number | undefined = undefined;
 
       if (res.ok) {
         const data = await res.json();
         newBatchId = data.batchId;
         generatedToken = data.qrToken;
         generatedTx = data.txHash || generatedTx;
+        generatedChain = data.chain || null;
+        generatedBlockNumber = data.blockNumber;
       } else {
         const allBatches = getCustomBatches();
         newBatchId = allBatches.length + 1;
@@ -167,6 +183,8 @@ export default function MintBatchPage() {
         grade: aiGrade,
         qrToken: generatedToken,
         txHash: generatedTx,
+        blockNumber: generatedBlockNumber,
+        chain: generatedChain,
       });
 
       confetti({
@@ -215,7 +233,7 @@ export default function MintBatchPage() {
                 <span className="font-mono font-bold text-charcoal">{successData.qrToken}</span>.
               </p>
 
-              <div className="p-4 border border-charcoal/10 bg-white max-w-lg mx-auto text-left font-mono text-xs mb-8 space-y-2">
+              <div className="p-4 border border-charcoal/10 bg-white max-w-lg mx-auto text-left font-mono text-xs mb-4 space-y-2">
                 <div className="flex justify-between">
                   <span className="text-warm-grey">AI Purity Score:</span>
                   <span className="font-bold text-gold">{successData.score}/100</span>
@@ -224,10 +242,86 @@ export default function MintBatchPage() {
                   <span className="text-warm-grey">Classification:</span>
                   <span className="font-semibold text-charcoal">{successData.grade}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-warm-grey">Polygon Tx:</span>
-                  <span className="truncate max-w-[200px] text-[10px]">{successData.txHash}</span>
+              </div>
+
+              {/* On-chain proof panel -- shows the REAL transaction that just happened,
+                  so this doesn't depend on a separate terminal window or an explorer
+                  link (which won't resolve for a local/offline chain). */}
+              <div className="p-4 border border-emerald-600/30 bg-emerald-900/[0.03] max-w-lg mx-auto text-left font-mono text-[10px] sm:text-xs mb-8 space-y-2">
+                <div className="flex items-center justify-between mb-2 pb-2 border-b border-emerald-600/20">
+                  <span className="flex items-center gap-1.5 text-emerald-700 font-sans font-bold uppercase tracking-wider text-[10px]">
+                    <Activity className="w-3.5 h-3.5" />
+                    On-Chain Proof
+                  </span>
+                  <span
+                    className={`px-2 py-0.5 font-sans font-bold uppercase tracking-wider text-[9px] ${
+                      successData.chain?.status === "minted"
+                        ? "bg-emerald-600 text-white"
+                        : "bg-amber-500 text-white"
+                    }`}
+                  >
+                    {successData.chain?.status === "minted" ? "Live Transaction" : "Off-Chain Fallback"}
+                  </span>
                 </div>
+
+                <div className="flex justify-between gap-4">
+                  <span className="text-warm-grey shrink-0">Network:</span>
+                  <span className="text-charcoal text-right">
+                    {POLYGON_AMOY_RPC.includes("127.0.0.1") || POLYGON_AMOY_RPC.includes("localhost")
+                      ? "Local Hardhat Node (offline)"
+                      : "Polygon Amoy Testnet"}
+                  </span>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <span className="text-warm-grey shrink-0">Tx Hash:</span>
+                  <span className="truncate max-w-[220px] text-charcoal" title={successData.txHash}>
+                    {successData.txHash}
+                  </span>
+                </div>
+                {successData.blockNumber !== undefined && (
+                  <div className="flex justify-between gap-4">
+                    <span className="text-warm-grey shrink-0">Block:</span>
+                    <span className="text-charcoal">#{successData.blockNumber}</span>
+                  </div>
+                )}
+                {successData.chain?.onChainBatchId !== undefined && (
+                  <div className="flex justify-between gap-4">
+                    <span className="text-warm-grey shrink-0">On-Chain Batch ID:</span>
+                    <span className="text-charcoal">#{successData.chain.onChainBatchId}</span>
+                  </div>
+                )}
+                {successData.chain?.officerWallet && (
+                  <div className="flex justify-between gap-4">
+                    <span className="text-warm-grey shrink-0">Officer Wallet:</span>
+                    <span className="truncate max-w-[220px] text-charcoal" title={successData.chain.officerWallet}>
+                      {successData.chain.officerWallet}
+                    </span>
+                  </div>
+                )}
+                {successData.chain?.farmerWallet && (
+                  <div className="flex justify-between gap-4">
+                    <span className="text-warm-grey shrink-0">
+                      Farmer Wallet{successData.chain.farmerRegisteredNow ? " (registered now)" : ""}:
+                    </span>
+                    <span className="truncate max-w-[220px] text-charcoal" title={successData.chain.farmerWallet}>
+                      {successData.chain.farmerWallet}
+                    </span>
+                  </div>
+                )}
+                {successData.chain?.qr?.status && (
+                  <div className="flex justify-between gap-4">
+                    <span className="text-warm-grey shrink-0">QR Anti-Counterfeit Binding:</span>
+                    <span className="text-charcoal capitalize">{successData.chain.qr.status}</span>
+                  </div>
+                )}
+                {successData.chain?.status === "offline" && successData.chain?.error && (
+                  <div className="flex justify-between gap-4 pt-2 border-t border-amber-500/30">
+                    <span className="text-amber-700 shrink-0">Reason:</span>
+                    <span className="text-amber-700 truncate max-w-[220px]" title={successData.chain.error}>
+                      {successData.chain.error}
+                    </span>
+                  </div>
+                )}
               </div>
 
               <div className="flex flex-col sm:flex-row justify-center gap-4">

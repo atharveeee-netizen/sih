@@ -290,6 +290,7 @@ export async function POST(req: NextRequest) {
       batchId: newBatch.id,
       qrToken: newBatch.qrToken,
       txHash: newBatch.txHash,
+      blockNumber: newBatch.blockNumber,
       chain: {
         status: chainStatus,
         error: chainStatus === "offline" ? chainError : undefined,
