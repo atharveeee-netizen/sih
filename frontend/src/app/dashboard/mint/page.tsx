@@ -191,7 +191,7 @@ export default function MintBatchPage() {
         particleCount: 100,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ["#D4AF37", "#1A1A1A", "#FFFFFF"],
+        colors: ["#14508C", "#16212B", "#FFFFFF"],
       });
     } catch (err) {
       console.error("Mint error:", err);

@@ -120,7 +120,7 @@ export default function DashboardClient({ user }: { user: SessionUser }) {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#F9F8F6]">
+    <div className="min-h-screen flex flex-col justify-between bg-[#EEF1F4]">
       <Navbar />
 
       <main className="py-8 sm:py-16 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto w-full flex-1">
@@ -158,7 +158,7 @@ export default function DashboardClient({ user }: { user: SessionUser }) {
                     officer.role === "LAB_ANALYST" ? "bg-blue-500" : "bg-rose-500"
                   }`} />
                   <span>{ROLE_LABEL[officer.role as Role]}: {officer.name.split(" ")[0]}</span>
-                  {isActive && <span className="text-[9px] uppercase font-sans font-bold bg-gold text-charcoal px-1 ml-0.5">Active</span>}
+                  {isActive && <span className="text-[9px] uppercase font-sans font-bold bg-gold text-white px-1 ml-0.5">Active</span>}
                 </button>
               );
             })}
@@ -176,7 +176,7 @@ export default function DashboardClient({ user }: { user: SessionUser }) {
               </span>
             </div>
             <h1 className="text-2xl sm:text-4xl md:text-5xl serif text-charcoal font-normal">
-              {t("dashWelcome")} <span className="italic text-gold font-serif">{currentUser.name.split(" ")[0]}</span>
+              {t("dashWelcome")} <span className="text-gold font-semibold">{currentUser.name.split(" ")[0]}</span>
             </h1>
             <p className="text-xs sm:text-sm text-warm-grey mt-1 font-mono">{currentUser.email}</p>
           </div>
@@ -320,7 +320,7 @@ export default function DashboardClient({ user }: { user: SessionUser }) {
               ) : (
                 <div className="space-y-3">
                   {complaints.slice(0, 5).map((c, i) => (
-                    <div key={i} className="p-4 border border-charcoal/10 bg-[#F9F8F6] flex items-start justify-between gap-4">
+                    <div key={i} className="p-4 border border-charcoal/10 bg-[#EEF1F4] flex items-start justify-between gap-4">
                       <div>
                         <p className="font-mono font-bold text-charcoal text-sm">Batch #{c.batchId} — {c.qrToken}</p>
                         <p className="text-xs text-rose-700 font-semibold mt-0.5">{c.reportedBy}</p>
@@ -394,7 +394,7 @@ function StatCard({ icon, label, value, sub, suffix = "" }: { icon: React.ReactN
 
 function DarkCard({ href, icon, title, desc, cta }: { href: string; icon: React.ReactNode; title: string; desc: string; cta: string }) {
   return (
-    <Link href={href} className="p-6 border-2 border-charcoal bg-[#141414] text-alabaster hover:border-gold transition-all duration-400 group flex flex-col justify-between shadow-sm">
+    <Link href={href} className="p-6 border-2 border-charcoal bg-[#16212B] text-alabaster hover:border-gold transition-all duration-400 group flex flex-col justify-between shadow-sm">
       <div>
         <div className="mb-3 group-hover:scale-110 transition-transform duration-300">{icon}</div>
         <h3 className="text-lg serif text-alabaster mb-1 font-bold">{title}</h3>
@@ -470,7 +470,7 @@ function RecentBatchesTable({ batchesList, t }: { batchesList: BatchMetadata[]; 
       <div className="overflow-x-auto">
         <table className="w-full text-left text-xs">
           <thead>
-            <tr className="border-b-2 border-charcoal/15 bg-[#F9F8F6] text-[10px] uppercase tracking-widest text-warm-grey">
+            <tr className="border-b-2 border-charcoal/15 bg-[#EEF1F4] text-[10px] uppercase tracking-widest text-warm-grey">
               <th className="p-3 font-bold">{t("batchId")}</th>
               <th className="p-3 font-bold">{t("registryToken")}</th>
               <th className="p-3 font-bold">{t("theSource")}</th>
@@ -481,7 +481,7 @@ function RecentBatchesTable({ batchesList, t }: { batchesList: BatchMetadata[]; 
           </thead>
           <tbody className="divide-y divide-charcoal/10">
             {batchesList.slice(0, 8).map((item) => (
-              <tr key={item.batchId} className="hover:bg-[#F9F8F6] transition-colors">
+              <tr key={item.batchId} className="hover:bg-[#EEF1F4] transition-colors">
                 <td className="p-3 font-mono font-bold text-charcoal">#00{item.batchId}</td>
                 <td className="p-3 font-mono font-semibold text-charcoal">{item.qrToken}</td>
                 <td className="p-3">

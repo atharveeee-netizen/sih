@@ -1,48 +1,59 @@
-import Link from "next/link";
 import BeevilKnievelLogo from "@/components/BeevilKnievelLogo";
 
+/**
+ * Site footer.
+ *
+ * Civic redesign: the authority names were set in large italic serif, which
+ * read as a fashion masthead rather than a government notice. They are now
+ * plain and structured. Secondary text also moves off `warm-grey`, which is a
+ * mid slate and failed contrast against the dark panel.
+ */
 export default function Footer() {
   return (
-    <footer className="py-12 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 bg-charcoal text-alabaster border-t border-charcoal">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-8 sm:mb-12">
-          <BeevilKnievelLogo size="lg" variant="full" theme="dark" />
+    <footer className="bg-navy-deep text-white border-t-[3px] border-amber">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-10 sm:py-14">
+        <div className="mb-8">
+          <BeevilKnievelLogo size="md" variant="full" theme="dark" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 md:gap-16 mb-12 sm:mb-20">
-          {/* Col 1 */}
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pb-8 border-b border-white/15">
           <div>
-            <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-4 sm:mb-6">Collaborators & Governance</p>
-            <div className="flex flex-col gap-2 sm:gap-3">
-              <p className="text-lg sm:text-xl serif italic font-normal text-alabaster">Khadi and Village Industries Commission (KVIC)</p>
-              <p className="text-sm sm:text-base serif italic text-taupe/80">National Bee Board — Honey Mission</p>
-              <p className="text-xs text-warm-grey mt-2">Ministry of Micro, Small & Medium Enterprises, Govt. of India</p>
-            </div>
+            <p className="text-[10px] uppercase tracking-wider font-semibold text-white/55 mb-4">
+              Collaborators &amp; Governance
+            </p>
+            <ul className="space-y-1.5 text-sm">
+              <li className="font-semibold">Khadi and Village Industries Commission (KVIC)</li>
+              <li className="text-white/75">National Bee Board &mdash; Honey Mission</li>
+              <li className="text-white/60 text-xs pt-1">
+                Ministry of Micro, Small &amp; Medium Enterprises, Government of India
+              </li>
+            </ul>
           </div>
 
-          {/* Col 2 */}
           <div>
-            <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-4 sm:mb-6">Architectural Core</p>
-            <p className="text-lg sm:text-xl serif text-alabaster">Beevil Knievel Universal Authentication</p>
-            <p className="text-xs text-taupe/70 mt-2 leading-relaxed">
-              Decentralized provenance protocol combining Polygon PoS immutable ledger, AI-driven anti-adulteration models, and physical tamper-evident micro-QR seals.
+            <p className="text-[10px] uppercase tracking-wider font-semibold text-white/55 mb-4">
+              Architectural Core
+            </p>
+            <p className="text-sm font-semibold mb-2">Beevil Knievel Universal Authentication</p>
+            <p className="text-xs text-white/70 leading-relaxed">
+              Decentralised provenance protocol combining a Polygon PoS immutable ledger,
+              AI-driven anti-adulteration models, and physical tamper-evident micro-QR seals.
             </p>
           </div>
 
-          {/* Col 3 */}
-          <div className="flex flex-col items-start md:items-end">
-            <div className="bg-alabaster text-charcoal px-4 py-2 font-bold text-xs uppercase tracking-widest mb-4">
+          <div className="flex flex-col items-start md:items-end gap-3">
+            <span className="bg-amber text-navy-deep px-3 py-1.5 font-bold text-[11px] uppercase tracking-wider">
               SIH 2026 Finalist
-            </div>
-            <p className="text-[10px] text-warm-grey uppercase tracking-widest">Problem Statement: SIH26021</p>
+            </span>
+            <p className="text-[10px] text-white/60 uppercase tracking-wider">
+              Problem Statement: SIH26021
+            </p>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-8 sm:pt-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 sm:gap-6">
-          <p className="text-[10px] uppercase tracking-widest text-warm-grey">
-            © 2026 Beevil Knievel. Open Source Under MIT License.
-          </p>
-        </div>
+        <p className="pt-6 text-[10px] uppercase tracking-wider text-white/55">
+          &copy; 2026 Beevil Knievel &middot; Open source under the MIT License
+        </p>
       </div>
     </footer>
   );

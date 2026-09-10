@@ -239,7 +239,7 @@ export default function VoiceFieldAssistant() {
       {/* Header */}
       <div className="p-5 bg-charcoal text-alabaster border-b border-charcoal flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 border border-gold bg-[#121212] rounded-xl flex items-center justify-center text-gold text-lg">
+          <div className="w-10 h-10 border border-gold bg-[#16212B] rounded-xl flex items-center justify-center text-gold text-lg">
             🐝
           </div>
           <div>
@@ -265,7 +265,7 @@ export default function VoiceFieldAssistant() {
               onClick={() => setSelectedLang(lang)}
               className={`px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-widest border shrink-0 transition-all ${
                 selectedLang.code === lang.code
-                  ? "bg-gold text-charcoal border-gold"
+                  ? "bg-gold text-white border-gold"
                   : "bg-transparent text-warm-grey border-charcoal/40 hover:border-gold hover:text-gold"
               }`}
             >
@@ -276,7 +276,7 @@ export default function VoiceFieldAssistant() {
       </div>
 
       {/* Chat Window */}
-      <div className="h-72 overflow-y-auto bg-[#F9F8F6] p-4 sm:p-5 space-y-3 sm:space-y-4 flex flex-col">
+      <div className="h-72 overflow-y-auto bg-[#EEF1F4] p-4 sm:p-5 space-y-3 sm:space-y-4 flex flex-col">
         {messages.map((msg) => (
           <div key={msg.id} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
             <div
@@ -325,7 +325,7 @@ export default function VoiceFieldAssistant() {
             isListening
               ? "bg-rose-600 text-white border-rose-700 animate-pulse shadow-lg scale-110"
               : speechSupported
-              ? "bg-charcoal text-gold border-charcoal hover:bg-gold hover:text-charcoal"
+              ? "bg-charcoal text-gold border-charcoal hover:bg-gold hover:text-white"
               : "bg-charcoal/20 text-warm-grey border-charcoal/20 cursor-not-allowed"
           }`}
         >
@@ -349,7 +349,7 @@ export default function VoiceFieldAssistant() {
         <button
           onClick={handleTextSend}
           disabled={!textInput.trim()}
-          className="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gold text-charcoal hover:bg-gold/90 border-2 border-gold disabled:opacity-40 transition-colors"
+          className="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gold text-white hover:bg-gold/90 border-2 border-gold disabled:opacity-40 transition-colors"
         >
           <Send className="w-5 h-5" />
         </button>

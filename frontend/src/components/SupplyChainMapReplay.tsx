@@ -198,7 +198,7 @@ export default function SupplyChainMapReplay({
                   ? "border-charcoal bg-charcoal text-alabaster shadow-xs"
                   : idx < activeStep
                   ? "border-emerald-300 bg-emerald-50 text-emerald-900"
-                  : "border-charcoal/15 bg-[#F9F8F6] text-warm-grey hover:border-charcoal/40"
+                  : "border-charcoal/15 bg-[#EEF1F4] text-warm-grey hover:border-charcoal/40"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -218,7 +218,7 @@ export default function SupplyChainMapReplay({
       </div>
 
       {/* Active Stage Inspector Detail Card */}
-      <div className="border-2 border-charcoal/15 bg-[#F9F8F6] p-6 transition-all duration-300">
+      <div className="border-2 border-charcoal/15 bg-[#EEF1F4] p-6 transition-all duration-300">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4 border-b border-charcoal/10">
           <div>
             <div className="flex items-center gap-2">

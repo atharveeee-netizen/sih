@@ -35,21 +35,21 @@ export async function sendVerificationEmail(
   otp: string
 ): Promise<{ success: boolean; devMode: boolean }> {
   const htmlBody = `
-    <div style="font-family: 'Inter', Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 32px; border: 2px solid #D4AF37; background: #F9F8F6;">
+    <div style="font-family: 'IBM Plex Sans', Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 32px; border: 2px solid #14508C; background: #EEF1F4;">
       <div style="text-align: center; margin-bottom: 24px;">
-        <div style="display: inline-block; width: 48px; height: 48px; background: #1A1A1A; color: #D4AF37; font-size: 24px; font-weight: bold; line-height: 48px; font-style: italic;">H</div>
-        <h2 style="margin: 8px 0 0; color: #1A1A1A; font-size: 18px; letter-spacing: 4px; text-transform: uppercase;">Beevil Knievel</h2>
-        <p style="margin: 2px 0 0; color: #8A8478; font-size: 10px; letter-spacing: 3px; text-transform: uppercase;">KVIC • National Bee Board • SIH 2026</p>
+        <div style="display: inline-block; width: 48px; height: 48px; background: #06182E; color: #F2A61C; font-size: 24px; font-weight: bold; line-height: 48px;">B</div>
+        <h2 style="margin: 8px 0 0; color: #16212B; font-size: 18px; letter-spacing: 4px; text-transform: uppercase;">Beevil Knievel</h2>
+        <p style="margin: 2px 0 0; color: #7A8896; font-size: 10px; letter-spacing: 3px; text-transform: uppercase;">KVIC • National Bee Board • SIH 2026</p>
       </div>
-      <hr style="border: 1px solid #E5E2DC; margin: 20px 0;" />
-      <p style="color: #1A1A1A; font-size: 14px; margin-bottom: 16px;">Your email verification code:</p>
-      <div style="background: #1A1A1A; padding: 20px; text-align: center; margin-bottom: 16px;">
-        <span style="color: #D4AF37; font-size: 36px; font-weight: bold; letter-spacing: 12px; font-family: monospace;">${otp}</span>
+      <hr style="border: 1px solid #DFE5EB; margin: 20px 0;" />
+      <p style="color: #16212B; font-size: 14px; margin-bottom: 16px;">Your email verification code:</p>
+      <div style="background: #16212B; padding: 20px; text-align: center; margin-bottom: 16px;">
+        <span style="color: #F2A61C; font-size: 36px; font-weight: bold; letter-spacing: 12px; font-family: monospace;">${otp}</span>
       </div>
-      <p style="color: #8A8478; font-size: 12px; margin-bottom: 4px;">This code expires in <strong>10 minutes</strong>.</p>
-      <p style="color: #8A8478; font-size: 12px;">If you didn't request this, you can safely ignore this email.</p>
-      <hr style="border: 1px solid #E5E2DC; margin: 20px 0;" />
-      <p style="color: #B8B2A8; font-size: 10px; text-align: center; letter-spacing: 2px; text-transform: uppercase;">Blockchain-Verified Honey Provenance</p>
+      <p style="color: #7A8896; font-size: 12px; margin-bottom: 4px;">This code expires in <strong>10 minutes</strong>.</p>
+      <p style="color: #7A8896; font-size: 12px;">If you didn't request this, you can safely ignore this email.</p>
+      <hr style="border: 1px solid #DFE5EB; margin: 20px 0;" />
+      <p style="color: #93A3B3; font-size: 10px; text-align: center; letter-spacing: 2px; text-transform: uppercase;">Blockchain-Verified Honey Provenance</p>
     </div>
   `;
 

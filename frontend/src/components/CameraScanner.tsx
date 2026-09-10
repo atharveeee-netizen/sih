@@ -100,7 +100,7 @@ export default function CameraScanner({ onScanSuccess, onClose }: CameraScannerP
               <div className="w-4 h-4 border-t-2 border-r-2 border-gold" />
             </div>
             {/* Animated Laser Bar */}
-            <div className="w-full h-0.5 bg-gold/80 shadow-[0_0_8px_#D4AF37] animate-bounce" />
+            <div className="w-full h-0.5 bg-gold/80 shadow-[0_0_8px_#14508C] animate-bounce" />
             <div className="flex justify-between">
               <div className="w-4 h-4 border-b-2 border-l-2 border-gold" />
               <div className="w-4 h-4 border-b-2 border-r-2 border-gold" />

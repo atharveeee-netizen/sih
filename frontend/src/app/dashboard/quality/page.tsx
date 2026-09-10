@@ -166,7 +166,7 @@ export default function QualityLabPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#F9F8F6]">
+    <div className="min-h-screen flex flex-col justify-between bg-[#EEF1F4]">
       <Navbar />
 
       <main className="py-12 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full flex-1">
@@ -195,7 +195,7 @@ export default function QualityLabPage() {
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl serif text-charcoal font-normal">
-            Quality & <span className="italic text-gold font-serif">NMR Analysis</span>
+            Quality & <span className="text-gold font-semibold">NMR Analysis</span>
           </h1>
           <p className="text-xs text-warm-grey mt-1">
             Conduct multi-parameter FSSAI physico-chemical scoring, &delta;&sup1;&sup3;C Carbon Isotope EA-IRMS testing, and 400 MHz &sup1;H-NMR resonance profiling.
@@ -219,7 +219,7 @@ export default function QualityLabPage() {
           </div>
           <Link
             href="/dashboard/quality/upload"
-            className="px-5 py-2.5 bg-charcoal text-alabaster hover:bg-gold hover:text-charcoal text-xs uppercase tracking-wider font-bold shrink-0 transition-colors shadow-xs"
+            className="px-5 py-2.5 bg-charcoal text-alabaster hover:bg-gold hover:text-white text-xs uppercase tracking-wider font-bold shrink-0 transition-colors shadow-xs"
           >
             Upload Certificate Photo →
           </Link>
@@ -240,7 +240,7 @@ export default function QualityLabPage() {
                   className={`px-3 py-1 text-xs font-mono font-bold border transition-colors ${
                     selectedBatchId === b.batchId
                       ? "bg-charcoal text-gold border-charcoal"
-                      : "bg-[#F9F8F6] text-charcoal border-charcoal/20 hover:border-gold"
+                      : "bg-[#EEF1F4] text-charcoal border-charcoal/20 hover:border-gold"
                   }`}
                 >
                   Batch #{b.batchId} ({b.qrToken})
@@ -430,7 +430,7 @@ export default function QualityLabPage() {
               {result && (
                 <div className="space-y-6">
                   {/* Purity Score Hero */}
-                  <div className="p-6 bg-[#F9F8F6] border border-charcoal/10 flex items-center justify-between">
+                  <div className="p-6 bg-[#EEF1F4] border border-charcoal/10 flex items-center justify-between">
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="text-[10px] uppercase tracking-widest text-warm-grey font-bold">
@@ -463,7 +463,7 @@ export default function QualityLabPage() {
 
                   {/* SHAP Feature Contribution Explainability */}
                   {result.featureShap && (
-                    <div className="p-4 border border-charcoal/10 bg-[#F9F8F6]">
+                    <div className="p-4 border border-charcoal/10 bg-[#EEF1F4]">
                       <div className="flex items-center justify-between mb-2 pb-1 border-b border-charcoal/10">
                         <span className="text-[10px] uppercase tracking-widest text-charcoal font-bold flex items-center gap-1.5">
                           <Sparkles className="w-3.5 h-3.5 text-gold" />
@@ -519,7 +519,7 @@ export default function QualityLabPage() {
               </Link>
               <Link
                 href="/dashboard/reports"
-                className="px-4 py-2.5 border-2 border-gold bg-gold/10 hover:bg-gold hover:text-charcoal text-charcoal text-xs uppercase tracking-widest font-bold text-center transition-colors flex items-center gap-1.5"
+                className="px-4 py-2.5 border-2 border-gold bg-gold/10 hover:bg-gold hover:text-white text-charcoal text-xs uppercase tracking-widest font-bold text-center transition-colors flex items-center gap-1.5"
               >
                 <FileCheck className="w-3.5 h-3.5" />
                 <span>View Reports</span>
@@ -542,7 +542,7 @@ export default function QualityLabPage() {
                 400 MHz ¹H-NMR Resonance Frequency Curve
               </h3>
             </div>
-            <span className="text-[10px] font-mono font-bold text-charcoal uppercase tracking-widest bg-[#F9F8F6] px-3 py-1.5 border border-charcoal/15">
+            <span className="text-[10px] font-mono font-bold text-charcoal uppercase tracking-widest bg-[#EEF1F4] px-3 py-1.5 border border-charcoal/15">
               NMR Profile Simulation (IS 4941 Standard)
             </span>
           </div>

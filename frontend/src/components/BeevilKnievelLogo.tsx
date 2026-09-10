@@ -36,13 +36,13 @@ export default function BeevilKnievelLogo({
   const primaryTextColor = isDark ? "text-alabaster" : "text-charcoal";
   const subTextColor = isDark ? "text-taupe/70" : "text-warm-grey";
   const badgeBg = isDark
-    ? "bg-charcoal/80 text-gold border-gold/40"
+    ? "bg-charcoal/80 text-amber border-amber/40"
     : "bg-alabaster text-charcoal border-charcoal/30";
 
   // 1. MINIMAL APP ICON (Honey Drop + Leaf Wing inside Carbon Hexagon)
   const LogoIcon = (
     <div className={`relative ${currentSize.icon} shrink-0 group ${className}`}>
-      <div className="w-full h-full relative rounded-xl overflow-hidden border border-gold/50 shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:border-gold group-hover:shadow-md bg-[#121212]">
+      <div className="w-full h-full relative rounded-xl overflow-hidden border border-amber/50 shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:border-amber group-hover:shadow-md bg-[#16212B]">
         <Image
           src="/beevil_knievel_icon.png"
           alt="Beevil Knievel App Icon"
@@ -62,7 +62,7 @@ export default function BeevilKnievelLogo({
   // 2. EMBLEM BADGE (Circular/Hexagonal Floral Bee Luxury Seal)
   const LogoBadge = (
     <div className={`relative ${currentSize.icon} shrink-0 group ${className}`}>
-      <div className="w-full h-full relative rounded-2xl overflow-hidden border-2 border-gold/70 shadow-md transition-all duration-300 group-hover:scale-105 group-hover:border-gold bg-[#121212]">
+      <div className="w-full h-full relative rounded-2xl overflow-hidden border-2 border-amber/70 shadow-md transition-all duration-300 group-hover:scale-105 group-hover:border-amber bg-[#16212B]">
         <Image
           src="/beevil_knievel_badge.png"
           alt="Beevil Knievel Emblem Badge"
@@ -92,17 +92,17 @@ export default function BeevilKnievelLogo({
     return (
       <div
         className={`inline-flex flex-col items-center p-4 border-2 ${
-          isDark ? "border-gold/30 bg-[#141414] text-alabaster" : "border-charcoal/20 bg-white text-charcoal"
+          isDark ? "border-amber/30 bg-[#16212B] text-alabaster" : "border-charcoal/20 bg-white text-charcoal"
         } shadow-md text-center relative rounded-2xl overflow-hidden group ${className}`}
       >
         {/* Decorative Golden Corner Accents */}
-        <div className="absolute top-2 left-2 w-2.5 h-2.5 border-t-2 border-l-2 border-gold/70" />
-        <div className="absolute top-2 right-2 w-2.5 h-2.5 border-t-2 border-r-2 border-gold/70" />
-        <div className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b-2 border-l-2 border-gold/70" />
-        <div className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b-2 border-r-2 border-gold/70" />
+        <div className="absolute top-2 left-2 w-2.5 h-2.5 border-t-2 border-l-2 border-amber/70" />
+        <div className="absolute top-2 right-2 w-2.5 h-2.5 border-t-2 border-r-2 border-amber/70" />
+        <div className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b-2 border-l-2 border-amber/70" />
+        <div className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b-2 border-r-2 border-amber/70" />
 
         {/* Emblem Image Asset */}
-        <div className={`${sealDim} relative rounded-xl overflow-hidden border border-gold/40 shadow-sm transition-transform duration-500 group-hover:scale-102 bg-[#121212]`}>
+        <div className={`${sealDim} relative rounded-xl overflow-hidden border border-amber/40 shadow-sm transition-transform duration-500 group-hover:scale-102 bg-[#16212B]`}>
           <Image
             src="/beevil_knievel_badge.png"
             alt="Beevil Knievel Organic Emblem"
@@ -116,7 +116,7 @@ export default function BeevilKnievelLogo({
 
         <div className="mt-3">
           <span className="font-serif font-bold tracking-widest text-sm uppercase block">
-            Beevil <span className="text-gold">Knievel</span>
+            Beevil <span className="text-amber">Knievel</span>
           </span>
           <span className="text-[9px] uppercase tracking-ultra text-warm-grey font-mono block mt-1 flex items-center justify-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
@@ -132,7 +132,7 @@ export default function BeevilKnievelLogo({
     return (
       <div className={`inline-flex flex-col items-center text-center gap-3 ${className}`}>
         <div className="relative">
-          <div className={`${currentSize.icon} relative rounded-2xl overflow-hidden border-2 border-gold/60 shadow-md bg-[#121212] transition-transform group-hover:scale-105`}>
+          <div className={`${currentSize.icon} relative rounded-2xl overflow-hidden border-2 border-amber/60 shadow-md bg-[#16212B] transition-transform group-hover:scale-105`}>
             <Image
               src="/beevil_knievel_badge.png"
               alt="Beevil Knievel Brand"
@@ -148,7 +148,7 @@ export default function BeevilKnievelLogo({
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-1.5">
             <span className={`font-bold tracking-widest uppercase font-sans ${currentSize.text} ${primaryTextColor}`}>
-              Beevil <span className="text-gold">Knievel</span>
+              Beevil <span className="text-amber">Knievel</span>
             </span>
           </div>
           <span className={`uppercase tracking-ultra font-medium ${subTextColor} ${currentSize.sub} mt-0.5`}>
@@ -166,7 +166,7 @@ export default function BeevilKnievelLogo({
       <div className="flex flex-col">
         <div className="flex items-center gap-1.5 whitespace-nowrap">
           <span className={`font-bold tracking-widest uppercase font-sans ${currentSize.text} ${primaryTextColor}`}>
-            Beevil <span className="text-gold">Knievel</span>
+            Beevil <span className="text-amber">Knievel</span>
           </span>
         </div>
         <span className={`uppercase tracking-wider sm:tracking-ultra font-medium ${subTextColor} ${currentSize.sub} whitespace-nowrap hidden xs:block`}>

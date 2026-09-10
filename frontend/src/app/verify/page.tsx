@@ -65,7 +65,7 @@ export default function VerifySearchPage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#F9F8F6]">
+    <div className="min-h-screen flex flex-col justify-between bg-[#EEF1F4]">
       <Navbar />
 
       {showScanner && (
@@ -90,7 +90,7 @@ export default function VerifySearchPage() {
             </span>
           </div>
           <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl serif text-charcoal mb-6 font-normal break-words">
-            Verify Your <span className="italic text-gold font-serif">Honey</span>
+            Verify Your <span className="text-gold font-semibold">Honey</span>
           </h1>
           <p className="text-sm md:text-base text-warm-grey max-w-xl mx-auto leading-relaxed font-normal">
             {t("heroDescription")}

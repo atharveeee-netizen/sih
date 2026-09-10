@@ -73,7 +73,7 @@ export default function DBTPayoutCard({
 
       {/* Subsidy Calculation Breakdown */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
-        <div className="p-4 bg-[#F9F8F6] border border-charcoal/10">
+        <div className="p-4 bg-[#EEF1F4] border border-charcoal/10">
           <p className="text-[10px] uppercase tracking-widest text-warm-grey font-bold mb-1">
             Certified Harvest Volume
           </p>
@@ -85,7 +85,7 @@ export default function DBTPayoutCard({
           </p>
         </div>
 
-        <div className="p-4 bg-[#F9F8F6] border border-charcoal/10">
+        <div className="p-4 bg-[#EEF1F4] border border-charcoal/10">
           <p className="text-[10px] uppercase tracking-widest text-warm-grey font-bold mb-1">
             Purity Quality Incentive
           </p>
@@ -97,7 +97,7 @@ export default function DBTPayoutCard({
           </p>
         </div>
 
-        <div className="p-4 bg-[#141414] text-alabaster border border-charcoal">
+        <div className="p-4 bg-[#16212B] text-alabaster border border-charcoal">
           <p className="text-[10px] uppercase tracking-widest text-warm-grey font-bold mb-1">
             Total Govt. Direct Grant
           </p>
@@ -111,7 +111,7 @@ export default function DBTPayoutCard({
       </div>
 
       {/* Beneficiary & Disbursement Status */}
-      <div className="p-5 border-2 border-charcoal/10 bg-[#F9F8F6] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="p-5 border-2 border-charcoal/10 bg-[#EEF1F4] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <p className="text-[10px] uppercase tracking-widest text-warm-grey font-bold mb-0.5">
             Registered Primary Beneficiary

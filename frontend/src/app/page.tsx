@@ -3,165 +3,193 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import BeevilKnievelLogo from "@/components/BeevilKnievelLogo";
-import { ShieldCheck, Sparkles, QrCode, ArrowRight, Layers, Award, Activity, CheckCircle2, ChevronRight } from "lucide-react";
-import { DEMO_BATCHES } from "@/lib/constants";
+import { QrCode, ArrowRight, ChevronRight } from "lucide-react";
+import { DEMO_BATCHES, POLYGON_AMOY_RPC } from "@/lib/constants";
 import { useLanguage } from "@/lib/LanguageContext";
 import LiveTelemetryStream from "@/components/LiveTelemetryStream";
 import SupplyChainMapReplay from "@/components/SupplyChainMapReplay";
+
+const isLocalChain =
+  POLYGON_AMOY_RPC.includes("127.0.0.1") || POLYGON_AMOY_RPC.includes("localhost");
 
 export default function HomePage() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#F9F8F6]">
+    <div className="min-h-screen flex flex-col justify-between bg-ground">
       <Navbar />
 
       <main className="flex-1">
-        {/* 1. HERO SECTION */}
-        <section className="py-20 sm:py-28 px-6 md:px-12 lg:px-24 border-b-2 border-charcoal/10 relative overflow-hidden bg-[#F9F8F6]">
-          {/* Subtle gold decorative gradient corner */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gold/10 blur-3xl pointer-events-none" />
-
-          <div className="max-w-6xl mx-auto relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+        {/* ── 1. Service header ──────────────────────────────────────────────
+            Was a full-bleed hero: an 8xl italic display headline beside a
+            bracketed brand seal, lit by a blurred gold gradient. All three are
+            signatures of the editorial template look. This states what the
+            service is and who runs it, and gets out of the way. */}
+        <section className="bg-paper border-b border-rule">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-10 sm:py-14 grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-start">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 sm:gap-3 px-2.5 sm:px-3 py-1.5 border border-charcoal/20 bg-white mb-6 shadow-xs max-w-full">
-                <span className="h-2 w-2 bg-gold shrink-0" />
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider sm:tracking-ultra text-charcoal font-bold leading-none truncate">
-                  KVIC • National Bee Board • Beevil Knievel Platform
-                </span>
-              </div>
-              <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl serif text-charcoal font-normal leading-[1.02] tracking-tight mb-8 break-words">
-                {t("heroSubtitle1")} <br />
-                <span className="italic text-gold">{t("heroSubtitle2")}</span> {t("heroSubtitle3")}
+              <p className="field-label mb-3">
+                KVIC &middot; National Bee Board &middot; Public Verification Service
+              </p>
+
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-5">
+                {t("heroSubtitle1")}{" "}
+                <span className="border-b-4 border-amber pb-0.5">{t("heroSubtitle2")}</span>{" "}
+                {t("heroSubtitle3")}
               </h1>
-              <p className="text-sm sm:text-base md:text-lg text-warm-grey font-normal leading-relaxed mb-10 max-w-2xl">
+
+              <p className="text-sm sm:text-base text-text-secondary leading-relaxed mb-8 max-w-2xl">
                 {t("heroDescription")}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/verify"
-                  className="h-14 px-8 text-sm sm:text-xs uppercase tracking-widest font-bold btn-gold-slide flex items-center justify-center gap-3 shadow-md w-full sm:w-auto"
+                  className="h-11 px-6 text-xs uppercase tracking-wider btn-gold-slide justify-center gap-2.5 w-full sm:w-auto"
                 >
-                  <QrCode className="w-5 sm:w-4 h-5 sm:h-4 text-gold" />
+                  <QrCode className="w-4 h-4" />
                   <span>{t("verifyJarBtn")}</span>
                 </Link>
                 <Link
                   href="/dashboard"
-                  className="h-14 px-8 text-sm sm:text-xs uppercase tracking-widest font-bold btn-outline-luxury flex items-center justify-center gap-3 shadow-xs w-full sm:w-auto"
+                  className="h-11 px-6 text-xs uppercase tracking-wider btn-outline-luxury justify-center gap-2.5 w-full sm:w-auto"
                 >
                   <span>{t("fieldLoginBtn")}</span>
-                  <ArrowRight className="w-5 sm:w-4 h-5 sm:h-4" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
 
-            {/* Brand Seal Emblem - Visible on all devices */}
-            <div className="flex flex-col items-center justify-center shrink-0 mt-8 lg:mt-0 w-full lg:w-auto">
-              <BeevilKnievelLogo size="md" variant="seal" className="sm:hidden" />
-              <BeevilKnievelLogo size="lg" variant="seal" className="hidden sm:inline-flex lg:hidden" />
-              <BeevilKnievelLogo size="xl" variant="seal" className="hidden lg:inline-flex" />
-            </div>
+            {/* Replaces the decorative seal with the same information a public
+                service notice would actually carry. */}
+            <aside className="gov-panel w-full lg:w-80 shrink-0">
+              <div className="gov-panel-head">Service Record</div>
+              <dl className="divide-y divide-rule-faint">
+                {[
+                  ["Problem Statement", "SIH 26021"],
+                  ["Nodal Ministry", "MSME"],
+                  ["Implementing Body", "KVIC Honey Mission"],
+                  ["Ledger", isLocalChain ? "Local chain (offline demo)" : "Polygon PoS"],
+                ].map(([k, v]) => (
+                  <div key={k} className="px-4 py-2.5">
+                    <dt className="field-label">{k}</dt>
+                    <dd className="text-sm font-medium mt-0.5">{v}</dd>
+                  </div>
+                ))}
+                <div className="px-4 py-2.5 flex items-center justify-between">
+                  <dt className="field-label">Status</dt>
+                  <dd>
+                    <span className="chip chip-verified">Operational</span>
+                  </dd>
+                </div>
+              </dl>
+            </aside>
           </div>
         </section>
 
-        {/* 2. STATS BAR (Dark Obsidian) */}
-        <section className="py-16 px-6 md:px-12 lg:px-24 bg-[#141414] text-alabaster border-b-2 border-charcoal">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-2 mb-6 px-3 py-2 border border-gold/40 bg-gold/10 w-fit">
-              <span className="w-1.5 h-1.5 bg-gold rounded-full shrink-0" />
-              <span className="text-[11px] sm:text-xs uppercase tracking-ultra text-charcoal font-bold">
-                Projected Target — {t("statsHeader")}
+        {/* ── 2. Programme targets ───────────────────────────────────────────
+            These are projected targets, not achieved figures. The previous
+            design set them in large gold display numerals, which read as
+            accomplishments; the "Target" qualifier is kept and given equal
+            weight rather than shrunk into a superscript. */}
+        <section className="bg-navy text-white border-b border-navy-deep">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-8 sm:py-10">
+            <p className="text-[11px] uppercase tracking-wider font-semibold text-white/70 mb-5">
+              Projected programme targets &mdash; {t("statsHeader")}
+              <span className="ml-2 border border-amber/60 text-amber px-1.5 py-0.5 text-[10px]">
+                Not yet achieved
               </span>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="border-t border-white/15 pt-6">
-                <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-1 font-semibold">{t("statsBeekeepers")}</p>
-                <p className="text-4xl serif text-gold font-bold">14,240+ <span className="text-[9px] align-top uppercase tracking-wider text-amber-400 font-sans font-bold border border-amber-400/50 px-1 py-0.5 ml-1">Target</span></p>
-                <p className="text-[10px] text-taupe/70 mt-1 font-mono">{t("statsBeekeepersSub")}</p>
-              </div>
-              <div className="border-t border-white/15 pt-6">
-                <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-1 font-semibold">{t("statsBatches")}</p>
-                <p className="text-4xl serif text-alabaster font-bold">1.8M+ <span className="text-[9px] align-top uppercase tracking-wider text-amber-400 font-sans font-bold border border-amber-400/50 px-1 py-0.5 ml-1">Target</span></p>
-                <p className="text-[10px] text-taupe/70 mt-1 font-mono">{t("statsBatchesSub")}</p>
-              </div>
-              <div className="border-t border-white/15 pt-6">
-                <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-1 font-semibold">{t("statsCompliance")}</p>
-                <p className="text-4xl serif text-emerald-400 font-bold">99.4% <span className="text-[9px] align-top uppercase tracking-wider text-amber-400 font-sans font-bold border border-amber-400/50 px-1 py-0.5 ml-1">Target</span></p>
-                <p className="text-[10px] text-taupe/70 mt-1 font-mono">{t("statsComplianceSub")}</p>
-              </div>
-              <div className="border-t border-white/15 pt-6">
-                <p className="text-[10px] uppercase tracking-widest text-warm-grey mb-1 font-semibold">{t("statsScans")}</p>
-                <p className="text-4xl serif text-gold font-bold">4.2M+ <span className="text-[9px] align-top uppercase tracking-wider text-amber-400 font-sans font-bold border border-amber-400/50 px-1 py-0.5 ml-1">Target</span></p>
-                <p className="text-[10px] text-taupe/70 mt-1 font-mono">{t("statsScansSub")}</p>
-              </div>
-            </div>
+            </p>
+
+            <dl className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/15 border border-white/15">
+              {[
+                [t("statsBeekeepers"), "14,240+", t("statsBeekeepersSub")],
+                [t("statsBatches"), "1.8M+", t("statsBatchesSub")],
+                [t("statsCompliance"), "99.4%", t("statsComplianceSub")],
+                [t("statsScans"), "4.2M+", t("statsScansSub")],
+              ].map(([label, value, sub]) => (
+                <div key={label} className="bg-navy px-4 py-4">
+                  <dt className="text-[10px] uppercase tracking-wider text-white/60 font-semibold mb-1.5">
+                    {label}
+                  </dt>
+                  <dd className="text-2xl sm:text-3xl font-bold tabular tracking-tight">{value}</dd>
+                  <p className="text-[10px] font-mono text-white/50 mt-1.5">{sub}</p>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 
-        {/* 3. THREE CORE PILLARS -- removed from the homepage per explicit request.
-            Translation strings (archTag/archTitle/pillar1-3 Title/Desc) left in
-            src/lib/i18n.ts, untouched, in case this section is wanted back later. */}
-
-        {/* 4. LIVE VERIFIED BATCHES PREVIEW */}
-        <section className="py-24 px-6 md:px-12 lg:px-24 bg-white border-b-2 border-charcoal/10">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 pb-6 border-b border-charcoal/10">
+        {/* ── 3. Batch register ──────────────────────────────────────────── */}
+        <section className="bg-paper border-b border-rule">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-10 sm:py-14">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-6 section-title">
               <div>
-                <p className="text-[10px] uppercase tracking-ultra text-warm-grey mb-1 font-bold">{t("explorerTag")}</p>
-                <h2 className="text-3xl md:text-4xl serif text-charcoal font-normal">{t("explorerTitle")}</h2>
+                <p className="field-label mb-1">{t("explorerTag")}</p>
+                <h2 className="text-xl sm:text-2xl font-bold tracking-tight">{t("explorerTitle")}</h2>
               </div>
               <Link
                 href="/verify"
-                className="text-xs uppercase tracking-widest font-bold text-charcoal hover:text-gold transition-colors flex items-center gap-1.5"
+                className="text-xs uppercase tracking-wider font-semibold flex items-center gap-1"
               >
                 <span>{t("searchAllBatches")}</span>
                 <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {DEMO_BATCHES.map((batch) => (
-                <div
-                  key={batch.batchId}
-                  className="p-8 border-2 border-charcoal/15 bg-[#F9F8F6] hover:border-gold transition-all duration-400 flex flex-col justify-between shadow-xs hover:shadow-md"
-                >
-                  <div className="flex justify-between items-start mb-6">
-                    <div>
-                      <span className="text-[10px] uppercase tracking-widest text-warm-grey font-bold block mb-1">
-                        Batch #00{batch.batchId}
-                      </span>
-                      <h4 className="text-2xl serif text-charcoal font-bold">{batch.farmer.name}</h4>
-                      <p className="text-xs text-warm-grey">{batch.farmer.location}</p>
-                    </div>
-                    <div className="text-right">
-                      <span className="text-[9px] uppercase tracking-widest text-warm-grey block">{t("batchPurity")}</span>
-                      <span className="text-2xl font-serif font-bold text-gold">{batch.batch.qualityScore}/100</span>
-                    </div>
-                  </div>
-
-                  <div className="pt-6 border-t border-charcoal/10 flex justify-between items-center">
-                    <span className="text-[10px] font-mono text-charcoal font-bold">{batch.qrToken}</span>
-                    <Link
-                      href={`/verify/${batch.batchId}`}
-                      className="text-xs uppercase tracking-widest font-bold text-charcoal hover:text-gold transition-colors flex items-center gap-1"
-                    >
-                      <span>{t("verifyJarLink")}</span>
-                    </Link>
-                  </div>
-                </div>
-              ))}
+            {/* A register reads better as rows than as marketing cards. */}
+            <div className="overflow-x-auto border border-rule">
+              <table className="data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Batch</th>
+                    <th scope="col">Beekeeper</th>
+                    <th scope="col" className="hidden sm:table-cell">Origin</th>
+                    <th scope="col">{t("batchPurity")}</th>
+                    <th scope="col" className="hidden md:table-cell">QR Token</th>
+                    <th scope="col"><span className="sr-only">Action</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {DEMO_BATCHES.map((batch) => (
+                    <tr key={batch.batchId}>
+                      <td className="font-mono whitespace-nowrap">
+                        #{String(batch.batchId).padStart(4, "0")}
+                      </td>
+                      <td className="font-semibold">{batch.farmer.name}</td>
+                      <td className="hidden sm:table-cell text-text-secondary">
+                        {batch.farmer.location}
+                      </td>
+                      <td className="tabular font-semibold whitespace-nowrap">
+                        {batch.batch.qualityScore}/100
+                      </td>
+                      <td className="hidden md:table-cell font-mono text-text-secondary">
+                        {batch.qrToken}
+                      </td>
+                      <td className="text-right whitespace-nowrap">
+                        <Link
+                          href={`/verify/${batch.batchId}`}
+                          className="text-xs uppercase tracking-wider font-semibold"
+                        >
+                          {t("verifyJarLink")}
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
 
-        {/* 5. LIVE SUPPLY CHAIN & IOT TELEMETRY SUITE */}
-        <section className="py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-24 bg-[#F9F8F6] border-b-2 border-charcoal/10">
-          <div className="max-w-6xl mx-auto space-y-12">
-            <div>
-              <p className="text-[10px] uppercase tracking-ultra text-warm-grey mb-1 font-bold">Autonomous Provenance Infrastructure</p>
-              <h2 className="text-3xl md:text-4xl serif text-charcoal font-normal">Live IoT Telemetry & Supply Chain Ledger</h2>
+        {/* ── 4. Live telemetry and custody ──────────────────────────────── */}
+        <section className="bg-ground border-b border-rule">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-10 sm:py-14 space-y-8">
+            <div className="section-title">
+              <p className="field-label mb-1">Autonomous Provenance Infrastructure</p>
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
+                Live IoT Telemetry &amp; Supply Chain Ledger
+              </h2>
             </div>
             <LiveTelemetryStream />
             <SupplyChainMapReplay />

@@ -7,7 +7,7 @@ import { ArrowLeft } from "lucide-react";
 
 export default function PollenPage() {
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#F9F8F6]">
+    <div className="min-h-screen flex flex-col justify-between bg-[#EEF1F4]">
       <Navbar />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-10 w-full flex-1">
         <div className="flex items-center gap-2 mb-6 text-xs font-mono text-warm-grey">

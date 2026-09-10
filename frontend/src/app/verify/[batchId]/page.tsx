@@ -118,7 +118,7 @@ export default function ConsumerVerificationPage() {
 
   if (!data) {
     return (
-      <div className="min-h-screen flex flex-col justify-between bg-[#F9F8F6]">
+      <div className="min-h-screen flex flex-col justify-between bg-[#EEF1F4]">
         <Navbar />
         <main className="py-24 px-6 md:px-12 max-w-4xl mx-auto w-full flex-1">
           <div className="animate-pulse space-y-8">
@@ -175,7 +175,7 @@ export default function ConsumerVerificationPage() {
         particleCount: 50,
         spread: 60,
         origin: { y: 0.7 },
-        colors: ["#D4AF37", "#1A1A1A"],
+        colors: ["#14508C", "#16212B"],
       });
     } catch (err) {
       console.error("PDF generation failed:", err);
@@ -193,7 +193,7 @@ export default function ConsumerVerificationPage() {
         particleCount: 50,
         spread: 60,
         origin: { y: 0.7 },
-        colors: ["#D4AF37", "#138808", "#1A1A1A"],
+        colors: ["#14508C", "#138808", "#16212B"],
       });
     } catch (err) {
       console.error("APEDA passport generation failed:", err);
@@ -225,15 +225,18 @@ export default function ConsumerVerificationPage() {
                     gpsLng={farmer.gpsLng}
                   />
                 </div>
-                <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-8xl serif text-charcoal font-normal leading-[1.02] break-words">
-                  {t("heroSubtitle1")} <span className="italic text-gold">{t("heroSubtitle2")}</span> {t("heroSubtitle3")}
+                {/* Was text-8xl at desktop, which filled the viewport and
+                    pushed the actual provenance record below the fold. A
+                    verification result should lead with the record. */}
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight break-words">
+                  {t("heroSubtitle1")} <span className="text-gold">{t("heroSubtitle2")}</span> {t("heroSubtitle3")}
                 </h1>
 
                 {/* Actions: Audio Narration & Direct UPI Tip */}
                 <div className="mt-6 flex flex-wrap items-center gap-3">
                   <button
                     onClick={handleSpeakAudio}
-                    className="px-4 py-2.5 bg-charcoal text-alabaster hover:bg-gold hover:text-charcoal transition-colors text-xs uppercase tracking-widest font-semibold flex items-center gap-2 shadow-xs"
+                    className="px-4 py-2.5 bg-charcoal text-alabaster hover:bg-gold hover:text-white transition-colors text-xs uppercase tracking-widest font-semibold flex items-center gap-2 shadow-xs"
                   >
                     <Volume2 className={`w-4 h-4 ${isSpeaking ? "text-gold animate-pulse" : ""}`} />
                     <span>{isSpeaking ? "Playing Voice Summary..." : (lang === "hi" ? "🎙️ आवाज में प्रमाण पत्र सुनें" : lang === "bn" ? "🎙️ অডিও শুনুন" : "🎙️ Listen to Audio Narration")}</span>
@@ -241,7 +244,7 @@ export default function ConsumerVerificationPage() {
 
                   <button
                     onClick={() => setShowTipModal(true)}
-                    className="px-4 py-2.5 border-2 border-gold bg-gold/10 hover:bg-gold text-charcoal transition-colors text-xs uppercase tracking-widest font-bold flex items-center gap-2 shadow-xs"
+                    className="px-4 py-2.5 border-2 border-gold bg-gold/10 hover:bg-gold text-white transition-colors text-xs uppercase tracking-widest font-bold flex items-center gap-2 shadow-xs"
                   >
                     <Heart className="w-4 h-4 text-rose-600 fill-rose-600/30" />
                     <span>🇮🇳 Tip Beekeeper (Direct UPI)</span>
@@ -269,7 +272,7 @@ export default function ConsumerVerificationPage() {
         <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-24 bg-charcoal text-alabaster border-b border-charcoal">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="flex items-center gap-6">
-              <div className="w-20 h-20 relative rounded-2xl overflow-hidden border-2 border-gold/70 shadow-lg shrink-0 bg-[#121212] group">
+              <div className="w-20 h-20 relative rounded-2xl overflow-hidden border-2 border-gold/70 shadow-lg shrink-0 bg-[#16212B] group">
                 <Image
                   src="/beevil_knievel_badge.png"
                   alt="Beevil Knievel Certified Organic Seal"
@@ -360,7 +363,7 @@ export default function ConsumerVerificationPage() {
         </section>
 
         {/* 5B. PHYSICAL TRANSIT & SUPPLY CHAIN ROUTE REPLAY */}
-        <section className="py-20 px-6 md:px-12 lg:px-24 border-b border-charcoal/10 bg-[#F9F8F6]">
+        <section className="py-20 px-6 md:px-12 lg:px-24 border-b border-charcoal/10 bg-[#EEF1F4]">
           <div className="max-w-6xl mx-auto space-y-12">
             <SupplyChainMapReplay batchId={batch.batchId} custodyChain={custodyChain} botanicalOrigin={data.botanicalFlora || farmer.location} />
             <DBTPayoutCard
@@ -431,7 +434,7 @@ export default function ConsumerVerificationPage() {
                   <button
                     onClick={handleDownloadAPEDA}
                     disabled={apedaLoading}
-                    className="w-full sm:w-auto py-3 px-5 text-[11px] uppercase tracking-wider font-bold border-2 border-gold bg-gold/10 hover:bg-gold hover:text-charcoal text-charcoal flex items-center justify-center gap-2 transition-colors whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full sm:w-auto py-3 px-5 text-[11px] uppercase tracking-wider font-bold border-2 border-gold bg-gold/10 hover:bg-gold hover:text-white text-charcoal flex items-center justify-center gap-2 transition-colors whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     <Globe className="w-4 h-4 text-gold shrink-0" />
                     <span>{t("apedaPassport")}</span>
