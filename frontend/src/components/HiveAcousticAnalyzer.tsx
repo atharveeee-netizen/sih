@@ -298,7 +298,7 @@ export default function HiveAcousticAnalyzer() {
 
       const freqData = new Uint8Array(64);
 
-      if (analyserRef.current && isPlaying) {
+      if (analyserRef.current && (isPlaying || isMicLive)) {
         analyserRef.current.getByteFrequencyData(freqData);
       } else {
         // Simulated idle/live spectrum when audio not running
@@ -369,7 +369,7 @@ export default function HiveAcousticAnalyzer() {
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPlaying, selectedProfileKey]);
+  }, [isPlaying, isMicLive, selectedProfileKey]);
 
   // Clean up audio on unmount
   useEffect(() => {
@@ -420,7 +420,7 @@ export default function HiveAcousticAnalyzer() {
             }`}
           >
             {isMicLive ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
-            <span>{isMicLive ? "Stop Live Mic" : "🎤 Live Mic Input"}</span>
+            <span>{isMicLive ? "Stop Live Mic" : "🎤 Live Mic Input (This Device)"}</span>
           </button>
 
           <button
@@ -596,7 +596,7 @@ export default function HiveAcousticAnalyzer() {
             <div className="p-3.5 bg-white border border-charcoal/20 shadow-xs">
               <div className="flex items-center gap-1.5 text-gold font-bold text-[10px] uppercase font-mono mb-1">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>KVIC Bio-Acoustic Action Plan</span>
+                <span>AI Bio-Acoustic Action Plan</span>
               </div>
               <p className="text-xs text-charcoal font-serif leading-relaxed mb-2">
                 {currentProfile.recommendation}
@@ -616,13 +616,13 @@ export default function HiveAcousticAnalyzer() {
                   Emergency Field Notification
                 </span>
               </div>
-              <span className="text-[8px] font-mono text-warm-grey">KVIC SMS Gateway</span>
+              <span className="text-[8px] font-mono text-warm-grey">Simulated SMS Gateway (Demo)</span>
             </div>
 
             {alertSent ? (
               <div className="p-3 bg-emerald-950/80 border border-emerald-500 text-emerald-300 text-xs font-mono flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>SMS Alert Dispatched to Field Beekeeper & WhatsApp Bot!</span>
+                <span>Simulated SMS Alert (Demo) — no live telecom gateway connected</span>
               </div>
             ) : (
               <button
@@ -638,7 +638,7 @@ export default function HiveAcousticAnalyzer() {
                 ) : (
                   <>
                     <Zap className="w-3.5 h-3.5" />
-                    <span>Dispatch Immediate SMS to Beekeeper</span>
+                    <span>Simulate SMS Dispatch to Beekeeper</span>
                   </>
                 )}
               </button>

@@ -68,7 +68,7 @@ export default function IoTStageController() {
               <div className="flex items-center gap-2">
                 <Radio className="w-4 h-4 text-gold animate-pulse shrink-0" />
                 <span className="text-xs uppercase font-bold tracking-wider text-gold truncate">
-                  Stage IoT Hardware Controller
+                  Stage Demo Controller (Simulated)
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -91,7 +91,7 @@ export default function IoTStageController() {
             </div>
 
             <p className="text-[11px] text-[#EBE5DE]/80 mb-4 leading-relaxed">
-              Remotely trigger physics-based acoustic and weight anomalies on smart hive <strong className="text-gold font-mono">HIVE-WB-0391</strong> to demonstrate live edge detection on stage.
+              Injects a simulated acoustic/weight anomaly scenario into the demo telemetry feed for hive <strong className="text-gold font-mono">HIVE-WB-0391</strong>, so the dashboard's alert UI can be shown live on stage. No physical hive or sensor is triggered — this updates the in-app demo feed only.
             </p>
 
             <div className="space-y-2 mb-4">
