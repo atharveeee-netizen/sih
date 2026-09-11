@@ -13,7 +13,7 @@ export const LANGUAGE_OPTIONS: LanguageOption[] = [
 
 export const DICTIONARIES: Record<LanguageCode, Record<string, string>> = {
   hi: {
-    app_title: 'हनीचैन - किसान ऐप',
+    app_title: 'Beevil Knievel - किसान ऐप',
     login_heading: 'मधुमक्खी पालक लॉगिन',
     login_subtext: 'अपना केवीआईसी किसान आईडी या पंजीकृत मोबाइल नंबर दर्ज करें',
     farmer_id_or_phone: 'किसान आईडी / मोबाइल नंबर',
@@ -65,7 +65,7 @@ export const DICTIONARIES: Record<LanguageCode, Record<string, string>> = {
     step_faq_2_body: '1. नीचे की ट्रे पर सफेद कागज रखें। 2. 24 घंटे बाद घुन की संख्या गिनें। 3. अधिकारी को बताएं।',
   },
   mr: {
-    app_title: 'हनीचैन - शेतकरी ॲप',
+    app_title: 'Beevil Knievel - शेतकरी ॲप',
     login_heading: 'पालक शेतकरी लॉगिन',
     login_subtext: 'तुमचा KVIC शेतकरी आयडी किंवा मोबाईल नंबर टाका',
     farmer_id_or_phone: 'शेतकरी आयडी / मोबाईल नंबर',
@@ -117,7 +117,7 @@ export const DICTIONARIES: Record<LanguageCode, Record<string, string>> = {
     step_faq_2_body: '१. खाली पांढरा कागद ठेवा. २. २४ तासानंतर कीटक मोजा. ३. अधिकाऱ्यास सांगा.',
   },
   gu: {
-    app_title: 'હનીચેન - ખેડૂત એપ',
+    app_title: 'Beevil Knievel - ખેડૂત એપ',
     login_heading: 'મધમાખી પાલક લોગિન',
     login_subtext: 'તમારો KVIC ખેડૂત ID અથવા મોબાઈલ નંબર દાખલ કરો',
     farmer_id_or_phone: 'ખેડૂત ID / મોબાઈલ નંબર',
@@ -169,7 +169,7 @@ export const DICTIONARIES: Record<LanguageCode, Record<string, string>> = {
     step_faq_2_body: '૧. નીચે સફેદ કાગળ મૂકો. ૨. ૨૪ કલાક પછી જીવાત ગણો. ૩. અધિકારીને જણાવો.',
   },
   ta: {
-    app_title: 'ஹனிசெயின் - விவசாயி செயலி',
+    app_title: 'Beevil Knievel - விவசாயி செயலி',
     login_heading: 'தேனீ வளர்ப்போர் உள்நுழைவு',
     login_subtext: 'உங்கள் KVIC விவசாயி ID அல்லது கைபேசி எண்ணை உள்ளிடவும்',
     farmer_id_or_phone: 'விவசாயி ID / கைபேசி எண்',
@@ -221,7 +221,7 @@ export const DICTIONARIES: Record<LanguageCode, Record<string, string>> = {
     step_faq_2_body: '1. அடியில் வெள்ளை தாள் வைக்கவும். 2. 24 மணி நேரத்திற்குப் பின் எண்ணவும்.',
   },
   te: {
-    app_title: 'హనీచైన్ - రైతు యాప్',
+    app_title: 'Beevil Knievel - రైతు యాప్',
     login_heading: 'తేనెటీగల పెంపకందారుల లాగిన్',
     login_subtext: 'మీ KVIC రైతు ID లేదా మొబైల్ నంబర్ నమోదు చేయండి',
     farmer_id_or_phone: 'రైతు ID / మొబైల్ నంబర్',
@@ -273,7 +273,7 @@ export const DICTIONARIES: Record<LanguageCode, Record<string, string>> = {
     step_faq_2_body: '1. క్రింద తెల్లటి కాగితం ఉంచండి. 2. 24 గంటల తర్వాత లెక్కించండి.',
   },
   kn: {
-    app_title: 'ಹನಿಚೈನ್ - ರೈತ ಆ್ಯಪ್',
+    app_title: 'Beevil Knievel - ರೈತ ಆ್ಯಪ್',
     login_heading: 'ಸಾಕಣೆದಾರರ ಲಾಗಿನ್',
     login_subtext: 'ನಿಮ್ಮ KVIC ರೈತ ID ಅಥವಾ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ',
     farmer_id_or_phone: 'ರೈತ ID / ಮೊಬೈಲ್ ಸಂಖ್ಯೆ',
@@ -325,7 +325,7 @@ export const DICTIONARIES: Record<LanguageCode, Record<string, string>> = {
     step_faq_2_body: '೧. ಕೆಳಗೆ ಬಿಳಿ ಕಾಗದ ಇಡಿ. ೨. ೨೪ ಗಂಟೆಗಳ ನಂತರ ಎಣಿಸಿ.',
   },
   bn: {
-    app_title: 'হানিচেইন - কৃষক অ্যাপ',
+    app_title: 'Beevil Knievel - কৃষক অ্যাপ',
     login_heading: 'মৌমাছি পালনকারী লগইন',
     login_subtext: 'আপনার KVIC কৃষক ID অথবা মোবাইল নম্বর দিন',
     farmer_id_or_phone: 'কৃষক ID / মোবাইল নম্বর',
