@@ -503,7 +503,11 @@ export default function MintBatchPage() {
                 disabled={loading}
                 className="w-full h-14 text-xs uppercase tracking-widest font-semibold btn-gold-slide flex items-center justify-center gap-2"
               >
-                <span>{loading ? "Minting on Polygon Sepolia..." : "Mint Batch & Generate QR Token"}</span>
+                <span>{loading
+                  ? (POLYGON_AMOY_RPC.includes("127.0.0.1") || POLYGON_AMOY_RPC.includes("localhost")
+                      ? "Minting on local chain..."
+                      : "Minting on Polygon Amoy...")
+                  : "Mint Batch & Generate QR Token"}</span>
               </button>
             </form>
           )}
