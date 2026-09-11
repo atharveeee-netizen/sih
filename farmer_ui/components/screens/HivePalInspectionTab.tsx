@@ -71,7 +71,7 @@ export const HivePalInspectionTab: React.FC<HivePalInspectionTabProps> = ({
           <div className="flex items-center gap-2">
             <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
             <span className="text-[11px] font-bold uppercase tracking-widest text-stone-400">
-              HoneyChain Apiary Management
+              Beevil Knievel Apiary Management
             </span>
           </div>
           <span className="text-[10px] font-extrabold bg-stone-800 text-amber-400 border border-amber-400/20 px-2.5 py-0.5 rounded-full">

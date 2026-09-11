@@ -11,19 +11,36 @@ interface FarmerProfileProps {
 export default function FarmerProfile({ farmer }: FarmerProfileProps) {
   const regDate = formatDeterministicMonthYear(farmer.registeredAt);
 
+  const initials = farmer.name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+
   return (
     <div className="border border-charcoal/10 bg-white p-8 md:p-12 group">
       <div className="flex flex-col lg:flex-row gap-12 items-center">
         {/* Grayscale portrait with hover color reveal */}
         <div className="w-full lg:w-5/12 overflow-hidden border border-charcoal/20 relative">
-          <div className="aspect-[3/4] relative bg-charcoal">
-            {/* Fallback stylized beekeeper illustration/image */}
-            <div
-              className="w-full h-full luxury-image-hover bg-cover bg-center"
-              style={{
-                backgroundImage: `url('https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=800')`,
-              }}
-            />
+          <div className="aspect-[3/4] relative bg-navy-deep">
+            {/* This was a hardcoded Unsplash URL. Two problems: the photo id had
+                drifted and was serving a watermelon on a honey provenance page,
+                and it put a live network fetch inside a demo that is meant to
+                run fully offline. A monogram needs no network and does not
+                present a stock photograph as a real registered beekeeper. */}
+            <div className="w-full h-full flex flex-col items-center justify-center gap-3 px-4 text-center">
+              <div
+                aria-hidden="true"
+                className="w-24 h-24 border-2 border-amber text-amber flex items-center justify-center text-3xl font-bold tracking-wide"
+              >
+                {initials}
+              </div>
+              <p className="text-[10px] uppercase tracking-widest text-white/55 font-semibold">
+                Registry ID #{String(farmer.farmerId).padStart(3, "0")}
+              </p>
+            </div>
             <div className="absolute top-4 left-4 bg-charcoal text-gold px-3 py-1 text-[10px] uppercase tracking-widest font-semibold flex items-center gap-1.5 border border-gold/40">
               <ShieldCheck className="w-3 h-3 text-gold" />
               <span>KVIC Verified Beekeeper</span>

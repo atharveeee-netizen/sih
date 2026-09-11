@@ -30,7 +30,7 @@ export const VoiceHeader: React.FC<VoiceHeaderProps> = ({
           </div>
           <div>
             <h1 className="font-bold text-base leading-tight tracking-tight text-white flex items-center gap-1.5">
-              HoneyChain Companion
+              Beevil Knievel Companion
             </h1>
             {isOffline ? (
               <span className="flex items-center gap-1 text-[11px] text-stone-400 bg-stone-800 px-2 py-0.5 rounded-full font-medium">
