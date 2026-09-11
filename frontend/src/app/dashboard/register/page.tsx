@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
@@ -34,6 +34,7 @@ export default function RegisterFarmerPage() {
   });
 
   const [loading, setLoading] = useState(false);
+  const enrollingRef = useRef(false);
   const [gpsLoading, setGpsLoading] = useState(false);
   const [matchedGI, setMatchedGI] = useState<GIZone | null>(null);
   const [success, setSuccess] = useState(false);
@@ -91,6 +92,13 @@ export default function RegisterFarmerPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // A single click was firing this handler twice, minting two batches and
+    // enrolling two beekeepers per submit. `disabled={loading}` cannot stop it:
+    // setLoading is a state update, so it has not applied yet when the second
+    // invocation arrives in the same tick. A ref is checked and set
+    // synchronously, so the second call returns before it can post.
+    if (enrollingRef.current) return;
+    enrollingRef.current = true;
     setLoading(true);
 
     try {
@@ -141,6 +149,7 @@ export default function RegisterFarmerPage() {
       alert("Registration error: " + err.message);
     } finally {
       setLoading(false);
+      enrollingRef.current = false;
     }
   };
 

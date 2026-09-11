@@ -47,7 +47,8 @@ export default function AdminRecallPage() {
       },
     };
 
-    saveCustomBatch(updated);
+    // Revoking an existing batch, not creating one.
+    saveCustomBatch(updated, { persistToDb: false });
     setBatches(getCustomBatches());
     setRevokedId(modalBatchId);
     setModalBatchId(null);

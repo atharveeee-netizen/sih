@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -37,6 +37,7 @@ export default function MintBatchPage() {
   const [isAiLoading, setIsAiLoading] = useState(false);
 
   const [loading, setLoading] = useState(false);
+  const mintingRef = useRef(false);
   const [successData, setSuccessData] = useState<{
     batchId: number;
     score: number;
@@ -90,6 +91,13 @@ export default function MintBatchPage() {
 
   const handleMint = async (e: React.FormEvent) => {
     e.preventDefault();
+    // A single click was firing this handler twice, minting two batches and
+    // enrolling two beekeepers per submit. `disabled={loading}` cannot stop it:
+    // setLoading is a state update, so it has not applied yet when the second
+    // invocation arrives in the same tick. A ref is checked and set
+    // synchronously, so the second call returns before it can post.
+    if (mintingRef.current) return;
+    mintingRef.current = true;
     setLoading(true);
 
     const selectedFarmer = farmersList.find((f) => f.farmerId === Number(farmerId)) || farmersList[0];
@@ -175,7 +183,9 @@ export default function MintBatchPage() {
         txHash: generatedTx,
       };
 
-      await saveCustomBatch(newBatchRecord);
+      // The batch was already created by the POST above, which returned its
+      // real id and QR token. Persisting again here would duplicate it.
+      await saveCustomBatch(newBatchRecord, { persistToDb: false });
 
       setSuccessData({
         batchId: newBatchId,
@@ -197,6 +207,7 @@ export default function MintBatchPage() {
       console.error("Mint error:", err);
     } finally {
       setLoading(false);
+      mintingRef.current = false;
     }
   };
 

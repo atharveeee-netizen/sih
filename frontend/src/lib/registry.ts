@@ -83,7 +83,22 @@ export function getCustomBatches(): BatchMetadata[] {
   }
 }
 
-export async function saveCustomBatch(batch: BatchMetadata): Promise<void> {
+/**
+ * Writes a batch to the local cache, and by default also creates it in the
+ * database.
+ *
+ * That POST always CREATES: the payload carries no batch id, so the server has
+ * nothing to update. Callers that are modifying an existing batch, or that have
+ * already created it themselves, must pass `persistToDb: false` or they will
+ * silently produce a duplicate record. This is what made one click on Mint
+ * produce two batches, and what made a custody transfer or an admin revoke add
+ * a stray batch to the register.
+ */
+export async function saveCustomBatch(
+  batch: BatchMetadata,
+  options: { persistToDb?: boolean } = {}
+): Promise<void> {
+  const { persistToDb = true } = options;
   // 1. Optimistic local update
   if (typeof window !== "undefined") {
     try {
@@ -106,7 +121,9 @@ export async function saveCustomBatch(batch: BatchMetadata): Promise<void> {
     }
   }
 
-  // 2. Persist to SQLite Database via API
+  // 2. Create in the database, unless the caller already did or is updating.
+  if (!persistToDb) return;
+
   try {
     await fetch("/api/batches", {
       method: "POST",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -18,6 +18,7 @@ export default function CustodyLoggingPage() {
   const [actorName, setActorName] = useState("Field Officer");
   
   const [loading, setLoading] = useState(false);
+  const loggingRef = useRef(false);
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
@@ -31,11 +32,19 @@ export default function CustodyLoggingPage() {
 
   const handleAddCustody = (e: React.FormEvent) => {
     e.preventDefault();
+    // A single click was firing this handler twice, minting two batches and
+    // enrolling two beekeepers per submit. `disabled={loading}` cannot stop it:
+    // setLoading is a state update, so it has not applied yet when the second
+    // invocation arrives in the same tick. A ref is checked and set
+    // synchronously, so the second call returns before it can post.
+    if (loggingRef.current) return;
+    loggingRef.current = true;
     if (!selectedBatch) return;
     setLoading(true);
 
     setTimeout(() => {
       setLoading(false);
+      loggingRef.current = false;
       const newEntry = {
         actor: `0x${generateSecureHex(20)}`,
         entity: facility,
@@ -48,7 +57,8 @@ export default function CustodyLoggingPage() {
         custodyChain: [...selectedBatch.custodyChain, newEntry],
       };
 
-      saveCustomBatch(updatedBatch);
+      // Updating an existing batch's custody chain, not creating one.
+      saveCustomBatch(updatedBatch, { persistToDb: false });
       setBatches(getCustomBatches());
       setSuccess(true);
 
