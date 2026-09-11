@@ -72,6 +72,12 @@ Beevil Knievel replaces blind trust with **cryptographic provenance** and **auto
 
 *FIG 02: Canonical Beevil Knievel 6-tier cyber-physical architecture connecting physical transducers to national KVIC governance.*
 
+<p align="center">
+  <img src="docs/figures/beevil_knievel_3tier_cps_architecture.png" alt="Beevil Knievel 3-Tier End-to-End Cyber-Physical System Architecture" width="100%" />
+</p>
+
+*FIG 02A: Beevil Knievel 3-Tier End-to-End Cyber-Physical System Architecture — In-Hive Transduction (TMP117, DS18B20, INMP441) → On-Node CMSIS-DSP & CUSUM → Sub-GHz LoRa Star Backhaul (SX1262) → Central Gateway SQLite & Random Forest.*
+
 ### Core Architectural Layers
 - **Tier 1 — Smart Hive Field Transducers:** Non-invasive comb transducers operating on solar-charged LiFePO4 batteries.
 - **Tier 2 — Sub-GHz LoRa Star Network:** IN865 band (865–867 MHz) packet radio; zero SIM cards, zero monthly telemetry fees.
@@ -89,6 +95,25 @@ Beevil Knievel replaces blind trust with **cryptographic provenance** and **auto
 </p>
 
 *FIG 03: Actual hardware BOM and bus topology anchored in physical silicon (WisBlock RAK4631 + Nordic nRF52840).*
+
+<p align="center">
+  <img src="docs/figures/beevil_knievel_langstroth_cad_cutaway.jpg" alt="Instrumented Commercial Langstroth Hive CAD Analysis" width="100%" />
+</p>
+
+*FIG 03A: Instrumented 10-Frame Commercial Langstroth Hive — Cross-sectional CAD analysis showing multi-point thermistor array, acoustic chamber, comb load cell scale, and external solar telemetry enclosure.*
+
+<p align="center">
+  <img src="docs/figures/beevil_knievel_sensor_workbench_node.jpg" alt="In-Hive Sensor Node Workbench Prototype" width="49%" />
+  <img src="docs/figures/beevil_knievel_gateway_hardware.jpg" alt="Central Gateway Hardware: Raspberry Pi 3B+ & SX1262 LoRa HAT" width="49%" />
+</p>
+
+*FIG 03B: Physical Hardware Implementation — (Left) In-Hive Sensor Field Node workbench prototype with TMP117 probe, INMP441 I2S microphone, and solderless 4:2 clamp blocks; (Right) Central Gateway Reader with Raspberry Pi 3B+, Waveshare SX1262 LoRa HAT, and 865 MHz Sub-GHz antenna.*
+
+<p align="center">
+  <img src="docs/figures/beevil_knievel_hardware_schematic_wiring.jpg" alt="Transmitter Field Node & Receiver Gateway Schematics" width="100%" />
+</p>
+
+*FIG 03C: Complete Electronic Schematic & Interconnect Architecture — Showing Nordic nRF52840 pin assignments, switched power rail (WB_IO2, 18.0 µA sleep), I2C/I2S buses, wireless air gap, and gateway receiver wiring.*
 
 ### Hardware Bill of Materials (BOM)
 | Subsystem / Sensor | Component Part | Interface | Measurement Target & Precision |
@@ -124,6 +149,18 @@ To eliminate protocol discrepancies, the telemetry packet is formalized as an ex
 </p>
 
 *FIG 07: Multi-sensor AI decision pipeline fusing acoustic FFT energy, comb kinetics, and thermal gradients.*
+
+<p align="center">
+  <img src="docs/figures/beevil_knievel_cmsis_dsp_fft_engine.png" alt="On-Node Edge Acoustic DSP & CMSIS-DSP FFT Engine" width="100%" />
+</p>
+
+*FIG 07A: On-Node Edge Acoustic DSP & CMSIS-DSP FFT Engine (`bee_acoustic_classifier.py`) — Real-time 256-pt Hanning FFT (2.49 ms latency, 8.2 KB flash footprint) partitioning bio-acoustic frequency bands (100–180 Hz worker fanning, 200–400 Hz pre-swarm piping, 450–750 Hz queenless distress).*
+
+<p align="center">
+  <img src="docs/figures/beevil_knievel_tinyml_benchmark_zenodo.png" alt="Automated TinyML Benchmark & Real Zenodo Audio Validation" width="100%" />
+</p>
+
+*FIG 07B: Automated TinyML Benchmark & Real Zenodo Audio Validation (`run_level1_testing.py`) — Ground-truth evaluation achieving 94.2% Random Forest classification accuracy and 27/27 deterministic automated test passes.*
 
 ### Calibrated Risk Classification (Claim-Evidence Firewall)
 - **Edge DSP (CMSIS-DSP):** Executes a 256-point Real FFT over 512-sample acoustic frames at $2\text{ kHz}$ sampling rate ($0 - 1000\text{ Hz}$ bandwidth). Compresses spectrum into 8 fundamental energy bins ($100 - 600\text{ Hz}$).
@@ -271,6 +308,12 @@ Beevil Knievel combines high-throughput edge IoT ingestion with decentralized, i
 
 *FIG 11: Store-and-forward edge gateway architecture ensuring continuous operation during rural cellular backhaul outages.*
 
+<p align="center">
+  <img src="docs/figures/beevil_knievel_rf_link_budget_validation.jpg" alt="Calculated Sub-GHz LoRa RF Link Budget & Empirical Verification" width="100%" />
+</p>
+
+*FIG 11A: Sub-GHz LoRa RF Link Budget & Empirical Range Verification — Propagation curves across line-of-sight (LOS up to 4.2 km) and dense canopy clutter (ITU-R P.833-9) with 15 dB fade margin.*
+
 ### Technical Radio Specifications
 - **Frequency Band:** IN865 (865–867 MHz), license-free in India under DoT regulations.
 - **Modulation & Spreading Factor:** LoRa modulation with dynamic spreading factor (SF7–SF12) adapting to rural topography.
@@ -307,6 +350,12 @@ The Beevil Knievel frontend is reconstructed around user purpose, featuring a cl
 | **Market (`/market`)** | Fair Price Direct Linkage | Direct B2B order portal connecting rural tribal cooperatives to Khadi India emporiums. |
 | **System (`/system`)** | IoT Edge Diagnostics | 40-byte binary telemetry frame decoding, CRC-16 checks, and LoRa packet inspection. |
 
+<p align="center">
+  <img src="docs/figures/beevil_knievel_farmer_companion_app.jpg" alt="Farmer PWA Companion App UI" width="70%" />
+</p>
+
+*FIG 14A: Farmer PWA Companion App — Mobile dashboard showing live telemetry mesh, KVIC apiary cluster status, automated voice inspection flow, and offline local gateway operations.*
+
 ---
 
 ## 📊 15 - Automated Testing & Verification Evidence
@@ -339,6 +388,13 @@ tests/test_honeychain_e2e.py ...................                        [100%]
   - Verifies SHA-256 block hash chaining and Merkle-style event walking.
   - Verifies real-time tamper detection when historical data is altered.
   - Verifies QR scan state transitions: 1st scan (`VERIFIED`), 2nd–5th scan (`REPEAT_SCAN`), >5 scans (`SUSPICIOUS`).
+
+### Multi-Physics Simulation Suite (ANSYS)
+<p align="center">
+  <img src="docs/figures/beevil_knievel_ansys_simulation_suite.jpg" alt="ANSYS Multi-Physics Simulation Suite" width="100%" />
+</p>
+
+*FIG 15A: ANSYS Multi-Physics & FEA Validation — Sim 5: Maxwell Solar MPPT Inductor EMI/EMC (<0.028 mT at 30 mm vs 0.1 mT MCU threshold); Sim 6: Fluent In-Hive Aerodynamics (0.52 m/s, 98.4% CO2 purge); Sim 7: Battery Diurnal Thermal (+4.2°C at -15°C ambient freeze); Sim 8: Static Structural Solar Gateway Mast Deflection (Safety Factor 2.65 under 120 km/h storm wind).*
 
 ---
 
