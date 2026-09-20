@@ -1,0 +1,62 @@
+================================================================================
+YOUTUBE VIDEO METADATA & UPLOAD PACKAGE
+Project: Smart Apiculture Cyber-Physical System & HoneyChain Traceability
+Competition: IEEE HardwAIre Challenge (HART Phase 2) & Smart India Hackathon (SIH 2026)
+Team: Beevil Knievel
+================================================================================
+
+[1] VIDEO TITLE:
+--------------------------------------------------------------------------------
+Smart Apiculture CPS: 3-Tier Edge AI Acoustic Pipeline & HoneyChain Traceability (IEEE HART & SIH 2026)
+
+(Alternative Short Title):
+Beevil Knievel: Autonomous In-Hive Acoustic Edge AI & Blockchain Honey Traceability
+
+
+[2] CHAPTER TIMESTAMPS (Paste directly into YouTube description):
+--------------------------------------------------------------------------------
+00:00 - Introduction & Global Colony Collapse Disorder (CCD) Crisis
+00:45 - 3-Tier Edge AI Cyber-Physical Architecture & Hardware Topology
+01:40 - In-Hive CAD Integration & Multipoint Acoustic/Thermal Probes
+02:30 - Embedded CMSIS-DSP FFT Acoustic Pipeline & Queen Piping Detection
+03:20 - ANSYS Multiphysics Acoustic Resonance & Thermal Validation
+04:10 - Farmer Companion PWA, LoRaWAN Gateway & Telemetry Ingestion
+04:54 - HoneyChain Traceability: Problem Statement & Blockchain Architecture
+05:40 - Polygon PoS Smart Contracts & Decentralized Storage
+06:30 - Dual-EOA Minting Protocol: Beekeeping Officer & Harvester Attestation
+07:20 - Dynamic Anti-Counterfeit QR Packaging & FSSAI Verification
+08:15 - End-to-End Consumer Verification Flow Demonstration
+
+
+[3] VIDEO DESCRIPTION:
+--------------------------------------------------------------------------------
+Comprehensive system demonstration of the "Beevil Knievel" Smart Apiculture Cyber-Physical System, built for the IEEE HardwAIre Challenge (HART Phase 2) and Smart India Hackathon (SIH 2026).
+
+This complete extended demo combines:
+1. The On-Node Edge AI & Hardware Sensing Subsystem (00:00 - 04:54)
+   - Custom STM32F401RE MCU with dual MEMS acoustic array (I2S) + DS18B20 1-Wire thermal array.
+   - Ultra-low-power CMSIS-DSP 512-point RFFT processing running in 2.8ms, consuming <28mW.
+   - Autonomous detection of Queen Piping (300-500 Hz acoustic resonance) and Swarming precursors.
+   - LoRaWAN long-range telemetry to Raspberry Pi Gateway & SQLite offline sync.
+   - Multi-frame Langstroth hive CAD modeling and ANSYS acoustic/thermal simulation.
+   - Offline-first Progressive Web App (PWA) localized in English, Hindi, and Marathi.
+
+2. HoneyChain: Polygon Blockchain Honey Supply Chain Traceability (04:54 - 08:53)
+   - End-to-end cryptographic traceability addressing honey adulteration and counterfeit packaging.
+   - Solidity smart contracts deployed on Polygon PoS testnet (ERC-721 / batch provenance tokens).
+   - Dual-EOA cryptographic attestation requiring joint signature from the Harvester and Certified Government/Testing Officer.
+   - Automated metadata hashing with IPFS decentralized storage.
+   - Dynamic anti-counterfeit QR code generation tied to individual jar seals.
+   - Zero-install consumer mobile scanning interface validating hive origin, moisture content, lab testing reports, and harvest timestamps.
+
+📁 System Bill of Materials (Duplicate Cost): $79.94 USD
+📄 Phase 2 Report & Monograph: Fully documented under IEEE HART Guidelines.
+💻 GitHub Repository: https://github.com/the-sarcastic-nerd/sih
+
+#IEEE #HART2026 #SmartAgriculture #EdgeAI #TinyML #Blockchain #Polygon #HoneyChain #IoT #EmbeddedSystems #STM32 #SIH2026 #Apiculture #CyberPhysicalSystems
+
+
+[4] SEARCH TAGS (Comma separated for YouTube Tags field):
+--------------------------------------------------------------------------------
+IEEE HART, IEEE HardwAIre Challenge, Smart Apiculture, Beekeeping IoT, Edge AI, TinyML, CMSIS-DSP, FFT Acoustic Processing, Queen Piping, Colony Collapse Disorder, LoRaWAN, STM32, Raspberry Pi, Polygon Blockchain, HoneyChain, Supply Chain Traceability, Dual-EOA, Smart India Hackathon, SIH 2026, Smart Agriculture, ANSYS Simulation, Food Traceability, Solidity, Hardhat, Web3
+================================================================================

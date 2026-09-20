@@ -1,0 +1,534 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080" style="background-color: #f8fafc; font-family: 'Segoe UI', Arial, -apple-system, sans-serif;">
+
+  <!-- BACKGROUND -->
+  <rect width="1920" height="1080" fill="#fcfcfd"/>
+
+  <!-- ================= HEADER SECTION ================= -->
+  <!-- Beevil Knievel Oval Badge (Top Left) -->
+  <g transform="translate(36, 16)">
+    <!-- Oval Shadow -->
+    <ellipse cx="117" cy="48" rx="112" ry="42" fill="#e2e8f0"/>
+    <!-- Oval Base -->
+    <ellipse cx="115" cy="46" rx="112" ry="42" fill="#fcf8f0" stroke="#1e293b" stroke-width="2.5"/>
+    <text x="115" y="38" font-size="26" font-weight="900" fill="#0f172a" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="0.5">Beevil</text>
+    <text x="115" y="68" font-size="26" font-weight="900" fill="#0f172a" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="0.5">Knievel</text>
+  </g>
+
+  <!-- Title (Center) -->
+  <text x="960" y="74" font-size="46" font-weight="900" fill="#0f172a" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="2">RESEARCH AND REFERENCES</text>
+
+  <!-- SIH 2026 Logo Badge (Top Right) -->
+  <g transform="translate(1680, 14)">
+    <!-- Lightbulb icon -->
+    <g transform="translate(0, 8)">
+      <path d="M28 4 C18 4 10 12 10 22 C10 28 14 33 17 37 L17 43 C17 44.5 18.5 46 20 46 L36 46 C37.5 46 39 44.5 39 43 L39 37 C42 33 46 28 46 22 C46 12 38 4 28 4 Z" fill="#ffcc00" stroke="#d99b26" stroke-width="2"/>
+      <path d="M20 48 L36 48 M23 52 L33 52 M25 56 L31 56" stroke="#475569" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M20 18 Q28 10 36 18" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="28" y1="-2" x2="28" y2="2" stroke="#eab308" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="44" y1="4" x2="41" y2="7" stroke="#eab308" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="12" y1="4" x2="15" y2="7" stroke="#eab308" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <!-- SIH 2026 Text -->
+    <text x="70" y="44" font-size="42" font-weight="900" fill="#0f172a" font-family="'Segoe UI', Arial, sans-serif">SIH</text>
+    <text x="70" y="78" font-size="34" font-weight="800" fill="#0f172a" font-family="'Segoe UI', Arial, sans-serif">2026</text>
+  </g>
+
+  <!-- Horizontal Dark Blue Divider Line -->
+  <rect x="25" y="118" width="1870" height="4" fill="#1a365d"/>
+
+  <!-- ================= COLUMN HEADERS ================= -->
+  <!-- Column 1 Header: Academic Research -->
+  <g transform="translate(36, 134)">
+    <path d="M8 22 L34 10 L60 22 L34 34 Z" fill="#1a365d"/>
+    <path d="M20 28 L20 40 C20 46 48 46 48 40 L48 28" fill="none" stroke="#1a365d" stroke-width="3" stroke-linecap="round"/>
+    <path d="M56 24 L56 40" stroke="#1a365d" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="56" cy="42" r="2.5" fill="#1a365d"/>
+    <text x="76" y="20" font-size="14" font-weight="800" fill="#1a365d" letter-spacing="1">COLUMN 1</text>
+    <text x="76" y="44" font-size="23" font-weight="800" fill="#0f172a">Academic Research</text>
+  </g>
+
+  <!-- Column 2 Header: Standards and Regulations -->
+  <g transform="translate(668, 134)">
+    <path d="M12 18 L34 8 L56 18 Z" fill="#1a365d"/>
+    <rect x="14" y="20" width="40" height="4" fill="#1a365d"/>
+    <rect x="18" y="26" width="4" height="15" fill="#1a365d"/>
+    <rect x="28" y="26" width="4" height="15" fill="#1a365d"/>
+    <rect x="36" y="26" width="4" height="15" fill="#1a365d"/>
+    <rect x="46" y="26" width="4" height="15" fill="#1a365d"/>
+    <rect x="12" y="42" width="44" height="5" fill="#1a365d"/>
+    <text x="76" y="20" font-size="14" font-weight="800" fill="#1a365d" letter-spacing="1">COLUMN 2</text>
+    <text x="76" y="44" font-size="23" font-weight="800" fill="#0f172a">Standards and Regulations</text>
+  </g>
+
+  <!-- Column 3 Header: Open Source and Technical Docs -->
+  <g transform="translate(1300, 134)">
+    <rect x="10" y="8" width="50" height="40" rx="7" fill="#1a365d"/>
+    <path d="M19 20 L28 28 L19 36" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="33" y1="36" x2="45" y2="36" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+    <text x="76" y="20" font-size="14" font-weight="800" fill="#1a365d" letter-spacing="1">COLUMN 3</text>
+    <text x="76" y="44" font-size="23" font-weight="800" fill="#0f172a">Open Source and Technical Docs</text>
+  </g>
+<a xlink:href="https://doi.org/10.1109/JIOT.2019" target="_blank">
+
+  <g transform="translate(36, 190)">
+    <!-- Offset shadow -->
+    <rect x="2" y="2" width="584" height="138" rx="14" fill="#e2e8f0"/>
+    <!-- Base White Card -->
+    <rect width="584" height="138" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Left Amber Tab -->
+    <path d="M 0,14 A 14,14 0 0 1 14,0 L 76,0 L 76,138 L 14,138 A 14,14 0 0 1 0,124 Z" fill="#ebb03c"/>
+    <text x="38" y="34" font-size="17" font-weight="800" font-family="'Segoe UI', Arial, sans-serif" fill="#111111" text-anchor="middle">Ref 1</text>
+    
+        <g transform="translate(25, 48)">
+          <path d="M0 0 L18 0 L26 8 L26 34 L0 34 Z" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+          <path d="M18 0 L18 8 L26 8" fill="none" stroke="#111111" stroke-width="1.8"/>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="20" x2="21" y2="20" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="26" x2="16" y2="26" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        
+    
+    <!-- Body Text -->
+    <text x="96" y="28" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" fill="#0f172a"><tspan font-weight="800">Mondal S. et al., 2019 – </tspan><tspan font-weight="400">Blockchain Inspired RFID-</tspan></text>
+<text x="96" y="49" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">Based Information Architecture for Food Supply Chain.</text>
+<text x="96" y="70" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">IEEE Internet of Things Journal, DOI:10.1109/JIOT.2019</text>
+
+  </g>
+
+</a>
+<a xlink:href="https://fssai.gov.in" target="_blank">
+
+  <g transform="translate(668, 190)">
+    <!-- Offset shadow -->
+    <rect x="2" y="2" width="584" height="138" rx="14" fill="#e2e8f0"/>
+    <!-- Base White Card -->
+    <rect width="584" height="138" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Left Amber Tab -->
+    <path d="M 0,14 A 14,14 0 0 1 14,0 L 76,0 L 76,138 L 14,138 A 14,14 0 0 1 0,124 Z" fill="#ebb03c"/>
+    <text x="38" y="34" font-size="17" font-weight="800" font-family="'Segoe UI', Arial, sans-serif" fill="#111111" text-anchor="middle">Ref 5</text>
+    
+        <g transform="translate(25, 48)">
+          <path d="M0 0 L18 0 L26 8 L26 34 L0 34 Z" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+          <path d="M18 0 L18 8 L26 8" fill="none" stroke="#111111" stroke-width="1.8"/>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="20" x2="21" y2="20" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="26" x2="16" y2="26" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        
+    
+    <!-- Body Text -->
+    <text x="96" y="28" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" fill="#0f172a"><tspan font-weight="800">FSSAI 2020 – </tspan><tspan font-weight="400">Food Safety and Standards (Food Products</tspan></text>
+<text x="96" y="49" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">Standards and Food Additives) Regulations: Honey</text>
+<text x="96" y="70" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">moisture less than 20 percent, HMF limits,</text>
+<text x="96" y="91" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">adulteration thresholds</text>
+
+  </g>
+
+</a>
+<a xlink:href="https://docs.polygon.technology" target="_blank">
+
+  <g transform="translate(1300, 190)">
+    <!-- Offset shadow -->
+    <rect x="2" y="2" width="584" height="138" rx="14" fill="#e2e8f0"/>
+    <!-- Base White Card -->
+    <rect width="584" height="138" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Left Amber Tab -->
+    <path d="M 0,14 A 14,14 0 0 1 14,0 L 76,0 L 76,138 L 14,138 A 14,14 0 0 1 0,124 Z" fill="#ebb03c"/>
+    <text x="38" y="34" font-size="17" font-weight="800" font-family="'Segoe UI', Arial, sans-serif" fill="#111111" text-anchor="middle">Ref 9</text>
+    
+        <g transform="translate(25, 48)">
+          <path d="M0 0 L18 0 L26 8 L26 34 L0 34 Z" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+          <path d="M18 0 L18 8 L26 8" fill="none" stroke="#111111" stroke-width="1.8"/>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="20" x2="21" y2="20" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="26" x2="16" y2="26" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        
+    
+    <!-- Body Text -->
+    <text x="96" y="28" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" fill="#0f172a"><tspan font-weight="800">Polygon Technology – </tspan><tspan font-weight="400">Polygon PoS Technical</tspan></text>
+<text x="96" y="49" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">Documentation v2 – EVM sidechain, Amoy testnet, MATIC</text>
+<text x="96" y="70" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">gas mechanism, smart contract state verification</text>
+
+  </g>
+
+</a>
+<a xlink:href="https://doi.org/10.1109/JIOT.2018.2882794" target="_blank">
+
+  <g transform="translate(36, 338)">
+    <!-- Offset shadow -->
+    <rect x="2" y="2" width="584" height="138" rx="14" fill="#e2e8f0"/>
+    <!-- Base White Card -->
+    <rect width="584" height="138" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Left Amber Tab -->
+    <path d="M 0,14 A 14,14 0 0 1 14,0 L 76,0 L 76,138 L 14,138 A 14,14 0 0 1 0,124 Z" fill="#ebb03c"/>
+    <text x="38" y="34" font-size="17" font-weight="800" font-family="'Segoe UI', Arial, sans-serif" fill="#111111" text-anchor="middle">Ref 2</text>
+    
+        <g transform="translate(25, 48)">
+          <path d="M0 0 L18 0 L26 8 L26 34 L0 34 Z" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+          <path d="M18 0 L18 8 L26 8" fill="none" stroke="#111111" stroke-width="1.8"/>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="20" x2="21" y2="20" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="26" x2="16" y2="26" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        
+    
+    <!-- Body Text -->
+    <text x="96" y="28" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" fill="#0f172a"><tspan font-weight="800">Ferrag MA. et al., 2018 – </tspan><tspan font-weight="400">Blockchain Technologies for</tspan></text>
+<text x="96" y="49" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">the Internet of Things: Research Issues and</text>
+<text x="96" y="70" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">Challenges. IEEE of Things Journal, Vol.6,</text>
+<text x="96" y="91" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">pp.2188-2204, DOI:10.1109/JIOT.2018.2882794</text>
+
+  </g>
+
+</a>
+<a xlink:href="https://bis.gov.in" target="_blank">
+
+  <g transform="translate(668, 338)">
+    <!-- Offset shadow -->
+    <rect x="2" y="2" width="584" height="138" rx="14" fill="#e2e8f0"/>
+    <!-- Base White Card -->
+    <rect width="584" height="138" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Left Amber Tab -->
+    <path d="M 0,14 A 14,14 0 0 1 14,0 L 76,0 L 76,138 L 14,138 A 14,14 0 0 1 0,124 Z" fill="#ebb03c"/>
+    <text x="38" y="34" font-size="17" font-weight="800" font-family="'Segoe UI', Arial, sans-serif" fill="#111111" text-anchor="middle">Ref 6</text>
+    
+        <g transform="translate(25, 48)">
+          <path d="M0 0 L18 0 L26 8 L26 34 L0 34 Z" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+          <path d="M18 0 L18 8 L26 8" fill="none" stroke="#111111" stroke-width="1.8"/>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="20" x2="21" y2="20" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="26" x2="16" y2="26" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        
+    
+    <!-- Body Text -->
+    <text x="96" y="28" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" fill="#0f172a"><tspan font-weight="800">BIS IS 4941:2023 – </tspan><tspan font-weight="400">Indian Standard for Honey: Quality</tspan></text>
+<text x="96" y="49" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">parameters, pollen analysis, pure botanical origin</text>
+<text x="96" y="70" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">labeling, test specifications</text>
+
+  </g>
+
+</a>
+<a xlink:href="https://nordicsemi.com" target="_blank">
+
+  <g transform="translate(1300, 338)">
+    <!-- Offset shadow -->
+    <rect x="2" y="2" width="584" height="138" rx="14" fill="#e2e8f0"/>
+    <!-- Base White Card -->
+    <rect width="584" height="138" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Left Amber Tab -->
+    <path d="M 0,14 A 14,14 0 0 1 14,0 L 76,0 L 76,138 L 14,138 A 14,14 0 0 1 0,124 Z" fill="#ebb03c"/>
+    <text x="38" y="34" font-size="17" font-weight="800" font-family="'Segoe UI', Arial, sans-serif" fill="#111111" text-anchor="middle">Ref 10</text>
+    
+        <g transform="translate(25, 48)">
+          <path d="M0 0 L18 0 L26 8 L26 34 L0 34 Z" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+          <path d="M18 0 L18 8 L26 8" fill="none" stroke="#111111" stroke-width="1.8"/>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="20" x2="21" y2="20" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="26" x2="16" y2="26" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        
+    
+    <!-- Body Text -->
+    <text x="96" y="28" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" fill="#0f172a"><tspan font-weight="800">Nordic Semiconductor – </tspan><tspan font-weight="400">nRF52840 Product Specification</tspan></text>
+<text x="96" y="49" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">v1.7 – SoC multiprotocol, 18uA sleep current, BLE 5,</text>
+<text x="96" y="70" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">ARM Cortex-M4F acoustic compute</text>
+
+  </g>
+
+</a>
+<a xlink:href="https://doi.org/10.1080/00207543.2018.1533261" target="_blank">
+
+  <g transform="translate(36, 486)">
+    <!-- Offset shadow -->
+    <rect x="2" y="2" width="584" height="138" rx="14" fill="#e2e8f0"/>
+    <!-- Base White Card -->
+    <rect width="584" height="138" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Left Amber Tab -->
+    <path d="M 0,14 A 14,14 0 0 1 14,0 L 76,0 L 76,138 L 14,138 A 14,14 0 0 1 0,124 Z" fill="#ebb03c"/>
+    <text x="38" y="34" font-size="17" font-weight="800" font-family="'Segoe UI', Arial, sans-serif" fill="#111111" text-anchor="middle">Ref 3</text>
+    
+        <g transform="translate(25, 48)">
+          <path d="M0 0 L18 0 L26 8 L26 34 L0 34 Z" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+          <path d="M18 0 L18 8 L26 8" fill="none" stroke="#111111" stroke-width="1.8"/>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="20" x2="21" y2="20" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="26" x2="16" y2="26" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        
+    
+    <!-- Body Text -->
+    <text x="96" y="28" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" fill="#0f172a"><tspan font-weight="800">Saberi S. et al., 2019 – </tspan><tspan font-weight="400">Blockchain technology and its</tspan></text>
+<text x="96" y="49" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">relationships to sustainable supply chain management.</text>
+<text x="96" y="70" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">International Journal of Production Research,</text>
+<text x="96" y="91" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">Vol.57(7), pp.2117-2135</text>
+
+  </g>
+
+</a>
+<a xlink:href="https://kvic.gov.in" target="_blank">
+
+  <g transform="translate(668, 486)">
+    <!-- Offset shadow -->
+    <rect x="2" y="2" width="584" height="138" rx="14" fill="#e2e8f0"/>
+    <!-- Base White Card -->
+    <rect width="584" height="138" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Left Amber Tab -->
+    <path d="M 0,14 A 14,14 0 0 1 14,0 L 76,0 L 76,138 L 14,138 A 14,14 0 0 1 0,124 Z" fill="#ebb03c"/>
+    <text x="38" y="34" font-size="17" font-weight="800" font-family="'Segoe UI', Arial, sans-serif" fill="#111111" text-anchor="middle">Ref 7</text>
+    
+        <g transform="translate(25, 48)">
+          <path d="M0 0 L18 0 L26 8 L26 34 L0 34 Z" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+          <path d="M18 0 L18 8 L26 8" fill="none" stroke="#111111" stroke-width="1.8"/>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="20" x2="21" y2="20" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="26" x2="16" y2="26" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        
+    
+    <!-- Body Text -->
+    <text x="96" y="28" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" fill="#0f172a"><tspan font-weight="800">KVIC Annual Report 2023-24 – </tspan><tspan font-weight="400">Ministry of MSME:</tspan></text>
+<text x="96" y="49" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">National Bee Mission targets, tribal beekeeper</text>
+<text x="96" y="70" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">livelihood data, Langstroth hive distribution</text>
+<text x="96" y="91" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">statistics</text>
+
+  </g>
+
+</a>
+<a xlink:href="https://semtech.com" target="_blank">
+
+  <g transform="translate(1300, 486)">
+    <!-- Offset shadow -->
+    <rect x="2" y="2" width="584" height="138" rx="14" fill="#e2e8f0"/>
+    <!-- Base White Card -->
+    <rect width="584" height="138" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Left Amber Tab -->
+    <path d="M 0,14 A 14,14 0 0 1 14,0 L 76,0 L 76,138 L 14,138 A 14,14 0 0 1 0,124 Z" fill="#ebb03c"/>
+    <text x="38" y="34" font-size="17" font-weight="800" font-family="'Segoe UI', Arial, sans-serif" fill="#111111" text-anchor="middle">Ref 11</text>
+    
+        <g transform="translate(25, 48)">
+          <path d="M0 0 L18 0 L26 8 L26 34 L0 34 Z" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+          <path d="M18 0 L18 8 L26 8" fill="none" stroke="#111111" stroke-width="1.8"/>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="20" x2="21" y2="20" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="26" x2="16" y2="26" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        
+    
+    <!-- Body Text -->
+    <text x="96" y="28" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" fill="#0f172a"><tspan font-weight="800">Semtech – </tspan><tspan font-weight="400">SX1262 Datasheet Rev 2.1 – LoRa sub-GHz</tspan></text>
+<text x="96" y="49" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">transceiver, plus 22dBm output, minus 148dBm</text>
+<text x="96" y="70" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">sensitivity in apiary wireless nodes</text>
+
+  </g>
+
+</a>
+<a xlink:href="https://doi.org/10.1038/s42256-021-00414-9" target="_blank">
+
+  <g transform="translate(36, 634)">
+    <!-- Offset shadow -->
+    <rect x="2" y="2" width="584" height="138" rx="14" fill="#e2e8f0"/>
+    <!-- Base White Card -->
+    <rect width="584" height="138" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Left Amber Tab -->
+    <path d="M 0,14 A 14,14 0 0 1 14,0 L 76,0 L 76,138 L 14,138 A 14,14 0 0 1 0,124 Z" fill="#ebb03c"/>
+    <text x="38" y="34" font-size="17" font-weight="800" font-family="'Segoe UI', Arial, sans-serif" fill="#111111" text-anchor="middle">Ref 4</text>
+    
+        <g transform="translate(25, 48)">
+          <path d="M0 0 L18 0 L26 8 L26 34 L0 34 Z" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+          <path d="M18 0 L18 8 L26 8" fill="none" stroke="#111111" stroke-width="1.8"/>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="20" x2="21" y2="20" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="26" x2="16" y2="26" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        
+    
+    <!-- Body Text -->
+    <text x="96" y="28" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" fill="#0f172a"><tspan font-weight="800">Tzachor A. et al., 2021 – </tspan><tspan font-weight="400">Responsible Artificial</tspan></text>
+<text x="96" y="49" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">Intelligence in Agriculture requires systemic</text>
+<text x="96" y="70" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">understanding of risks and externalities. Nature</text>
+<text x="96" y="91" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">Machine Intelligence</text>
+
+  </g>
+
+</a>
+<a xlink:href="https://lora-alliance.org" target="_blank">
+
+  <g transform="translate(668, 634)">
+    <!-- Offset shadow -->
+    <rect x="2" y="2" width="584" height="138" rx="14" fill="#e2e8f0"/>
+    <!-- Base White Card -->
+    <rect width="584" height="138" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Left Amber Tab -->
+    <path d="M 0,14 A 14,14 0 0 1 14,0 L 76,0 L 76,138 L 14,138 A 14,14 0 0 1 0,124 Z" fill="#ebb03c"/>
+    <text x="38" y="34" font-size="17" font-weight="800" font-family="'Segoe UI', Arial, sans-serif" fill="#111111" text-anchor="middle">Ref 8</text>
+    
+        <g transform="translate(25, 48)">
+          <path d="M0 0 L18 0 L26 8 L26 34 L0 34 Z" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+          <path d="M18 0 L18 8 L26 8" fill="none" stroke="#111111" stroke-width="1.8"/>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="20" x2="21" y2="20" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="26" x2="16" y2="26" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        
+    
+    <!-- Body Text -->
+    <text x="96" y="28" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" fill="#0f172a"><tspan font-weight="800">LoRa Alliance – </tspan><tspan font-weight="400">IN865-867MHz Regional Parameters</tspan></text>
+<text x="96" y="49" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">v1.0.3 – India sub-GHz LoRaWAN band plan, dwell times</text>
+<text x="96" y="70" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">and transmit limits</text>
+
+  </g>
+
+</a>
+<a xlink:href="https://github.com/NomicFoundation/hardhat" target="_blank">
+
+  <g transform="translate(1300, 634)">
+    <!-- Offset shadow -->
+    <rect x="2" y="2" width="584" height="138" rx="14" fill="#e2e8f0"/>
+    <!-- Base White Card -->
+    <rect width="584" height="138" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Left Amber Tab -->
+    <path d="M 0,14 A 14,14 0 0 1 14,0 L 76,0 L 76,138 L 14,138 A 14,14 0 0 1 0,124 Z" fill="#ebb03c"/>
+    <text x="38" y="34" font-size="17" font-weight="800" font-family="'Segoe UI', Arial, sans-serif" fill="#111111" text-anchor="middle">Ref 12</text>
+    
+        <g transform="translate(25, 48)">
+          <path d="M0 0 L18 0 L26 8 L26 34 L0 34 Z" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+          <path d="M18 0 L18 8 L26 8" fill="none" stroke="#111111" stroke-width="1.8"/>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="20" x2="21" y2="20" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+          <line x1="5" y1="26" x2="16" y2="26" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        
+    
+    <!-- Body Text -->
+    <text x="96" y="28" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" fill="#0f172a"><tspan font-weight="800">NomicFoundation – </tspan><tspan font-weight="400">Hardhat Ethereum Development</tspan></text>
+<text x="96" y="49" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">Environment, v2.22 – Automated test framework & dual-</text>
+<text x="96" y="70" font-size="13.5" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" fill="#1e293b">EOA deployment: github.com/NomicFoundation/hardhat</text>
+
+  </g>
+
+</a>
+
+  <!-- ================= DEDICATED LINKS & VERIFICATION DOCK ================= -->
+  <g transform="translate(36, 795)">
+    <!-- Dock Shadow -->
+    <rect x="2" y="2" width="1848" height="265" rx="16" fill="#e2e8f0"/>
+    
+    <!-- Dock Base Container -->
+    <rect width="1848" height="265" rx="16" fill="#fdfbf7" stroke="#e09f2b" stroke-width="2.5"/>
+    
+    <!-- Dock Title Banner Header -->
+    <path d="M 0,16 A 16,16 0 0 1 16,0 L 1832,0 A 16,16 0 0 1 1848,16 L 1848,46 L 0,46 Z" fill="#ebb03c"/>
+    <text x="924" y="31" font-size="19" font-weight="900" fill="#111111" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" letter-spacing="1">PROJECT ARTIFACTS, SIMULATION MODELS &amp; LIVE DEMO VERIFICATION LINKS</text>
+
+    <!-- Subtitle Guide -->
+    <text x="924" y="72" font-size="14" font-weight="700" fill="#475569" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif">Click any card below to launch resource directly, or copy the URL into your presentation deck / Canva:</text>
+
+    <!-- ================= THREE DEDICATED LINK CARDS ================= -->
+    <a xlink:href="https://youtu.be/H-zuEF6TKJk" target="_blank">
+
+      <g transform="translate(24, 88)">
+        <!-- Shadow -->
+        <rect x="2" y="2" width="588" height="152" rx="12" fill="#fee2e2"/>
+        <!-- Card -->
+        <rect width="588" height="152" rx="12" fill="#ffffff" stroke="#ef4444" stroke-width="2"/>
+        
+        <!-- Red YouTube Icon Badge -->
+        <g transform="translate(18, 16)">
+          <rect width="48" height="34" rx="8" fill="#ff0000"/>
+          <path d="M19 10 L33 17 L19 24 Z" fill="#ffffff"/>
+        </g>
+        
+        <!-- Label & Details -->
+        <text x="76" y="30" font-size="17" font-weight="900" fill="#b91c1c" font-family="'Segoe UI', Arial, sans-serif">YOUTUBE VIDEO DEMONSTRATION</text>
+        <text x="76" y="48" font-size="13" font-weight="600" fill="#475569" font-family="'Segoe UI', Arial, sans-serif">Complete Extended 8m 54s Edge AI &amp; Blockchain Walkthrough</text>
+        
+        <!-- Clickable URL Box -->
+        <rect x="18" y="66" width="552" height="42" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+        <text x="32" y="92" font-size="16" font-weight="800" fill="#991b1b" font-family="'Segoe UI', Arial, sans-serif">https://youtu.be/H-zuEF6TKJk</text>
+        
+        <!-- Action Button Pill -->
+        <rect x="435" y="72" width="125" height="30" rx="6" fill="#dc2626"/>
+        <text x="497" y="92" font-size="12.5" font-weight="800" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif">WATCH DEMO ↗</text>
+        
+        <text x="24" y="132" font-size="12" font-weight="600" fill="#64748b" font-family="'Segoe UI', Arial, sans-serif">Verified: Full End-to-End Hardware &amp; Polygon PoS Smart Contract Execution</text>
+      </g>
+    
+</a>
+    <a xlink:href="https://drive.google.com/drive/folders/1mcRlA34NsPGypRmftliZy71pt72OI7e1?usp=sharing" target="_blank">
+
+      <g transform="translate(630, 88)">
+        <!-- Shadow -->
+        <rect x="2" y="2" width="588" height="152" rx="12" fill="#dbeafe"/>
+        <!-- Card -->
+        <rect width="588" height="152" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+        
+        <!-- Blue Google Drive Icon Badge -->
+        <g transform="translate(18, 14)">
+          <path d="M18 4 L34 4 L48 28 L32 28 Z" fill="#4285f4"/>
+          <path d="M10 36 L18 22 L48 22 L40 36 Z" fill="#34a853"/>
+          <path d="M4 26 L19 0 L27 14 L12 40 Z" fill="#fbbc05" transform="scale(0.9) translate(4, 2)"/>
+        </g>
+        
+        <!-- Label & Details -->
+        <text x="76" y="30" font-size="17" font-weight="900" fill="#1d4ed8" font-family="'Segoe UI', Arial, sans-serif">ANSYS SIMULATION DATA SUITE</text>
+        <text x="76" y="48" font-size="13" font-weight="600" fill="#475569" font-family="'Segoe UI', Arial, sans-serif">Langstroth Hive Acoustic Resonance &amp; Thermal FEA Models</text>
+        
+        <!-- Clickable URL Box -->
+        <rect x="18" y="66" width="552" height="42" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+        <text x="32" y="92" font-size="13" font-weight="800" fill="#1e40af" font-family="'Segoe UI', Arial, sans-serif">drive.google.com/.../folders/1mcRlA34NsPGypRmftliZy71pt72OI7e1</text>
+        
+        <!-- Action Button Pill -->
+        <rect x="435" y="72" width="125" height="30" rx="6" fill="#2563eb"/>
+        <text x="497" y="92" font-size="12.5" font-weight="800" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif">OPEN DRIVE ↗</text>
+        
+        <text x="24" y="132" font-size="12" font-weight="600" fill="#64748b" font-family="'Segoe UI', Arial, sans-serif">Complete Raw Results: Modal acoustics, 300-500Hz piping &amp; CFD heat distribution</text>
+      </g>
+    
+</a>
+    <a xlink:href="https://github.com/atharveeee-netizen/sih" target="_blank">
+
+      <g transform="translate(1236, 88)">
+        <!-- Shadow -->
+        <rect x="2" y="2" width="588" height="152" rx="12" fill="#e2e8f0"/>
+        <!-- Card -->
+        <rect width="588" height="152" rx="12" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+        
+        <!-- Dark GitHub Icon Badge -->
+        <g transform="translate(18, 14)">
+          <circle cx="20" cy="18" r="18" fill="#0f172a"/>
+          <path d="M20 6 C12.3 6 6 12.3 6 20 C6 26.2 10 31.4 15.6 33.3 C16.3 33.4 16.6 33 16.6 32.6 C16.6 32.2 16.6 31.2 16.6 29.9 C12.7 30.7 11.9 28.1 11.9 28.1 C11.3 26.5 10.4 26 10.4 26 C9.1 25.1 10.5 25.1 10.5 25.1 C11.9 25.2 12.7 26.6 12.7 26.6 C14 28.7 16 28.1 16.8 27.8 C16.9 26.8 17.3 26.1 17.8 25.7 C14.7 25.3 11.4 24.1 11.4 18.8 C11.4 17.3 11.9 16.1 12.8 15.1 C12.6 14.7 12.2 13.3 12.9 11.5 C12.9 11.5 14.1 11.1 16.7 12.9 C17.8 12.6 19 12.4 20.1 12.4 C21.2 12.4 22.4 12.6 23.5 12.9 C26.1 11.1 27.3 11.5 27.3 11.5 C28 13.3 27.6 14.7 27.4 15.1 C28.3 16.1 28.8 17.3 28.8 18.8 C28.8 24.1 25.5 25.3 22.4 25.7 C23 26.2 23.5 27.2 23.5 28.7 C23.5 30.8 23.5 32.5 23.5 32.6 C23.5 33 23.8 33.4 24.5 33.3 C30.1 31.4 34.1 26.2 34.1 20 C34.1 12.3 27.8 6 20 6 Z" fill="#ffffff"/>
+        </g>
+        
+        <!-- Label & Details -->
+        <text x="76" y="30" font-size="17" font-weight="900" fill="#0f172a" font-family="'Segoe UI', Arial, sans-serif">OPEN SOURCE REPOSITORY</text>
+        <text x="76" y="48" font-size="13" font-weight="600" fill="#475569" font-family="'Segoe UI', Arial, sans-serif">Full Firmware, Schematics, Smart Contracts &amp; PWA</text>
+        
+        <!-- Clickable URL Box -->
+        <rect x="18" y="66" width="552" height="42" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+        <text x="32" y="92" font-size="16" font-weight="800" fill="#0f172a" font-family="'Segoe UI', Arial, sans-serif">github.com/atharveeee-netizen/sih</text>
+        
+        <!-- Action Button Pill -->
+        <rect x="435" y="72" width="125" height="30" rx="6" fill="#0f172a"/>
+        <text x="497" y="92" font-size="12.5" font-weight="800" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif">VIEW CODE ↗</text>
+        
+        <text x="24" y="132" font-size="12" font-weight="600" fill="#64748b" font-family="'Segoe UI', Arial, sans-serif">Team: Beevil Knievel | Smart India Hackathon (SIH 2026) Problem Statement</text>
+      </g>
+    
+</a>
+
+  </g>
+</svg>

@@ -1,0 +1,77 @@
+================================================================================
+SMART INDIA HACKATHON (SIH 2026) - YOUTUBE VIDEO METADATA & UPLOAD PACKAGE
+Project: Smart Apiculture Cyber-Physical System & HoneyChain Traceability
+Team: Beevil Knievel
+================================================================================
+
+[1] VIDEO TITLE:
+--------------------------------------------------------------------------------
+Smart Apiculture CPS: 3-Tier Edge AI Acoustic Pipeline & HoneyChain Traceability | SIH 2026
+
+(Alternative Short Title):
+Beevil Knievel: Autonomous In-Hive Acoustic Edge AI & Blockchain Honey Traceability | SIH 2026
+
+
+[2] CHAPTER TIMESTAMPS:
+--------------------------------------------------------------------------------
+00:00 - Problem Overview: Apiculture Crisis & Colony Collapse Disorder (CCD)
+00:45 - 3-Tier Cyber-Physical Architecture & Hardware Sensor Topology
+01:40 - In-Hive Mechanical CAD Integration & Multipoint Sensor Probes
+02:30 - Embedded CMSIS-DSP FFT Acoustic Pipeline & Queen Piping Detection
+03:20 - ANSYS Multiphysics Acoustic Resonance & Thermal Validation Suite
+04:10 - Farmer Companion PWA, LoRaWAN Gateway & Telemetry Sync
+04:54 - HoneyChain Traceability: Supply Chain Integrity & Blockchain Architecture
+05:40 - Smart Contracts & Polygon PoS Decentralized Deployment
+06:30 - Dual-EOA Minting Protocol: Beekeeping Officer & Harvester Attestation
+07:20 - Anti-Counterfeit Dynamic QR Packaging & FSSAI Verification
+08:15 - End-to-End Consumer Verification Flow Demonstration
+
+
+[3] VIDEO DESCRIPTION (Cleaned - No Angled Brackets):
+--------------------------------------------------------------------------------
+Official submission and demonstration for Smart India Hackathon (SIH 2026): "Beevil Knievel" – an end-to-end Smart Apiculture Cyber-Physical System (CPS) integrating autonomous Edge AI in-hive monitoring with the HoneyChain decentralized traceability ecosystem.
+
+00:00 - Problem Overview: Apiculture Crisis & Colony Collapse Disorder (CCD)
+00:45 - 3-Tier Cyber-Physical Architecture & Hardware Sensor Topology
+01:40 - In-Hive Mechanical CAD Integration & Multipoint Sensor Probes
+02:30 - Embedded CMSIS-DSP FFT Acoustic Pipeline & Queen Piping Detection
+03:20 - ANSYS Multiphysics Acoustic Resonance & Thermal Validation Suite
+04:10 - Farmer Companion PWA, LoRaWAN Gateway & Telemetry Sync
+04:54 - HoneyChain Traceability: Supply Chain Integrity & Blockchain Architecture
+05:40 - Smart Contracts & Polygon PoS Decentralized Deployment
+06:30 - Dual-EOA Minting Protocol: Beekeeping Officer & Harvester Attestation
+07:20 - Anti-Counterfeit Dynamic QR Packaging & FSSAI Verification
+08:15 - End-to-End Consumer Verification Flow Demonstration
+
+OVERVIEW:
+Beekeeping in India faces two existential challenges: 
+1. Catastrophic hive losses caused by swarming, pests, and thermal distress (Colony Collapse Disorder).
+2. Rampant adulteration and counterfeit packaging across the unorganized honey supply chain, diminishing farmer income and consumer trust.
+
+OUR COMPLETE SOLUTION:
+
+PART 1: ON-NODE EDGE AI SENSING & CYBER-PHYSICAL MONITORING (00:00 - 04:54)
+- Custom STM32F401RE embedded sensing node with dual MEMS acoustic arrays (I2S) and DS18B20 1-Wire multi-point thermal arrays.
+- On-node CMSIS-DSP 512-point Real FFT processing executed in 2.8ms, consuming under 28mW.
+- Autonomous real-time detection of Queen Piping (300-500 Hz acoustic resonance) and swarming precursors before hive departure.
+- LoRaWAN long-range sub-GHz telemetry transmitting to an edge Raspberry Pi gateway with offline SQLite buffering.
+- Full mechanical Langstroth hive CAD integration validated through ANSYS acoustic resonance and thermal dissipation simulations.
+- Trilingual offline-first Progressive Web App (PWA) available in English, Hindi, and Marathi, empowering smallholder apiculturists.
+
+PART 2: HONEYCHAIN BLOCKCHAIN PROVENANCE & TRACEABILITY (04:54 - 08:53)
+- Cryptographic supply chain verification deployed on the Polygon PoS network.
+- Dual-EOA (Externally Owned Account) batch minting protocol: requires joint cryptographic signatures from both the Harvester and Certified Government/Testing Officers.
+- Permanent decentralized metadata pinning via IPFS ensuring immutable harvest records, lab chemical purity tests, and geographic origins.
+- Dynamic anti-counterfeit QR code generation tied uniquely to tamper-evident tamper-proof jar seals.
+- Instant, zero-installation consumer mobile scanning interface verifying hive origin, moisture levels, harvest dates, and FSSAI compliance.
+
+Repository: https://github.com/the-sarcastic-nerd/sih
+Team Name: Beevil Knievel
+
+#SmartIndiaHackathon #SIH2026 #SmartAgriculture #EdgeAI #TinyML #Blockchain #Polygon #HoneyChain #IoT #EmbeddedSystems #STM32 #Apiculture #AgriTech #MakeInIndia
+
+
+[4] SEARCH TAGS:
+--------------------------------------------------------------------------------
+Smart India Hackathon, SIH 2026, Smart Apiculture, Beekeeping IoT, Edge AI, TinyML, CMSIS-DSP, FFT Acoustic Processing, Queen Piping, Colony Collapse Disorder, LoRaWAN, STM32, Raspberry Pi, Polygon Blockchain, HoneyChain, Supply Chain Traceability, Dual-EOA, Smart Agriculture, ANSYS Simulation, Food Traceability, Solidity, Hardhat, Web3, AgriTech, Honey Adulteration, Make In India
+================================================================================
