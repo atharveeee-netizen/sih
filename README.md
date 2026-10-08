@@ -66,8 +66,8 @@ The Ministry of Micro, Small and Medium Enterprises (MSME) requires a comprehens
 
 ## 📸 Project Showcase
 
-### Web Dashboard & Analytics
-![KPI Dashboard](docs/media/10-dashboard/dashboard_overview.png)
+### Supervisor Tracking Dashboard (Farmer KPIs)
+![KPI Dashboard](docs/figures/kpi_results_dashboard.png)
 
 ### Hardware & IoT Gateway
 ![Hardware Gateway](docs/figures/beevil_knievel_gateway_hardware.jpg)
@@ -147,4 +147,5 @@ Read **[LIMITATIONS.md](LIMITATIONS.md)** before judging any claim. In short:
 This is a working bench prototype, not a season in a live apiary. The acoustic model is trained on an annotated European dataset and would need retuning for Indian subspecies. Radio range figures are calculated link budgets rather than walked field measurements. These distinctions are labelled throughout.
 
 ---
+
 
