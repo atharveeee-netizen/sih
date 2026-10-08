@@ -1,17 +1,27 @@
-# Honey Chain
+# 🍯 Honey Chain: Smart Beekeeping & Blockchain Traceability
 
-**Smart India Hackathon 2026 - Problem Statement 26021**
-Ministry of MSME, Coordination Section - Agriculture, FoodTech and Rural Development
+<div align="center">
+  <img src="https://img.shields.io/badge/Smart%20India%20Hackathon-2026-orange?style=for-the-badge" alt="SIH 2026">
+  <img src="https://img.shields.io/badge/Problem%20Statement-26021-blue?style=for-the-badge" alt="PS26021">
+  <img src="https://img.shields.io/badge/Ministry-MSME-green?style=for-the-badge" alt="MSME">
+</div>
 
-A blockchain based honey traceability and smart beekeeping system: QR code consumer
-verification, secure batch tracking, and IoT plus AI hive monitoring for the KVIC
-Honey Mission.
+<br>
 
-**Team Beevil Knievel** - Atharve Dahima, Srajan Mishra, Kavin
+**Team:** Beevil Knievel (Atharve Dahima, Srajan Mishra, Kavin) <br>
+**Theme:** Agriculture, FoodTech and Rural Development 
 
 ---
 
-## What this repository is
+## 🎯 The Problem Statement (PS 26021)
+The Ministry of Micro, Small and Medium Enterprises (MSME) requires a comprehensive technological solution to modernize the apiculture sector under the KVIC Honey Mission. The core objectives are:
+1. **Traceability:** Implement blockchain technology to track honey from the hive to the consumer, eliminating adulteration and building trust.
+2. **Quality & Authentication:** Secure QR-based consumer verification for honey batches.
+3. **Smart Hive Monitoring:** Integrate IoT sensors and AI to monitor hive health, detect pathologies, and optimize yields in rural, low-connectivity apiaries.
+
+---
+
+## 🚀 What this repository is
 
 The problem statement asks for three things. This README is organised around those
 three, and each section says what was built, where the code is, and the command that
