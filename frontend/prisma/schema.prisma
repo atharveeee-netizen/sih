@@ -1,4 +1,4 @@
-// Prisma Schema for HoneyChain by TrueTag — SIH 2026
+// Prisma Schema for Beevil Knievel Honey Chain — SIH 2026
 // Production database schema with full relational model
 
 generator client {

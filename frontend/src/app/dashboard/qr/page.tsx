@@ -6,7 +6,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { QRCodeSVG } from "qrcode.react";
-import { DEMO_BATCHES } from "@/lib/constants";
+import { DEMO_BATCHES, CHAIN_LABEL_TITLE } from "@/lib/constants";
 import { fetchBatchesFromDB } from "@/lib/registry";
 import { BatchMetadata } from "@/lib/types";
 import { generateStickerSheetPDF } from "@/lib/pdf-stickers";
@@ -129,7 +129,7 @@ export default function QrLabelsPage() {
                 >
                   {batches.map((b) => (
                     <option key={b.batchId} value={b.batchId}>
-                      Batch #{b.batchId} — {b.farmer.name} ({b.qrToken})
+                      Batch #{b.batchId} - {b.farmer.name} ({b.qrToken})
                     </option>
                   ))}
                 </select>
@@ -389,7 +389,7 @@ export default function QrLabelsPage() {
                         <strong>FSSAI IS 4941</strong>
                       </p>
                       <p className="text-[8px] text-warm-grey font-sans">
-                        Polygon PoS Tokenized
+                        {CHAIN_LABEL_TITLE} Tokenized
                       </p>
                     </div>
                   </div>
@@ -435,7 +435,7 @@ export default function QrLabelsPage() {
                         KVIC HEAVY TRANSPORT DRUM TAG
                       </span>
                       <h3 className="text-2xl serif text-alabaster font-bold">
-                        Batch #{selectedBatch.batchId} — 250 KG DRUM
+                        Batch #{selectedBatch.batchId} - 250 KG DRUM
                       </h3>
                     </div>
                     <span className="px-3 py-1 bg-emerald-500 text-charcoal font-mono font-bold text-xs uppercase">
@@ -470,7 +470,7 @@ export default function QrLabelsPage() {
 
                   <div className="border-t border-white/20 pt-3 text-[10px] font-mono text-warm-grey flex justify-between relative z-10">
                     <span>Tamper Law: Section 16 FSSAI Act 2006</span>
-                    <span>Chain: Polygon PoS (Amoy)</span>
+                    <span>Chain: {CHAIN_LABEL_TITLE}</span>
                   </div>
                 </div>
               ))}

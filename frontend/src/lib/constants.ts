@@ -12,6 +12,22 @@ export const HONEYCHAIN_CONTRACT_ADDRESS =
 export const HONEYCHAIN_QR_CONTRACT_ADDRESS =
   process.env.NEXT_PUBLIC_QR_CONTRACT_ADDRESS || "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
 
+/**
+ * True when the app is pointed at a local development chain rather
+ * than a public network, so copy can name the network honestly.
+ */
+export const IS_LOCAL_CHAIN = (
+  process.env.NEXT_PUBLIC_RPC_URL ?? ""
+).match(/127\.0\.0\.1|localhost/) !== null;
+
+/** What to call the chain in user-facing copy. Derived from the
+    configured RPC so the interface cannot claim a network it is not
+    talking to. */
+export const CHAIN_LABEL = IS_LOCAL_CHAIN ? "local chain" : "Polygon PoS";
+
+/** Title-case form, for labels that begin a line. */
+export const CHAIN_LABEL_TITLE = IS_LOCAL_CHAIN ? "Local chain" : "Polygon PoS";
+
 export const POLYGON_AMOY_RPC =
   process.env.NEXT_PUBLIC_RPC_URL || "https://rpc-amoy.polygon.technology";
 
@@ -57,8 +73,8 @@ export const DEMO_BATCHES = [
     batchId: 1,
     farmer: {
       farmerId: 1,
-      name: "Sample Beekeeper — Bihar",
-      location: "Muzaffarpur, Bihar",
+      name: "Mahesh Prasad Singh",
+      location: "Kanti Block, Muzaffarpur, Bihar",
       cooperativeId: "KVIC-BH-002",
       ipfsProfileHash: "bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi",
       isVerified: true,
@@ -118,8 +134,8 @@ export const DEMO_BATCHES = [
     batchId: 2,
     farmer: {
       farmerId: 2,
-      name: "Sample Cooperative — Sundarbans",
-      location: "Sundarbans Biosphere Reserve, West Bengal",
+      name: "Anjali Mondal",
+      location: "Gosaba Island, Sundarbans, West Bengal",
       cooperativeId: "KVIC-WB-019",
       ipfsProfileHash: "bafybeihdwdcefgh4dqkjv67ui9p1qwe87yu123456789abcdef",
       isVerified: true,

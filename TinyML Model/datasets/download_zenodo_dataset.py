@@ -51,7 +51,7 @@ def download_zenodo_samples():
         print(f"\n[DOWNLOAD] Fetching: {item['desc']}")
         print(f"           URL: {item['url']}")
         cmd = [
-            "curl.exe", "-s", "-L",
+            "curl", "-s", "-L",
             "-A", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
             item["url"], "-o", filepath
         ]

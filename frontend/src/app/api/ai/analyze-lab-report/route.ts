@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
           c4_sugar_percent: 1.1,
           smr_marker: 0.018,
         },
-        message: "GEMINI_API_KEY not set — returning fallback extraction values.",
+        message: "GEMINI_API_KEY not set - returning fallback extraction values.",
       });
     }
 

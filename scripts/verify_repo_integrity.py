@@ -1,9 +1,11 @@
+from pathlib import Path
 import os
 import re
 import sys
 import urllib.parse
 
-repo_dir = r"C:\Users\25beevdt047\.gemini\antigravity-ide\scratch\beevil-knievel"
+REPO_DIR = Path(__file__).resolve().parents[1]
+repo_dir = str(REPO_DIR)
 
 def check_file(md_path):
     with open(md_path, "r", encoding="utf-8") as f:

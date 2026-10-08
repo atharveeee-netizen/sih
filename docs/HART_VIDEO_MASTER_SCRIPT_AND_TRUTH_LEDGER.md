@@ -11,6 +11,9 @@
 **Visual Integrity**: **100% Technical Assets & Public Domain Media** (Zero personal/user photos).  
 **Evaluation Status**: **Bench Evaluation Prototype** (Active polling of live sensor registers; absent sensors report `NOT_CONNECTED`; active commercial apiary deployment is the proposed Phase 3 milestone).
 
+> **Note on assets.** The shot files and render targets referenced below live in
+> `assets/video_sources/`, which is intentionally not committed so the repository
+> stays quick to clone. The paths are retained as the production manifest.
 ---
 
 ## 📑 Master Index of Deliverables

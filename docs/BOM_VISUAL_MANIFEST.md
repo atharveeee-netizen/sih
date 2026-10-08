@@ -40,7 +40,7 @@ In strict adherence to Section 6 and Section 8 of the Master Engineering Figure 
 
 ## 3. Physical Placement & Interconnect Map
 
-`
+```
                     [ 10-FRAME LANGSTROTH HIVE ]
   +-------------------------------------------------------------+
   | OUTER TELESCOPING COVER                                     |
@@ -80,4 +80,4 @@ In strict adherence to Section 6 and Section 8 of the Master Engineering Figure 
   |  * 134N3P / TP4056 Solar Step-Up Charge Controller          |
   |  * 865 MHz RP-SMA Monopole Antenna                          |
   +-------------------------------------------------------------+
-`
+```

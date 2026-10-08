@@ -1,9 +1,19 @@
+import os
+import sys
 import time
 import secrets
 import json
 import requests
 
-AI_BASE_URL = "http://localhost:8000"
+# Windows consoles default to a codepage that cannot encode the emoji used
+# below, which killed this script before it produced any output.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")
+    except (AttributeError, ValueError):
+        pass
+
+AI_BASE_URL = os.getenv("AI_BASE_URL", "http://localhost:8000")
 ANOMALY_URL = f"{AI_BASE_URL}/api/anomaly/hive"
 TELEMETRY_URL = f"{AI_BASE_URL}/api/iot/push-telemetry"
 

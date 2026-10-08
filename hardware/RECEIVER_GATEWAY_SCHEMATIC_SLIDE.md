@@ -1,7 +1,24 @@
 # 🖥️ BEEVIL KNIEVEL RECEIVER GATEWAY BASEBOARD SCHEMATIC
 ## High-Performance Edge Gateway (Orange Pi CM5 6 TOPS NPU + RAK2287 LoRaWAN Concentrator + PoE)
 
-![BEEVIL KNIEVEL Receiver Gateway Baseboard Schematic](../docs/media/05-hardware/receiver_gateway_baseboard_schematic.jpg)
+> **Status: PROPOSED, not built.**
+>
+> **What was built and tested.** A **Raspberry Pi 3B+ with a Waveshare SX1262
+> LoRa HAT**, listed in [BOM_AND_PINOUT.md](BOM_AND_PINOUT.md). Every gateway
+> measurement in this repository comes off that board. No custom PCB was
+> fabricated.
+>
+> **What was procured but never fitted.** A **Raspberry Pi Compute Module 4**
+> was bought, but no carrier board was obtained for it, so it was never
+> brought up and contributes no results here.
+>
+> **What is proposed.** The Orange Pi CM5 and RAK2287 baseboard described
+> below is the Phase 2 scaling path for concurrent multi spreading factor
+> reception at cluster scale. It has not been fabricated. See
+> [docs/ARCHITECTURE_CONTRADICTIONS.md](../docs/ARCHITECTURE_CONTRADICTIONS.md)
+> for the full validated versus proposed ledger.
+
+_The baseboard render for this proposed design is not committed._
 
 ---
 

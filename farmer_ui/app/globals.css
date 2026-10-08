@@ -1,42 +1,124 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────────────────────────────────
+   Beekeeper companion app.
+
+   Aligned with the KVIC portal so the two read as one government service:
+   same family, same structural navy, same amber held back for honey grade
+   and status rather than spent on decoration.
+
+   What changed and why. The app opened on a honey coloured radial gradient
+   with frosted translucent panels. That is a consumer app signature, it put
+   text on a moving background, and translucency over a gradient is the
+   hardest surface to read outdoors. A field tool is used one handed, in
+   sunlight, by someone who needs to be certain what it says, so surfaces are
+   now flat and opaque, separated by a rule.
+   ───────────────────────────────────────────────────────────────────────── */
+
 :root {
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+
+  /* Structure. Shared with the portal. */
+  --navy-deep: #06182e;
+  --navy: #0b2545;
+  --gov-blue: #14508c;
+
+  /* Ground and paper. */
+  --ground: #eef1f4;
+  --paper: #ffffff;
+
+  /* Rules. */
+  --rule: #c6d0da;
+  --rule-strong: #93a3b3;
+
+  /* Text. */
+  --text: #16212b;
+  --text-2: #4e5f6e;
+
+  /* Status. */
+  --verified: #0f6b3f;
+  --alert: #a5231b;
+
+  /* Honey amber, reserved for grade and brand. */
+  --amber: #f2a61c;
+
+  /* Slightly softer than the portal: a control held in the hand wants a
+     larger touch shape than one clicked with a mouse. */
+  --radius-control: 8px;
+  --radius-surface: 10px;
+}
+
+html {
+  font-family: var(--font-sans);
 }
 
 body {
   font-family: var(--font-sans);
-  background: radial-gradient(circle at top left, #fffbeb, #fef3c7, #fde68a);
-  color: #1e293b;
+  background: var(--ground);
+  color: var(--text);
   min-height: 100vh;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
+  letter-spacing: 0.16px;
 }
 
-/* Glassmorphism utility classes */
+/* ─── Surfaces ───────────────────────────────────────────────────────────
+   Formerly translucent and blurred. Now an opaque record with a rule, which
+   is legible on a cheap screen in daylight and costs nothing to composite. */
+
 .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(251, 191, 36, 0.3);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-surface);
 }
 
 .glass-card-dark {
-  background: rgba(15, 23, 42, 0.9);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: var(--navy);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-surface);
+  color: #e6ecf2;
 }
 
-/* Honeycomb grid pulse animation */
+/* ─── Touch targets ──────────────────────────────────────────────────────
+   Held at the 48px the platform guidelines ask for. A beekeeper is often
+   wearing gloves. */
+
+button,
+a[role="button"],
+[role="tab"] {
+  min-height: 48px;
+}
+
+/* ─── Keyboard and screen reader ─────────────────────────────────────────
+   The app ships as an Android build but is also served in a browser, and the
+   same accessibility floor applies to both. */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--gov-blue);
+  outline-offset: 2px;
+  border-radius: var(--radius-control);
+}
+
+/* ─── Motion ─────────────────────────────────────────────────────────────
+   The floating and pulsing loops are kept because they mark live telemetry,
+   but they stop for anyone who has asked the system for less movement. */
+
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 .animate-float {
@@ -44,23 +126,47 @@ body {
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.1); opacity: 0.4; }
-  100% { transform: scale(0.95); opacity: 0.8; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
 }
 
 .animate-pulse-ring {
   animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Custom scrollbars */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Scrollbars ─────────────────────────────────────────────────────────
+   Were honey on cream, which only made sense against the old gradient. */
+
 ::-webkit-scrollbar {
   width: 5px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #fef3c7;
+  background: var(--ground);
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #d97706;
+  background: var(--rule-strong);
   border-radius: 9999px;
 }

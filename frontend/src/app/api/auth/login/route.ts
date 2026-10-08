@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
     let userInfo: any = null;
 
     if (user) {
-      // Real DB user found — verify bcrypt password
+      // Real DB user found - verify bcrypt password
       const isValid = await verifyPassword(password, user.passwordHash);
       if (!isValid) {
         return NextResponse.json(

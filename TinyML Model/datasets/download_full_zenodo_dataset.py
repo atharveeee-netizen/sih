@@ -49,7 +49,7 @@ def download_full_zenodo_dataset():
 
         print(f"\n[DOWNLOAD] Fetching {fname} from Zenodo...")
         cmd = [
-            "curl.exe", "-s", "-L",
+            "curl", "-s", "-L",
             "-A", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
             url, "-o", filepath
         ]

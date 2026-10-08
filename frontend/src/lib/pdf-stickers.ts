@@ -35,7 +35,7 @@ export function generateStickerSheetPDF({
     doc.setFontSize(7.5);
     doc.setTextColor(120, 120, 120);
     doc.text(
-      `KVIC BEEVIL KNIEVEL™ STICKER PRODUCTION SHEET — Batch #${batch.batchId} (${batch.qrToken}) — ${format} — Page ${pageNum} of ${totalPages}`,
+      `KVIC BEEVIL KNIEVEL™ STICKER PRODUCTION SHEET - Batch #${batch.batchId} (${batch.qrToken}) - ${format} - Page ${pageNum} of ${totalPages}`,
       10,
       8
     );
@@ -328,7 +328,7 @@ export function generateStickerSheetPDF({
         doc.setFont("helvetica", "bold");
         doc.setFontSize(11);
         doc.setTextColor(26, 26, 26);
-        doc.text(`BULK CONTAINER #${batch.batchId} — ${batch.batch.grade}`, infoX, infoY);
+        doc.text(`BULK CONTAINER #${batch.batchId} - ${batch.batch.grade}`, infoX, infoY);
 
         doc.setFont("helvetica", "normal");
         doc.setFontSize(8);

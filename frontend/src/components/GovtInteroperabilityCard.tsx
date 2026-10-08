@@ -122,7 +122,7 @@ export default function GovtInteroperabilityCard() {
             <p className="text-[10px] uppercase tracking-widest text-warm-grey font-bold mb-1">
               MSME KVIC Scheme
             </p>
-            <p className="text-sm font-serif font-bold text-charcoal">Honey Mission 2026–27</p>
+            <p className="text-sm font-serif font-bold text-charcoal">Honey Mission 2026-27</p>
             <p className="text-[10px] font-mono text-emerald-700 mt-1 flex items-center gap-1">
               <CheckCircle2 className="w-3 h-3" /> 14,240 Beekeepers Active
             </p>

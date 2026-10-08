@@ -442,7 +442,7 @@ export default function QualityLabPage() {
                           </span>
                         )}
                       </div>
-                      <p className="text-4xl font-serif font-bold text-charcoal mt-1">
+                      <p className="text-4xl font-serif font-light text-charcoal mt-1">
                         {result.score}
                         <span className="text-lg text-warm-grey font-sans font-normal">/100</span>
                       </p>

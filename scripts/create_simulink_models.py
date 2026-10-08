@@ -7,10 +7,12 @@ Creates valid .slx (Simulink XML Open Packaging Convention ZIP) model files:
 4. simulation/simulink/beevil_battery_solar_mppt.slx
 """
 
+from pathlib import Path
 import os
 import zipfile
 
-simulink_dir = r"C:\Users\25beevdt047\.gemini\antigravity-ide\scratch\beevil-knievel\simulation\simulink"
+REPO_DIR = Path(__file__).resolve().parents[1]
+simulink_dir = str(REPO_DIR / "simulation" / "simulink")
 os.makedirs(simulink_dir, exist_ok=True)
 
 CONTENT_TYPES_XML = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

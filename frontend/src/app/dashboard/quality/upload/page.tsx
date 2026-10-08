@@ -216,7 +216,7 @@ CONCLUSION: Sample conforms to Grade A+ Premium Raw Organic Honey standards.`);
               <div className="text-right">
                 <span className="text-[10px] uppercase tracking-widest text-warm-grey block">FSSAI Purity Score</span>
                 <div className="flex items-baseline gap-1 justify-end">
-                  <span className="text-5xl font-serif text-gold font-bold">{qualityResult.quality_score}</span>
+                  <span className="text-5xl font-serif text-gold font-light">{qualityResult.quality_score}</span>
                   <span className="text-lg text-warm-grey">/100</span>
                 </div>
                 <span className="text-[10px] uppercase tracking-wider font-bold text-emerald-700 block">

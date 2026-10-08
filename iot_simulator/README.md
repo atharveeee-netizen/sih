@@ -20,7 +20,6 @@ The **HoneyChain IoT Telemetry Simulator** simulates real-time smart hive sensor
 - **Avneesh Walwalkar**
 - **Sunehri Sonar**
 - **Shaunak Pai**
-
 ---
 
 ## 🎮 Stage Demonstration Controller

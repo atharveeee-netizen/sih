@@ -3,7 +3,7 @@
 **Authority**: Ministry of MSME / Coordination Section & KVIC Honey Mission  
 **Repository**: `https://github.com/atharveeee-netizen/sih`  
 **Date**: September 9, 2026  
-**Auditor**: Antigravity SYZYGY Autonomous Orchestrator  
+**Auditor**: Team Beevil Knievel, internal review  
 
 ---
 

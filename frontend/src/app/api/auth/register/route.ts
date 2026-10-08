@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
     // Hash password with bcrypt
     const passwordHash = await hashPassword(password);
 
-    // Create user in database — always default public self-registrations to FIELD_OFFICER
+    // Create user in database - always default public self-registrations to FIELD_OFFICER
     const user = await prisma.user.create({
       data: {
         email: normalizedEmail,

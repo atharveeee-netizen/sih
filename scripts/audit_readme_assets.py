@@ -8,6 +8,7 @@ Audits the README.md file to ensure:
 5. All 14 simulation output figures exist in simulation/results/ and docs/media/results/.
 """
 
+from pathlib import Path
 import os
 import re
 import sys
@@ -16,7 +17,8 @@ import io
 if sys.platform == "win32":
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
-repo_dir = r"C:\Users\25beevdt047\.gemini\antigravity-ide\scratch\beevil-knievel"
+REPO_DIR = Path(__file__).resolve().parents[1]
+repo_dir = str(REPO_DIR)
 readme_path = os.path.join(repo_dir, "README.md")
 
 def run_audit():

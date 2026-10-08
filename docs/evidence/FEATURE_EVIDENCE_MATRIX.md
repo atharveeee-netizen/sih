@@ -29,4 +29,4 @@ This matrix indexes every core technical feature of the Beevil Knievel platform 
 
 ---
 
-*Verified against repository truth · Antigravity Lead Engineering Orchestrator.*
+*Verified against repository truth by Team Beevil Knievel.*

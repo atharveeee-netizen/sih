@@ -1,7 +1,7 @@
 # 🎬 Beevil Knievel — SIH 2026 Grand Finale Demo & Pitch Script
 **Problem Statement**: SIH26021 | **Ministry**: Ministry of MSME (KVIC) & National Bee Board  
 **Platform**: Beevil Knievel Universal Authentication Engine  
-**Lead Contributor**: [Shivam Gawade](https://github.com/ShivamGawade-XS) ([@ShivamGawade-XS](https://github.com/ShivamGawade-XS))
+**Team**: Atharve Dahima, Srajan Mishra, Kavin
 
 ---
 
@@ -15,7 +15,7 @@
 | Timestamp | Screen / Stage Action | What You Say & Demonstrate | Judge Impact |
 |---|---|---|---|
 | **00:00–00:30** | **Physical Jar Prop & Camera Scan** | Hand physical honey jar with Beevil Knievel micro-QR to judge. Open `/verify`, click **"Scan Jar With Camera"** (or scan `TT-2026-00001`). Instant redirect to Batch #1. | 🎯 Tangible proof. Eliminates "just another screen demo" bias. |
-| **00:30–01:15** | **Consumer Provenance & GI Heritage** | Walk through verified card: Rajesh Kumar Verma (Muzaffarpur Shahi Litchi GI Honey), 94/100 Purity Score, FSSAI IS 4941 compliance, and click **"GI-Tag Heritage Dossier"** badge. | 🛡️ Connects directly to national GI-tagging & rural biodiversity initiatives. |
+| **00:30–01:15** | **Consumer Provenance & GI Heritage** | Walk through verified card: Mahesh Prasad Singh (Shahi Litchi Blossom Honey), 94/100 Purity Score, FSSAI IS 4941 compliance, and click **"GI-Tag Heritage Dossier"** badge. | 🛡️ Connects directly to national GI-tagging & rural biodiversity initiatives. |
 | **01:15–01:45** | **Direct UPI Beekeeper Micro-Patronage** | Click **"Tip Beekeeper (Direct UPI)"**. Show dynamic UPI QR (0% platform cut) for instant direct farmer remittance to `rajesh.verma@sbi`. | 💰 Proves direct financial inclusion & beekeeper income multiplication. |
 | **01:45–02:30** | **Offline Rural SMS / USSD Verification** | Switch to `/verify` ➔ **"Offline SMS / USSD Mode"**. Simulate texting `VERIFY TT-2026-00001` to `56767` in Hindi/English. Instant carrier SMS reply renders on retro Nokia UI! | 📱 Solves the non-smartphone / rural elder access critique 100%. |
 | **02:30–03:15** | **Field Minting & AI Lab Spectrometry** | Click **"Field Officer"** ➔ **"Mint Batch"** (`/dashboard/mint`). Then switch to **"Lab Analyst"** (`/dashboard/quality`) to adjust Moisture/HMF/Isotopes & render real-time 400 MHz 1H-NMR resonance curve. | 🔬 Technical depth. Physics-calibrated anti-adulteration engine. |
@@ -30,7 +30,7 @@
 2. **Label**: Print the Beevil Knievel label sheet from `/dashboard/qr`.
 3. **QR Token**: Use `TT-2026-00001` (Muzaffarpur Litchi Honey) or `TT-2026-00002` (Sundarbans Mangrove).
 4. **Tape/Stick**: Affix the tamper-evident micro-QR over the lid seal.
-5. **Stage Test**: Point phone camera or laptop camera via `/verify` -> immediately opens Rajesh Kumar Verma's provenance profile.
+5. **Stage Test**: Point phone camera or laptop camera via `/verify` -> immediately opens Mahesh Prasad Singh's provenance profile.
 
 ---
 
@@ -49,10 +49,10 @@ If the hackathon venue has slow or dropping WiFi:
 ```bash
 cd contracts
 npm install
-npx hardhat test      # Runs all 32 unit tests (100% pass)
+npx hardhat test      # Runs all 68 unit tests (100% pass)
 ```
 
-### 2. Next.js 14 Frontend Portal
+### 2. Next.js 16 Frontend Portal
 ```bash
 cd frontend
 npm install

@@ -100,7 +100,7 @@ To eliminate architectural ambiguities across documentation and firmware, this d
 
 ### 3.2 Optional Enterprise High-Density Gateway Tier (Documented Alternative)
 * **Target Environment**: Commercial mega-apiaries ($> 500$ colonies across multi-kilometer orchards).
-* **Single Board Computer**: **Raspberry Pi Compute Module 4 (CM4)** (Broadcom BCM2711 Quad-Core Cortex-A72 @ 1.5 GHz).
+* **Single Board Computer**: **Raspberry Pi Compute Module 4 (CM4)** (Broadcom BCM2711 Quad-Core Cortex-A72 @ 1.5 GHz). **Not built.** The module was procured but no carrier board was obtained, so this tier was never assembled or measured.
 * **Concentrator**: **RAKwireless RAK2287 (SX1302 Concentrator)** supporting 8 concurrent LoRa channels.
 * **Thermal Validation**: Evaluated in ANSYS Icepak at 8.5 W continuous dissipation in a sealed NEMA 4X enclosure.
 

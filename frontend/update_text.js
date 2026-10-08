@@ -9,7 +9,7 @@ function walkDir(dir, callback) {
   });
 }
 
-walkDir('c:/Users/ASHWITH/.gemini/antigravity-ide/scratch/SIH_2026/frontend/src', function(filePath) {
+walkDir(path.join(__dirname, 'src'), function(filePath) {
   if (filePath.endsWith('.tsx') || filePath.endsWith('.ts')) {
     let content = fs.readFileSync(filePath, 'utf8');
     let original = content;

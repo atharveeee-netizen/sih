@@ -32,7 +32,7 @@ export default function HomePage() {
                 KVIC &middot; National Bee Board &middot; Public Verification Service
               </p>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-5">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-[1.1] mb-5">
                 {t("heroSubtitle1")}{" "}
                 <span className="border-b-4 border-amber pb-0.5">{t("heroSubtitle2")}</span>{" "}
                 {t("heroSubtitle3")}
@@ -95,7 +95,7 @@ export default function HomePage() {
         <section className="bg-navy text-white border-b border-navy-deep">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-8 sm:py-10">
             <p className="text-[11px] uppercase tracking-wider font-semibold text-white/70 mb-5">
-              Projected programme targets &mdash; {t("statsHeader")}
+              Projected programme targets: {t("statsHeader")}
               <span className="ml-2 border border-amber/60 text-amber px-1.5 py-0.5 text-[10px]">
                 Not yet achieved
               </span>

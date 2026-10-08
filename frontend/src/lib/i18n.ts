@@ -21,7 +21,7 @@ export const TRANSLATIONS = {
     fieldLoginBtn: "Field Officer Login",
 
     // Stats Section
-    statsHeader: "National Deployment Target (KVIC & National Bee Board 2026–27 Scheme)",
+    statsHeader: "National Deployment Target (KVIC & National Bee Board 2026-27 Scheme)",
     statsBeekeepers: "Registered Beekeepers",
     statsBatches: "Target Batches",
     statsCompliance: "FSSAI Compliance",
@@ -39,7 +39,7 @@ export const TRANSLATIONS = {
     pillar2Title: "AI Purity & NMR Classifier",
     pillar2Desc: "FastAPI microservice trained on FSSAI spectrometry samples evaluates moisture, Brix index, HMF freshness, and Carbon Isotope sugar peaks in real-time.",
     pillar3Title: "Direct Beekeeper Identity",
-    pillar3Desc: "Consumers scan a jar to see the beekeeper’s face, cooperative affiliation, GPS village location, and harvest timestamp—ensuring fair compensation.",
+    pillar3Desc: "Consumers scan a jar to see the beekeeper’s face, cooperative affiliation, GPS village location, and harvest timestamp-ensuring fair compensation.",
 
     // Live Explorer
     explorerTag: "Live Ledger Explorer",

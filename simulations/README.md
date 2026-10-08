@@ -24,9 +24,22 @@ The suite covers high-frequency electromagnetics, computational fluid dynamics (
 
 ---
 
+## Full solver output
+
+The eleven studies are summarised above and the curated result figures are
+committed under `screenshots_for_judges/` and `SIM1/` through `SIM11/`.
+
+The complete Ansys output, including the workbench project binaries and the
+full resolution renders, is too large to keep in git and is published here
+instead:
+
+**Ansys results archive:** https://drive.google.com/drive/folders/1mcRlA34NsPGypRmftliZy71pt72OI7e1?usp=sharing
+
+---
+
 ## 📁 Folder Structure
 
-`
+```
 simulations/
 ├── README.md                                            # This master documentation
 ├── master_ansys_results.json                            # Verified numerical outputs exported in JSON format
@@ -46,7 +59,7 @@ simulations/
 ├── SIM9/                                                # Sim 9: Bus Signal Integrity (.aedt, eye diagrams)
 ├── SIM10/                                               # Sim 10: Audio Trace Parasitics (.aedt, RLC matrix)
 └── SIM11/                                               # Sim 11: Solar Optical Harvesting (.wbpj, irradiance heatmaps)
-`
+```
 
 ---
 
@@ -54,6 +67,6 @@ simulations/
 
 To verify all simulation results and generate the exported data schema locally, run:
 
-`ash
+```bash
 python run_all_ansys_simulations.py
-`
+```

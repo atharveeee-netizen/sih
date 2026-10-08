@@ -34,7 +34,6 @@ The smart contracts layer anchors every honey batch onto the **Polygon PoS (Amoy
 - **Avneesh Walwalkar**
 - **Sunehri Sonar**
 - **Shaunak Pai**
-
 ---
 
 ## 🚀 Contracts Deployment Details

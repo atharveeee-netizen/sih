@@ -19,9 +19,11 @@ Design Standards:
 - Strict ASCII hyphen (-) usage (zero Unicode en-dashes or em-dashes)
 """
 
+from pathlib import Path
 import os
 
-diagrams_dir = r"C:\Users\25beevdt047\.gemini\antigravity-ide\scratch\beevil-knievel\docs\media\diagrams"
+REPO_DIR = Path(__file__).resolve().parents[1]
+diagrams_dir = str(REPO_DIR / "docs" / "media" / "diagrams")
 os.makedirs(diagrams_dir, exist_ok=True)
 
 SHARED_DEFS = """
