@@ -56,11 +56,21 @@ The Ministry of Micro, Small and Medium Enterprises (MSME) requires a comprehens
 
 ## 🏗️ System Architecture
 
-*(Recommendation: Add your Architecture Diagram image here before final presentation)*
 
-![System Architecture Placeholder](https://via.placeholder.com/800x400.png?text=Insert+System+Architecture+Diagram+Here)
+
+![System Architecture Diagram](docs/figures/master_architecture_diagram.png)
+
+*For a detailed component breakdown, check out our [full architecture diagrams folder](docs/media/diagrams/).*
 
 ---
+
+## 📸 Project Showcase
+
+### Web Dashboard & Analytics
+![KPI Dashboard](docs/media/10-dashboard/dashboard_overview.png)
+
+### Hardware & IoT Gateway
+![Hardware Gateway](docs/figures/beevil_knievel_gateway_hardware.jpg)
 
 ## 🛠️ Technology Stack
 
@@ -137,3 +147,4 @@ Read **[LIMITATIONS.md](LIMITATIONS.md)** before judging any claim. In short:
 This is a working bench prototype, not a season in a live apiary. The acoustic model is trained on an annotated European dataset and would need retuning for Indian subspecies. Radio range figures are calculated link budgets rather than walked field measurements. These distinctions are labelled throughout.
 
 ---
+
