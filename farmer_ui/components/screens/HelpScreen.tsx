@@ -21,9 +21,9 @@ export const HelpScreen: React.FC<HelpScreenProps> = ({
   return (
     <div className="flex flex-col gap-4 pb-24 max-w-md mx-auto px-4 pt-4">
       {/* Assigned Officer Card */}
-      <div className="bg-white rounded-3xl p-5 shadow-md border-2 border-amber-300 flex flex-col gap-4">
+      <div className="bg-white rounded-xl p-5 shadow-md border-2 border-amber-300 flex flex-col gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 bg-amber-500 rounded-2xl flex items-center justify-center font-black text-white shadow-md border-2 border-amber-300">
+          <div className="w-16 h-16 bg-amber-500 rounded-lg flex items-center justify-center font-black text-white shadow-md border-2 border-amber-300">
             <Phone size={28} />
           </div>
           <div>
@@ -43,7 +43,7 @@ export const HelpScreen: React.FC<HelpScreenProps> = ({
         <div className="grid grid-cols-2 gap-2">
           <a
             href={`tel:${officer.phoneNumber}`}
-            className="min-h-[48px] py-3 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-black text-xs rounded-2xl shadow-md flex items-center justify-center gap-2 transition-all"
+            className="min-h-[48px] py-3 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-black text-xs rounded-lg shadow-md flex items-center justify-center gap-2 transition-all"
           >
             <Phone size={18} />
             {getTranslation(currentLanguage, 'call_officer')}
@@ -51,7 +51,7 @@ export const HelpScreen: React.FC<HelpScreenProps> = ({
 
           <a
             href={`sms:${officer.phoneNumber}`}
-            className="min-h-[48px] py-3 bg-amber-100 hover:bg-amber-200 active:scale-95 text-amber-900 font-extrabold text-xs rounded-2xl border border-amber-300 flex items-center justify-center gap-2 transition-all"
+            className="min-h-[48px] py-3 bg-amber-100 hover:bg-amber-200 active:scale-95 text-amber-900 font-extrabold text-xs rounded-lg border border-amber-300 flex items-center justify-center gap-2 transition-all"
           >
             <MessageSquare size={18} className="text-amber-700" />
             {getTranslation(currentLanguage, 'send_sms')}
@@ -65,7 +65,7 @@ export const HelpScreen: React.FC<HelpScreenProps> = ({
           <button
             onClick={onRequestCallback}
             disabled={callbackStatus !== 'none'}
-            className={`w-full min-h-[52px] py-3 px-4 rounded-2xl font-black text-sm shadow-md flex items-center justify-center gap-2 transition-all ${
+            className={`w-full min-h-[52px] py-3 px-4 rounded-lg font-black text-sm shadow-md flex items-center justify-center gap-2 transition-all ${
               callbackStatus === 'sent'
                 ? 'bg-emerald-100 text-emerald-900 border-2 border-emerald-500'
                 : callbackStatus === 'queued'
@@ -94,7 +94,7 @@ export const HelpScreen: React.FC<HelpScreenProps> = ({
       </div>
 
       {/* Visual Step-by-Step FAQ Guides */}
-      <div className="bg-white rounded-3xl p-5 shadow-sm border border-amber-200 space-y-3">
+      <div className="bg-white rounded-xl p-5 shadow-sm border border-amber-200 space-y-3">
         <h3 className="font-extrabold text-gray-900 text-base flex items-center gap-2">
           <BookOpen size={20} className="text-amber-600" />
           Physical Action Guides
@@ -103,7 +103,7 @@ export const HelpScreen: React.FC<HelpScreenProps> = ({
         {/* Step Card 1 */}
         <div
           onClick={() => setActiveFaq(activeFaq === 1 ? null : 1)}
-          className="bg-amber-50 rounded-2xl p-4 border border-amber-200 cursor-pointer transition-all hover:border-amber-400"
+          className="bg-amber-50 rounded-lg p-4 border border-amber-200 cursor-pointer transition-all hover:border-amber-400"
         >
           <div className="flex items-center justify-between font-extrabold text-amber-950 text-sm">
             <span>{getTranslation(currentLanguage, 'step_faq_1_title')}</span>
@@ -122,7 +122,7 @@ export const HelpScreen: React.FC<HelpScreenProps> = ({
         {/* Step Card 2 */}
         <div
           onClick={() => setActiveFaq(activeFaq === 2 ? null : 2)}
-          className="bg-amber-50 rounded-2xl p-4 border border-amber-200 cursor-pointer transition-all hover:border-amber-400"
+          className="bg-amber-50 rounded-lg p-4 border border-amber-200 cursor-pointer transition-all hover:border-amber-400"
         >
           <div className="flex items-center justify-between font-extrabold text-amber-950 text-sm">
             <span>{getTranslation(currentLanguage, 'step_faq_2_title')}</span>

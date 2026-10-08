@@ -1,6 +1,6 @@
 """
 HoneyChain Blockchain Bridge — Web3.py Integration
-Directly connects the Gateway to Shivam Gawade's HoneyChain & HoneyChainQR Smart Contracts
+Directly connects the Gateway to the HoneyChain and HoneyChainQR smart contracts
 (Polygon Amoy / Hardhat Network).
 """
 

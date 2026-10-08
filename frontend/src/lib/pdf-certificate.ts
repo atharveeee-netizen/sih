@@ -110,7 +110,7 @@ export function generateCertificatePDF(data: BatchMetadata) {
   doc.setFont("times", "bold");
   doc.setFontSize(14);
   doc.setTextColor(26, 26, 26);
-  doc.text(`Honey Batch #${batch.batchId} — ${batch.grade}`, 32, 84);
+  doc.text(`Honey Batch #${batch.batchId} - ${batch.grade}`, 32, 84);
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
@@ -120,7 +120,7 @@ export function generateCertificatePDF(data: BatchMetadata) {
   doc.text(`KVIC Cooperative:   ${farmer.cooperativeId}`, 32, 104);
   doc.text(`Beevil Knievel QR Token:   ${qrToken}`, 32, 110);
 
-  // Purity Score Panel — official certification style
+  // Purity Score Panel - official certification style
   const panelX = pageWidth - 83;
   const panelY = 75;
   const panelW = 52;

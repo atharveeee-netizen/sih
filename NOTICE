@@ -1,0 +1,44 @@
+THIRD PARTY NOTICES
+===================
+
+This project incorporates work from the following third party project. Its
+copyright and permission notice are reproduced here in full, as that licence
+requires.
+
+
+HoneyChain (Smart India Hackathon 2026)
+---------------------------------------
+
+Source:    https://github.com/ShivamGawade-XS/HoneyChain_SIH2026
+Authors:   Shivam Gawade, Rahul Rathod, Rehan Harmalkar, Avneesh Walwalkar,
+           Sunehri Sonar, Shaunak Pai (Team Crimson Syndicate)
+Licence:   MIT
+
+Components in this repository derived from that project include the Solidity
+contracts and their test suite under contracts/, the AI quality and adulterant
+service under ai_service/, the telemetry generator under iot_simulator/, and
+portions of the Next.js application under frontend/. Individual files retain
+their original author headers.
+
+
+MIT License
+
+Copyright (c) 2026 Shivam Gawade & Team TrueTag
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

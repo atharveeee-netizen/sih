@@ -1,4 +1,14 @@
-// Prisma Schema for HoneyChain by TrueTag — SIH 2026
+// PostgreSQL datasource variant, for deploying against a managed
+// Postgres such as Supabase or Neon instead of the local sqlite file.
+//
+// This file is not used by a default checkout. To deploy on Postgres,
+// copy it over schema.prisma, set DATABASE_URL and DIRECT_URL, then run
+// npx prisma migrate deploy.
+//
+// It is identical to schema.prisma apart from the datasource block, so
+// regenerate it after any model change rather than editing both by hand.
+
+// Prisma Schema for Beevil Knievel Honey Chain — SIH 2026
 // Production database schema with full relational model
 
 generator client {

@@ -106,18 +106,22 @@ const config: Config = {
         ultra: "0.09em",
       },
       borderRadius: {
-        // Central lever: the app uses 47 rounded utilities across 40 files.
-        // Squaring the scale here retires all of them at once. `full` stays
-        // real because it is used for status dots and avatars, which should
-        // still be circles.
+        // Central lever: the app uses 47 rounded utilities across 40 files,
+        // so the whole interface is shaped from this one scale.
+        //
+        // The values are deliberately small. Indian government services
+        // (DigiLocker, UMANG, GeM) soften their controls slightly rather
+        // than squaring them, so a 4px control reads as a public service
+        // where a 0px one reads as enterprise software and a 16px one reads
+        // as a consumer app. `full` stays real for status dots and avatars.
         none: "0",
-        sm: "0",
-        DEFAULT: "0",
-        md: "0",
-        lg: "0",
-        xl: "0",
-        "2xl": "0",
-        "3xl": "0",
+        sm: "2px",
+        DEFAULT: "4px",
+        md: "4px",
+        lg: "6px",
+        xl: "8px",
+        "2xl": "8px",
+        "3xl": "8px",
         full: "9999px",
       },
       boxShadow: {

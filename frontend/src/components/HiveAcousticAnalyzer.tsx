@@ -45,7 +45,7 @@ const PROFILES: Record<string, AcousticProfile> = {
     swarmRisk: 8,
     queenState: "Active & Mated (Laying ~1,500 eggs/day)",
     colonyMood: "Docile / Healthy Honey Flow",
-    recommendation: "Colony is thriving. No intervention required. Expected super box fill in 4–6 days.",
+    recommendation: "Colony is thriving. No intervention required. Expected super box fill in 4-6 days.",
     actionRequired: "Routine bi-weekly apiary check.",
   },
   queen_piping: {
@@ -484,7 +484,7 @@ export default function HiveAcousticAnalyzer() {
             <div className="flex justify-between items-center text-[9px] font-mono text-gold mb-2 border-b border-white/10 pb-1.5">
               <span className="flex items-center gap-1.5">
                 <Activity className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-                SPECTROGRAM FFT (0 Hz – 1,000 Hz)
+                SPECTROGRAM FFT (0 Hz - 1,000 Hz)
               </span>
               <span>DOMINANT PEAK: {currentProfile.fundamentalHz} Hz</span>
             </div>
@@ -622,7 +622,7 @@ export default function HiveAcousticAnalyzer() {
             {alertSent ? (
               <div className="p-3 bg-emerald-950/80 border border-emerald-500 text-emerald-300 text-xs font-mono flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Simulated SMS Alert (Demo) — no live telecom gateway connected</span>
+                <span>Simulated SMS Alert (Demo) - no live telecom gateway connected</span>
               </div>
             ) : (
               <button

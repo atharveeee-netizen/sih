@@ -2,7 +2,7 @@
  * Server-side (no browser wallet) HoneyChain contract calls.
  *
  * This file exists so the mint flow can send REAL transactions to
- * HoneyChain.sol without ever asking a Field Officer to connect MetaMask —
+ * HoneyChain.sol without ever asking a Field Officer to connect MetaMask -
  * every write here is signed with a private key held on the server, exactly
  * like `gateway/blockchain_bridge.py` already does for the Python gateway.
  * Never import this from a client component; it must only ever run in an

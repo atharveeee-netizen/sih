@@ -263,6 +263,7 @@ export default function Home() {
     return (
       <LoginScreen
         currentLanguage={currentLanguage}
+        onLanguageChange={setCurrentLanguage}
         onLoginSuccess={handleLoginSuccess}
       />
     );

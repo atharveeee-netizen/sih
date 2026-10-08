@@ -18,7 +18,7 @@ import DBTPayoutCard from "@/components/DBTPayoutCard";
 import VerifiableCredentialModal from "@/components/VerifiableCredentialModal";
 import UnderCapPinClaimModal from "@/components/UnderCapPinClaimModal";
 import { fetchBatchById, fetchBatchByQR } from "@/lib/contract";
-import { POLYGON_AMOY_RPC } from "@/lib/constants";
+import { POLYGON_AMOY_RPC, IS_LOCAL_CHAIN } from "@/lib/constants";
 import { exportHoneyBatchCredential } from "@/lib/vc-serializer";
 import { generateCertificatePDF } from "@/lib/pdf-certificate";
 import { generateExportPassportPDF } from "@/lib/export-passport";
@@ -228,7 +228,7 @@ export default function ConsumerVerificationPage() {
                 {/* Was text-8xl at desktop, which filled the viewport and
                     pushed the actual provenance record below the fold. A
                     verification result should lead with the record. */}
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight break-words">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight leading-tight break-words">
                   {t("heroSubtitle1")} <span className="text-gold">{t("heroSubtitle2")}</span> {t("heroSubtitle3")}
                 </h1>
 
@@ -294,7 +294,10 @@ export default function ConsumerVerificationPage() {
                   {t("complianceBadge")}
                 </h2>
                 <p className="text-xs text-warm-grey max-w-md">
-                  Cryptographically secured by KVIC Regional Honey Protocol. Batch records are anchored to Polygon PoS and IPFS storage.
+                  Cryptographically secured by KVIC Regional Honey Protocol.{" "}
+                  {IS_LOCAL_CHAIN
+                    ? "Batch records are anchored on chain with IPFS storage. This demonstration runs against a local chain; the architecture is network agnostic."
+                    : "Batch records are anchored to Polygon PoS and IPFS storage."}
                 </p>
               </div>
             </div>
@@ -386,7 +389,7 @@ export default function ConsumerVerificationPage() {
                 <p className="text-[10px] uppercase tracking-ultra text-warm-grey mb-2 font-semibold">{t("chainOfTrust")}</p>
                 <h3 className="text-4xl md:text-5xl serif text-charcoal mb-8 font-normal">{t("immutableEvidence")}</h3>
                 <p className="text-xs text-warm-grey leading-relaxed mb-10">
-                  Every honey batch is permanently anchored onto the Polygon PoS blockchain with cryptographic hashes matching the physical micro-QR seal on the jar.
+                  Every honey batch is permanently anchored on chain with cryptographic hashes matching the physical micro-QR seal on the jar.
                 </p>
 
                 <div className="space-y-6">

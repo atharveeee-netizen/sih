@@ -62,7 +62,7 @@ export const HivePalInspectionTab: React.FC<HivePalInspectionTabProps> = ({
   return (
     <div className="p-4 pb-28 max-w-md mx-auto space-y-4">
       {/* Editorial Nordic/Slate Apiary Overview Card */}
-      <div className="bg-stone-900 border border-stone-800 rounded-3xl p-5 text-stone-100 shadow-2xl relative overflow-hidden">
+      <div className="bg-stone-900 border border-stone-800 rounded-xl p-5 text-stone-100 shadow-2xl relative overflow-hidden">
         {/* Subtle warm glow backdrop */}
         <div className="absolute top-0 right-0 w-44 h-44 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
         
@@ -89,7 +89,7 @@ export const HivePalInspectionTab: React.FC<HivePalInspectionTabProps> = ({
 
         {/* Key Metrics Grid - Minimal Nordic Styling */}
         <div className="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-stone-800/80">
-          <div className="bg-stone-950/60 p-2.5 rounded-2xl border border-stone-800">
+          <div className="bg-stone-950/60 p-2.5 rounded-lg border border-stone-800">
             <span className="text-[10px] uppercase font-bold text-stone-400 block tracking-wider">
               Total Hives
             </span>
@@ -98,7 +98,7 @@ export const HivePalInspectionTab: React.FC<HivePalInspectionTabProps> = ({
             </div>
           </div>
 
-          <div className="bg-stone-950/60 p-2.5 rounded-2xl border border-stone-800">
+          <div className="bg-stone-950/60 p-2.5 rounded-lg border border-stone-800">
             <span className="text-[10px] uppercase font-bold text-stone-400 block tracking-wider">
               Due Today
             </span>
@@ -107,7 +107,7 @@ export const HivePalInspectionTab: React.FC<HivePalInspectionTabProps> = ({
             </div>
           </div>
 
-          <div className="bg-stone-950/60 p-2.5 rounded-2xl border border-stone-800">
+          <div className="bg-stone-950/60 p-2.5 rounded-lg border border-stone-800">
             <span className="text-[10px] uppercase font-bold text-stone-400 block tracking-wider">
               Mean Temp
             </span>
@@ -118,7 +118,7 @@ export const HivePalInspectionTab: React.FC<HivePalInspectionTabProps> = ({
         </div>
 
         {/* Quick Action Feature Pill Bar */}
-        <div className="mt-3 flex items-center justify-between gap-1.5 text-xs text-stone-300 bg-stone-950/40 p-2 rounded-2xl border border-stone-800/60">
+        <div className="mt-3 flex items-center justify-between gap-1.5 text-xs text-stone-300 bg-stone-950/40 p-2 rounded-lg border border-stone-800/60">
           <span className="flex items-center gap-1 text-[11px] font-medium text-stone-300">
             <CheckCircle2 size={13} className="text-emerald-400" /> Queen Tracking
           </span>
@@ -144,7 +144,7 @@ export const HivePalInspectionTab: React.FC<HivePalInspectionTabProps> = ({
               placeholder="Search hive number or name..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-stone-900/90 border border-stone-800 text-stone-100 rounded-2xl pl-9 pr-3 py-2 text-xs focus:outline-none focus:border-amber-500/60 placeholder-stone-500 font-medium"
+              className="w-full bg-stone-900/90 border border-stone-800 text-stone-100 rounded-lg pl-9 pr-3 py-2 text-xs focus:outline-none focus:border-amber-500/60 placeholder-stone-500 font-medium"
             />
           </div>
 
@@ -152,7 +152,7 @@ export const HivePalInspectionTab: React.FC<HivePalInspectionTabProps> = ({
           {hives.length > 0 && (
             <button
               onClick={() => handleStart(hives[0])}
-              className="px-3 py-2 bg-amber-500 hover:bg-amber-400 text-stone-950 rounded-2xl font-bold text-xs flex items-center gap-1 shadow-sm active:scale-95 transition-all"
+              className="px-3 py-2 bg-amber-500 hover:bg-amber-400 text-stone-950 rounded-lg font-bold text-xs flex items-center gap-1 shadow-sm active:scale-95 transition-all"
             >
               <Plus size={15} strokeWidth={2.5} /> Quick Add
             </button>
@@ -160,7 +160,7 @@ export const HivePalInspectionTab: React.FC<HivePalInspectionTabProps> = ({
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-1.5 p-1 bg-stone-900 border border-stone-800/80 rounded-2xl">
+        <div className="flex items-center gap-1.5 p-1 bg-stone-900 border border-stone-800/80 rounded-lg">
           <button
             onClick={() => setSelectedFilter('all')}
             className={`flex-1 py-1.5 px-2 rounded-xl text-xs font-semibold transition-all ${
@@ -201,12 +201,12 @@ export const HivePalInspectionTab: React.FC<HivePalInspectionTabProps> = ({
           return (
             <div
               key={hive.hiveId}
-              className="bg-stone-900/95 border border-stone-800 hover:border-stone-700 rounded-3xl p-4 transition-all duration-200 shadow-sm text-stone-100 flex items-center justify-between"
+              className="bg-stone-900/95 border border-stone-800 hover:border-stone-700 rounded-xl p-4 transition-all duration-200 shadow-sm text-stone-100 flex items-center justify-between"
             >
               <div className="flex items-center gap-3.5">
                 {/* Modern Badge */}
                 <div
-                  className={`w-12 h-12 rounded-2xl flex flex-col items-center justify-center font-bold text-xs border ${
+                  className={`w-12 h-12 rounded-lg flex flex-col items-center justify-center font-bold text-xs border ${
                     isDone
                       ? 'bg-emerald-950/60 border-emerald-500/40 text-emerald-300'
                       : 'bg-stone-800/80 border-stone-700 text-amber-300'
@@ -251,7 +251,7 @@ export const HivePalInspectionTab: React.FC<HivePalInspectionTabProps> = ({
               <button
                 type="button"
                 onClick={() => handleStart(hive)}
-                className={`py-2.5 px-3.5 rounded-2xl font-bold text-xs flex items-center gap-1.5 transition-all active:scale-95 shadow-sm ${
+                className={`py-2.5 px-3.5 rounded-lg font-bold text-xs flex items-center gap-1.5 transition-all active:scale-95 shadow-sm ${
                   isDone
                     ? 'bg-stone-800 hover:bg-stone-700 text-stone-200 border border-stone-700'
                     : 'bg-amber-500 hover:bg-amber-400 text-stone-950 font-black'

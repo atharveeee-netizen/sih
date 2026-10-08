@@ -28,7 +28,7 @@ export const LanguageScreen: React.FC<LanguageScreenProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex flex-col justify-end sm:justify-center p-4">
-      <div className="bg-amber-50 rounded-3xl p-6 w-full max-w-md mx-auto shadow-2xl border-4 border-amber-400 max-h-[85vh] overflow-y-auto">
+      <div className="bg-amber-50 rounded-xl p-6 w-full max-w-md mx-auto shadow-2xl border-4 border-amber-400 max-h-[85vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-4">
           <div>
             <h2 className="text-xl font-black text-amber-950">
@@ -54,7 +54,7 @@ export const LanguageScreen: React.FC<LanguageScreenProps> = ({
               <button
                 key={lang.code}
                 onClick={() => handleSelect(lang.code)}
-                className={`p-4 rounded-2xl border-2 flex flex-col justify-between items-start text-left min-h-[96px] transition-all active:scale-95 shadow-sm ${
+                className={`p-4 rounded-lg border-2 flex flex-col justify-between items-start text-left min-h-[96px] transition-all active:scale-95 shadow-sm ${
                   isSelected
                     ? 'bg-amber-500 text-white border-amber-600 shadow-md font-black ring-4 ring-amber-300'
                     : 'bg-white text-gray-800 border-amber-200 hover:border-amber-400 font-bold'
@@ -90,7 +90,7 @@ export const LanguageScreen: React.FC<LanguageScreenProps> = ({
 
         <button
           onClick={onClose}
-          className="w-full min-h-[52px] py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-base rounded-2xl shadow-lg transition-all"
+          className="w-full min-h-[52px] py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-base rounded-lg shadow-lg transition-all"
         >
           Confirm & Return to App
         </button>

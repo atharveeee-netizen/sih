@@ -26,6 +26,12 @@
     --paper: #FFFFFF;
     --paper-alt: #F7F9FB;      /* table banding */
 
+    /* corner softening. Small on purpose: a 4px control reads as a
+       public service, 0px reads as enterprise software, and anything
+       past about 10px reads as a consumer app. */
+    --radius-control: 4px;   /* buttons, inputs, chips */
+    --radius-surface: 6px;   /* cards, panels, tables */
+
     /* rules */
     --rule-faint: #DFE5EB;
     --rule: #C6D0DA;
@@ -152,7 +158,7 @@
 .luxury-card {
   background: var(--paper);
   border: 1px solid var(--rule);
-  border-radius: 0;
+  border-radius: var(--radius-surface);
   box-shadow: none;
   transition: border-color 140ms ease, background-color 140ms ease;
 }
@@ -165,7 +171,7 @@
 .luxury-card-dark {
   background: var(--navy);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 0;
+  border-radius: var(--radius-surface);
   color: #e6ecf2;
   box-shadow: none;
 }
@@ -173,6 +179,8 @@
 .gov-panel {
   background: var(--paper);
   border: 1px solid var(--rule);
+  border-radius: var(--radius-surface);
+  overflow: hidden;
 }
 
 .gov-panel-head {
@@ -196,7 +204,7 @@
   background-color: var(--navy);
   color: #ffffff;
   border: 1px solid var(--navy);
-  border-radius: 0;
+  border-radius: var(--radius-control);
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
@@ -219,7 +227,7 @@
   border: 1px solid var(--rule-strong);
   background: var(--paper);
   color: var(--navy);
-  border-radius: 0;
+  border-radius: var(--radius-control);
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
@@ -240,7 +248,7 @@
 .luxury-input {
   background: var(--paper);
   border: 1px solid var(--rule-strong);
-  border-radius: 0;
+  border-radius: var(--radius-control);
   padding: 0.5rem 0.625rem;
   font-size: 0.875rem;
   color: var(--text);
@@ -298,6 +306,7 @@
 /* ─── Status ────────────────────────────────────────────────────────────── */
 
 .chip {
+  border-radius: var(--radius-control);
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
@@ -388,4 +397,74 @@
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@layer base {
+  /* Carbon sets a small positive tracking on body sizes; it is part of the
+     typographic voice rather than a rounding artefact. */
+  body {
+    letter-spacing: 0.16px;
+  }
+
+  /* Large headings carry the light cut. Carbon's display treatment is
+     weight 300 at 42px and above, which reads calmer than a bold of the
+     same size and is the system's most recognisable trait. */
+  h1, h2, .display {
+    font-weight: 300;
+    letter-spacing: -0.4px;
+  }
+}
+
+
+/* ─── Accessibility ─────────────────────────────────────────────────────── */
+
+/* A public service has to be operable from the keyboard, and the operator has
+   to be able to see where they are. The ring is drawn outside the control so
+   it never reflows the layout. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--gov-blue);
+  outline-offset: 2px;
+  border-radius: var(--radius-control);
+}
+
+/* On the navy masthead the blue ring disappears into the background. */
+.gov-masthead a:focus-visible,
+.gov-strip a:focus-visible,
+nav.bg-navy a:focus-visible,
+nav.bg-navy button:focus-visible {
+  outline-color: var(--amber);
+}
+
+/* Lets a keyboard or screen reader user jump the masthead and navigation. */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--navy);
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  border-radius: 0 0 var(--radius-control) 0;
+}
+
+.skip-to-content:focus {
+  left: 0;
+}
+
+/* Honour a reduced-motion preference across the interface. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

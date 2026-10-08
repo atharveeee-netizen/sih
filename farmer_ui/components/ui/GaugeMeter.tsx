@@ -43,7 +43,7 @@ export const GaugeMeter: React.FC<GaugeMeterProps> = ({
   const style = getLevelStyle();
 
   return (
-    <div className="bg-white rounded-2xl p-4 shadow-sm border border-amber-100 flex flex-col gap-2">
+    <div className="bg-white rounded-lg p-4 shadow-sm border border-amber-100 flex flex-col gap-2">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-gray-700 font-semibold">
           <div className="p-2 bg-amber-50 text-amber-700 rounded-xl">{icon}</div>

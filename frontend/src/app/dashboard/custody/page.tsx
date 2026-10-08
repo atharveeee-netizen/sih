@@ -9,6 +9,7 @@ import { getCustomBatches, saveCustomBatch, fetchBatchesFromDB } from "@/lib/reg
 import { BatchMetadata } from "@/lib/types";
 import { generateSecureHex } from "@/lib/crypto-utils";
 import { Truck, ArrowLeft, ShieldCheck, CheckCircle2, Factory, FlaskConical, Store, ExternalLink } from "lucide-react";
+import { CHAIN_LABEL } from "@/lib/constants";
 
 export default function CustodyLoggingPage() {
   const [batches, setBatches] = useState<BatchMetadata[]>([]);
@@ -137,7 +138,7 @@ export default function CustodyLoggingPage() {
                 >
                   {batches.map((b) => (
                     <option key={b.batchId} value={b.batchId}>
-                      Batch #00{b.batchId} — {b.farmer.name} ({b.qrToken} - {b.custodyChain.length} steps)
+                      Batch #00{b.batchId} - {b.farmer.name} ({b.qrToken} - {b.custodyChain.length} steps)
                     </option>
                   ))}
                 </select>
@@ -195,7 +196,7 @@ id="custody-actor" name="actorName"                   type="text"
               <div className="p-6 border border-charcoal/10 bg-alabaster/40 flex items-start gap-4">
                 <ShieldCheck className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                 <p className="text-xs text-warm-grey leading-relaxed">
-                  Logging this custody step generates a cryptographic event on the Polygon PoS Beevil Knievel contract, permanently sealing the supply chain chain-of-custody.
+                  Logging this custody step generates a cryptographic event on the Beevil Knievel contract, permanently sealing the supply chain chain-of-custody.
                 </p>
               </div>
 
@@ -204,7 +205,7 @@ id="custody-actor" name="actorName"                   type="text"
                 disabled={loading}
                 className="w-full h-14 text-xs uppercase tracking-widest font-semibold btn-gold-slide flex items-center justify-center gap-2"
               >
-                <span>{loading ? "Signing on Polygon PoS..." : "Record Custody Transfer on Blockchain"}</span>
+                <span>{loading ? `Signing on ${CHAIN_LABEL}...` : "Record Custody Transfer on Blockchain"}</span>
               </button>
             </form>
           )}

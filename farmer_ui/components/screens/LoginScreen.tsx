@@ -3,13 +3,28 @@ import { LanguageCode } from '../../lib/types';
 import { getTranslation } from '../../lib/i18n/dictionaries';
 import { Phone, ShieldCheck, UserCheck, Key, ArrowRight, Lock, Hexagon, Download, AlertTriangle } from 'lucide-react';
 
+/** Native spelling only. Someone who cannot read the interface cannot
+    read an English language name either. */
+const LANGUAGE_CHOICES: { code: LanguageCode; label: string }[] = [
+  { code: 'hi', label: 'हिंदी' },
+  { code: 'bn', label: 'বাংলা' },
+  { code: 'mr', label: 'मराठी' },
+  { code: 'ta', label: 'தமிழ்' },
+  { code: 'te', label: 'తెలుగు' },
+  { code: 'kn', label: 'ಕನ್ನಡ' },
+  { code: 'gu', label: 'ગુજરાતી' },
+  { code: 'en', label: 'English' },
+];
+
 interface LoginScreenProps {
   currentLanguage: LanguageCode;
+  onLanguageChange: (code: LanguageCode) => void;
   onLoginSuccess: (farmerData: any, token: string) => void;
 }
 
 export const LoginScreen: React.FC<LoginScreenProps> = ({
   currentLanguage,
+  onLanguageChange,
   onLoginSuccess,
 }) => {
   const [phoneNumber, setPhoneNumber] = useState('9876543210');
@@ -107,22 +122,58 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-amber-50 flex flex-col justify-between p-4 max-w-md mx-auto">
-      {/* Top Banner & Mascot */}
-      <div className="pt-8 text-center flex flex-col items-center">
-        <div className="w-24 h-24 bg-amber-500 rounded-3xl p-4 shadow-xl border-4 border-amber-300 flex items-center justify-center mb-4">
-          <Hexagon size={48} className="text-white" />
+    <div className="min-h-screen bg-ground flex flex-col">
+      {/* Same masthead as the public portal, so the app is recognisably the
+          same government service. */}
+      <div className="bg-navy-deep text-white border-b-2 border-amber px-4 py-2">
+        <p className="text-[10px] font-semibold tracking-wide text-center">
+          भारत सरकार · GOVERNMENT OF INDIA · MINISTRY OF MSME
+        </p>
+      </div>
+
+      {/* Language first. Everything below this is unreadable until it is set,
+          so it cannot sit further down the page. */}
+      <div className="bg-navy px-3 py-2.5">
+        <div className="max-w-md mx-auto">
+          <p className="text-[10px] uppercase tracking-wider text-white/60 font-semibold mb-1.5 px-0.5">
+            भाषा · Language
+          </p>
+          <div className="grid grid-cols-4 gap-1.5">
+            {LANGUAGE_CHOICES.map((lang) => (
+              <button
+                key={lang.code}
+                type="button"
+                onClick={() => onLanguageChange(lang.code)}
+                aria-pressed={currentLanguage === lang.code}
+                className={`min-h-[44px] px-1 py-2 text-sm font-semibold rounded-lg border transition-colors ${
+                  currentLanguage === lang.code
+                    ? 'bg-amber text-navy-deep border-amber'
+                    : 'bg-white/10 text-white border-white/20 active:bg-white/20'
+                }`}
+              >
+                {lang.label}
+              </button>
+            ))}
+          </div>
         </div>
-        <h2 className="text-2xl font-black text-amber-950 tracking-tight">
+      </div>
+
+      <div className="flex-1 flex flex-col justify-between p-4 max-w-md mx-auto w-full">
+      {/* Top Banner & Mascot */}
+      <div className="pt-6 text-center flex flex-col items-center">
+        <div className="w-20 h-20 bg-amber rounded-xl p-4 flex items-center justify-center mb-3">
+          <Hexagon size={40} className="text-navy-deep" />
+        </div>
+        <h2 className="text-2xl font-bold text-navy tracking-tight">
           {getTranslation(currentLanguage, 'app_title')}
         </h2>
-        <p className="text-sm font-bold text-amber-700 mt-1 max-w-xs">
+        <p className="text-sm font-medium text-text-2 mt-1 max-w-xs">
           KVIC Apiary Cluster Beekeeping Companion
         </p>
       </div>
 
       {/* Main Form Box */}
-      <div className="bg-white rounded-3xl p-6 shadow-xl border border-amber-200 my-auto">
+      <div className="bg-paper rounded-lg p-6 border border-rule my-auto">
         <h3 className="text-xl font-extrabold text-gray-900 mb-1">
           {getTranslation(currentLanguage, 'login_heading')}
         </h3>
@@ -131,7 +182,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
         </p>
 
         {errorMsg && (
-          <div className="mb-4 p-3 bg-red-100 text-red-700 text-xs font-bold rounded-2xl border border-red-300 flex items-center gap-2">
+          <div className="mb-4 p-3 bg-red-100 text-red-700 text-xs font-bold rounded-lg border border-red-300 flex items-center gap-2">
             <AlertTriangle size={14} /> {errorMsg}
           </div>
         )}
@@ -148,7 +199,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
                   type="text"
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 bg-amber-50/50 border-2 border-amber-300 rounded-2xl font-bold text-lg text-gray-900 focus:outline-none focus:border-amber-600"
+                  className="w-full pl-12 pr-4 py-3 bg-amber-50/50 border-2 border-amber-300 rounded-lg font-bold text-lg text-gray-900 focus:outline-none focus:border-amber-600"
                   placeholder="9876543210"
                   required
                 />
@@ -158,7 +209,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
             <button
               type="submit"
               disabled={loading}
-              className="w-full min-h-[56px] py-4 bg-amber-600 hover:bg-amber-700 active:scale-98 text-white font-black text-lg rounded-2xl shadow-lg flex items-center justify-center gap-2 transition-all"
+              className="w-full min-h-[56px] py-4 bg-navy hover:bg-gov-blue text-white font-bold text-lg rounded-lg flex items-center justify-center gap-2 transition-colors"
             >
               {loading ? 'Sending...' : getTranslation(currentLanguage, 'send_otp')}
               <ArrowRight size={22} />
@@ -177,7 +228,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
                   maxLength={6}
                   value={otp}
                   onChange={(e) => setOtp(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 bg-amber-50/50 border-2 border-amber-300 rounded-2xl font-black text-2xl text-gray-900 tracking-widest text-center focus:outline-none focus:border-amber-600"
+                  className="w-full pl-12 pr-4 py-3 bg-amber-50/50 border-2 border-amber-300 rounded-lg font-black text-2xl text-gray-900 tracking-widest text-center focus:outline-none focus:border-amber-600"
                   placeholder="1234"
                   required
                 />
@@ -190,7 +241,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
             <button
               type="submit"
               disabled={loading}
-              className="w-full min-h-[56px] py-4 bg-emerald-600 hover:bg-emerald-700 active:scale-98 text-white font-black text-lg rounded-2xl shadow-lg flex items-center justify-center gap-2 transition-all"
+              className="w-full min-h-[56px] py-4 bg-verified hover:opacity-90 text-white font-bold text-lg rounded-lg flex items-center justify-center gap-2 transition-opacity"
             >
               {loading ? 'Verifying...' : getTranslation(currentLanguage, 'verify_login')}
               <ShieldCheck size={22} />
@@ -212,7 +263,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
         <a
           href="/honeychain-farmer.apk"
           download="HoneyChain-Farmer-v1.0.apk"
-          className="w-full min-h-[52px] mb-3 py-3 px-4 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-black text-sm rounded-2xl shadow-lg flex items-center justify-center gap-2 transition-all border-2 border-emerald-400"
+          className="w-full min-h-[44px] py-2.5 px-4 text-gov-blue font-semibold text-xs flex items-center justify-center gap-2 underline underline-offset-2"
         >
           <Download size={20} /> Download Android App (.apk)
         </a>
@@ -221,17 +272,19 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
         <button
           type="button"
           onClick={() => setShowAssistedModal(true)}
-          className="w-full min-h-[48px] py-3 bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-xs rounded-2xl border border-amber-300 flex items-center justify-center gap-2 transition-all"
+          className="w-full min-h-[48px] py-3 bg-paper hover:bg-ground text-navy font-semibold text-sm rounded-lg border border-rule-strong flex items-center justify-center gap-2 transition-colors"
         >
           <UserCheck size={18} />
           {getTranslation(currentLanguage, 'assisted_login_btn')}
         </button>
       </div>
 
+      </div>
+
       {/* Assisted Login Modal */}
       {showAssistedModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 w-full max-w-sm shadow-2xl border-2 border-amber-400">
+          <div className="bg-white rounded-xl p-6 w-full max-w-sm shadow-2xl border-2 border-amber-400">
             <div className="flex items-center gap-2 text-amber-800 mb-2">
               <ShieldCheck size={28} />
               <h3 className="font-extrabold text-lg">

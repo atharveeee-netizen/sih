@@ -8,7 +8,7 @@ import confetti from "canvas-confetti";
 import { Layers, ArrowLeft, Sparkles, CheckCircle2, QrCode, ExternalLink, ShieldCheck, Activity } from "lucide-react";
 
 import { saveCustomBatch, getCustomFarmers, getCustomBatches, fetchFarmersFromDB } from "@/lib/registry";
-import { POLYGON_AMOY_RPC } from "@/lib/constants";
+import { POLYGON_AMOY_RPC, CHAIN_LABEL_TITLE } from "@/lib/constants";
 import { generateSecureHex, generateSecureCid } from "@/lib/crypto-utils";
 
 export default function MintBatchPage() {
@@ -230,7 +230,7 @@ export default function MintBatchPage() {
               <Layers className="w-5 sm:w-6 h-5 sm:h-6" />
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-ultra text-warm-grey font-bold">Polygon PoS Ledger</p>
+              <p className="text-[10px] uppercase tracking-ultra text-warm-grey font-bold">{CHAIN_LABEL_TITLE} Ledger</p>
               <h1 className="text-2xl sm:text-3xl md:text-4xl serif text-charcoal font-normal">Mint Honey Harvest Batch</h1>
             </div>
           </div>
@@ -368,7 +368,7 @@ export default function MintBatchPage() {
                 >
                   {farmersList.map((f) => (
                     <option key={f.farmerId} value={f.farmerId}>
-                      #00{f.farmerId} — {f.name} ({f.location} - {f.cooperativeId})
+                      #00{f.farmerId} - {f.name} ({f.location} - {f.cooperativeId})
                     </option>
                   ))}
                 </select>
@@ -493,7 +493,7 @@ export default function MintBatchPage() {
                   </p>
                 </div>
                 <div className="text-right self-end md:self-auto">
-                  <span className="text-5xl font-serif font-bold text-gold">{aiScore}</span>
+                  <span className="text-5xl font-serif font-light text-gold">{aiScore}</span>
                   <span className="text-sm font-serif text-warm-grey">/100</span>
                 </div>
               </div>

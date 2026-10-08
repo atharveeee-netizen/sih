@@ -64,8 +64,8 @@ const classifyIntent = (text: string): string => {
 // ─── Multilingual response knowledge base ─────────────────────────────────────
 const RESPONSES: Record<string, Record<string, string>> = {
   SWARM_WARNING: {
-    en: "🚨 Swarm Alert! Add 2 empty wax foundation frames immediately. Install a swarm trap box 20m from the hive. Clip the old queen's wing if possible. Check queen cells — if present, split the colony into a nuc before swarming occurs.",
-    hi: "🚨 झुंड की चेतावनी! तुरंत 2 खाली मोम के फ्रेम डालें। छत्ते से 20 मीटर दूर एक स्वार्म ट्रैप बॉक्स लगाएं। पुरानी रानी मक्खी के पंख काटें। रानी कोशिकाओं की जांच करें — यदि मिलें, तो झुंड से पहले कॉलोनी को विभाजित करें।",
+    en: "🚨 Swarm Alert! Add 2 empty wax foundation frames immediately. Install a swarm trap box 20m from the hive. Clip the old queen's wing if possible. Check queen cells - if present, split the colony into a nuc before swarming occurs.",
+    hi: "🚨 झुंड की चेतावनी! तुरंत 2 खाली मोम के फ्रेम डालें। छत्ते से 20 मीटर दूर एक स्वार्म ट्रैप बॉक्स लगाएं। पुरानी रानी मक्खी के पंख काटें। रानी कोशिकाओं की जांच करें - यदि मिलें, तो झुंड से पहले कॉलोनी को विभाजित करें।",
     bn: "🚨 ঝাঁক সতর্কতা! অবিলম্বে ২টি খালি মোমের ফ্রেম যোগ করুন। মৌচাক থেকে ২০ মিটার দূরে একটি স্বার্ম ট্র্যাপ বক্স স্থাপন করুন। পুরনো রানীর ডানা কাটুন। রানী কোষ পরীক্ষা করুন।",
     ta: "🚨 கூட்டம் எச்சரிக்கை! உடனடியாக 2 காலி மெழுகு சட்டங்கள் சேர்க்கவும். தேன்கூட்டிலிருந்து 20 மீ தூரத்தில் swarm trap வைக்கவும். பழைய ராணியின் இறக்கை வெட்டவும். ராணி செல்களை ஆய்வு செய்யவும்.",
     kn: "🚨 ಹಿಂಡು ಎಚ್ಚರಿಕೆ! ತಕ್ಷಣ 2 ಖಾಲಿ ಮೇಣದ ಚೌಕಟ್ಟುಗಳನ್ನು ಸೇರಿಸಿ. 20 ಮೀ ದೂರದಲ್ಲಿ swarm trap ಇಡಿ. ಹಳೆಯ ರಾಣಿಯ ರೆಕ್ಕೆ ಕತ್ತರಿಸಿ.",
@@ -80,15 +80,15 @@ const RESPONSES: Record<string, Record<string, string>> = {
     mr: "🔬 वेरोआ माइट उपचार: ब्रूड-मुक्त काळात 3g ऑक्सॅलिक ॲसिड वाफ द्या. 72 तास sticky board ठेवा.",
   },
   MARKET_PRICE: {
-    en: "📈 Current KVIC Honey MSP Rates (2026 season): Himalayan Acacia GI — ₹ 830/kg | Sundarbans Mangrove — ₹ 660/kg | Shahi Litchi — ₹ 740/kg | Mustard — ₹ 380/kg | Mixed Flora — ₹ 310/kg. Contact your nearest Khadi Gramodyog Bhavan for direct procurement.",
-    hi: "📈 KVIC शहद MSP दरें (2026): हिमालयी बबूल GI — ₹ 830/किग्रा | सुंदरबन मैंग्रोव — ₹ 660/किग्रा | शाही लीची — ₹ 740/किग्रा | सरसों — ₹ 380/किग्रा | मिश्रित फूल — ₹ 310/किग्रा",
-    bn: "📈 KVIC মধু MSP দর (2026): হিমালয় আকাশমণি — ₹ 830/কেজি | সুন্দরবন ম্যানগ্রোভ — ₹ 660/কেজি | শাহী লিচু — ₹ 740/কেজি",
-    ta: "📈 KVIC தேன் MSP விலை (2026): இமயமலை Acacia — ₹ 830/கிலோ | சுந்தர்பன் — ₹ 660/கிலோ | Litchi — ₹ 740/கிலோ",
-    kn: "📈 KVIC ಜೇನು MSP ದರ (2026): ಹಿಮಾಲಯ Acacia — ₹ 830/ಕೆಜಿ | Sundarbans — ₹ 660/ಕೆಜಿ | Litchi — ₹ 740/ಕೆಜಿ",
-    mr: "📈 KVIC मध MSP दर (2026): हिमालयी बबूल — ₹ 830/किलो | सुंदरबन — ₹ 660/किलो | शाही लीची — ₹ 740/किलो",
+    en: "📈 Current KVIC Honey MSP Rates (2026 season): Himalayan Acacia GI - ₹ 830/kg | Sundarbans Mangrove - ₹ 660/kg | Shahi Litchi - ₹ 740/kg | Mustard - ₹ 380/kg | Mixed Flora - ₹ 310/kg. Contact your nearest Khadi Gramodyog Bhavan for direct procurement.",
+    hi: "📈 KVIC शहद MSP दरें (2026): हिमालयी बबूल GI - ₹ 830/किग्रा | सुंदरबन मैंग्रोव - ₹ 660/किग्रा | शाही लीची - ₹ 740/किग्रा | सरसों - ₹ 380/किग्रा | मिश्रित फूल - ₹ 310/किग्रा",
+    bn: "📈 KVIC মধু MSP দর (2026): হিমালয় আকাশমণি - ₹ 830/কেজি | সুন্দরবন ম্যানগ্রোভ - ₹ 660/কেজি | শাহী লিচু - ₹ 740/কেজি",
+    ta: "📈 KVIC தேன் MSP விலை (2026): இமயமலை Acacia - ₹ 830/கிலோ | சுந்தர்பன் - ₹ 660/கிலோ | Litchi - ₹ 740/கிலோ",
+    kn: "📈 KVIC ಜೇನು MSP ದರ (2026): ಹಿಮಾಲಯ Acacia - ₹ 830/ಕೆಜಿ | Sundarbans - ₹ 660/ಕೆಜಿ | Litchi - ₹ 740/ಕೆಜಿ",
+    mr: "📈 KVIC मध MSP दर (2026): हिमालयी बबूल - ₹ 830/किलो | सुंदरबन - ₹ 660/किलो | शाही लीची - ₹ 740/किलो",
   },
   WEATHER_ALERT: {
-    en: "🌦️ Weather Advisory: During heavy monsoon periods, reduce hive entrance to 2 cm to prevent robbing and damping. Tilt hive 3° forward for rainwater drainage. Apply vaseline barrier at hive stand legs against ants. Monitor humidity — keep below 68% inside hive.",
+    en: "🌦️ Weather Advisory: During heavy monsoon periods, reduce hive entrance to 2 cm to prevent robbing and damping. Tilt hive 3° forward for rainwater drainage. Apply vaseline barrier at hive stand legs against ants. Monitor humidity - keep below 68% inside hive.",
     hi: "🌦️ मौसम सलाह: भारी मानसून में छत्ते का प्रवेश द्वार 2 सेमी तक कम करें। छत्ते को 3° आगे झुकाएं। चींटियों से बचाव के लिए वैसलीन लगाएं। आर्द्रता 68% से कम रखें।",
     bn: "🌦️ আবহাওয়া পরামর্শ: ভারী বর্ষায় মৌচাকের প্রবেশ 2 সেমি করুন। 3° সামনে হেলান দিন। আর্দ্রতা 68% এর নিচে রাখুন।",
     ta: "🌦️ வானிலை ஆலோசனை: கனமழையில் தேன்கூட்டு நுழைவை 2 செ.மீ. ஆக்கவும். 3° முன்னோக்கி சாய்க்கவும். ஈரப்பதம் 68% க்கு கீழ் வைக்கவும்.",
@@ -96,44 +96,44 @@ const RESPONSES: Record<string, Record<string, string>> = {
     mr: "🌦️ हवामान सल्ला: जड पावसात पोळ्याचे प्रवेशद्वार 2 सेमी करा. 3° पुढे झुकवा. आर्द्रता 68% च्या खाली ठेवा.",
   },
   HARVEST: {
-    en: "🍯 Harvest Readiness Check: Honey is ready when 80% of comb cells are capped with white wax. Test with refractometer — moisture must be ≤ 20% for FSSAI IS 4941:2020 compliance. Extract using uncapping fork + radial extractor. Immediately filter and fill in sterilized food-grade containers.",
-    hi: "🍯 फसल जांच: जब 80% कोशिकाएं सफेद मोम से बंद हों तो शहद तैयार है। रिफ्रैक्टोमीटर से जांचें — नमी ≤ 20% होनी चाहिए। अनकैपिंग फोर्क से निकालें और फूड-ग्रेड डिब्बे में भरें।",
+    en: "🍯 Harvest Readiness Check: Honey is ready when 80% of comb cells are capped with white wax. Test with refractometer - moisture must be ≤ 20% for FSSAI IS 4941:2020 compliance. Extract using uncapping fork + radial extractor. Immediately filter and fill in sterilized food-grade containers.",
+    hi: "🍯 फसल जांच: जब 80% कोशिकाएं सफेद मोम से बंद हों तो शहद तैयार है। रिफ्रैक्टोमीटर से जांचें - नमी ≤ 20% होनी चाहिए। अनकैपिंग फोर्क से निकालें और फूड-ग्रेड डिब्बे में भरें।",
     bn: "🍯 ফসল প্রস্তুতি: 80% কোষ সাদা মোম দিয়ে ঢাকা হলে মধু তৈরি। রিফ্র্যাক্টোমিটারে আর্দ্রতা ≤ 20% হওয়া চাই।",
-    ta: "🍯 அறுவடை தயார்நிலை: 80% கலங்கள் மெழுகால் மூடியிருக்க வேண்டும். Refractometer — ஈரப்பதம் ≤ 20%.",
-    kn: "🍯 ಕೊಯ್ಲು ಸಿದ್ಧತೆ: 80% ಜೇನುಗೂಡು ಮೇಣದಿಂದ ಮುಚ್ಚಿದ್ದರೆ ಸಿದ್ಧ. Refractometer — ತೇವ ≤ 20%.",
-    mr: "🍯 कापणी तयारी: 80% पेशी पांढऱ्या मेणाने बंद असल्यास मध तयार. रिफ्रॅक्टोमीटर — आर्द्रता ≤ 20%.",
+    ta: "🍯 அறுவடை தயார்நிலை: 80% கலங்கள் மெழுகால் மூடியிருக்க வேண்டும். Refractometer - ஈரப்பதம் ≤ 20%.",
+    kn: "🍯 ಕೊಯ್ಲು ಸಿದ್ಧತೆ: 80% ಜೇನುಗೂಡು ಮೇಣದಿಂದ ಮುಚ್ಚಿದ್ದರೆ ಸಿದ್ಧ. Refractometer - ತೇವ ≤ 20%.",
+    mr: "🍯 कापणी तयारी: 80% पेशी पांढऱ्या मेणाने बंद असल्यास मध तयार. रिफ्रॅक्टोमीटर - आर्द्रता ≤ 20%.",
   },
   DISEASE: {
-    en: "🔴 Common Hive Diseases: 1) American Foulbrood (AFB) — coffee-brown slimy larvae, destroy & burn colony. 2) Chalkbrood — white chalky mummies, improve ventilation & replace queen. 3) Nosema — dysentery brown stains on hive front, feed fumagillin syrup. Contact KVIC District Office for disease laboratory confirmation.",
-    hi: "🔴 सामान्य बीमारियां: 1) AFB — भूरे चिपचिपे लार्वा, कॉलोनी नष्ट करें। 2) Chalkbrood — सफेद ममी, वेंटिलेशन सुधारें। 3) नोजेमा — दस्त के धब्बे, फ्यूमागिलिन दें।",
-    bn: "🔴 সাধারণ রোগ: 1) AFB — বাদামি লার্ভা, কলোনি ধ্বংস করুন। 2) Chalkbrood — সাদা মাম্মি। 3) Nosema — পাতলা পায়খানার দাগ।",
-    ta: "🔴 பொதுவான நோய்கள்: 1) AFB — பழுப்பு நிற லார்வா, கலனியை அழிக்கவும். 2) Chalkbrood — வெள்ளை மம்மி. 3) Nosema.",
-    kn: "🔴 ಸಾಮಾನ್ಯ ರೋಗಗಳು: 1) AFB — ಕಂದು ಲಾರ್ವಾ, ಕಲೋನಿ ನಾಶ. 2) Chalkbrood — ಬಿಳಿ ಗೊಂಬೆ. 3) Nosema.",
-    mr: "🔴 सामान्य आजार: 1) AFB — तपकिरी लार्वा, वसाहत नष्ट. 2) Chalkbrood — पांढरी ममी. 3) Nosema.",
+    en: "🔴 Common Hive Diseases: 1) American Foulbrood (AFB) - coffee-brown slimy larvae, destroy & burn colony. 2) Chalkbrood - white chalky mummies, improve ventilation & replace queen. 3) Nosema - dysentery brown stains on hive front, feed fumagillin syrup. Contact KVIC District Office for disease laboratory confirmation.",
+    hi: "🔴 सामान्य बीमारियां: 1) AFB - भूरे चिपचिपे लार्वा, कॉलोनी नष्ट करें। 2) Chalkbrood - सफेद ममी, वेंटिलेशन सुधारें। 3) नोजेमा - दस्त के धब्बे, फ्यूमागिलिन दें।",
+    bn: "🔴 সাধারণ রোগ: 1) AFB - বাদামি লার্ভা, কলোনি ধ্বংস করুন। 2) Chalkbrood - সাদা মাম্মি। 3) Nosema - পাতলা পায়খানার দাগ।",
+    ta: "🔴 பொதுவான நோய்கள்: 1) AFB - பழுப்பு நிற லார்வா, கலனியை அழிக்கவும். 2) Chalkbrood - வெள்ளை மம்மி. 3) Nosema.",
+    kn: "🔴 ಸಾಮಾನ್ಯ ರೋಗಗಳು: 1) AFB - ಕಂದು ಲಾರ್ವಾ, ಕಲೋನಿ ನಾಶ. 2) Chalkbrood - ಬಿಳಿ ಗೊಂಬೆ. 3) Nosema.",
+    mr: "🔴 सामान्य आजार: 1) AFB - तपकिरी लार्वा, वसाहत नष्ट. 2) Chalkbrood - पांढरी ममी. 3) Nosema.",
   },
   QUEEN_STATUS: {
-    en: "👑 Queen Status Guide: Healthy queen lays 1,200–1,500 eggs/day in tight brood pattern. Signs of queenlessness: no eggs for 2+ days, emergency queen cells on worker comb, increased aggressive fanning. Requeen with a mated caged queen from KVIC certified apiary. Give 3 days acceptance before releasing.",
-    hi: "👑 रानी स्थिति: स्वस्थ रानी प्रतिदिन 1,200–1,500 अंडे देती है। रानी रहित होने के संकेत: 2+ दिन कोई अंडा नहीं, इमरजेंसी रानी कोशिकाएं। KVIC प्रमाणित नर्सरी से नई रानी लें।",
+    en: "👑 Queen Status Guide: Healthy queen lays 1,200-1,500 eggs/day in tight brood pattern. Signs of queenlessness: no eggs for 2+ days, emergency queen cells on worker comb, increased aggressive fanning. Requeen with a mated caged queen from KVIC certified apiary. Give 3 days acceptance before releasing.",
+    hi: "👑 रानी स्थिति: स्वस्थ रानी प्रतिदिन 1,200-1,500 अंडे देती है। रानी रहित होने के संकेत: 2+ दिन कोई अंडा नहीं, इमरजेंसी रानी कोशिकाएं। KVIC प्रमाणित नर्सरी से नई रानी लें।",
     bn: "👑 রানী অবস্থা: সুস্থ রানী প্রতিদিন 1,500 ডিম দেয়। রানীহীনতার লক্ষণ: 2+ দিন ডিম নেই।",
     ta: "👑 ராணி நிலை: ஆரோக்கியமான ராணி நாளொன்றுக்கு 1,500 முட்டை இடுகிறாள்.",
     kn: "👑 ರಾಣಿ ಸ್ಥಿತಿ: ಆರೋಗ್ಯ ರಾಣಿ ದಿನಕ್ಕೆ 1,500 ಮೊಟ್ಟೆ ಇಡುತ್ತಾಳೆ.",
     mr: "👑 राणी स्थिती: निरोगी राणी दररोज 1,500 अंडी घालते.",
   },
   TREATMENT: {
-    en: "💊 Treatment Schedule: Oxalic acid vapor — 3g/colony, winter broodless period only. Api-Life VAR thymol strips — place 2 between top frames, replace after 7 days for 3 cycles. Apivar amitraz strips — 2 strips for 6 weeks in spring/autumn. Always record all treatments on Beevil Knievel platform for traceability.",
-    hi: "💊 उपचार कार्यक्रम: ऑक्जेलिक एसिड वाष्प — 3ग्रा/कॉलोनी, केवल ब्रूड रहित सर्दी में। Apivar पट्टी — 6 सप्ताह। सभी उपचार Beevil Knievel पर दर्ज करें।",
-    bn: "💊 চিকিৎসা সূচি: Oxalic acid বাষ্প — 3g/কলোনি, শীতকালীন ব্রুড-মুক্ত সময়ে। Apivar স্ট্রিপ — 6 সপ্তাহ।",
-    ta: "💊 சிகிச்சை அட்டவணை: Oxalic acid — 3g/கலனி, குஞ்சு இல்லாத காலம். Apivar — 6 வாரங்கள்.",
-    kn: "💊 ಚಿಕಿತ್ಸೆ ವೇಳಾಪಟ್ಟಿ: Oxalic acid — 3g/ಕಲೋನಿ, ಮರಿ-ಇಲ್ಲದ ಶೀತ ಕಾಲ. Apivar — 6 ವಾರ.",
-    mr: "💊 उपचार वेळापत्रक: Oxalic acid — 3g/वसाहत, ब्रूड-मुक्त हिवाळा. Apivar — 6 आठवडे.",
+    en: "💊 Treatment Schedule: Oxalic acid vapor - 3g/colony, winter broodless period only. Api-Life VAR thymol strips - place 2 between top frames, replace after 7 days for 3 cycles. Apivar amitraz strips - 2 strips for 6 weeks in spring/autumn. Always record all treatments on Beevil Knievel platform for traceability.",
+    hi: "💊 उपचार कार्यक्रम: ऑक्जेलिक एसिड वाष्प - 3ग्रा/कॉलोनी, केवल ब्रूड रहित सर्दी में। Apivar पट्टी - 6 सप्ताह। सभी उपचार Beevil Knievel पर दर्ज करें।",
+    bn: "💊 চিকিৎসা সূচি: Oxalic acid বাষ্প - 3g/কলোনি, শীতকালীন ব্রুড-মুক্ত সময়ে। Apivar স্ট্রিপ - 6 সপ্তাহ।",
+    ta: "💊 சிகிச்சை அட்டவணை: Oxalic acid - 3g/கலனி, குஞ்சு இல்லாத காலம். Apivar - 6 வாரங்கள்.",
+    kn: "💊 ಚಿಕಿತ್ಸೆ ವೇಳಾಪಟ್ಟಿ: Oxalic acid - 3g/ಕಲೋನಿ, ಮರಿ-ಇಲ್ಲದ ಶೀತ ಕಾಲ. Apivar - 6 ವಾರ.",
+    mr: "💊 उपचार वेळापत्रक: Oxalic acid - 3g/वसाहत, ब्रूड-मुक्त हिवाळा. Apivar - 6 आठवडे.",
   },
   GENERAL: {
-    en: "🐝 Hello! I'm your KVIC Apiculture Field Assistant. I can help with: swarm control, disease identification, market prices, harvest timing, queen management, Varroa treatment, and weather advisories — in your preferred language. Ask me anything!",
+    en: "🐝 Hello! I'm your KVIC Apiculture Field Assistant. I can help with: swarm control, disease identification, market prices, harvest timing, queen management, Varroa treatment, and weather advisories - in your preferred language. Ask me anything!",
     hi: "🐝 नमस्ते! मैं आपका KVIC मधुमक्खी पालन सहायक हूं। मैं मदद कर सकता हूं: झुंड नियंत्रण, बीमारी, बाज़ार भाव, फसल, रानी प्रबंधन, माइट उपचार। अपना सवाल पूछें!",
-    bn: "🐝 নমস্কার! আমি আপনার KVIC মৌমাছি পালন সহায়ক। ঝাঁক নিয়ন্ত্রণ, রোগ, বাজার দর, ফসল — সব বিষয়ে সাহায্য করতে পারি।",
-    ta: "🐝 வணக்கம்! நான் உங்கள் KVIC தேனீ வளர்ப்பு உதவியாளர். கூட்டம், நோய், விலை, அறுவடை — எல்லாவற்றிலும் உதவுவேன்.",
-    kn: "🐝 ನಮಸ್ಕಾರ! ನಾನು ನಿಮ್ಮ KVIC ಜೇನು ಕೃಷಿ ಸಹಾಯಕ. ಹಿಂಡು, ರೋಗ, ಮಾರುಕಟ್ಟೆ ದರ, ಕೊಯ್ಲು — ಎಲ್ಲಾ ಸಹಾಯ ಮಾಡುತ್ತೇನೆ.",
-    mr: "🐝 नमस्कार! मी तुमचा KVIC मधुमाशी पालन सहाय्यक. थवा, रोग, बाज़ार, कापणी — सर्व बाबींमध्ये मदत करतो.",
+    bn: "🐝 নমস্কার! আমি আপনার KVIC মৌমাছি পালন সহায়ক। ঝাঁক নিয়ন্ত্রণ, রোগ, বাজার দর, ফসল - সব বিষয়ে সাহায্য করতে পারি।",
+    ta: "🐝 வணக்கம்! நான் உங்கள் KVIC தேனீ வளர்ப்பு உதவியாளர். கூட்டம், நோய், விலை, அறுவடை - எல்லாவற்றிலும் உதவுவேன்.",
+    kn: "🐝 ನಮಸ್ಕಾರ! ನಾನು ನಿಮ್ಮ KVIC ಜೇನು ಕೃಷಿ ಸಹಾಯಕ. ಹಿಂಡು, ರೋಗ, ಮಾರುಕಟ್ಟೆ ದರ, ಕೊಯ್ಲು - ಎಲ್ಲಾ ಸಹಾಯ ಮಾಡುತ್ತೇನೆ.",
+    mr: "🐝 नमस्कार! मी तुमचा KVIC मधुमाशी पालन सहाय्यक. थवा, रोग, बाज़ार, कापणी - सर्व बाबींमध्ये मदत करतो.",
   },
   REGISTER: {
     en: "📋 Beekeeper Registration: Go to Dashboard → Register Beekeeper. Required: Aadhaar card, KVIC Cooperative Code, GPS coordinates of apiary, number of boxes, bee species (Apis mellifera / Apis cerana), and a photo of your apiary. Registration is free and entitles you to MSP, training, and insurance under PMFBY.",
@@ -359,7 +359,7 @@ export default function VoiceFieldAssistant() {
       <div className="px-5 py-2 bg-alabaster border-t border-charcoal/10 flex justify-between text-[9px] font-mono text-warm-grey">
         <span className="flex items-center gap-1.5">
           <Languages className="w-3 h-3 text-gold" />
-          Active: {selectedLang.label} ({selectedLang.nativeName}) — {selectedLang.bcp47}
+          Active: {selectedLang.label} ({selectedLang.nativeName}) - {selectedLang.bcp47}
         </span>
         <span>{speechSupported ? "✓ Web Speech API Active" : "⚠ Type-only mode (no mic)"}</span>
       </div>

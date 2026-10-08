@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifySession } from "@/lib/auth";
 import { SESSION_COOKIE_NAME } from "@/lib/auth-constants";
 
-// Force Next.js to always run this route dynamically — never cache it
+// Force Next.js to always run this route dynamically - never cache it
 export const dynamic = "force-dynamic";
 
 export async function GET(req: NextRequest) {

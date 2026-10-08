@@ -28,7 +28,7 @@ export const ActionTabScreen: React.FC<ActionTabScreenProps> = ({
   return (
     <div className="flex flex-col gap-4 pb-24 max-w-md mx-auto px-4 pt-4">
       {/* Title Card */}
-      <div className="bg-white rounded-3xl p-4 shadow-sm border border-amber-200">
+      <div className="bg-white rounded-xl p-4 shadow-sm border border-amber-200">
         <h2 className="text-xl font-black text-amber-950 flex items-center justify-between">
           <span className="flex items-center gap-2"><Zap size={18} className="text-amber-600" /> {getTranslation(currentLanguage, 'actions_title')}</span>
           <span className="text-xs font-bold text-amber-700 bg-amber-100 px-2.5 py-1 rounded-full border border-amber-300">
@@ -42,7 +42,7 @@ export const ActionTabScreen: React.FC<ActionTabScreenProps> = ({
 
       {/* Empty State when no active risks */}
       {hivesWithRisks.length === 0 ? (
-        <div className="bg-white rounded-3xl p-8 shadow-sm border border-emerald-200 text-center flex flex-col items-center my-6">
+        <div className="bg-white rounded-xl p-8 shadow-sm border border-emerald-200 text-center flex flex-col items-center my-6">
           <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-3 shadow-inner">
             <CheckCircle2 size={36} />
           </div>
@@ -59,7 +59,7 @@ export const ActionTabScreen: React.FC<ActionTabScreenProps> = ({
             hive.activeRisks.map((risk) => (
               <div
                 key={risk.id}
-                className="bg-white rounded-3xl p-5 shadow-md border-2 border-amber-300 flex flex-col gap-3"
+                className="bg-white rounded-xl p-5 shadow-md border-2 border-amber-300 flex flex-col gap-3"
               >
                 {/* Header */}
                 <div className="flex items-center justify-between">
@@ -87,7 +87,7 @@ export const ActionTabScreen: React.FC<ActionTabScreenProps> = ({
                 </div>
 
                 {/* Instruction Card */}
-                <div className="bg-amber-50 p-4 rounded-2xl border border-amber-200">
+                <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
                   <p className="text-sm font-extrabold text-amber-950 leading-snug">
                     {getTranslation(currentLanguage, risk.recommendedAction)}
                   </p>
@@ -97,7 +97,7 @@ export const ActionTabScreen: React.FC<ActionTabScreenProps> = ({
                 <div className="grid grid-cols-2 gap-2 pt-1">
                   <button
                     onClick={() => onMarkActionDone(hive.hiveId, risk.id)}
-                    className="min-h-[48px] py-3 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-black text-xs rounded-2xl shadow-md flex items-center justify-center gap-1.5 transition-all"
+                    className="min-h-[48px] py-3 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-black text-xs rounded-lg shadow-md flex items-center justify-center gap-1.5 transition-all"
                   >
                     <CheckCircle2 size={18} />
                     {getTranslation(currentLanguage, 'mark_done')}
@@ -105,7 +105,7 @@ export const ActionTabScreen: React.FC<ActionTabScreenProps> = ({
 
                   <button
                     onClick={() => onRequestHelp(hive.hiveId, risk.type)}
-                    className="min-h-[48px] py-3 bg-amber-100 hover:bg-amber-200 active:scale-95 text-amber-900 font-extrabold text-xs rounded-2xl border border-amber-300 flex items-center justify-center gap-1.5 transition-all"
+                    className="min-h-[48px] py-3 bg-amber-100 hover:bg-amber-200 active:scale-95 text-amber-900 font-extrabold text-xs rounded-lg border border-amber-300 flex items-center justify-center gap-1.5 transition-all"
                   >
                     <PhoneCall size={18} className="text-amber-700" />
                     {getTranslation(currentLanguage, 'request_help')}

@@ -77,7 +77,7 @@ export const HiveMapScreen: React.FC<HiveMapScreenProps> = ({
     <div className="flex flex-col gap-4 pb-28 max-w-md mx-auto px-4 pt-3 text-stone-100">
       
       {/* Top Header Card */}
-      <div className="bg-stone-900 border border-stone-800 rounded-2xl p-4 shadow-sm flex items-center justify-between">
+      <div className="bg-stone-900 border border-stone-800 rounded-lg p-4 shadow-sm flex items-center justify-between">
         <div>
           <div className="flex items-center gap-2">
             <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
@@ -155,7 +155,7 @@ export const HiveMapScreen: React.FC<HiveMapScreenProps> = ({
       </div>
 
       {/* Actual Honeycomb Interlocking Geometry SVG Canvas */}
-      <div className="bg-stone-900 border border-stone-800 rounded-3xl p-4 shadow-xl relative overflow-hidden">
+      <div className="bg-stone-900 border border-stone-800 rounded-xl p-4 shadow-xl relative overflow-hidden">
         {/* Top yard indicator */}
         <div className="flex items-center justify-between pb-3 mb-2 border-b border-stone-800 text-xs text-stone-400">
           <div className="flex items-center gap-1.5 font-medium">
@@ -341,7 +341,7 @@ export const HiveMapScreen: React.FC<HiveMapScreenProps> = ({
 
       {/* Selected Hive Telemetry Deck */}
       {activeHive && (
-        <div className="bg-stone-900 border border-stone-800 rounded-2xl p-4 shadow-md space-y-3">
+        <div className="bg-stone-900 border border-stone-800 rounded-lg p-4 shadow-md space-y-3">
           <div className="flex items-start justify-between">
             <div>
               <div className="flex items-center gap-2">

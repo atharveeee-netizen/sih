@@ -14,7 +14,7 @@ import { FileSpreadsheet, ArrowLeft, Upload, CheckCircle2, Download, Layers, QrC
 // ─── SIMULATION MODE BANNER ────────────────────────────────────────────────────
 // Bulk CSV mint runs in SIMULATION MODE. It stores data locally for demo purposes.
 // In production, each row calls the on-chain approveHarvestAndMint() via ethers.js.
-// txHash values are NOT real blockchain transactions — they are clearly marked as demo.
+// txHash values are NOT real blockchain transactions - they are clearly marked as demo.
 const SimulationBanner = () => (
   <div className="flex items-start gap-3 bg-amber-50 border border-amber-300 px-5 py-4 mb-8">
     <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
@@ -23,7 +23,7 @@ const SimulationBanner = () => (
       <p className="text-xs text-amber-700">
         Batches minted here are stored locally for demonstration purposes only. AI scores are
         fetched from the live Beevil Knievel FastAPI microservice. Transaction hashes are simulation
-        placeholders — production deployment connects to the Polygon Amoy smart contract via ethers.js.
+        placeholders - production deployment connects to the Polygon Amoy smart contract via ethers.js.
       </p>
     </div>
   </div>
@@ -341,7 +341,7 @@ export default function BulkMintPage() {
                             <td className="p-3 font-mono">{row.BrixIndex}°Bx</td>
                             <td className="p-3 font-serif font-bold text-gold">{row.computedScore}/100</td>
                             <td className="p-3 font-medium">{row.grade}</td>
-                            <td className="p-3 font-mono text-[10px] text-warm-grey">{row.scoredBy ?? "—"}</td>
+                            <td className="p-3 font-mono text-[10px] text-warm-grey">{row.scoredBy ?? "-"}</td>
                           </tr>
                         ))}
                       </tbody>

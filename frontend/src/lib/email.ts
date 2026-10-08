@@ -1,5 +1,5 @@
 /**
- * Email Service — Nodemailer with Dev Fallback
+ * Email Service - Nodemailer with Dev Fallback
  * Sends OTP verification emails via SMTP or logs to console in dev mode
  */
 
@@ -55,7 +55,7 @@ export async function sendVerificationEmail(
 
   if (!isConfigured || !transporter) {
     console.log("\n╔══════════════════════════════════════════════════╗");
-    console.log("║  📧 DEV MODE — Email Verification OTP           ║");
+    console.log("║  📧 DEV MODE - Email Verification OTP           ║");
     console.log(`║  To: ${email.padEnd(42)}║`);
     console.log(`║  OTP: ${otp}                                      ║`);
     console.log("║  (SMTP not configured, OTP logged to console)   ║");
@@ -67,7 +67,7 @@ export async function sendVerificationEmail(
     await transporter.sendMail({
       from: `"Beevil Knievel" <${SMTP_FROM}>`,
       to: email,
-      subject: "🍯 Beevil Knievel — Email Verification Code",
+      subject: "🍯 Beevil Knievel - Email Verification Code",
       html: htmlBody,
     });
     return { success: true, devMode: false };
@@ -90,7 +90,7 @@ export async function sendPhoneOtp(
 
   if (!smsApiKey) {
     console.log("\n╔══════════════════════════════════════════════════╗");
-    console.log("║  📱 DEV MODE — Phone Verification OTP           ║");
+    console.log("║  📱 DEV MODE - Phone Verification OTP           ║");
     console.log(`║  To: ${phone.padEnd(42)}║`);
     console.log(`║  OTP: ${otp}                                      ║`);
     console.log("║  (SMS gateway not configured)                   ║");

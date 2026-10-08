@@ -16,7 +16,7 @@ To reproduce all reported experimental metrics, benchmarks, and builds, configur
 | **Node.js / npm** | `Node.js v20.x` / `npm v10.x` | Node $\ge 18.0.0$ |
 | **Compiler Toolchain** | `arm-none-eabi-gcc 10.3.1` (Arduino IDE 2.3+ / PlatformIO) | GCC $\ge 9.3$ |
 | **Firmware Target** | Nordic nRF52840 (RAKwireless RAK4631 WisBlock Core) | FreeRTOS / Arduino Core for nRF52 |
-| **Primary Gateway** | Raspberry Pi 3B+ (Broadcom BCM2837B0, 64-bit) | Raspberry Pi 3B+ or CM4 |
+| **Primary Gateway** | Raspberry Pi 3B+ (Broadcom BCM2837B0, 64-bit) | Raspberry Pi 3B+ (a CM4 was procured but never fitted, no carrier board) |
 
 ---
 

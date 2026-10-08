@@ -118,6 +118,7 @@ def init_database():
         hive_id INTEGER NOT NULL,
         timestamp TEXT NOT NULL,
         epoch_sec INTEGER NOT NULL,
+        presence_mask INTEGER DEFAULT 255,
         brood_core_temp REAL NOT NULL,
         frame_t1 REAL NOT NULL,
         frame_t2 REAL NOT NULL,
@@ -609,7 +610,7 @@ async def websocket_endpoint(websocket: WebSocket):
         ws_manager.disconnect(websocket)
 
 # -----------------------------------------------------------------------------
-# SHIVAM GAWADE FRONTEND TELEMETRY SSE STREAM BRIDGE
+# FRONTEND TELEMETRY SSE STREAM BRIDGE
 # -----------------------------------------------------------------------------
 from fastapi.responses import StreamingResponse
 import asyncio
@@ -617,7 +618,7 @@ import asyncio
 @app.get("/api/iot/stream")
 async def sse_iot_stream():
     """
-    Streams live hardware telemetry to Shivam Gawade's LiveTelemetryStream UI component.
+    Streams live hardware telemetry to the LiveTelemetryStream UI component.
     """
     async def event_generator():
         while True:

@@ -46,10 +46,10 @@ async function main() {
   const qrToken           = "TT-2026-00001";
 
   // 1. Register Farmer
-  console.log("\n[Step 1] Registering Farmer: Rajesh Kumar Verma (Muzaffarpur)...");
+  console.log("\n[Step 1] Registering Farmer: Mahesh Prasad Singh (Muzaffarpur)...");
   const txRegister = await honeyChain.connect(officer1).registerFarmer(
       beekeeper1.address,
-      "Rajesh Kumar Verma",
+      "Mahesh Prasad Singh",
       "Muzaffarpur, Bihar (Shahi Litchi GI Cluster)",
       "KVIC-BR-2026-0042",
       VALID_PROFILE_CID
@@ -80,7 +80,7 @@ async function main() {
   console.log("✓ Batch #1 minted on blockchain with FSSAI Grade A verification!");
   
   // 4. Register QR in HoneyChainQR
-  console.log("\n[Step 4] Registering TrueTag Anti-Counterfeiting Micro-QR Seal...");
+  console.log("\n[Step 4] Registering Anti-Counterfeiting Micro-QR Seal...");
   const batchId = 1;
   const txQR = await honeyChainQR.connect(officer1).registerQR(qrToken, batchId);
   await txQR.wait();

@@ -1,8 +1,16 @@
 # 🚀 BEEVIL KNIEVEL - Linux Edge Gateway Deployment & Provisioning Guide
 **Production Deployment Manual for Field Apiary Gateways**  
 *Canonical Target: Raspberry Pi 3B+ (Broadcom BCM2837B0) + Waveshare SX1262 LoRa HAT*  
-*Alternative Enterprise Tier: Raspberry Pi Compute Module 4 (CM4) + SX1302 Concentrator*  
+*Proposed Enterprise Tier, not built: Raspberry Pi Compute Module 4 (CM4) + SX1302 Concentrator*  
 *Standard Version: 2.1.0 (IEEE-HART Release)*
+
+> **Read this before the tables below.** Everything in this guide was carried out on the
+> **Raspberry Pi 3B+ with a Waveshare SX1262 LoRa HAT**. That is the gateway that exists
+> and the only one behind any measurement in this repository.
+>
+> A **Compute Module 4 was purchased but never fitted**: no carrier board was obtained
+> for it, so it was never powered up. The enterprise tier column is a specification for
+> a future build, not a tested configuration, and no figure in it is measured.
 
 ---
 

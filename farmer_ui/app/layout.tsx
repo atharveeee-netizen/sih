@@ -1,5 +1,15 @@
 import type { Metadata } from 'next';
+import { IBM_Plex_Sans } from 'next/font/google';
 import './globals.css';
+
+// Same family as the KVIC portal. 300 carries the large headings, the
+// rest carry labels and running text.
+const plex = IBM_Plex_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-plex',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Beevil Knievel - Farmer Companion App',
@@ -27,7 +37,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body className="antialiased bg-amber-50 selection:bg-amber-300">
+      <body className={`${plex.variable} antialiased bg-ground selection:bg-gov-blue selection:text-white`}>
         {children}
       </body>
     </html>

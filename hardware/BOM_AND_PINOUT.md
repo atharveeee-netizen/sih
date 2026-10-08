@@ -29,11 +29,17 @@
 | **18** | **6V 100mAh Mini Solar Panel Kit** | Universal Hub + 134N3P 5V Step-Up Charger | Solar energy harvesting & Li-ion charge management |
 | **19** | **JST-PH 2.0mm 4-Pin Silicone Wires** | JST-PH 2.0mm Connector Sets | Polarized, vibration-proof sensor wiring |
 
+**Procured but not fitted.** A Raspberry Pi Compute Module 4 was also bought for the
+proposed high-density gateway tier. No carrier board was obtained for it, so it was
+never brought up and it is excluded from the totals above and from every measurement
+in this repository. The gateway that was built and tested is item 17, the Raspberry
+Pi 3B+, paired with item 3, the Waveshare SX1262 HAT.
+
 ---
 
 ## 📌 2. Pinout & Interconnect Specification (RAK4631 WisBlock Base)
 
-`
+```
                        +-----------------------------------+
                        |    RAK4631 (Nordic nRF52840 MCU)  |
                        |      + SX1262 LoRa (IN865 Band)   |
@@ -51,7 +57,7 @@
        |       |
     LIS3DH   HX711
     (0x18)  (Weight)
-`
+```
 
 ### Complete Pin Connections:
 1. **I2C Shared Bus (3.3V, GND, SCL, SDA):**

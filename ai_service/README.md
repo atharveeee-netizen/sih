@@ -37,7 +37,6 @@ The **HoneyChain AI Microservice** is a high-performance Python FastAPI service 
 - **Avneesh Walwalkar**
 - **Sunehri Sonar**
 - **Shaunak Pai**
-
 ---
 
 ## 🚀 Live Microservice Deployment

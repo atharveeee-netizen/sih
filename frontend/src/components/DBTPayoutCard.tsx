@@ -133,7 +133,7 @@ export default function DBTPayoutCard({
         ) : isWithheld ? (
           <div className="px-5 py-3 bg-red-100 border-2 border-red-400 text-red-800 text-xs uppercase tracking-wider font-bold flex items-center gap-2 shrink-0">
             <ShieldCheck className="w-4 h-4 text-red-600" />
-            <span>Subsidy Withheld — FSSAI Adulteration Flag</span>
+            <span>Subsidy Withheld - FSSAI Adulteration Flag</span>
           </div>
         ) : (
           <button

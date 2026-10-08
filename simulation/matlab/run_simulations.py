@@ -5,6 +5,7 @@ to both simulation/results/ and docs/media/results/.
 Identical mathematics to the .m MATLAB scripts.
 """
 
+from pathlib import Path
 import os
 import math
 import numpy as np
@@ -14,7 +15,7 @@ import matplotlib.pyplot as plt
 from scipy import signal
 
 # Paths
-base_dir = r"C:\Users\25beevdt047\.gemini\antigravity-ide\scratch\beevil-knievel"
+base_dir = str(Path(__file__).resolve().parents[2])
 sim_results = os.path.join(base_dir, "simulation", "results")
 doc_results = os.path.join(base_dir, "docs", "media", "results")
 os.makedirs(sim_results, exist_ok=True)

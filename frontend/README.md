@@ -24,7 +24,6 @@ The HoneyChain frontend is built with **Next.js 14 (App Router)** and styled usi
 - **Avneesh Walwalkar**
 - **Sunehri Sonar**
 - **Shaunak Pai**
-
 ---
 
 ## 🚀 Live Production Deployment

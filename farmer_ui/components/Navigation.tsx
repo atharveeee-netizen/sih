@@ -20,11 +20,11 @@ export const Navigation: React.FC<NavigationProps> = ({
 }) => {
   return (
     <nav className="fixed bottom-3 left-0 right-0 z-40 px-3 max-w-md mx-auto">
-      <div className="bg-stone-900/95 backdrop-blur-xl border border-stone-800 shadow-2xl rounded-3xl p-1.5 grid grid-cols-4 gap-1">
+      <div className="bg-navy border border-white/15 rounded-xl p-1.5 grid grid-cols-4 gap-1">
         {/* Hive-Pal Main Dashboard Tab */}
         <button
           onClick={() => onChangeTab('inspect')}
-          className={`flex flex-col items-center justify-center min-h-[54px] py-1.5 px-2 rounded-2xl transition-all ${
+          className={`flex flex-col items-center justify-center min-h-[54px] py-1.5 px-2 rounded-lg transition-all ${
             activeTab === 'inspect'
               ? 'bg-amber-500 text-stone-950 font-extrabold shadow-md scale-102'
               : 'text-stone-400 hover:text-stone-200 font-semibold'
@@ -37,7 +37,7 @@ export const Navigation: React.FC<NavigationProps> = ({
         {/* Hive Map Tab */}
         <button
           onClick={() => onChangeTab('map')}
-          className={`flex flex-col items-center justify-center min-h-[54px] py-1.5 px-2 rounded-2xl transition-all ${
+          className={`flex flex-col items-center justify-center min-h-[54px] py-1.5 px-2 rounded-lg transition-all ${
             activeTab === 'map'
               ? 'bg-amber-500 text-stone-950 font-extrabold shadow-md scale-102'
               : 'text-stone-400 hover:text-stone-200 font-semibold'
@@ -50,7 +50,7 @@ export const Navigation: React.FC<NavigationProps> = ({
         {/* Action Items Tab */}
         <button
           onClick={() => onChangeTab('actions')}
-          className={`relative flex flex-col items-center justify-center min-h-[54px] py-1.5 px-2 rounded-2xl transition-all ${
+          className={`relative flex flex-col items-center justify-center min-h-[54px] py-1.5 px-2 rounded-lg transition-all ${
             activeTab === 'actions'
               ? 'bg-amber-500 text-stone-950 font-extrabold shadow-md scale-102'
               : 'text-stone-400 hover:text-stone-200 font-semibold'
@@ -68,7 +68,7 @@ export const Navigation: React.FC<NavigationProps> = ({
         {/* Help Center Tab */}
         <button
           onClick={() => onChangeTab('help')}
-          className={`flex flex-col items-center justify-center min-h-[54px] py-1.5 px-2 rounded-2xl transition-all ${
+          className={`flex flex-col items-center justify-center min-h-[54px] py-1.5 px-2 rounded-lg transition-all ${
             activeTab === 'help'
               ? 'bg-amber-500 text-stone-950 font-extrabold shadow-md scale-102'
               : 'text-stone-400 hover:text-stone-200 font-semibold'

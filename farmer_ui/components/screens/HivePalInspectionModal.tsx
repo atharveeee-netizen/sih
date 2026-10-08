@@ -127,7 +127,7 @@ export const HivePalInspectionModal: React.FC<HivePalInspectionModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex flex-col justify-end sm:justify-center p-3 sm:p-4">
-      <div className="bg-slate-900 border-2 border-amber-500/40 rounded-3xl w-full max-w-md mx-auto overflow-hidden shadow-2xl flex flex-col max-h-[92vh] text-white">
+      <div className="bg-slate-900 border-2 border-amber-500/40 rounded-xl w-full max-w-md mx-auto overflow-hidden shadow-2xl flex flex-col max-h-[92vh] text-white">
         
         {/* Top Header & Progress Segments */}
         <div className="p-5 border-b border-slate-800 bg-slate-950/60">
@@ -186,7 +186,7 @@ export const HivePalInspectionModal: React.FC<HivePalInspectionModalProps> = ({
                         key={String(opt.val)}
                         type="button"
                         onClick={() => setQueenSeen(opt.val)}
-                        className={`py-3.5 px-2 rounded-2xl border text-xs font-black transition-all flex flex-col items-center justify-center gap-1.5 ${
+                        className={`py-3.5 px-2 rounded-lg border text-xs font-black transition-all flex flex-col items-center justify-center gap-1.5 ${
                           isSelected
                             ? 'bg-amber-500/20 border-amber-400 text-amber-300 shadow-md shadow-amber-500/10'
                             : 'bg-slate-800/60 border-slate-700 text-slate-400 hover:border-slate-500'
@@ -315,7 +315,7 @@ export const HivePalInspectionModal: React.FC<HivePalInspectionModalProps> = ({
                       key={opt.val}
                       type="button"
                       onClick={() => setTemperament(opt.val)}
-                      className={`py-3 px-2 rounded-2xl border text-xs font-bold transition-all ${
+                      className={`py-3 px-2 rounded-lg border text-xs font-bold transition-all ${
                         temperament === opt.val
                           ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300'
                           : 'bg-slate-800/60 border-slate-700 text-slate-400'
@@ -355,7 +355,7 @@ export const HivePalInspectionModal: React.FC<HivePalInspectionModalProps> = ({
           {/* Step 3: Voice Dictation & Notes */}
           {currentStep === 2 && (
             <div className="space-y-4">
-              <div className="bg-slate-950 border border-slate-800 p-4 rounded-2xl text-center space-y-3">
+              <div className="bg-slate-950 border border-slate-800 p-4 rounded-lg text-center space-y-3">
                 <div className="text-xs font-bold text-slate-400">
                   Farmer Field Hands-Free Voice Dictation
                 </div>
@@ -386,7 +386,7 @@ export const HivePalInspectionModal: React.FC<HivePalInspectionModalProps> = ({
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="e.g. Hive active, supers 80% filled, healthy capped brood..."
                   rows={3}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-2xl p-3 text-sm text-white focus:outline-none focus:border-amber-400 font-sans"
+                  className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-sm text-white focus:outline-none focus:border-amber-400 font-sans"
                 />
               </div>
 
@@ -405,7 +405,7 @@ export const HivePalInspectionModal: React.FC<HivePalInspectionModalProps> = ({
             <button
               type="button"
               onClick={() => setCurrentStep((s) => s - 1)}
-              className="py-3.5 px-4 rounded-2xl bg-slate-800 text-slate-300 font-bold text-sm hover:bg-slate-700 active:scale-95"
+              className="py-3.5 px-4 rounded-lg bg-slate-800 text-slate-300 font-bold text-sm hover:bg-slate-700 active:scale-95"
             >
               Back
             </button>
@@ -415,7 +415,7 @@ export const HivePalInspectionModal: React.FC<HivePalInspectionModalProps> = ({
             <button
               type="button"
               onClick={() => setCurrentStep((s) => s + 1)}
-              className="flex-1 py-3.5 px-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-sm active:scale-95 transition-all shadow-md shadow-amber-500/20"
+              className="flex-1 py-3.5 px-4 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-sm active:scale-95 transition-all shadow-md shadow-amber-500/20"
             >
               Continue
             </button>
@@ -424,7 +424,7 @@ export const HivePalInspectionModal: React.FC<HivePalInspectionModalProps> = ({
               type="button"
               onClick={handleSave}
               disabled={isSaved}
-              className="flex-1 py-3.5 px-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm active:scale-95 transition-all shadow-md shadow-emerald-500/20 flex items-center justify-center gap-2"
+              className="flex-1 py-3.5 px-4 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm active:scale-95 transition-all shadow-md shadow-emerald-500/20 flex items-center justify-center gap-2"
             >
               <Check size={18} /> Confirm & Save Inspection
             </button>

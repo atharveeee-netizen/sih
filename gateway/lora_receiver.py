@@ -10,6 +10,7 @@ Linux background daemon for Raspberry Pi 3B+ + Waveshare SX1262 LoRa HAT.
 
 import sys
 import time
+import os
 import struct
 import json
 import logging
@@ -23,7 +24,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger("BeevilLoRa")
 
-GATEWAY_API_URL = "http://127.0.0.1:8000/api/v1/telemetry"
+GATEWAY_API_URL = os.getenv(
+    "GATEWAY_API_URL", "http://127.0.0.1:8000/api/v1/telemetry"
+)
 
 # -----------------------------------------------------------------------------
 # CANONICAL 40-BYTE BINARY TELEMETRY PROTOCOL (v2)

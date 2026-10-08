@@ -51,7 +51,7 @@ export const HiveDetailModal: React.FC<HiveDetailModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex flex-col justify-end sm:justify-center p-3 sm:p-4">
-      <div className="bg-stone-900 rounded-3xl p-6 w-full max-w-md mx-auto shadow-2xl border border-stone-800 max-h-[90vh] overflow-y-auto text-stone-100">
+      <div className="bg-stone-900 rounded-xl p-6 w-full max-w-md mx-auto shadow-2xl border border-stone-800 max-h-[90vh] overflow-y-auto text-stone-100">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
@@ -84,7 +84,7 @@ export const HiveDetailModal: React.FC<HiveDetailModalProps> = ({
 
         {/* Stale Warning Banner if offline/delayed */}
         {isStale && (
-          <div className="mb-4 p-3 bg-gray-200 border border-gray-400 rounded-2xl text-xs font-bold text-gray-700 flex items-center gap-2">
+          <div className="mb-4 p-3 bg-gray-200 border border-gray-400 rounded-lg text-xs font-bold text-gray-700 flex items-center gap-2">
             <AlertTriangle size={14} /> {getTranslation(currentLanguage, 'stale_warning')} (
             {getTranslation(currentLanguage, 'last_updated')}:{' '}
             {hive.lastSeenAt ? new Date(hive.lastSeenAt).toLocaleTimeString() : 'N/A'})
@@ -101,7 +101,7 @@ export const HiveDetailModal: React.FC<HiveDetailModalProps> = ({
             {hive.activeRisks.map((risk) => (
               <div
                 key={risk.id}
-                className="bg-red-100 border-2 border-red-400 rounded-2xl p-4 shadow-sm"
+                className="bg-red-100 border-2 border-red-400 rounded-lg p-4 shadow-sm"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-2">
@@ -191,7 +191,7 @@ export const HiveDetailModal: React.FC<HiveDetailModalProps> = ({
                 onClose();
                 onOpenInspection(hive.hiveId, hive.hiveName);
               }}
-              className="w-full min-h-[48px] py-3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm rounded-2xl shadow-md transition-all flex items-center justify-center gap-2 active:scale-98"
+              className="w-full min-h-[48px] py-3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm rounded-lg shadow-md transition-all flex items-center justify-center gap-2 active:scale-98"
             >
               <ClipboardCheck size={18} /> Start Beevil Knievel Field Inspection
             </button>
@@ -199,7 +199,7 @@ export const HiveDetailModal: React.FC<HiveDetailModalProps> = ({
 
           <button
             onClick={onClose}
-            className="w-full min-h-[44px] py-2.5 bg-stone-800 hover:bg-stone-700 text-stone-300 font-semibold text-xs rounded-2xl transition-all active:scale-98 border border-stone-700"
+            className="w-full min-h-[44px] py-2.5 bg-stone-800 hover:bg-stone-700 text-stone-300 font-semibold text-xs rounded-lg transition-all active:scale-98 border border-stone-700"
           >
             Close
           </button>

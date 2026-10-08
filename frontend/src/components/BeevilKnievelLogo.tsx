@@ -159,7 +159,7 @@ export default function BeevilKnievelLogo({
     );
   }
 
-  // 5. STANDARD HORIZONTAL LOCKUP (Default — Navbars, Footers, Headers)
+  // 5. STANDARD HORIZONTAL LOCKUP (Default - Navbars, Footers, Headers)
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       {LogoIcon}

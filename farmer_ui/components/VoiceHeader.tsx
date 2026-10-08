@@ -21,11 +21,11 @@ export const VoiceHeader: React.FC<VoiceHeaderProps> = ({
   isSpeaking = false,
 }) => {
   return (
-    <header className="sticky top-0 z-40 bg-stone-900/95 text-stone-100 shadow-lg px-4 py-3 border-b border-stone-800 backdrop-blur-md">
+    <header className="sticky top-0 z-40 bg-navy text-white px-4 py-3 border-b-2 border-amber">
       <div className="flex items-center justify-between max-w-md mx-auto">
         {/* Brand Logo & Live Connectivity Status */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-amber-500 text-stone-950 font-black rounded-2xl flex items-center justify-center shadow-md border border-amber-400">
+          <div className="w-10 h-10 bg-amber-500 text-stone-950 font-black rounded-lg flex items-center justify-center shadow-md border border-amber-400">
             <Hexagon size={22} />
           </div>
           <div>

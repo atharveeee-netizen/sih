@@ -37,7 +37,7 @@ export async function POST(req: Request) {
       pfms_dbt_ready: true,
       apeda_export_cleared: (qualityScore ?? 90) >= 75,
       timestamp,
-      government_authority: "National Bee Board (NBB) — Ministry of Agriculture & KVIC MSME",
+      government_authority: "National Bee Board (NBB) - Ministry of Agriculture & KVIC MSME",
     };
 
     return NextResponse.json({

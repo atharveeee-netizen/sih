@@ -40,7 +40,7 @@ export const HiveStatusIcon: React.FC<HiveStatusIconProps> = ({
     case 'watch':
       return (
         <div
-          className={`relative rounded-2xl bg-amber-100 text-amber-700 border-2 border-amber-500 shadow-md flex items-center justify-center ${sizeMap[size]}`}
+          className={`relative rounded-lg bg-amber-100 text-amber-700 border-2 border-amber-500 shadow-md flex items-center justify-center ${sizeMap[size]}`}
           title="Attention Recommended"
         >
           <AlertTriangle size={iconSizeMap[size]} strokeWidth={2.5} />
@@ -50,10 +50,10 @@ export const HiveStatusIcon: React.FC<HiveStatusIconProps> = ({
       return (
         <div className="relative inline-flex items-center justify-center">
           {pulse && (
-            <span className="absolute inline-flex h-full w-full rounded-2xl bg-red-400 opacity-75 animate-ping" />
+            <span className="absolute inline-flex h-full w-full rounded-lg bg-red-400 opacity-75 animate-ping" />
           )}
           <div
-            className={`relative rounded-2xl bg-red-100 text-red-700 border-4 border-red-600 shadow-lg flex items-center justify-center ${sizeMap[size]}`}
+            className={`relative rounded-lg bg-red-100 text-red-700 border-4 border-red-600 shadow-lg flex items-center justify-center ${sizeMap[size]}`}
             title="Urgent Alert"
           >
             <AlertOctagon size={iconSizeMap[size]} strokeWidth={3} />

@@ -25,7 +25,7 @@ const GI_REGISTRY: Record<string, GITagData> = {
     pollenPurity: "88.4% Monofloral Litchi Pollen",
     kvicCluster: "KVIC-BH-NORTH-01",
     description: "Harvested exclusively during the 21-day flowering bloom of GI-tagged Shahi Litchi orchards in North Bihar. Light amber hue with delicate floral aromatic notes.",
-    harvestWindow: "April – May (Annual Bloom)",
+    harvestWindow: "April - May (Annual Bloom)",
     coordinates: "26.1209° N, 85.3647° E",
   },
   "sundarbans": {
@@ -36,7 +36,7 @@ const GI_REGISTRY: Record<string, GITagData> = {
     pollenPurity: "91.8% Wild Mangrove Flora",
     kvicCluster: "KVIC-WB-COASTAL-03",
     description: "Wild-foraged by traditional 'Mouli' honey collectors in the tidal mangrove delta. Rich in natural antioxidants and distinctive salinity-balanced mineral undertones.",
-    harvestWindow: "March – June (Tidal Delta Harvest)",
+    harvestWindow: "March - June (Tidal Delta Harvest)",
     coordinates: "21.9497° N, 89.1833° E",
   },
   "kashmir": {
@@ -47,7 +47,7 @@ const GI_REGISTRY: Record<string, GITagData> = {
     pollenPurity: "86.2% Alpine Acacia Pollen",
     kvicCluster: "KVIC-JK-ALPINE-02",
     description: "High-altitude pristine honey harvested from temperate Himalayan acacia groves. Water-white clarity with slow crystallization and a mild sweet profile.",
-    harvestWindow: "May – July (Himalayan Summer)",
+    harvestWindow: "May - July (Himalayan Summer)",
     coordinates: "34.0837° N, 74.7973° E",
   },
   "nilgiris": {
@@ -58,7 +58,7 @@ const GI_REGISTRY: Record<string, GITagData> = {
     pollenPurity: "84.5% Nilgiris Mountain Flora",
     kvicCluster: "KVIC-TN-GHATS-05",
     description: "Harvested by indigenous Toda and Kurumba beekeepers from ancient montane Shola forests. Dark amber with medicinal herbal properties.",
-    harvestWindow: "September – November (Post-Monsoon)",
+    harvestWindow: "September - November (Post-Monsoon)",
     coordinates: "11.4102° N, 76.6950° E",
   },
   "coorg": {
@@ -69,7 +69,7 @@ const GI_REGISTRY: Record<string, GITagData> = {
     pollenPurity: "89.0% Coffee Blossom Pollen",
     kvicCluster: "KVIC-KA-WEST-04",
     description: "Collected during the brief white blossom surge of shade-grown Western Ghats coffee plantations. Golden amber with caramel undertones.",
-    harvestWindow: "March – April (Blossom Surge)",
+    harvestWindow: "March - April (Blossom Surge)",
     coordinates: "12.3375° N, 75.8069° E",
   },
 };

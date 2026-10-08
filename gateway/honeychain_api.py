@@ -748,7 +748,7 @@ def tamper_demo_event(t: TamperRequest):
 
 
 # -----------------------------------------------------------------------------
-# SHIVAM GAWADE SMART CONTRACT BLOCKCHAIN INTEGRATION
+# SMART CONTRACT BLOCKCHAIN INTEGRATION
 # -----------------------------------------------------------------------------
 try:
     from .blockchain_bridge import HoneyChainBlockchainBridge
