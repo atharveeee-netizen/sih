@@ -171,29 +171,4 @@ clone. See `.gitignore` for the list and the regeneration command.
 
 ---
 
-## Attribution
 
-The blockchain layer of this project builds on an MIT licensed open source
-project by another SIH 2026 team, rather than being written from scratch:
-
-> **HoneyChain** by Shivam Gawade, Rahul Rathod, Rehan Harmalkar,
-> Avneesh Walwalkar, Sunehri Sonar and Shaunak Pai (Team Crimson Syndicate)
-> <https://github.com/ShivamGawade-XS/HoneyChain_SIH2026>
-
-Their work underpins the Solidity contracts and test suite, the AI quality and
-adulterant service, the telemetry generator, and parts of the web application.
-Individual files keep their original author headers, and the full MIT notice is
-reproduced in [NOTICE](NOTICE).
-
-What Team Beevil Knievel contributed on top: the entire hardware and IoT stack
-(nRF52840 sensor node, 40 byte LoRa telemetry protocol, receiving gateway and
-local store), the beekeeper companion application, the eleven Ansys studies and
-the analytical models behind them, the colony pathology advisor and on-node
-acoustic classifier, and the integration that ties the physical hive to the
-chain.
-
-## Licence
-
-Original Beevil Knievel work is all rights reserved, for evaluation only.
-Third party components remain under their own MIT licence. See
-[LICENSE](LICENSE) and [NOTICE](NOTICE).
