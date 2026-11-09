@@ -38,6 +38,15 @@ export default function QrLabelsPage() {
   const [nfcSimulatedCount, setNfcSimulatedCount] = useState(1);
   const [copiedLink, setCopiedLink] = useState(false);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+  // Public base for printed codes: an explicit override when deployed, otherwise
+  // whatever host is serving this page (localhost, LAN IP, or a tunnel).
+  const [publicBase, setPublicBase] = useState(
+    process.env.NEXT_PUBLIC_PUBLIC_BASE_URL || "https://beevil-knievel.vercel.app"
+  );
+
+  useEffect(() => {
+    if (!process.env.NEXT_PUBLIC_PUBLIC_BASE_URL) setPublicBase(window.location.origin);
+  }, []);
 
   useEffect(() => {
     fetchBatchesFromDB().then((list) => {
@@ -47,11 +56,11 @@ export default function QrLabelsPage() {
   }, []);
 
   const selectedBatch = batches.find((b) => b.batchId === selectedBatchId) || batches[0];
-  const verifyUrl = `https://beevil-knievel.vercel.app/verify/${selectedBatch.batchId}?qr=${selectedBatch.qrToken}`;
+  const verifyUrl = `${publicBase}/verify/${selectedBatch.batchId}?qr=${selectedBatch.qrToken}`;
 
   // Deterministic Dynamic NTAG 424 DNA Cryptographic CMAC Tag URI
   const cmacToken = ((0x9f8e7d6c5b4a3f2e + nfcSimulatedCount * 0x1337) % 0xffffffffffffffff).toString(16).padStart(16, "0");
-  const nfcDynamicUri = `https://beevil-knievel.vercel.app/verify/${selectedBatch.batchId}?nfc_tag=${selectedBatch.qrToken}&cmac=${cmacToken}&ctr=${nfcSimulatedCount}`;
+  const nfcDynamicUri = `${publicBase}/verify/${selectedBatch.batchId}?nfc_tag=${selectedBatch.qrToken}&cmac=${cmacToken}&ctr=${nfcSimulatedCount}`;
 
   const handlePrint = () => {
     window.print();

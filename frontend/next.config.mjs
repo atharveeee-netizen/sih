@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // Dev only: let phones reach the dev server through a temporary public tunnel
+  // (used for filming the QR scan). Has no effect on production builds.
+  allowedDevOrigins: ["*.trycloudflare.com"],
   async headers() {
     // Production content-hashes chunk filenames, so `immutable` is safe there.
     // Dev reuses filenames (src_12mngh9._.js) across rebuilds, so `immutable`
